@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ringette Today</title>
+  <meta name="description" content="NCRRL schedules for the teams you follow, plus who's on the ice before and after.">
+  <meta name="theme-color" content="#0b3d91">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icons/icon-192.png" alt="" width="28" height="28">
+      <h1>Ringette Today</h1>
+    </div>
+    <button id="refreshBtn" class="icon-btn" aria-label="Refresh schedule" title="Refresh">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M17.65 6.35A7.95 7.95 0 0 0 12 4a8 8 0 1 0 7.75 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></svg>
+    </button>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-view="upcoming" aria-selected="true">Upcoming</button>
+    <button role="tab" data-view="results" aria-selected="false">Results</button>
+    <button role="tab" data-view="teams" aria-selected="false">Teams <span id="teamCount" class="pill"></span></button>
+  </nav>
+
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+
+  <main id="main"></main>
+
+  <dialog id="rinkDialog">
+    <div class="dialog-head">
+      <div>
+        <h2 id="rinkTitle"></h2>
+        <p id="rinkSub" class="muted"></p>
+      </div>
+      <button class="icon-btn" id="rinkClose" aria-label="Close">✕</button>
+    </div>
+    <ol id="rinkList" class="rink-list"></ol>
+    <p class="muted small">Only NCRRL league games are listed — other groups may also be using this ice.</p>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
