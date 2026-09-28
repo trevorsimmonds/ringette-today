@@ -25,7 +25,7 @@ A PWA has to be served over HTTPS to install on a phone.
 
 **Netlify Drop (easiest, ~1 minute):** go to https://app.netlify.com/drop and drag the `ringette-today` folder onto the page. You get a URL you can open on your phone. Create a free account to keep it permanently.
 
-**GitHub Pages:** create a repository, upload these files to it, then Settings → Pages → deploy from the `main` branch. Your app will be at `https://<username>.github.io/<repo>/`.
+**GitHub Pages:** the code lives at https://github.com/trevorsimmonds/ringette-today. To publish it, open https://github.com/trevorsimmonds/ringette-today/settings/pages, set Source to *Deploy from a branch*, choose `main` and `/ (root)`, then Save. The app will be live at https://trevorsimmonds.github.io/ringette-today/
 
 ## Installing on a phone
 
