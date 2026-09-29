@@ -1,23 +1,32 @@
 # Ringette Today
 
-A phone app (PWA) that shows NCRRL game schedules for the teams you follow, and for each game, which league game is on the same ice right before and right after.
+A phone app (PWA) that shows NCRRL league games and Ringette Ontario tournament games for the teams you follow, and for each game, which game is on the same ice right before and right after.
 
 ## How it gets the schedule
 
-The NCRRL website (run on RAMP InterActive) loads its schedules from a public JSON feed. One request returns every league game for the season:
+The NCRRL website and the Ringette Ontario tournament sites all run on RAMP InterActive, which loads schedules from public JSON feeds. The app reads them straight from your phone, so there's no scraper or server to run.
 
-```
-https://www.ncrrl.com/api/leaguegame/get/1648/14554/0/0/0/0/
-```
+- **League games:** `https://www.ncrrl.com/api/leaguegame/get/1648/{season}/0/0/0/0/` (1648 is NCRRL's ID).
+- **Season:** picked automatically from `https://www.ncrrl.com/api/association/getseasons/1648/`, so a new season needs no change.
+- **Tournament games:** `https://www.ncrrl.com/api/leaguetournamentgame/get/{tournament ID}/{season}/0/0/0/0/0`.
 
-- `1648` — NCRRL's association ID
-- `14554` — the 2026-27 season (change it under **Teams → Settings** when a new season starts)
+A team has the same ID in the league and in tournaments, so the teams you follow pick up their tournament games automatically.
 
-The feed allows requests from any website, so the app reads it straight from your phone. There's no scraper or server to run. The app refreshes when you open it (or every 10 minutes while open), and keeps the last copy so it still works without a signal at the rink.
+Each game includes a rink ID, which identifies the exact pad. "Before" and "After" are the neighbouring games (league or tournament) at that rink ID on the same day. Some tournaments don't publish end times; the app estimates them from the next game on that ice and marks them with "~".
 
-Each game includes a rink ID (`RARID`), which identifies the exact pad (e.g. "Walter Baker – Pad B" and "Pad A" are different). "Before" and "After" are the neighbouring league games at that same rink ID on the same day.
+**Limitation:** only NCRRL league games and the listed tournaments are included. Hockey, practices, or other leagues on the same ice won't show up.
 
-**Limitation:** only NCRRL league games are in the feed. Hockey, practices, tournaments, or other leagues on the same ice won't show up.
+## Tournaments
+
+`tournaments.json` lists the Ringette Ontario 2026-27 sanctioned tournaments that publish schedules on RAMP: each one's RAMP ID, name and dates (from https://www.ringetteontario.com/content/sanctioned-events).
+
+- The app only downloads a tournament that starts within the next 31 days or ended in the last 7, so opening it stays quick.
+- Tournament schedules refresh every 6 hours, or every 10 minutes while the tournament is on.
+- Teams → Settings shows which tournaments the app is checking right now.
+
+**Each summer:** update the `start`/`end` dates in `tournaments.json` for the new season and add any new tournaments. A tournament keeps its RAMP ID every year.
+
+Not on the list (no RAMP schedule found): the one-day 3v3 events in West Ferris, Chatham and St. Thomas, the Walden Winter Carnival, and the Stouffville adult pre-season.
 
 ## Putting it online (pick one)
 
@@ -48,5 +57,7 @@ A PWA has to be served over HTTPS to install on a phone.
 | `styles.css` | Styling (light and dark mode) |
 | `manifest.webmanifest`, `icons/` | Makes it installable |
 | `sw.js` | Lets the app open offline |
+| `tournaments.json` | Tournament IDs and dates |
+| `test/` | Sample data and scripts for checking the app locally (not needed to run it) |
 
 If you change `app.js` or `styles.css` later, bump `CACHE` in `sw.js` (e.g. `ringette-today-v2`) so installed copies pick up the update.
