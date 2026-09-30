@@ -1,6 +1,6 @@
 // Ringette Today service worker: caches the app shell so it opens offline.
 // Schedule data is fetched by the app itself and kept in localStorage.
-const CACHE = 'ringette-today-v3';
+const CACHE = 'ringette-today-v4';
 const SHELL = [
   './',
   'index.html',

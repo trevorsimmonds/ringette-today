@@ -1,20 +1,20 @@
 # Ringette Today
 
-A phone app (PWA) that shows NCRRL league games and Ringette Ontario tournament games for the teams you follow, and for each game, which game is on the same ice right before and right after.
+A phone app (PWA) that shows NCRRL and GAARA league games and Ringette Ontario tournament games for the teams you follow, and for each game, which game is on the same ice right before and right after.
 
 ## How it gets the schedule
 
 The NCRRL website and the Ringette Ontario tournament sites all run on RAMP InterActive, which loads schedules from public JSON feeds. The app reads them straight from your phone, so there's no scraper or server to run.
 
-- **League games:** `https://www.ncrrl.com/api/leaguegame/get/1648/{season}/0/0/0/0/` (1648 is NCRRL's ID).
-- **Season:** picked automatically from `https://www.ncrrl.com/api/association/getseasons/1648/`, so a new season needs no change.
+- **League games:** `https://www.ncrrl.com/api/leaguegame/get/{league ID}/{season}/0/0/0/0/`. NCRRL is 1648 and GAARA (the Gloucester & Area Adult Ringette Association, https://www.gaara.ca/) is 2786. Both are set in `LEAGUES` at the top of `app.js`; GAARA teams are listed after all the NCRRL divisions in the team picker.
+- **Season:** picked automatically for each league from `https://www.ncrrl.com/api/association/getseasons/{league ID}/`, so a new season needs no change.
 - **Tournament games:** `https://www.ncrrl.com/api/leaguetournamentgame/get/{tournament ID}/{season}/0/0/0/0/0`.
 
 A team has the same ID in the league and in tournaments, so the teams you follow pick up their tournament games automatically.
 
 Each game includes a rink ID, which identifies the exact pad. "Before" and "After" are the neighbouring games (league or tournament) at that rink ID on the same day. Some tournaments don't publish end times; the app estimates them from the next game on that ice and marks them with "~".
 
-**Limitation:** only NCRRL league games and the listed tournaments are included. Hockey, practices, or other leagues on the same ice won't show up.
+**Limitation:** only NCRRL and GAARA league games and the listed tournaments are included. Hockey, practices, or other leagues on the same ice won't show up.
 
 ## Tournaments
 

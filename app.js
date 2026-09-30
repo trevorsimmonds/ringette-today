@@ -6,22 +6,29 @@
  *   League games:     https://www.ncrrl.com/api/leaguegame/get/1648/{season}/0/0/0/0/
  *   Seasons:          https://www.ncrrl.com/api/association/getseasons/{aid}/
  *   Tournament games: https://www.ncrrl.com/api/leaguetournamentgame/get/{aid}/{season}/0/0/0/0/0
- * AID 1648 = NCRRL. Tournament IDs and dates live in tournaments.json.
+ * Leagues: NCRRL (AID 1648) and GAARA adult league (AID 2786) — see LEAGUES.
+ * Tournament IDs and dates live in tournaments.json.
  * Team IDs are shared between the league and tournaments, so following a team
  * picks up its tournament games too.
  */
 (() => {
   'use strict';
 
-  const AID = 1648;
-  const FALLBACK_SEASON = 14554; // 2026-2027, used only if season lookup fails with no cache
+  // Leagues in the order they appear in the team picker. NCRRL keeps its
+  // original storage keys so existing installs don't lose their cache.
+  // fallbackSeason is only used if the season lookup fails with nothing cached.
+  const LEAGUES = [
+    { aid: 1648, key: 'ncrrl', name: 'NCRRL', divPrefix: '', fallbackSeason: 14554,
+      cacheKey: 'rt.cache', seasonKey: 'rt.season', fixture: 'fixture.json' },
+    { aid: 2786, key: 'gaara', name: 'GAARA', heading: 'GAARA — adult league', divPrefix: 'GAARA ', fallbackSeason: 14539,
+      cacheKey: 'rt.cache.2786', seasonKey: 'rt.season.2786', fixture: 'fixture-gaara.json',
+      divOrder: ['Black', 'Brown', 'Red', 'Blue', 'Yellow', 'Green', 'Orange', 'Purple'] },
+  ];
   const API = 'https://www.ncrrl.com/api';
   const LOOKAHEAD_DAYS = 31;     // download tournaments starting within this many days
   const LOOKBACK_DAYS = 7;       // …or that ended within this many days (for results)
   const LS = {
     tracked: 'rt.tracked',       // [teamId, ...]
-    season: 'rt.season',         // {sid, name, checkedAt}
-    cache: 'rt.cache',           // {season, fetchedAt, games}
     tourn: 'rt.t.',              // + aid -> {sid, fetchedAt, games}
   };
   const params = new URLSearchParams(location.search);
@@ -33,13 +40,14 @@
   const state = {
     view: 'upcoming',
     games: [],          // league + tournament, normalized, sorted by start
-    league: [],         // normalized league games
+    league: [],         // normalized league games (all leagues)
+    leagueGames: new Map(), // league key -> normalized games
+    seasons: Object.fromEntries(LEAGUES.map((l) => [l.key, readJSON(l.seasonKey, null)])),
     tourGames: new Map(), // aid -> normalized games
     tournaments: [],    // from tournaments.json
-    teams: new Map(),   // id -> {id, name, division} (league teams)
+    teams: new Map(),   // id -> {id, name, division, league} (league teams)
     byIce: new Map(),   // "rinkId|yyyy-mm-dd" -> [games sorted]
     tracked: new Set(readJSON(LS.tracked, [])),
-    season: readJSON(LS.season, null),
     fetchedAt: null,
     teamFilter: '',
     teamOnlyMine: false,
@@ -113,7 +121,7 @@
   }));
 
   // ---------- data ----------
-  function normalize(raw, source) {
+  function normalize(raw, source, league) {
     return raw
       .filter((g) => !g.trash && !g.deletedDate)
       .map((g) => {
@@ -121,7 +129,7 @@
         let end = parseLocal(g.eDate);
         if (end && start && end <= start) end = null; // some feeds repeat the start time as the end
         return {
-          key: `${source ? source.aid : 'L'}-${g.GID}`,
+          key: `${source ? source.aid : league ? league.aid : 'L'}-${g.GID}`,
           id: g.GID,
           start,
           end,                           // may be null for tournaments; filled in rebuild()
@@ -130,7 +138,9 @@
           rinkId: g.RARID ?? g.ArenaName,
           home: { id: g.homeTID, name: cleanName(g.HomeTeamName), score: g.homeScore },
           away: { id: g.awayTID, name: cleanName(g.AwayTeamName), score: g.awayScore },
-          division: g.HomeDivision || g.AwayDivision || '',
+          division: `${league ? league.divPrefix : ''}${g.HomeDivision || g.AwayDivision || ''}`,
+          baseDivision: g.HomeDivision || g.AwayDivision || '',
+          league: league || null,
           type: g.GameTypeName || '',
           notes: (g.notes || '').trim(),
           completed: !!g.completed,
@@ -142,6 +152,8 @@
   }
 
   function rebuild() {
+    state.league = [];
+    for (const l of LEAGUES) state.league.push(...(state.leagueGames.get(l.key) || []));
     const all = [...state.league];
     for (const games of state.tourGames.values()) all.push(...games);
     all.sort((a, b) => a.start - b.start || a.arena.localeCompare(b.arena));
@@ -150,7 +162,7 @@
     state.teams = new Map();
     for (const g of state.league) {
       for (const t of [g.home, g.away]) {
-        if (t.id && !state.teams.has(t.id)) state.teams.set(t.id, { id: t.id, name: t.name, division: g.division });
+        if (t.id && !state.teams.has(t.id)) state.teams.set(t.id, { id: t.id, name: t.name, division: g.division, baseDivision: g.baseDivision, league: g.league });
       }
     }
     state.byIce = new Map();
@@ -182,19 +194,19 @@
   const isTracked = (g) => state.tracked.has(g.home.id) || state.tracked.has(g.away.id);
 
   // --- season (automatic) ---
-  async function resolveSeason() {
-    const s = state.season;
+  async function resolveSeason(league) {
+    const s = state.seasons[league.key];
     if (s && Date.now() - s.checkedAt < 24 * 3600000) return s.sid;
     try {
-      const list = await getJSON(`${API}/association/getseasons/${AID}/`);
+      const list = await getJSON(`${API}/association/getseasons/${league.aid}/`);
       const pick = list.find((x) => x.current) || [...list].sort((a, b) => b.sid - a.sid)[0];
       if (pick) {
-        state.season = { sid: pick.sid, name: pick.name, checkedAt: Date.now() };
-        writeJSON(LS.season, state.season);
+        state.seasons[league.key] = { sid: pick.sid, name: pick.name, checkedAt: Date.now() };
+        writeJSON(league.seasonKey, state.seasons[league.key]);
         return pick.sid;
       }
     } catch {}
-    return s ? s.sid : FALLBACK_SEASON;
+    return s ? s.sid : league.fallbackSeason;
   }
 
   // --- tournaments ---
@@ -266,10 +278,12 @@
   async function load({ force = false } = {}) {
     if (firstLoad) {
       firstLoad = false;
-      const cached = readJSON(LS.cache, null);
-      if (cached) {
-        state.league = normalize(cached.games);
-        state.fetchedAt = new Date(cached.fetchedAt);
+      for (const l of LEAGUES) {
+        const cached = readJSON(l.cacheKey, null);
+        if (!cached) continue;
+        state.leagueGames.set(l.key, normalize(cached.games, null, l));
+        const at = new Date(cached.fetchedAt);
+        if (!state.fetchedAt || at < state.fetchedAt) state.fetchedAt = at;
       }
       await loadTournamentList();
       loadCachedTournaments();
@@ -281,21 +295,24 @@
     setBusy(true);
     const problems = [];
     try {
-      // League: refresh if forced, no cache, or older than 10 minutes.
-      const cached = readJSON(LS.cache, null);
-      if (FIXTURE) state.season = { sid: FALLBACK_SEASON, name: '2026-2027 (test data)', checkedAt: Date.now() };
-      const sid = FIXTURE ? FALLBACK_SEASON : await resolveSeason();
-      const stale = !cached || cached.season !== sid || Date.now() - cached.fetchedAt > 10 * 60000;
-      if (force || stale) {
+      // Leagues: refresh if forced, no cache, or older than 10 minutes.
+      let refreshed = false;
+      for (const l of LEAGUES) {
+        const cached = readJSON(l.cacheKey, null);
+        if (FIXTURE) state.seasons[l.key] = { sid: l.fallbackSeason, name: '2026-2027 (test data)', checkedAt: Date.now() };
+        const sid = FIXTURE ? l.fallbackSeason : await resolveSeason(l);
+        const stale = !cached || cached.season !== sid || Date.now() - cached.fetchedAt > 10 * 60000;
+        if (!force && !stale) continue;
         try {
-          const raw = await getJSON(FIXTURE ? 'fixture.json' : `${API}/leaguegame/get/${AID}/${sid}/0/0/0/0/`);
+          const raw = await getJSON(FIXTURE ? l.fixture : `${API}/leaguegame/get/${l.aid}/${sid}/0/0/0/0/`);
           if (!Array.isArray(raw)) throw new Error('Unexpected response');
           const s = slim(raw);
-          state.fetchedAt = new Date();
-          writeJSON(LS.cache, { season: sid, fetchedAt: state.fetchedAt.getTime(), games: s });
-          state.league = normalize(s);
+          writeJSON(l.cacheKey, { season: sid, fetchedAt: Date.now(), games: s });
+          state.leagueGames.set(l.key, normalize(s, null, l));
+          refreshed = true;
         } catch (err) { problems.push(err); }
       }
+      if (refreshed && !problems.length) state.fetchedAt = new Date();
 
       // Tournaments happening soon (or just finished).
       const active = state.tournaments.filter((t) => tournamentWindow(t).active);
@@ -479,12 +496,30 @@
       if (!byDiv.has(t.division)) byDiv.set(t.division, []);
       byDiv.get(t.division).push(t);
     }
-    const divs = [...byDiv.keys()].sort((a, b) => divisionSortKey(a).localeCompare(divisionSortKey(b)));
+    // League order first (NCRRL, then GAARA), then divisions within each league.
+    const sortKey = (d) => {
+      const t = byDiv.get(d)[0];
+      const li = Math.max(0, LEAGUES.indexOf(t.league));
+      const order = t.league && t.league.divOrder;
+      const within = order ? String(order.indexOf(t.baseDivision) + 100) : divisionSortKey(d);
+      return `${li}|${within}`;
+    };
+    const divs = [...byDiv.keys()].sort((a, b) => sortKey(a).localeCompare(sortKey(b)));
+
+    let lastLeague = null;
+    const leagueHeading = (d) => {
+      const l = byDiv.get(d)[0].league;
+      if (!l || l === lastLeague) return '';
+      const first = lastLeague === null;
+      lastLeague = l;
+      // Only label the extra leagues; NCRRL stays unlabelled at the top.
+      return first && l === LEAGUES[0] ? '' : `<h2 class="league-heading">${esc(l.heading || l.name)}</h2>`;
+    };
 
     const list = !state.teams.size
       ? '<div class="empty"><p>Loading teams…</p></div>'
       : divs.length
-        ? divs.map((d) => `<section class="division"><h3>${esc(d)}</h3>
+        ? divs.map((d) => `${leagueHeading(d)}<section class="division"><h3>${esc(d)}</h3>
             ${byDiv.get(d).sort((a, b) => a.name.localeCompare(b.name)).map((t) => {
               const on = state.tracked.has(t.id);
               return `<label class="team-row${on ? ' on' : ''}">
@@ -498,7 +533,7 @@
       : '';
 
     main.innerHTML = `
-      <input class="search" type="search" id="teamSearch" placeholder="Search teams, clubs or divisions (e.g. Ottawa Ice U14)" value="${esc(state.teamFilter)}" autocomplete="off">
+      <input class="search" type="search" id="teamSearch" placeholder="Search teams, clubs or divisions (e.g. Ottawa Ice U14, GAARA)" value="${esc(state.teamFilter)}" autocomplete="off">
       <div class="filters">
         <button id="filterMine" aria-pressed="${state.teamOnlyMine}">Only teams I follow (${state.tracked.size})</button>
       </div>
@@ -508,7 +543,7 @@
         <h3>Settings</h3>
         ${share ? `<div class="row"><button class="btn secondary" id="shareBtn">Share my teams</button>
           <span class="muted small">Sends a link that sets up the same teams on another phone.</span></div>` : ''}
-        <p class="muted small">NCRRL season: ${esc(state.season ? state.season.name : 'checking…')} (picked automatically).</p>
+        <p class="muted small">${LEAGUES.map((l) => `${esc(l.name)} season: ${esc(state.seasons[l.key] ? state.seasons[l.key].name : 'checking…')}`).join(' · ')} (picked automatically).</p>
         ${tournamentSummary()}
       </section>`;
 
