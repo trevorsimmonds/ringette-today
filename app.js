@@ -6,7 +6,11 @@
  *   League games:     https://www.ncrrl.com/api/leaguegame/get/1648/{season}/0/0/0/0/
  *   Seasons:          https://www.ncrrl.com/api/association/getseasons/{aid}/
  *   Tournament games: https://www.ncrrl.com/api/leaguetournamentgame/get/{aid}/{season}/0/0/0/0/0
- * Leagues: NCRRL (AID 1648) and GAARA adult league (AID 2786) — see LEAGUES.
+ * Leagues: NCRRL (AID 1648), LERQ (Quebec AA, via quebec.json) and GAARA
+ * adult league (AID 2786) — see LEAGUES.
+ * LERQ comes from Ringuette Québec's site, which browser apps can't read
+ * directly; a scheduled GitHub job (scripts/fetch-lerq.mjs) copies it into
+ * quebec.json next to the app.
  * Tournament IDs and dates live in tournaments.json.
  * Team IDs are shared between the league and tournaments, so following a team
  * picks up its tournament games too.
@@ -18,13 +22,36 @@
   // original storage keys so existing installs don't lose their cache.
   // fallbackSeason is only used if the season lookup fails with nothing cached.
   const LEAGUES = [
-    { aid: 1648, key: 'ncrrl', name: 'NCRRL', divPrefix: '', fallbackSeason: 14554,
+    { type: 'ramp', aid: 1648, key: 'ncrrl', name: 'NCRRL', divPrefix: '', fallbackSeason: 14554,
       cacheKey: 'rt.cache', seasonKey: 'rt.season', fixture: 'fixture.json' },
-    { aid: 2786, key: 'gaara', name: 'GAARA', heading: 'GAARA — adult league', divPrefix: 'GAARA ', fallbackSeason: 14539,
+    { type: 'lerq', key: 'lerq', name: 'LERQ', heading: 'LERQ — Quebec AA league',
+      cacheKey: 'rt.lerq', fixture: 'fixture-quebec.json',
+      divOrder: ['LERQ U16 AA', 'LERQ U19 AA'],
+      // Only these teams are offered in the picker; all LERQ games still count
+      // for opponents and for who's on the ice before and after.
+      pickerTeams: ['Ottawa', 'Nepean', 'GCRA', 'West Ottawa', 'Outaouais', 'Eastern rush', 'Eastern surge'] },
+    { type: 'ramp', aid: 2786, key: 'gaara', name: 'GAARA', heading: 'GAARA — adult league', divPrefix: 'GAARA ', fallbackSeason: 14539,
       cacheKey: 'rt.cache.2786', seasonKey: 'rt.season.2786', fixture: 'fixture-gaara.json',
       divOrder: ['Black', 'Brown', 'Red', 'Blue', 'Yellow', 'Green', 'Orange', 'Purple'] },
   ];
   const API = 'https://www.ncrrl.com/api';
+  // Ringuette Québec writes rink names its own way. These Ottawa-area rinks are
+  // matched to RAMP's rink IDs so LERQ games line up with NCRRL/GAARA games on
+  // the same ice. Rinks without a pad number (e.g. "Cardelrec - West Ottawa",
+  // "Carleton University - Ottawa") are left unmatched on purpose.
+  const RINK_ALIASES = {
+    'Ray Friel 1 - Ottawa': [12436, 'Ray Friel Centre - Pad 1 (Ron Racette Arena)'],
+    'Ray Friel 3 - Ottawa': [12438, 'Ray Friel Centre - Pad 3'],
+    'Cardelrec A - West Ottawa': [13052, 'CARDELREC Recreation Complex A'],
+    'Richmond - West Ottawa': [1730, 'Richmond Memorial Community Centre'],
+    'Sportsplex 2 - Nepean': [13020, 'Nepean Sportsplex - Arena 2'],
+    'Walter Baker B - Nepean': [13528, 'Walter Baker Sports Centre - Pad B'],
+    'Walkley - Ottawa': [13019, 'Jim Durrell Complex - Walkley'],
+    'Jim Durell Peplinski': [1438, 'Jim Durrell Complex - Peplinski'],
+    'St-Laurent - Ottawa': [1801, 'St. Laurent Arena'],
+    'Slush Puppie C - Gatineau': [13153, 'Slush Puppie Complex - C - Gerik Ice'],
+    'Slush Puppie D - Gatineau': [13152, 'Slush Puppie Complex - D - Dilawri Ice'],
+  };
   const LOOKAHEAD_DAYS = 31;     // download tournaments starting within this many days
   const LOOKBACK_DAYS = 7;       // …or that ended within this many days (for results)
   const LS = {
@@ -42,22 +69,23 @@
     games: [],          // league + tournament, normalized, sorted by start
     league: [],         // normalized league games (all leagues)
     leagueGames: new Map(), // league key -> normalized games
-    seasons: Object.fromEntries(LEAGUES.map((l) => [l.key, readJSON(l.seasonKey, null)])),
+    seasons: Object.fromEntries(LEAGUES.filter((l) => l.seasonKey).map((l) => [l.key, readJSON(l.seasonKey, null)])),
+    lerqUpdatedAt: null,
     tourGames: new Map(), // aid -> normalized games
     tournaments: [],    // from tournaments.json
     teams: new Map(),   // id -> {id, name, division, league} (league teams)
     byIce: new Map(),   // "rinkId|yyyy-mm-dd" -> [games sorted]
-    tracked: new Set(readJSON(LS.tracked, [])),
+    tracked: new Set(readJSON(LS.tracked, []).map(String)), // team IDs as strings
     fetchedAt: null,
     teamFilter: '',
     teamOnlyMine: false,
   };
 
-  // Teams shared via link: #teams=123,456
+  // Teams shared via link: #teams=123,456,lerq104:ottawa
   (function importFromHash() {
-    const m = location.hash.match(/teams=([\d,]+)/);
+    const m = location.hash.match(/teams=([^&]+)/);
     if (!m) return;
-    m[1].split(',').filter(Boolean).forEach((id) => state.tracked.add(Number(id)));
+    decodeURIComponent(m[1]).split(',').filter(Boolean).forEach((id) => state.tracked.add(id));
     saveTracked();
     history.replaceState(null, '', location.pathname + location.search);
   })();
@@ -136,8 +164,8 @@
           endEstimated: !end,
           arena: String(g.ArenaName || 'TBD').trim(),
           rinkId: g.RARID ?? g.ArenaName,
-          home: { id: g.homeTID, name: cleanName(g.HomeTeamName), score: g.homeScore },
-          away: { id: g.awayTID, name: cleanName(g.AwayTeamName), score: g.awayScore },
+          home: { id: g.homeTID != null ? String(g.homeTID) : null, name: cleanName(g.HomeTeamName), score: g.homeScore },
+          away: { id: g.awayTID != null ? String(g.awayTID) : null, name: cleanName(g.AwayTeamName), score: g.awayScore },
           division: `${league ? league.divPrefix : ''}${g.HomeDivision || g.AwayDivision || ''}`,
           baseDivision: g.HomeDivision || g.AwayDivision || '',
           league: league || null,
@@ -151,6 +179,37 @@
       .filter((g) => g.start);
   }
 
+  // LERQ games from quebec.json (see scripts/fetch-lerq.mjs). No end times or
+  // scores are published, so ends are estimated and scores left out.
+  const slug = (s) => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  function normalizeLerq(data, league) {
+    const names = Object.fromEntries((data.leagues || []).map((l) => [l.id, l.name]));
+    return (data.games || []).map((g) => {
+      const div = names[g.league] || 'LERQ';
+      const alias = RINK_ALIASES[g.arena];
+      const team = (n) => ({ id: `lerq${g.league}:${slug(n)}`, name: n, score: null });
+      return {
+        key: `Q-${g.num}`,
+        id: g.num,
+        start: parseLocal(`${g.date}T${g.time}`),
+        end: null,
+        endEstimated: true,
+        arena: alias ? alias[1] : g.arena,
+        rinkId: alias ? alias[0] : `lerq:${g.arena}`,
+        home: team(g.home),
+        away: team(g.away),
+        division: div,
+        baseDivision: div,
+        league,
+        type: '',
+        notes: '',
+        completed: false,
+        cancelled: false,
+        tournament: null,
+      };
+    }).filter((g) => g.start);
+  }
+
   function rebuild() {
     state.league = [];
     for (const l of LEAGUES) state.league.push(...(state.leagueGames.get(l.key) || []));
@@ -162,6 +221,7 @@
     state.teams = new Map();
     for (const g of state.league) {
       for (const t of [g.home, g.away]) {
+        if (g.league && g.league.pickerTeams && !g.league.pickerTeams.includes(t.name)) continue;
         if (t.id && !state.teams.has(t.id)) state.teams.set(t.id, { id: t.id, name: t.name, division: g.division, baseDivision: g.baseDivision, league: g.league });
       }
     }
@@ -281,6 +341,11 @@
       for (const l of LEAGUES) {
         const cached = readJSON(l.cacheKey, null);
         if (!cached) continue;
+        if (l.type === 'lerq') {
+          state.leagueGames.set(l.key, normalizeLerq(cached.data, l));
+          state.lerqUpdatedAt = cached.data.updatedAt ? new Date(cached.data.updatedAt) : null;
+          continue;
+        }
         state.leagueGames.set(l.key, normalize(cached.games, null, l));
         const at = new Date(cached.fetchedAt);
         if (!state.fetchedAt || at < state.fetchedAt) state.fetchedAt = at;
@@ -299,6 +364,20 @@
       let refreshed = false;
       for (const l of LEAGUES) {
         const cached = readJSON(l.cacheKey, null);
+        if (l.type === 'lerq') {
+          // quebec.json changes at most every few hours; check it every 30 minutes.
+          if (!force && cached && Date.now() - cached.fetchedAt < 30 * 60000) continue;
+          try {
+            const data = await getJSON(FIXTURE ? l.fixture : 'quebec.json');
+            writeJSON(l.cacheKey, { fetchedAt: Date.now(), data });
+            state.leagueGames.set(l.key, normalizeLerq(data, l));
+            state.lerqUpdatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
+          } catch (err) {
+            // No quebec.json yet (the GitHub job hasn't run) isn't an error worth showing.
+            if (!/HTTP 404/.test(err.message)) problems.push(err);
+          }
+          continue;
+        }
         if (FIXTURE) state.seasons[l.key] = { sid: l.fallbackSeason, name: '2026-2027 (test data)', checkedAt: Date.now() };
         const sid = FIXTURE ? l.fallbackSeason : await resolveSeason(l);
         const stale = !cached || cached.season !== sid || Date.now() - cached.fetchedAt > 10 * 60000;
@@ -543,7 +622,8 @@
         <h3>Settings</h3>
         ${share ? `<div class="row"><button class="btn secondary" id="shareBtn">Share my teams</button>
           <span class="muted small">Sends a link that sets up the same teams on another phone.</span></div>` : ''}
-        <p class="muted small">${LEAGUES.map((l) => `${esc(l.name)} season: ${esc(state.seasons[l.key] ? state.seasons[l.key].name : 'checking…')}`).join(' · ')} (picked automatically).</p>
+        <p class="muted small">${LEAGUES.filter((l) => l.type === 'ramp').map((l) => `${esc(l.name)} season: ${esc(state.seasons[l.key] ? state.seasons[l.key].name : 'checking…')}`).join(' · ')} (picked automatically).</p>
+        <p class="muted small">LERQ schedule copied from Ringuette Québec ${state.lerqUpdatedAt ? `— last changed ${esc(fmtAgo(state.lerqUpdatedAt))}` : '— not available yet'}. LERQ scores aren't shown.</p>
         ${tournamentSummary()}
       </section>`;
 
@@ -602,7 +682,7 @@
   main.addEventListener('change', (e) => {
     const cb = e.target.closest('input[data-team]');
     if (!cb) return;
-    const id = Number(cb.dataset.team);
+    const id = cb.dataset.team;
     if (cb.checked) state.tracked.add(id); else state.tracked.delete(id);
     saveTracked();
     cb.closest('.team-row').classList.toggle('on', cb.checked);

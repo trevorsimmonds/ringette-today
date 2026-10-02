@@ -14,7 +14,7 @@ async def main():
         heads=await page.locator('.division h3').all_inner_texts()
         print('DIVISIONS', heads)
         print('LEAGUE HEADINGS', await page.locator('.league-heading').all_inner_texts())
-        await page.locator('.league-heading').scroll_into_view_if_needed()
+        await page.locator('.league-heading').last.scroll_into_view_if_needed()
         await page.screenshot(path='test/g1-teams.png')
         await page.fill('#teamSearch','gaara'); await page.wait_for_timeout(200)
         print('SEARCH gaara divisions', await page.locator('.division h3').all_inner_texts())

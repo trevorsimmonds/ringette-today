@@ -1,0 +1,178 @@
+{
+ "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
+ "updatedAt": "2026-10-02T03:29:08.399Z",
+ "leagues": [
+  {
+   "id": 104,
+   "name": "LERQ U16 AA",
+   "source": "LERQ-Junior AA"
+  },
+  {
+   "id": 105,
+   "name": "LERQ U19 AA",
+   "source": "LERQ-Cadette AA"
+  }
+ ],
+ "games": [
+  {
+   "num": 1001,
+   "league": 104,
+   "date": "2026-09-19",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "Ottawa",
+   "detailId": 23373
+  },
+  {
+   "num": 1002,
+   "league": 104,
+   "date": "2026-09-20",
+   "time": "18:15",
+   "arena": "Walkley - Ottawa",
+   "home": "Ottawa",
+   "away": "Nepean",
+   "detailId": 23374
+  },
+  {
+   "num": 1003,
+   "league": 104,
+   "date": "2026-09-26",
+   "time": "14:00",
+   "arena": "Jim Durell Peplinski",
+   "home": "Ottawa",
+   "away": "GCRA",
+   "detailId": 23375
+  },
+  {
+   "num": 2001,
+   "league": 105,
+   "date": "2026-09-26",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern surge",
+   "away": "Eastern rush",
+   "detailId": 23302
+  },
+  {
+   "num": 2002,
+   "league": 105,
+   "date": "2026-09-27",
+   "time": "12:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Eastern surge",
+   "detailId": 23303
+  },
+  {
+   "num": 1004,
+   "league": 104,
+   "date": "2026-09-27",
+   "time": "13:45",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "GCRA",
+   "detailId": 23376
+  },
+  {
+   "num": 1005,
+   "league": 104,
+   "date": "2026-10-03",
+   "time": "10:00",
+   "arena": "Beaconsfield - LSL",
+   "home": "Lac St-Louis",
+   "away": "Nepean",
+   "detailId": 23377
+  },
+  {
+   "num": 2003,
+   "league": 105,
+   "date": "2026-10-03",
+   "time": "10:30",
+   "arena": "St-Hilaire -1- Centre sportif Paul Lemieux",
+   "home": "Rive-Sud",
+   "away": "Eastern rush",
+   "detailId": 23304
+  },
+  {
+   "num": 1006,
+   "league": 104,
+   "date": "2026-10-03",
+   "time": "11:30",
+   "arena": "Slush Puppie D - Gatineau",
+   "home": "Outaouais",
+   "away": "West Ottawa",
+   "detailId": 23378
+  },
+  {
+   "num": 2008,
+   "league": 105,
+   "date": "2026-10-10",
+   "time": "10:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "Eastern surge",
+   "away": "Lac St-Louis",
+   "detailId": 23309
+  },
+  {
+   "num": 1012,
+   "league": 104,
+   "date": "2026-10-10",
+   "time": "11:30",
+   "arena": "Cardelrec - West Ottawa",
+   "home": "West Ottawa",
+   "away": "BLL",
+   "detailId": 23384
+  },
+  {
+   "num": 2009,
+   "league": 105,
+   "date": "2026-10-10",
+   "time": "14:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Lac St-Louis",
+   "detailId": 23310
+  },
+  {
+   "num": 2012,
+   "league": 105,
+   "date": "2026-10-24",
+   "time": "11:30",
+   "arena": "BSR - Lévis",
+   "home": "Québec",
+   "away": "Eastern rush",
+   "detailId": 23313
+  },
+  {
+   "num": 1020,
+   "league": 104,
+   "date": "2026-10-25",
+   "time": "11:15",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "Outaouais",
+   "detailId": 23392
+  },
+  {
+   "num": 1037,
+   "league": 104,
+   "date": "2026-11-14",
+   "time": "12:00",
+   "arena": "Carleton University - Ottawa",
+   "home": "Ottawa",
+   "away": "Rive-Sud",
+   "detailId": 23409
+  },
+  {
+   "num": 1044,
+   "league": 104,
+   "date": "2026-11-28",
+   "time": "13:00",
+   "arena": "Jim Durell Peplinski",
+   "home": "Ottawa",
+   "away": "West Ottawa",
+   "detailId": 23416
+  }
+ ]
+}
