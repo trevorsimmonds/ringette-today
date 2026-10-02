@@ -1,0 +1,1718 @@
+{
+ "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
+ "updatedAt": "2026-10-02T03:41:20.402Z",
+ "leagues": [
+  {
+   "id": 104,
+   "name": "LERQ U16 AA",
+   "source": "LERQ-Junior AA"
+  },
+  {
+   "id": 105,
+   "name": "LERQ U19 AA",
+   "source": "LERQ-Cadette AA"
+  }
+ ],
+ "games": [
+  {
+   "num": 1001,
+   "league": 104,
+   "date": "2026-09-19",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "Ottawa",
+   "detailId": 23373
+  },
+  {
+   "num": 1002,
+   "league": 104,
+   "date": "2026-09-20",
+   "time": "18:15",
+   "arena": "Walkley - Ottawa",
+   "home": "Ottawa",
+   "away": "Nepean",
+   "detailId": 23374
+  },
+  {
+   "num": 1003,
+   "league": 104,
+   "date": "2026-09-26",
+   "time": "14:00",
+   "arena": "Jim Durell Peplinski",
+   "home": "Ottawa",
+   "away": "GCRA",
+   "detailId": 23375
+  },
+  {
+   "num": 2001,
+   "league": 105,
+   "date": "2026-09-26",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern surge",
+   "away": "Eastern rush",
+   "detailId": 23302
+  },
+  {
+   "num": 2002,
+   "league": 105,
+   "date": "2026-09-27",
+   "time": "12:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Eastern surge",
+   "detailId": 23303
+  },
+  {
+   "num": 1004,
+   "league": 104,
+   "date": "2026-09-27",
+   "time": "13:45",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "GCRA",
+   "detailId": 23376
+  },
+  {
+   "num": 1005,
+   "league": 104,
+   "date": "2026-10-03",
+   "time": "10:00",
+   "arena": "Beaconsfield - LSL",
+   "home": "Lac St-Louis",
+   "away": "Nepean",
+   "detailId": 23377
+  },
+  {
+   "num": 2003,
+   "league": 105,
+   "date": "2026-10-03",
+   "time": "10:30",
+   "arena": "St-Hilaire -1- Centre sportif Paul Lemieux",
+   "home": "Rive-Sud",
+   "away": "Eastern rush",
+   "detailId": 23304
+  },
+  {
+   "num": 1006,
+   "league": 104,
+   "date": "2026-10-03",
+   "time": "11:30",
+   "arena": "Slush Puppie D - Gatineau",
+   "home": "Outaouais",
+   "away": "West Ottawa",
+   "detailId": 23378
+  },
+  {
+   "num": 1007,
+   "league": 104,
+   "date": "2026-10-03",
+   "time": "12:00",
+   "arena": "Centre Caztel - Sainte-Marie",
+   "home": "Québec",
+   "away": "Ottawa",
+   "detailId": 23379
+  },
+  {
+   "num": 2004,
+   "league": 105,
+   "date": "2026-10-03",
+   "time": "13:30",
+   "arena": "Centre Caztel - Sainte-Marie",
+   "home": "Québec",
+   "away": "Eastern surge",
+   "detailId": 23305
+  },
+  {
+   "num": 1008,
+   "league": 104,
+   "date": "2026-10-03",
+   "time": "15:15",
+   "arena": "Val D'Espoir - St-Janvier",
+   "home": "Laurentides",
+   "away": "Nepean",
+   "detailId": 23380
+  },
+  {
+   "num": 2005,
+   "league": 105,
+   "date": "2026-10-03",
+   "time": "15:15",
+   "arena": "Sportplex - Varennes",
+   "home": "Rive-Sud",
+   "away": "Eastern rush",
+   "detailId": 23306
+  },
+  {
+   "num": 1009,
+   "league": 104,
+   "date": "2026-10-03",
+   "time": "16:00",
+   "arena": "BSR - Lévis",
+   "home": "Québec",
+   "away": "Ottawa",
+   "detailId": 23381
+  },
+  {
+   "num": 2006,
+   "league": 105,
+   "date": "2026-10-04",
+   "time": "09:30",
+   "arena": "Ancienne Lorette - Québec",
+   "home": "Québec",
+   "away": "Eastern surge",
+   "detailId": 23307
+  },
+  {
+   "num": 1010,
+   "league": 104,
+   "date": "2026-10-04",
+   "time": "12:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "GCRA",
+   "away": "West Ottawa",
+   "detailId": 23382
+  },
+  {
+   "num": 1011,
+   "league": 104,
+   "date": "2026-10-04",
+   "time": "14:30",
+   "arena": "Isatis - St-Hyacinthe",
+   "home": "Rive-Sud",
+   "away": "Ottawa",
+   "detailId": 23383
+  },
+  {
+   "num": 2007,
+   "league": 105,
+   "date": "2026-10-04",
+   "time": "17:00",
+   "arena": "St-Eustache - Complexe Walter-Buswell",
+   "home": "Laurentides",
+   "away": "Lac St-Louis",
+   "detailId": 23308
+  },
+  {
+   "num": 2008,
+   "league": 105,
+   "date": "2026-10-10",
+   "time": "10:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "Eastern surge",
+   "away": "Lac St-Louis",
+   "detailId": 23309
+  },
+  {
+   "num": 1012,
+   "league": 104,
+   "date": "2026-10-10",
+   "time": "11:30",
+   "arena": "Cardelrec - West Ottawa",
+   "home": "West Ottawa",
+   "away": "BLL",
+   "detailId": 23384
+  },
+  {
+   "num": 2009,
+   "league": 105,
+   "date": "2026-10-10",
+   "time": "14:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Lac St-Louis",
+   "detailId": 23310
+  },
+  {
+   "num": 2010,
+   "league": 105,
+   "date": "2026-10-10",
+   "time": "15:00",
+   "arena": "St-Bruno - Michael-Bilodeau",
+   "home": "Rive-Sud",
+   "away": "BLL",
+   "detailId": 23311
+  },
+  {
+   "num": 1013,
+   "league": 104,
+   "date": "2026-10-10",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "BLL",
+   "detailId": 23385
+  },
+  {
+   "num": 1014,
+   "league": 104,
+   "date": "2026-10-11",
+   "time": "12:30",
+   "arena": "Olympia - Deux Montagnes",
+   "home": "Laurentides",
+   "away": "Rive-Sud",
+   "detailId": 23386
+  },
+  {
+   "num": 2011,
+   "league": 105,
+   "date": "2026-10-11",
+   "time": "14:00",
+   "arena": "Olympia - Deux Montagnes",
+   "home": "Laurentides",
+   "away": "Rive-Sud",
+   "detailId": 23312
+  },
+  {
+   "num": 2012,
+   "league": 105,
+   "date": "2026-10-24",
+   "time": "11:30",
+   "arena": "BSR - Lévis",
+   "home": "Québec",
+   "away": "Eastern rush",
+   "detailId": 23313
+  },
+  {
+   "num": 1015,
+   "league": 104,
+   "date": "2026-10-24",
+   "time": "12:00",
+   "arena": "Rolland - Montréal Nord",
+   "home": "BLL",
+   "away": "Nepean",
+   "detailId": 23387
+  },
+  {
+   "num": 1016,
+   "league": 104,
+   "date": "2026-10-24",
+   "time": "13:00",
+   "arena": "Blainville",
+   "home": "Laurentides",
+   "away": "West Ottawa",
+   "detailId": 23388
+  },
+  {
+   "num": 1017,
+   "league": 104,
+   "date": "2026-10-24",
+   "time": "14:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "GCRA",
+   "away": "Ottawa",
+   "detailId": 23389
+  },
+  {
+   "num": 2013,
+   "league": 105,
+   "date": "2026-10-24",
+   "time": "15:00",
+   "arena": "Duberger - Québec",
+   "home": "Québec",
+   "away": "Eastern rush",
+   "detailId": 23314
+  },
+  {
+   "num": 1018,
+   "league": 104,
+   "date": "2026-10-24",
+   "time": "17:00",
+   "arena": "Michel Normandin - Brossard",
+   "home": "Rive-Sud",
+   "away": "West Ottawa",
+   "detailId": 23390
+  },
+  {
+   "num": 2014,
+   "league": 105,
+   "date": "2026-10-24",
+   "time": "18:30",
+   "arena": "Michel Normandin - Brossard",
+   "home": "Rive-Sud",
+   "away": "BLL",
+   "detailId": 23315
+  },
+  {
+   "num": 1019,
+   "league": 104,
+   "date": "2026-10-25",
+   "time": "10:30",
+   "arena": "Mascouche",
+   "home": "BLL",
+   "away": "Laurentides",
+   "detailId": 23391
+  },
+  {
+   "num": 1020,
+   "league": 104,
+   "date": "2026-10-25",
+   "time": "11:15",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "Outaouais",
+   "detailId": 23392
+  },
+  {
+   "num": 2015,
+   "league": 105,
+   "date": "2026-10-25",
+   "time": "12:00",
+   "arena": "Mascouche",
+   "home": "BLL",
+   "away": "Laurentides",
+   "detailId": 23316
+  },
+  {
+   "num": 1021,
+   "league": 104,
+   "date": "2026-10-31",
+   "time": "11:00",
+   "arena": "Bob Macquarrie- Senecal",
+   "home": "GCRA",
+   "away": "BLL",
+   "detailId": 23393
+  },
+  {
+   "num": 2016,
+   "league": 105,
+   "date": "2026-10-31",
+   "time": "11:30",
+   "arena": "Place Bell - Laval",
+   "home": "BLL",
+   "away": "Eastern rush",
+   "detailId": 23317
+  },
+  {
+   "num": 1022,
+   "league": 104,
+   "date": "2026-10-31",
+   "time": "12:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Québec",
+   "detailId": 23394
+  },
+  {
+   "num": 1023,
+   "league": 104,
+   "date": "2026-10-31",
+   "time": "15:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "Nepean",
+   "away": "BLL",
+   "detailId": 23395
+  },
+  {
+   "num": 1024,
+   "league": 104,
+   "date": "2026-10-31",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "Québec",
+   "detailId": 23396
+  },
+  {
+   "num": 2017,
+   "league": 105,
+   "date": "2026-10-31",
+   "time": "16:30",
+   "arena": "Vaudreuil - Dorion",
+   "home": "Lac St-Louis",
+   "away": "Eastern rush",
+   "detailId": 23318
+  },
+  {
+   "num": 2018,
+   "league": 105,
+   "date": "2026-11-01",
+   "time": "09:30",
+   "arena": "Beaconsfield - LSL",
+   "home": "Lac St-Louis",
+   "away": "Québec",
+   "detailId": 23319
+  },
+  {
+   "num": 1025,
+   "league": 104,
+   "date": "2026-11-01",
+   "time": "12:15",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "Laurentides",
+   "detailId": 23397
+  },
+  {
+   "num": 1026,
+   "league": 104,
+   "date": "2026-11-01",
+   "time": "14:15",
+   "arena": "Vaudreuil - Dorion",
+   "home": "Lac St-Louis",
+   "away": "Rive-Sud",
+   "detailId": 23398
+  },
+  {
+   "num": 2019,
+   "league": 105,
+   "date": "2026-11-01",
+   "time": "15:30",
+   "arena": "Isatis - St-Hyacinthe",
+   "home": "Rive-Sud",
+   "away": "Québec",
+   "detailId": 23320
+  },
+  {
+   "num": 1027,
+   "league": 104,
+   "date": "2026-11-01",
+   "time": "17:15",
+   "arena": "Walkley - Ottawa",
+   "home": "Ottawa",
+   "away": "Laurentides",
+   "detailId": 23399
+  },
+  {
+   "num": 1028,
+   "league": 104,
+   "date": "2026-11-07",
+   "time": "10:00",
+   "arena": "Bob Macquarrie- Senecal",
+   "home": "GCRA",
+   "away": "Laurentides",
+   "detailId": 23400
+  },
+  {
+   "num": 2020,
+   "league": 105,
+   "date": "2026-11-07",
+   "time": "11:30",
+   "arena": "Sportium - Ste-Catherine",
+   "home": "Rive-Sud",
+   "away": "Québec",
+   "detailId": 23321
+  },
+  {
+   "num": 1029,
+   "league": 104,
+   "date": "2026-11-07",
+   "time": "12:00",
+   "arena": "Rolland - Montréal Nord",
+   "home": "BLL",
+   "away": "West Ottawa",
+   "detailId": 23401
+  },
+  {
+   "num": 1030,
+   "league": 104,
+   "date": "2026-11-07",
+   "time": "13:30",
+   "arena": "St-Henri- Lévis",
+   "home": "Québec",
+   "away": "Nepean",
+   "detailId": 23402
+  },
+  {
+   "num": 1031,
+   "league": 104,
+   "date": "2026-11-07",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "Laurentides",
+   "detailId": 23403
+  },
+  {
+   "num": 2021,
+   "league": 105,
+   "date": "2026-11-07",
+   "time": "16:30",
+   "arena": "Bob Birnie - Pointe-Claire",
+   "home": "Lac St-Louis",
+   "away": "Québec",
+   "detailId": 23322
+  },
+  {
+   "num": 1032,
+   "league": 104,
+   "date": "2026-11-08",
+   "time": "09:30",
+   "arena": "Ancienne Lorette - Québec",
+   "home": "Québec",
+   "away": "Nepean",
+   "detailId": 23404
+  },
+  {
+   "num": 2022,
+   "league": 105,
+   "date": "2026-11-08",
+   "time": "12:15",
+   "arena": "Colisée Videotron B - Trois-Rivières",
+   "home": "BLL",
+   "away": "Québec",
+   "detailId": 23323
+  },
+  {
+   "num": 1033,
+   "league": 104,
+   "date": "2026-11-08",
+   "time": "12:30",
+   "arena": "Olympia - Deux Montagnes",
+   "home": "Laurentides",
+   "away": "Ottawa",
+   "detailId": 23405
+  },
+  {
+   "num": 2023,
+   "league": 105,
+   "date": "2026-11-08",
+   "time": "14:00",
+   "arena": "Olympia - Deux Montagnes",
+   "home": "Laurentides",
+   "away": "Lac St-Louis",
+   "detailId": 23324
+  },
+  {
+   "num": 2024,
+   "league": 105,
+   "date": "2026-11-08",
+   "time": "15:45",
+   "arena": "Colisée Videotron B - Trois-Rivières",
+   "home": "BLL",
+   "away": "Québec",
+   "detailId": 23325
+  },
+  {
+   "num": 1034,
+   "league": 104,
+   "date": "2026-11-08",
+   "time": "17:00",
+   "arena": "Émile Bouchard - Longueuil",
+   "home": "Rive-Sud",
+   "away": "BLL",
+   "detailId": 23406
+  },
+  {
+   "num": 1035,
+   "league": 104,
+   "date": "2026-11-14",
+   "time": "11:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Lac St-Louis",
+   "detailId": 23407
+  },
+  {
+   "num": 1036,
+   "league": 104,
+   "date": "2026-11-14",
+   "time": "11:30",
+   "arena": "Slush Puppie D - Gatineau",
+   "home": "Outaouais",
+   "away": "GCRA",
+   "detailId": 23408
+  },
+  {
+   "num": 1037,
+   "league": 104,
+   "date": "2026-11-14",
+   "time": "12:00",
+   "arena": "Carleton University - Ottawa",
+   "home": "Ottawa",
+   "away": "Rive-Sud",
+   "detailId": 23409
+  },
+  {
+   "num": 2025,
+   "league": 105,
+   "date": "2026-11-14",
+   "time": "12:30",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "Eastern rush",
+   "away": "BLL",
+   "detailId": 23326
+  },
+  {
+   "num": 1038,
+   "league": 104,
+   "date": "2026-11-14",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "Lac St-Louis",
+   "detailId": 23410
+  },
+  {
+   "num": 2026,
+   "league": 105,
+   "date": "2026-11-14",
+   "time": "17:00",
+   "arena": "Vaudreuil - Dorion",
+   "home": "Lac St-Louis",
+   "away": "Rive-Sud",
+   "detailId": 23327
+  },
+  {
+   "num": 1039,
+   "league": 104,
+   "date": "2026-11-14",
+   "time": "18:15",
+   "arena": "Walter Baker B - Nepean",
+   "home": "Nepean",
+   "away": "Rive-Sud",
+   "detailId": 23411
+  },
+  {
+   "num": 2027,
+   "league": 105,
+   "date": "2026-11-14",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern surge",
+   "away": "BLL",
+   "detailId": 23328
+  },
+  {
+   "num": 1040,
+   "league": 104,
+   "date": "2026-11-15",
+   "time": "10:15",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "Lac St-Louis",
+   "detailId": 23412
+  },
+  {
+   "num": 2028,
+   "league": 105,
+   "date": "2026-11-15",
+   "time": "13:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "Eastern surge",
+   "away": "Eastern rush",
+   "detailId": 23329
+  },
+  {
+   "num": 1041,
+   "league": 104,
+   "date": "2026-11-15",
+   "time": "14:30",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "GCRA",
+   "away": "Lac St-Louis",
+   "detailId": 23413
+  },
+  {
+   "num": 1042,
+   "league": 104,
+   "date": "2026-11-21",
+   "time": "13:00",
+   "arena": "Blainville",
+   "home": "Laurentides",
+   "away": "GCRA",
+   "detailId": 23414
+  },
+  {
+   "num": 2029,
+   "league": 105,
+   "date": "2026-11-21",
+   "time": "14:30",
+   "arena": "Blainville",
+   "home": "Laurentides",
+   "away": "Rive-Sud",
+   "detailId": 23330
+  },
+  {
+   "num": 1043,
+   "league": 104,
+   "date": "2026-11-21",
+   "time": "17:00",
+   "arena": "Gilles Chabot - Boucherville",
+   "home": "Rive-Sud",
+   "away": "GCRA",
+   "detailId": 23415
+  },
+  {
+   "num": 2030,
+   "league": 105,
+   "date": "2026-11-22",
+   "time": "14:15",
+   "arena": "Vaudreuil - Dorion",
+   "home": "Lac St-Louis",
+   "away": "Laurentides",
+   "detailId": 23331
+  },
+  {
+   "num": 1045,
+   "league": 104,
+   "date": "2026-11-28",
+   "time": "12:00",
+   "arena": "Bob Birnie - Pointe-Claire",
+   "home": "Lac St-Louis",
+   "away": "BLL",
+   "detailId": 23417
+  },
+  {
+   "num": 1044,
+   "league": 104,
+   "date": "2026-11-28",
+   "time": "13:00",
+   "arena": "Jim Durell Peplinski",
+   "home": "Ottawa",
+   "away": "West Ottawa",
+   "detailId": 23416
+  },
+  {
+   "num": 2031,
+   "league": 105,
+   "date": "2026-11-28",
+   "time": "13:30",
+   "arena": "Bob Birnie - Pointe-Claire",
+   "home": "Lac St-Louis",
+   "away": "BLL",
+   "detailId": 23332
+  },
+  {
+   "num": 1046,
+   "league": 104,
+   "date": "2026-11-28",
+   "time": "18:15",
+   "arena": "Walter Baker B - Nepean",
+   "home": "Nepean",
+   "away": "West Ottawa",
+   "detailId": 23418
+  },
+  {
+   "num": 2032,
+   "league": 105,
+   "date": "2026-11-29",
+   "time": "12:00",
+   "arena": "St-Basile-Jean Rougeau",
+   "home": "Rive-Sud",
+   "away": "Eastern surge",
+   "detailId": 23333
+  },
+  {
+   "num": 1047,
+   "league": 104,
+   "date": "2026-11-29",
+   "time": "13:00",
+   "arena": "Jim Durell Peplinski",
+   "home": "Ottawa",
+   "away": "Outaouais",
+   "detailId": 23419
+  },
+  {
+   "num": 2033,
+   "league": 105,
+   "date": "2026-11-29",
+   "time": "17:00",
+   "arena": "Kirkland - LSL",
+   "home": "Lac St-Louis",
+   "away": "Eastern surge",
+   "detailId": 23334
+  },
+  {
+   "num": 2034,
+   "league": 105,
+   "date": "2026-12-05",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Eastern surge",
+   "detailId": 23335
+  },
+  {
+   "num": 1048,
+   "league": 104,
+   "date": "2026-12-06",
+   "time": "12:00",
+   "arena": "Centre Mario-Gosselin Thetford Mines",
+   "home": "Québec",
+   "away": "Lac St-Louis",
+   "detailId": 23420
+  },
+  {
+   "num": 2035,
+   "league": 105,
+   "date": "2026-12-06",
+   "time": "12:30",
+   "arena": "Olympia - Deux Montagnes",
+   "home": "Laurentides",
+   "away": "Québec",
+   "detailId": 23336
+  },
+  {
+   "num": 1049,
+   "league": 104,
+   "date": "2026-12-06",
+   "time": "15:30",
+   "arena": "Centre Mario-Gosselin Thetford Mines",
+   "home": "Québec",
+   "away": "Lac St-Louis",
+   "detailId": 23421
+  },
+  {
+   "num": 2036,
+   "league": 105,
+   "date": "2026-12-06",
+   "time": "17:00",
+   "arena": "St-Eustache - Complexe Walter-Buswell",
+   "home": "Laurentides",
+   "away": "Québec",
+   "detailId": 23337
+  },
+  {
+   "num": 1050,
+   "league": 104,
+   "date": "2026-12-12",
+   "time": "11:00",
+   "arena": "St-Laurent - Ottawa",
+   "home": "GCRA",
+   "away": "Rive-Sud",
+   "detailId": 23422
+  },
+  {
+   "num": 1051,
+   "league": 104,
+   "date": "2026-12-12",
+   "time": "12:00",
+   "arena": "Carleton University - Ottawa",
+   "home": "Ottawa",
+   "away": "West Ottawa",
+   "detailId": 23423
+  },
+  {
+   "num": 2037,
+   "league": 105,
+   "date": "2026-12-12",
+   "time": "12:00",
+   "arena": "Saint-Anselme",
+   "home": "Québec",
+   "away": "Rive-Sud",
+   "detailId": 23338
+  },
+  {
+   "num": 2038,
+   "league": 105,
+   "date": "2026-12-12",
+   "time": "13:00",
+   "arena": "Blainville",
+   "home": "Laurentides",
+   "away": "Eastern surge",
+   "detailId": 23339
+  },
+  {
+   "num": 1052,
+   "league": 104,
+   "date": "2026-12-12",
+   "time": "14:30",
+   "arena": "Blainville",
+   "home": "Laurentides",
+   "away": "Québec",
+   "detailId": 23424
+  },
+  {
+   "num": 1053,
+   "league": 104,
+   "date": "2026-12-12",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "Rive-Sud",
+   "detailId": 23425
+  },
+  {
+   "num": 2039,
+   "league": 105,
+   "date": "2026-12-12",
+   "time": "16:00",
+   "arena": "BSR - Lévis",
+   "home": "Québec",
+   "away": "Rive-Sud",
+   "detailId": 23340
+  },
+  {
+   "num": 1054,
+   "league": 104,
+   "date": "2026-12-12",
+   "time": "18:15",
+   "arena": "Repentigny - BLL",
+   "home": "BLL",
+   "away": "Québec",
+   "detailId": 23426
+  },
+  {
+   "num": 2040,
+   "league": 105,
+   "date": "2026-12-12",
+   "time": "19:45",
+   "arena": "Repentigny - BLL",
+   "home": "BLL",
+   "away": "Eastern surge",
+   "detailId": 23341
+  },
+  {
+   "num": 1055,
+   "league": 104,
+   "date": "2026-12-13",
+   "time": "10:15",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "West Ottawa",
+   "detailId": 23427
+  },
+  {
+   "num": 1056,
+   "league": 104,
+   "date": "2026-12-13",
+   "time": "10:30",
+   "arena": "Mascouche",
+   "home": "BLL",
+   "away": "GCRA",
+   "detailId": 23428
+  },
+  {
+   "num": 2041,
+   "league": 105,
+   "date": "2026-12-13",
+   "time": "12:00",
+   "arena": "Mascouche",
+   "home": "BLL",
+   "away": "Eastern rush",
+   "detailId": 23342
+  },
+  {
+   "num": 1057,
+   "league": 104,
+   "date": "2026-12-13",
+   "time": "15:30",
+   "arena": "Bob Birnie - Pointe-Claire",
+   "home": "Lac St-Louis",
+   "away": "GCRA",
+   "detailId": 23429
+  },
+  {
+   "num": 2042,
+   "league": 105,
+   "date": "2026-12-13",
+   "time": "17:00",
+   "arena": "St-Eustache - Complexe Walter-Buswell",
+   "home": "Laurentides",
+   "away": "Eastern rush",
+   "detailId": 23343
+  },
+  {
+   "num": 1058,
+   "league": 104,
+   "date": "2026-12-19",
+   "time": "10:00",
+   "arena": "Beaconsfield - LSL",
+   "home": "Lac St-Louis",
+   "away": "Québec",
+   "detailId": 23430
+  },
+  {
+   "num": 1059,
+   "league": 104,
+   "date": "2026-12-19",
+   "time": "10:00",
+   "arena": "Bob Macquarrie- Senecal",
+   "home": "GCRA",
+   "away": "BLL",
+   "detailId": 23431
+  },
+  {
+   "num": 2043,
+   "league": 105,
+   "date": "2026-12-19",
+   "time": "13:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "Eastern surge",
+   "away": "Laurentides",
+   "detailId": 23344
+  },
+  {
+   "num": 1060,
+   "league": 104,
+   "date": "2026-12-19",
+   "time": "14:30",
+   "arena": "Jim Durell Peplinski",
+   "home": "Ottawa",
+   "away": "BLL",
+   "detailId": 23432
+  },
+  {
+   "num": 1061,
+   "league": 104,
+   "date": "2026-12-19",
+   "time": "14:30",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "West Ottawa",
+   "away": "GCRA",
+   "detailId": 23433
+  },
+  {
+   "num": 1062,
+   "league": 104,
+   "date": "2026-12-19",
+   "time": "15:00",
+   "arena": "St-Bruno - Michael-Bilodeau",
+   "home": "Rive-Sud",
+   "away": "Québec",
+   "detailId": 23434
+  },
+  {
+   "num": 2044,
+   "league": 105,
+   "date": "2026-12-19",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Laurentides",
+   "detailId": 23345
+  },
+  {
+   "num": 1063,
+   "league": 104,
+   "date": "2026-12-20",
+   "time": "13:00",
+   "arena": "Aréna Rivière-du-nord-St-Jérôme",
+   "home": "Laurentides",
+   "away": "Outaouais",
+   "detailId": 23435
+  },
+  {
+   "num": 1064,
+   "league": 104,
+   "date": "2026-12-20",
+   "time": "17:30",
+   "arena": "Bob Birnie - Pointe-Claire",
+   "home": "Lac St-Louis",
+   "away": "Outaouais",
+   "detailId": 23436
+  },
+  {
+   "num": 2045,
+   "league": 105,
+   "date": "2027-01-02",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern surge",
+   "away": "Eastern rush",
+   "detailId": 23346
+  },
+  {
+   "num": 1065,
+   "league": 104,
+   "date": "2027-01-03",
+   "time": "13:45",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "Ottawa",
+   "detailId": 23437
+  },
+  {
+   "num": 1066,
+   "league": 104,
+   "date": "2027-01-03",
+   "time": "16:00",
+   "arena": "Richmond - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Outaouais",
+   "detailId": 23438
+  },
+  {
+   "num": 2046,
+   "league": 105,
+   "date": "2027-01-03",
+   "time": "16:00",
+   "arena": "Kirkland - LSL",
+   "home": "Lac St-Louis",
+   "away": "BLL",
+   "detailId": 23347
+  },
+  {
+   "num": 2047,
+   "league": 105,
+   "date": "2027-01-03",
+   "time": "17:30",
+   "arena": "Richmond - West Ottawa",
+   "home": "Eastern surge",
+   "away": "Eastern rush",
+   "detailId": 23348
+  },
+  {
+   "num": 1067,
+   "league": 104,
+   "date": "2027-01-09",
+   "time": "10:00",
+   "arena": "Bob Macquarrie- Senecal",
+   "home": "GCRA",
+   "away": "Nepean",
+   "detailId": 23439
+  },
+  {
+   "num": 1068,
+   "league": 104,
+   "date": "2027-01-16",
+   "time": "10:00",
+   "arena": "Bob Macquarrie- Senecal",
+   "home": "GCRA",
+   "away": "Rive-Sud",
+   "detailId": 23440
+  },
+  {
+   "num": 2048,
+   "league": 105,
+   "date": "2027-01-16",
+   "time": "11:30",
+   "arena": "BSR - Lévis",
+   "home": "Québec",
+   "away": "Lac St-Louis",
+   "detailId": 23349
+  },
+  {
+   "num": 1069,
+   "league": 104,
+   "date": "2027-01-16",
+   "time": "12:00",
+   "arena": "Carleton University - Ottawa",
+   "home": "Ottawa",
+   "away": "Outaouais",
+   "detailId": 23441
+  },
+  {
+   "num": 1070,
+   "league": 104,
+   "date": "2027-01-16",
+   "time": "13:00",
+   "arena": "Blainville",
+   "home": "Laurentides",
+   "away": "BLL",
+   "detailId": 23442
+  },
+  {
+   "num": 2049,
+   "league": 105,
+   "date": "2027-01-16",
+   "time": "14:30",
+   "arena": "Blainville",
+   "home": "Laurentides",
+   "away": "BLL",
+   "detailId": 23350
+  },
+  {
+   "num": 2050,
+   "league": 105,
+   "date": "2027-01-16",
+   "time": "15:00",
+   "arena": "Duberger - Québec",
+   "home": "Québec",
+   "away": "Lac St-Louis",
+   "detailId": 23351
+  },
+  {
+   "num": 1071,
+   "league": 104,
+   "date": "2027-01-16",
+   "time": "15:30",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Rive-Sud",
+   "detailId": 23443
+  },
+  {
+   "num": 1072,
+   "league": 104,
+   "date": "2027-01-17",
+   "time": "11:15",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Nepean",
+   "away": "Laurentides",
+   "detailId": 23444
+  },
+  {
+   "num": 2051,
+   "league": 105,
+   "date": "2027-01-17",
+   "time": "12:00",
+   "arena": "Mascouche",
+   "home": "BLL",
+   "away": "Eastern surge",
+   "detailId": 23352
+  },
+  {
+   "num": 1073,
+   "league": 104,
+   "date": "2027-01-17",
+   "time": "12:30",
+   "arena": "Slush Puppie D - Gatineau",
+   "home": "Outaouais",
+   "away": "Lac St-Louis",
+   "detailId": 23445
+  },
+  {
+   "num": 1074,
+   "league": 104,
+   "date": "2027-01-17",
+   "time": "16:00",
+   "arena": "Richmond - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Laurentides",
+   "detailId": 23446
+  },
+  {
+   "num": 2052,
+   "league": 105,
+   "date": "2027-01-17",
+   "time": "17:00",
+   "arena": "Gilles Chabot - Boucherville",
+   "home": "Rive-Sud",
+   "away": "Eastern surge",
+   "detailId": 23353
+  },
+  {
+   "num": 1075,
+   "league": 104,
+   "date": "2027-01-17",
+   "time": "17:15",
+   "arena": "Walkley - Ottawa",
+   "home": "Ottawa",
+   "away": "Lac St-Louis",
+   "detailId": 23447
+  },
+  {
+   "num": 1076,
+   "league": 104,
+   "date": "2027-01-23",
+   "time": "11:30",
+   "arena": "Sportium - Ste-Catherine",
+   "home": "Rive-Sud",
+   "away": "Nepean",
+   "detailId": 23448
+  },
+  {
+   "num": 1077,
+   "league": 104,
+   "date": "2027-01-23",
+   "time": "12:00",
+   "arena": "Rolland - Montréal Nord",
+   "home": "BLL",
+   "away": "Ottawa",
+   "detailId": 23449
+  },
+  {
+   "num": 1078,
+   "league": 104,
+   "date": "2027-01-23",
+   "time": "13:00",
+   "arena": "BSR - Lévis",
+   "home": "Québec",
+   "away": "GCRA",
+   "detailId": 23450
+  },
+  {
+   "num": 2053,
+   "league": 105,
+   "date": "2027-01-23",
+   "time": "13:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "Eastern surge",
+   "away": "Rive-Sud",
+   "detailId": 23354
+  },
+  {
+   "num": 2054,
+   "league": 105,
+   "date": "2027-01-23",
+   "time": "15:15",
+   "arena": "Val D'Espoir - St-Janvier",
+   "home": "Laurentides",
+   "away": "Lac St-Louis",
+   "detailId": 23355
+  },
+  {
+   "num": 1079,
+   "league": 104,
+   "date": "2027-01-23",
+   "time": "17:00",
+   "arena": "Centre Caztel - Sainte-Marie",
+   "home": "Québec",
+   "away": "GCRA",
+   "detailId": 23451
+  },
+  {
+   "num": 1080,
+   "league": 104,
+   "date": "2027-01-23",
+   "time": "17:15",
+   "arena": "Pierrefonds -Sportplexe - LSL",
+   "home": "Lac St-Louis",
+   "away": "Ottawa",
+   "detailId": 23452
+  },
+  {
+   "num": 2055,
+   "league": 105,
+   "date": "2027-01-23",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Rive-Sud",
+   "detailId": 23356
+  },
+  {
+   "num": 1081,
+   "league": 104,
+   "date": "2027-01-30",
+   "time": "12:00",
+   "arena": "Rolland - Montréal Nord",
+   "home": "BLL",
+   "away": "Québec",
+   "detailId": 23453
+  },
+  {
+   "num": 1082,
+   "league": 104,
+   "date": "2027-01-30",
+   "time": "14:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Ottawa",
+   "detailId": 23454
+  },
+  {
+   "num": 1083,
+   "league": 104,
+   "date": "2027-01-30",
+   "time": "17:00",
+   "arena": "Gilles Chabot - Boucherville",
+   "home": "Rive-Sud",
+   "away": "Québec",
+   "detailId": 23455
+  },
+  {
+   "num": 1084,
+   "league": 104,
+   "date": "2027-01-31",
+   "time": "15:30",
+   "arena": "Bob Birnie - Pointe-Claire",
+   "home": "Lac St-Louis",
+   "away": "Laurentides",
+   "detailId": 23456
+  },
+  {
+   "num": 1085,
+   "league": 104,
+   "date": "2027-02-09",
+   "time": "19:15",
+   "arena": "Slush Puppie D - Gatineau",
+   "home": "Outaouais",
+   "away": "Nepean",
+   "detailId": 23457
+  },
+  {
+   "num": 1086,
+   "league": 104,
+   "date": "2027-02-13",
+   "time": "12:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Nepean",
+   "detailId": 23458
+  },
+  {
+   "num": 1087,
+   "league": 104,
+   "date": "2027-02-13",
+   "time": "12:00",
+   "arena": "Rolland - Montréal Nord",
+   "home": "BLL",
+   "away": "Outaouais",
+   "detailId": 23459
+  },
+  {
+   "num": 2056,
+   "league": 105,
+   "date": "2027-02-13",
+   "time": "12:00",
+   "arena": "Centre Caztel - Sainte-Marie",
+   "home": "Québec",
+   "away": "BLL",
+   "detailId": 23357
+  },
+  {
+   "num": 1088,
+   "league": 104,
+   "date": "2027-02-13",
+   "time": "13:30",
+   "arena": "Centre Caztel - Sainte-Marie",
+   "home": "Québec",
+   "away": "Laurentides",
+   "detailId": 23460
+  },
+  {
+   "num": 2057,
+   "league": 105,
+   "date": "2027-02-13",
+   "time": "14:15",
+   "arena": "Sportsplex 2 - Nepean",
+   "home": "Eastern rush",
+   "away": "Laurentides",
+   "detailId": 23358
+  },
+  {
+   "num": 2058,
+   "league": 105,
+   "date": "2027-02-13",
+   "time": "16:00",
+   "arena": "Duberger - Québec",
+   "home": "Québec",
+   "away": "BLL",
+   "detailId": 23359
+  },
+  {
+   "num": 1089,
+   "league": 104,
+   "date": "2027-02-13",
+   "time": "16:45",
+   "arena": "Isatis - St-Hyacinthe",
+   "home": "Rive-Sud",
+   "away": "Outaouais",
+   "detailId": 23461
+  },
+  {
+   "num": 1090,
+   "league": 104,
+   "date": "2027-02-13",
+   "time": "17:30",
+   "arena": "Duberger - Québec",
+   "home": "Québec",
+   "away": "Laurentides",
+   "detailId": 23462
+  },
+  {
+   "num": 2059,
+   "league": 105,
+   "date": "2027-02-13",
+   "time": "19:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern surge",
+   "away": "Laurentides",
+   "detailId": 23360
+  },
+  {
+   "num": 2060,
+   "league": 105,
+   "date": "2027-02-14",
+   "time": "12:00",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern rush",
+   "away": "Lac St-Louis",
+   "detailId": 23361
+  },
+  {
+   "num": 1091,
+   "league": 104,
+   "date": "2027-02-14",
+   "time": "14:15",
+   "arena": "Vaudreuil - Dorion",
+   "home": "Lac St-Louis",
+   "away": "West Ottawa",
+   "detailId": 23463
+  },
+  {
+   "num": 2061,
+   "league": 105,
+   "date": "2027-02-14",
+   "time": "17:15",
+   "arena": "Ray Friel 3 - Ottawa",
+   "home": "Eastern surge",
+   "away": "Lac St-Louis",
+   "detailId": 23362
+  },
+  {
+   "num": 2062,
+   "league": 105,
+   "date": "2027-02-20",
+   "time": "12:00",
+   "arena": "Rolland - Montréal Nord",
+   "home": "BLL",
+   "away": "Rive-Sud",
+   "detailId": 23363
+  },
+  {
+   "num": 1092,
+   "league": 104,
+   "date": "2027-02-20",
+   "time": "15:00",
+   "arena": "St-Bruno - Michael-Bilodeau",
+   "home": "Rive-Sud",
+   "away": "Laurentides",
+   "detailId": 23464
+  },
+  {
+   "num": 2063,
+   "league": 105,
+   "date": "2027-02-21",
+   "time": "16:00",
+   "arena": "Gilles Chabot - Boucherville",
+   "home": "Rive-Sud",
+   "away": "Lac St-Louis",
+   "detailId": 23364
+  },
+  {
+   "num": 2064,
+   "league": 105,
+   "date": "2027-02-21",
+   "time": "17:00",
+   "arena": "St-Eustache - Complexe Walter-Buswell",
+   "home": "Laurentides",
+   "away": "BLL",
+   "detailId": 23365
+  },
+  {
+   "num": 1093,
+   "league": 104,
+   "date": "2027-02-21",
+   "time": "17:10",
+   "arena": "Ste-Julie - Batisseurs",
+   "home": "Rive-Sud",
+   "away": "Lac St-Louis",
+   "detailId": 23465
+  },
+  {
+   "num": 2065,
+   "league": 105,
+   "date": "2027-02-27",
+   "time": "11:30",
+   "arena": "BSR - Lévis",
+   "home": "Québec",
+   "away": "Laurentides",
+   "detailId": 23366
+  },
+  {
+   "num": 1094,
+   "league": 104,
+   "date": "2027-02-27",
+   "time": "12:00",
+   "arena": "Cardelrec A - West Ottawa",
+   "home": "West Ottawa",
+   "away": "Québec",
+   "detailId": 23466
+  },
+  {
+   "num": 2066,
+   "league": 105,
+   "date": "2027-02-27",
+   "time": "12:00",
+   "arena": "Rolland - Montréal Nord",
+   "home": "BLL",
+   "away": "Rive-Sud",
+   "detailId": 23367
+  },
+  {
+   "num": 1095,
+   "league": 104,
+   "date": "2027-02-27",
+   "time": "14:15",
+   "arena": "2 Glaces - Candiac",
+   "home": "Rive-Sud",
+   "away": "BLL",
+   "detailId": 23467
+  },
+  {
+   "num": 2067,
+   "league": 105,
+   "date": "2027-02-27",
+   "time": "15:00",
+   "arena": "Duberger - Québec",
+   "home": "Québec",
+   "away": "Laurentides",
+   "detailId": 23368
+  },
+  {
+   "num": 1096,
+   "league": 104,
+   "date": "2027-02-27",
+   "time": "16:00",
+   "arena": "Slush Puppie C - Gatineau",
+   "home": "Outaouais",
+   "away": "Québec",
+   "detailId": 23468
+  },
+  {
+   "num": 2068,
+   "league": 105,
+   "date": "2027-02-28",
+   "time": "15:30",
+   "arena": "Bob Birnie - Pointe-Claire",
+   "home": "Lac St-Louis",
+   "away": "Rive-Sud",
+   "detailId": 23369
+  },
+  {
+   "num": 1097,
+   "league": 104,
+   "date": "2027-02-28",
+   "time": "17:00",
+   "arena": "St-Eustache - Complexe Walter-Buswell",
+   "home": "Laurentides",
+   "away": "Lac St-Louis",
+   "detailId": 23469
+  },
+  {
+   "num": 1098,
+   "league": 104,
+   "date": "2027-02-28",
+   "time": "19:30",
+   "arena": "Yvon Chartrand - Laval",
+   "home": "BLL",
+   "away": "Rive-Sud",
+   "detailId": 23470
+  },
+  {
+   "num": 1099,
+   "league": 104,
+   "date": "2027-03-06",
+   "time": "18:15",
+   "arena": "Repentigny - BLL",
+   "home": "BLL",
+   "away": "Lac St-Louis",
+   "detailId": 23471
+  },
+  {
+   "num": 2069,
+   "league": 105,
+   "date": "2027-03-06",
+   "time": "19:45",
+   "arena": "Repentigny - BLL",
+   "home": "BLL",
+   "away": "Lac St-Louis",
+   "detailId": 23370
+  },
+  {
+   "num": 1100,
+   "league": 104,
+   "date": "2027-03-07",
+   "time": "13:00",
+   "arena": "Ray Friel 1 - Ottawa",
+   "home": "GCRA",
+   "away": "Outaouais",
+   "detailId": 23472
+  },
+  {
+   "num": 2070,
+   "league": 105,
+   "date": "2027-03-07",
+   "time": "17:10",
+   "arena": "Ste-Julie - Batisseurs",
+   "home": "Rive-Sud",
+   "away": "Laurentides",
+   "detailId": 23372
+  }
+ ]
+}
