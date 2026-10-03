@@ -179,15 +179,15 @@
       .filter((g) => g.start);
   }
 
-  // LERQ games from quebec.json (see scripts/fetch-lerq.mjs). No end times or
-  // scores are published, so ends are estimated and scores left out.
+  // LERQ games from quebec.json (see scripts/fetch-lerq.mjs). No end times are
+  // published, so ends are estimated. Scores come from each game's own page.
   const slug = (s) => String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   function normalizeLerq(data, league) {
     const names = Object.fromEntries((data.leagues || []).map((l) => [l.id, l.name]));
     return (data.games || []).map((g) => {
       const div = names[g.league] || 'LERQ';
       const alias = RINK_ALIASES[g.arena];
-      const team = (n) => ({ id: `lerq${g.league}:${slug(n)}`, name: n, score: null });
+      const team = (n, score) => ({ id: `lerq${g.league}:${slug(n)}`, name: n, score: score ?? null });
       return {
         key: `Q-${g.num}`,
         id: g.num,
@@ -196,14 +196,14 @@
         endEstimated: true,
         arena: alias ? alias[1] : g.arena,
         rinkId: alias ? alias[0] : `lerq:${g.arena}`,
-        home: team(g.home),
-        away: team(g.away),
+        home: team(g.home, g.score && g.score.home),
+        away: team(g.away, g.score && g.score.away),
         division: div,
         baseDivision: div,
         league,
         type: '',
         notes: '',
-        completed: false,
+        completed: !!g.score,
         cancelled: false,
         tournament: null,
       };
@@ -623,7 +623,7 @@
         ${share ? `<div class="row"><button class="btn secondary" id="shareBtn">Share my teams</button>
           <span class="muted small">Sends a link that sets up the same teams on another phone.</span></div>` : ''}
         <p class="muted small">${LEAGUES.filter((l) => l.type === 'ramp').map((l) => `${esc(l.name)} season: ${esc(state.seasons[l.key] ? state.seasons[l.key].name : 'checking…')}`).join(' · ')} (picked automatically).</p>
-        <p class="muted small">LERQ schedule copied from Ringuette Québec ${state.lerqUpdatedAt ? `— last changed ${esc(fmtAgo(state.lerqUpdatedAt))}` : '— not available yet'}. LERQ scores aren't shown.</p>
+        <p class="muted small">LERQ schedule copied from Ringuette Québec ${state.lerqUpdatedAt ? `— last changed ${esc(fmtAgo(state.lerqUpdatedAt))}` : '— not available yet'}. Scores appear once they're entered on Ringuette Québec's site.</p>
         ${tournamentSummary()}
       </section>`;
 

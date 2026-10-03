@@ -26,7 +26,8 @@ The LERQ U16 AA and U19 AA schedules come from Ringuette Québec's public schedu
 - If the page ever changes and no games can be read, the job fails (GitHub emails you) and the old `quebec.json` is kept.
 - Only the Ottawa-area LERQ teams appear in the team picker (`pickerTeams` in `app.js`), but every LERQ game counts for opponents and for before/after on the ice.
 - Ringuette Québec names rinks differently from RAMP; `RINK_ALIASES` in `app.js` matches the Ottawa-area ones so LERQ games line up with NCRRL and GAARA games on the same ice.
-- LERQ doesn't publish end times (estimated, shown with "~") and the app doesn't show LERQ scores yet.
+- Scores aren't in Ringuette Québec's schedule list, only on each game's own page. The job reads those pages for games that have started and don't have a score yet (and re-checks the last 3 days in case of corrections), so a score shows up within about 3 hours of being entered.
+- LERQ doesn't publish end times; they're estimated and shown with "~".
 
 ## Tournaments
 
