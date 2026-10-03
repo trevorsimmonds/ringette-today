@@ -1,6 +1,6 @@
 // Ringette Today service worker: caches the app shell so it opens offline.
 // Schedule data is fetched by the app itself and kept in localStorage.
-const CACHE = 'ringette-today-v5';
+const CACHE = 'ringette-today-v6';
 const SHELL = [
   './',
   'index.html',
@@ -25,27 +25,16 @@ self.addEventListener('activate', (e) => {
   );
 });
 
-// Same-origin files: serve from cache, update in the background.
+// Same-origin files: network first, saved copy when offline.
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET' || url.origin !== location.origin) return;
-  // Schedule data copied by the GitHub job: always try the network first.
-  if (url.pathname.endsWith('/quebec.json')) {
-    e.respondWith(
-      fetch(e.request).then((res) => {
-        if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(e.request, copy)); }
-        return res;
-      }).catch(() => caches.match(e.request, { ignoreSearch: true }))
-    );
-    return;
-  }
+  // Try the network first so new app versions and schedule data show up on the
+  // next open; fall back to the saved copy when offline.
   e.respondWith(
-    caches.open(CACHE).then(async (cache) => {
-      const cached = await cache.match(e.request, { ignoreSearch: true });
-      const network = fetch(e.request)
-        .then((res) => { if (res.ok) cache.put(e.request, res.clone()); return res; })
-        .catch(() => cached);
-      return cached || network;
-    })
+    fetch(e.request, { cache: 'no-cache' }).then((res) => {
+      if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(e.request, copy)); }
+      return res;
+    }).catch(() => caches.match(e.request, { ignoreSearch: true }))
   );
 });
