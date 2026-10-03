@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-02T03:41:20.402Z",
+ "updatedAt": "2026-10-03T14:15:23.577Z",
  "leagues": [
   {
    "id": 104,
@@ -22,7 +22,11 @@
    "arena": "Slush Puppie C - Gatineau",
    "home": "Outaouais",
    "away": "Ottawa",
-   "detailId": 23373
+   "detailId": 23373,
+   "score": {
+    "away": 4,
+    "home": 0
+   }
   },
   {
    "num": 1002,
@@ -32,7 +36,11 @@
    "arena": "Walkley - Ottawa",
    "home": "Ottawa",
    "away": "Nepean",
-   "detailId": 23374
+   "detailId": 23374,
+   "score": {
+    "away": 6,
+    "home": 6
+   }
   },
   {
    "num": 1003,
@@ -42,7 +50,11 @@
    "arena": "Jim Durell Peplinski",
    "home": "Ottawa",
    "away": "GCRA",
-   "detailId": 23375
+   "detailId": 23375,
+   "score": {
+    "away": 5,
+    "home": 4
+   }
   },
   {
    "num": 2001,
@@ -72,7 +84,11 @@
    "arena": "Sportsplex 2 - Nepean",
    "home": "Nepean",
    "away": "GCRA",
-   "detailId": 23376
+   "detailId": 23376,
+   "score": {
+    "away": 6,
+    "home": 9
+   }
   },
   {
    "num": 1005,
