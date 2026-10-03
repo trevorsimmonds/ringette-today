@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-03T14:15:23.577Z",
+ "updatedAt": "2026-10-03T23:48:03.520Z",
  "leagues": [
   {
    "id": 104,
@@ -138,7 +138,11 @@
    "arena": "Centre Caztel - Sainte-Marie",
    "home": "Québec",
    "away": "Eastern surge",
-   "detailId": 23305
+   "detailId": 23305,
+   "score": {
+    "away": 4,
+    "home": 6
+   }
   },
   {
    "num": 1008,
