@@ -57,6 +57,8 @@
   const LOOKBACK_DAYS = 7;       // …or that ended within this many days (for results)
   const LS = {
     tracked: 'rt.tracked',       // [teamId, ...]
+    favs: 'rt.favs',             // [teamId, ...] — favourites (always also followed)
+    upFilter: 'rt.upFilter',     // 'all' | 'fav' — Upcoming filter, remembered
     tourn: 'rt.t.',              // + aid -> {sid, fetchedAt, games}
   };
   const params = new URLSearchParams(location.search);
@@ -78,15 +80,20 @@
     byIce: new Map(),   // "rinkId|yyyy-mm-dd" -> [games sorted]
     tracked: new Set(readJSON(LS.tracked, []).map(String)), // team IDs as strings
     fetchedAt: null,
+    favs: new Set(readJSON(LS.favs, []).map(String)),
+    upFilter: readJSON(LS.upFilter, 'all') === 'fav' ? 'fav' : 'all',
     teamFilter: '',
     teamOnlyMine: false,
   };
+  for (const id of state.favs) state.tracked.add(id); // a favourite is always followed
 
-  // Teams shared via link: #teams=123,456,lerq104:ottawa
+  // Teams shared via link: #teams=123,456,lerq104:ottawa&favs=456
   (function importFromHash() {
-    const m = location.hash.match(/teams=([^&]+)/);
-    if (!m) return;
-    decodeURIComponent(m[1]).split(',').filter(Boolean).forEach((id) => state.tracked.add(id));
+    const h = new URLSearchParams(location.hash.slice(1));
+    if (!h.has('teams') && !h.has('favs')) return;
+    const ids = (k) => (h.get(k) || '').split(',').filter(Boolean);
+    ids('teams').forEach((id) => state.tracked.add(id));
+    ids('favs').forEach((id) => { state.favs.add(id); state.tracked.add(id); });
     saveTracked();
     history.replaceState(null, '', location.pathname + location.search);
   })();
@@ -99,7 +106,11 @@
   function writeJSON(key, value) {
     try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
   }
-  function saveTracked() { writeJSON(LS.tracked, [...state.tracked]); }
+  function saveTracked() { writeJSON(LS.tracked, [...state.tracked]); writeJSON(LS.favs, [...state.favs]); }
+  function shareUrl() {
+    const favs = [...state.favs];
+    return `${location.origin}${location.pathname}#teams=${[...state.tracked].join(',')}${favs.length ? `&favs=${favs.join(',')}` : ''}`;
+  }
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   function now() {
@@ -253,6 +264,7 @@
   }
 
   const isTracked = (g) => state.tracked.has(g.home.id) || state.tracked.has(g.away.id);
+  const isFav = (g) => state.favs.has(g.home.id) || state.favs.has(g.away.id);
 
   // --- season (automatic) ---
   async function resolveSeason(league) {
@@ -442,7 +454,7 @@
     const mine = state.tracked.has(t.id);
     const showScore = g.completed || (t.score !== null && t.score !== undefined && g.start < now());
     return `<div class="team${mine ? ' mine' : ''}">
-      <span class="name"><span class="ha">${side}</span>${esc(t.name)}</span>
+      <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${esc(t.name)}</span>
       ${showScore && t.score != null ? `<span class="score">${t.score}</span>` : ''}
     </div>`;
   }
@@ -454,11 +466,13 @@
     }
     const gap = which === 'before' ? g.start - other.end : other.start - g.end;
     const tracked = isTracked(other);
+    const fav = isFav(other);
+    const tag = fav ? '<span class="chip fav">★ Favourite</span>' : tracked ? '<span class="chip">Following</span>' : '';
     return `<div class="ice-row${tracked ? ' tracked' : ''}">
       <span class="ice-label">${label}</span>
       <span>
         <span class="ice-when">${fmtTime(other.start)}–${other.endEstimated ? '~' : ''}${fmtTime(other.end)}</span>
-        <span class="ice-gap"> · ${fmtGap(gap)}</span>${tracked ? '<span class="chip">Following</span>' : ''}<br>
+        <span class="ice-gap"> · ${fmtGap(gap)}</span>${tag}<br>
         <span class="ice-teams">${esc(other.away.name)} @ ${esc(other.home.name)}</span>
         <span class="muted small"> · ${esc(other.division)}${other.tournament ? ` · ${esc(other.tournament.short)}` : ''}</span>
       </span>
@@ -524,13 +538,37 @@
     let games = state.games.filter(isTracked);
     games = mode === 'upcoming' ? games.filter((g) => !done(g)) : games.filter(done).reverse();
 
+    // Upcoming has an All / ★ Favourites switch (remembered); Results shows everything.
+    let bar = '';
+    if (mode === 'upcoming') {
+      const onlyFav = state.upFilter === 'fav';
+      bar = `<div class="seg" role="group" aria-label="Show">
+        <button data-upfilter="all" aria-pressed="${!onlyFav}">All</button>
+        <button data-upfilter="fav" aria-pressed="${onlyFav}">★ Favourites${state.favs.size ? ` (${state.favs.size})` : ''}</button>
+      </div>`;
+      if (onlyFav) {
+        if (!state.favs.size) {
+          main.innerHTML = `${bar}<div class="empty"><h2>No favourites yet</h2>
+            <p>Tap the ☆ next to a team in the Teams tab to make it a favourite.</p>
+            <button class="btn" data-goto="teams">Choose favourites</button></div>`;
+          return;
+        }
+        games = games.filter(isFav);
+        if (!games.length) {
+          main.innerHTML = `${bar}<div class="empty"><h2>No upcoming games for your favourites</h2>
+            <p>Switch to All to see games for the other teams you follow.</p></div>`;
+          return;
+        }
+      }
+    }
+
     if (!games.length) {
-      main.innerHTML = `<div class="empty"><h2>${mode === 'upcoming' ? 'No upcoming games posted' : 'No results yet'}</h2>
+      main.innerHTML = `${bar}<div class="empty"><h2>${mode === 'upcoming' ? 'No upcoming games posted' : 'No results yet'}</h2>
         <p>${mode === 'upcoming' ? 'NCRRL publishes the schedule a couple of weeks at a time, and tournaments usually post theirs a week or two before the event — check back after the next posting.' : 'Scores show up here once games are played.'}</p></div>`;
       return;
     }
 
-    main.innerHTML = groupByDay(games).map((d) => {
+    main.innerHTML = bar + groupByDay(games).map((d) => {
       const rel = relDay(d.date);
       return `<h2 class="day">${esc(fmtDay(d.date))}${rel ? `<span class="rel">${rel}</span>` : ''}</h2>
         ${d.games.map((g) => gameCard(g, { showIce: mode === 'upcoming', result: mode === 'results' })).join('')}`;
@@ -595,33 +633,44 @@
       return first && l === LEAGUES[0] ? '' : `<h2 class="league-heading">${esc(l.heading || l.name)}</h2>`;
     };
 
+    // Checkbox = follow; star = favourite (starring also follows).
+    const row = (t, showDiv = false) => {
+      const on = state.tracked.has(t.id);
+      const fav = state.favs.has(t.id);
+      return `<div class="team-row${on ? ' on' : ''}${fav ? ' fav' : ''}">
+        <label class="team-pick">
+          <input type="checkbox" data-team="${esc(t.id)}"${on ? ' checked' : ''}>
+          <span>${esc(t.name)}${showDiv ? `<span class="muted small"> · ${esc(t.division)}</span>` : ''}</span>
+        </label>
+        <button class="star" data-star="${esc(t.id)}" aria-pressed="${fav}" aria-label="${fav ? 'Remove from favourites' : 'Make favourite'}">${fav ? '★' : '☆'}</button>
+      </div>`;
+    };
+    const favTeams = [...state.favs].map((id) => state.teams.get(id)).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name));
+    const favSection = favTeams.length && !q && !state.teamOnlyMine
+      ? `<section class="division fav-section"><h3>★ Favourites</h3>${favTeams.map((t) => row(t, true)).join('')}</section>`
+      : '';
+
     const list = !state.teams.size
       ? '<div class="empty"><p>Loading teams…</p></div>'
       : divs.length
         ? divs.map((d) => `${leagueHeading(d)}<section class="division"><h3>${esc(d)}</h3>
-            ${byDiv.get(d).sort((a, b) => a.name.localeCompare(b.name)).map((t) => {
-              const on = state.tracked.has(t.id);
-              return `<label class="team-row${on ? ' on' : ''}">
-                <input type="checkbox" data-team="${t.id}"${on ? ' checked' : ''}>
-                <span>${esc(t.name)}</span></label>`;
-            }).join('')}</section>`).join('')
+            ${byDiv.get(d).sort((a, b) => a.name.localeCompare(b.name)).map((t) => row(t)).join('')}</section>`).join('')
         : '<div class="empty"><p>No teams match.</p></div>';
 
-    const share = state.tracked.size
-      ? `${location.origin}${location.pathname}#teams=${[...state.tracked].join(',')}`
-      : '';
+    const share = state.tracked.size ? shareUrl() : '';
 
     main.innerHTML = `
       <input class="search" type="search" id="teamSearch" placeholder="Search teams, clubs or divisions (e.g. Ottawa Ice U14, GAARA)" value="${esc(state.teamFilter)}" autocomplete="off">
       <div class="filters">
         <button id="filterMine" aria-pressed="${state.teamOnlyMine}">Only teams I follow (${state.tracked.size})</button>
       </div>
-      <p class="muted small">Teams appear here once they have at least one game posted this season.</p>
+      <p class="muted small">Tick a team to follow it. Tap ☆ to make it a favourite. Teams appear once they have a game posted this season.</p>
+      ${favSection}
       ${list}
       <section class="settings">
         <h3>Settings</h3>
         ${share ? `<div class="row"><button class="btn secondary" id="shareBtn">Share my teams</button>
-          <span class="muted small">Sends a link that sets up the same teams on another phone.</span></div>` : ''}
+          <span class="muted small">Sends a link that sets up the same teams and favourites on another phone.</span></div>` : ''}
         <p class="muted small">${LEAGUES.filter((l) => l.type === 'ramp').map((l) => `${esc(l.name)} season: ${esc(state.seasons[l.key] ? state.seasons[l.key].name : 'checking…')}`).join(' · ')} (picked automatically).</p>
         <p class="muted small">LERQ schedule copied from Ringuette Québec ${state.lerqUpdatedAt ? `— last changed ${esc(fmtAgo(state.lerqUpdatedAt))}` : '— not available yet'}. Scores appear once they're entered on Ringuette Québec's site.</p>
         ${tournamentSummary()}
@@ -636,9 +685,14 @@
     });
   }
 
+  function updateBadge() {
+    const n = state.tracked.size, f = state.favs.size;
+    $('#teamCount').textContent = f ? `${f}★ · ${n}` : (n || '');
+  }
+
   function render() {
     document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === state.view)));
-    $('#teamCount').textContent = state.tracked.size || '';
+    updateBadge();
     if (state.view === 'teams') renderTeams();
     else renderSchedule(state.view);
   }
@@ -650,7 +704,7 @@
     $('#rinkTitle').textContent = g.arena;
     $('#rinkSub').textContent = `${fmtDay(g.start)} · ${list.length} game${list.length === 1 ? '' : 's'} listed`;
     $('#rinkList').innerHTML = list.map((x) => `<li class="${isTracked(x) ? 'tracked' : ''}${x === g ? ' this' : ''}">
-      <span class="t">${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)} <span class="d">${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
+      <span class="t">${isFav(x) ? '<span class="fav-star">★</span>' : ''}${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)} <span class="d">${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
       ${esc(x.away.name)} @ ${esc(x.home.name)}</li>`).join('');
     $('#rinkDialog').showModal();
   }
@@ -670,8 +724,24 @@
     const arena = e.target.closest('.arena[data-game]');
     if (arena) { openRink(arena.dataset.game); return; }
     if (e.target.id === 'filterMine') { state.teamOnlyMine = !state.teamOnlyMine; renderTeams(); return; }
+    const star = e.target.closest('[data-star]');
+    if (star) {
+      const id = star.dataset.star;
+      if (state.favs.has(id)) state.favs.delete(id);
+      else { state.favs.add(id); state.tracked.add(id); }
+      saveTracked();
+      rerenderTeamsKeepingScroll();
+      return;
+    }
+    const filt = e.target.closest('[data-upfilter]');
+    if (filt) {
+      state.upFilter = filt.dataset.upfilter === 'fav' ? 'fav' : 'all';
+      writeJSON(LS.upFilter, state.upFilter);
+      render();
+      return;
+    }
     if (e.target.id === 'shareBtn') {
-      const url = `${location.origin}${location.pathname}#teams=${[...state.tracked].join(',')}`;
+      const url = shareUrl();
       try {
         if (navigator.share) await navigator.share({ title: 'Ringette Today', text: 'My ringette teams', url });
         else { await navigator.clipboard.writeText(url); setStatus('Link copied.'); }
@@ -683,12 +753,18 @@
     const cb = e.target.closest('input[data-team]');
     if (!cb) return;
     const id = cb.dataset.team;
-    if (cb.checked) state.tracked.add(id); else state.tracked.delete(id);
+    if (cb.checked) state.tracked.add(id);
+    else { state.tracked.delete(id); state.favs.delete(id); } // unfollowing removes the star
     saveTracked();
-    cb.closest('.team-row').classList.toggle('on', cb.checked);
-    $('#teamCount').textContent = state.tracked.size || '';
-    const fm = $('#filterMine'); if (fm) fm.textContent = `Only teams I follow (${state.tracked.size})`;
+    rerenderTeamsKeepingScroll();
   });
+
+  function rerenderTeamsKeepingScroll() {
+    const y = window.scrollY;
+    renderTeams();
+    updateBadge();
+    window.scrollTo(0, y);
+  }
 
   $('#refreshBtn').addEventListener('click', () => load({ force: true }));
   $('#rinkClose').addEventListener('click', () => $('#rinkDialog').close());

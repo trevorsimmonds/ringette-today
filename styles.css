@@ -145,9 +145,30 @@ main { max-width: 720px; margin: 0 auto; padding: 0 16px 40px; }
 .division { margin-top: 16px; }
 .division h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 6px; }
 .team-row {
-  display: flex; align-items: center; gap: 12px; padding: 11px 12px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 6px; cursor: pointer;
+  display: flex; align-items: center; gap: 4px; padding: 0 4px 0 12px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 6px;
 }
+.team-pick { flex: 1; display: flex; align-items: center; gap: 12px; padding: 11px 0; cursor: pointer; min-width: 0; }
+.star {
+  flex: none; width: 44px; height: 44px; border: 0; background: none; cursor: pointer;
+  font-size: 1.45rem; line-height: 1; color: var(--muted); border-radius: 10px;
+}
+.star[aria-pressed="true"] { color: var(--accent); }
+.star:active { background: var(--surface-2); }
+.fav-section h3 { color: var(--accent); }
+.fav-star { color: var(--accent); margin-right: 4px; }
+.chip.fav { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* Upcoming: All / Favourites switch */
+.seg {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; margin: 12px 0 4px;
+  background: var(--surface-2); border-radius: 12px;
+}
+.seg button {
+  border: 0; background: none; padding: 9px 6px; border-radius: 9px; font-weight: 700; color: var(--muted); cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+.seg button[data-upfilter="fav"][aria-pressed="true"] { color: var(--accent); }
 .team-row input { width: 20px; height: 20px; accent-color: var(--tracked-line); flex: none; }
 .team-row.on { background: var(--tracked-bg); border-color: var(--tracked-line); font-weight: 700; }
 
