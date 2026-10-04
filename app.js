@@ -35,6 +35,7 @@
       divOrder: ['Black', 'Brown', 'Red', 'Blue', 'Yellow', 'Green', 'Orange', 'Purple'] },
   ];
   const API = 'https://www.ncrrl.com/api';
+  const RESULTS_AFTER_MIN = 90;  // a game moves to Results this long after it starts
   // Ringuette Québec writes rink names its own way. These Ottawa-area rinks are
   // matched to RAMP's rink IDs so LERQ games line up with NCRRL/GAARA games on
   // the same ice. Rinks without a pad number (e.g. "Cardelrec - West Ottawa",
@@ -468,7 +469,7 @@
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(arena)}`;
   }
 
-  function gameCard(g, { showIce = true } = {}) {
+  function gameCard(g, { showIce = true, result = false } = {}) {
     const { before, after } = iceNeighbours(g);
     return `<article class="card${g.tournament ? ' tourney' : ''}">
       ${g.tournament ? `<div class="tourney-tag">Tournament · ${esc(g.tournament.name)}${g.type ? ` · ${esc(g.type)}` : ''}</div>` : ''}
@@ -485,6 +486,7 @@
         ${teamLine(g.home, g, 'HOME')}
       </div>
       ${g.cancelled ? '<div class="note">Cancelled</div>' : ''}
+      ${result && !g.cancelled && g.home.score == null ? '<div class="pending">Score not posted yet</div>' : ''}
       ${g.notes ? `<div class="note">${esc(g.notes)}</div>` : ''}
       ${showIce && !g.cancelled ? `<div class="ice">
         ${iceRow('Before', before, g, 'before')}
@@ -515,14 +517,12 @@
     }
     if (!state.games.length) { main.innerHTML = `<div class="empty"><p>Loading schedule…</p></div>`; return; }
 
-    const t0 = now();
-    const startOfToday = new Date(t0); startOfToday.setHours(0, 0, 0, 0);
+    // A game moves from Upcoming to Results 1.5 hours after it starts,
+    // whether or not its score has been posted yet.
+    const t0 = now().getTime();
+    const done = (g) => g.start.getTime() + RESULTS_AFTER_MIN * 60000 <= t0;
     let games = state.games.filter(isTracked);
-    if (mode === 'upcoming') {
-      games = games.filter((g) => g.end >= startOfToday && !(g.completed && g.end < t0));
-    } else {
-      games = games.filter((g) => g.completed || g.end < t0).reverse();
-    }
+    games = mode === 'upcoming' ? games.filter((g) => !done(g)) : games.filter(done).reverse();
 
     if (!games.length) {
       main.innerHTML = `<div class="empty"><h2>${mode === 'upcoming' ? 'No upcoming games posted' : 'No results yet'}</h2>
@@ -533,7 +533,7 @@
     main.innerHTML = groupByDay(games).map((d) => {
       const rel = relDay(d.date);
       return `<h2 class="day">${esc(fmtDay(d.date))}${rel ? `<span class="rel">${rel}</span>` : ''}</h2>
-        ${d.games.map((g) => gameCard(g, { showIce: mode === 'upcoming' })).join('')}`;
+        ${d.games.map((g) => gameCard(g, { showIce: mode === 'upcoming', result: mode === 'results' })).join('')}`;
     }).join('');
   }
 
