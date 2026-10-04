@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-04T18:39:49.198Z",
+ "updatedAt": "2026-10-04T23:58:46.897Z",
  "leagues": [
   {
    "id": 104,
@@ -98,7 +98,11 @@
    "arena": "Beaconsfield - LSL",
    "home": "Lac St-Louis",
    "away": "Nepean",
-   "detailId": 23377
+   "detailId": 23377,
+   "score": {
+    "away": 4,
+    "home": 4
+   }
   },
   {
    "num": 2003,
