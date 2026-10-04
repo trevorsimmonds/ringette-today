@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-03T23:48:03.520Z",
+ "updatedAt": "2026-10-04T06:00:14.026Z",
  "leagues": [
   {
    "id": 104,
@@ -128,7 +128,11 @@
    "arena": "Centre Caztel - Sainte-Marie",
    "home": "Québec",
    "away": "Ottawa",
-   "detailId": 23379
+   "detailId": 23379,
+   "score": {
+    "away": 1,
+    "home": 4
+   }
   },
   {
    "num": 2004,
@@ -172,7 +176,11 @@
    "arena": "BSR - Lévis",
    "home": "Québec",
    "away": "Ottawa",
-   "detailId": 23381
+   "detailId": 23381,
+   "score": {
+    "away": 3,
+    "home": 3
+   }
   },
   {
    "num": 2006,
