@@ -401,6 +401,38 @@
     }
   }
 
+  // ---------- club logos ----------
+  // logos/logos.json lists each club's logo (linked live from the club's or
+  // league's site) and which team names it belongs to.
+  let logoClubs = [];
+  const logoCache = new Map();
+  async function loadLogos() {
+    try { logoClubs = (await getJSON('logos/logos.json')).clubs || []; } catch { logoClubs = []; }
+    logoCache.clear();
+  }
+  function logoFor(name, league) {
+    const k = `${league ? league.key : ''}|${name}`;
+    if (logoCache.has(k)) return logoCache.get(k);
+    let hit = null;
+    if (league && league.key === 'gaara') hit = logoClubs.find((c) => c.league === 'gaara');
+    else if (league && league.key === 'lerq') hit = logoClubs.find((c) => (c.lerqNames || []).includes(name));
+    else {
+      // Longest matching prefix wins ("West Ottawa Wild" before "Ottawa…").
+      const n = String(name).toLowerCase();
+      let best = 0;
+      for (const c of logoClubs) for (const p of c.prefixes || []) {
+        const q = p.toLowerCase();
+        if (q.length > best && (n === q || n.startsWith(q + ' ') || n.startsWith(q + '-'))) { best = q.length; hit = c; }
+      }
+    }
+    const url = hit ? hit.url : null;
+    logoCache.set(k, url);
+    return url;
+  }
+  const logoImg = (url) => url
+    ? `<span class="logo" aria-hidden="true"><img src="${esc(url)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>`
+    : '';
+
   async function loadTournamentList() {
     try {
       const j = await getJSON(FIXTURE ? 'fixture-tournaments.json' : 'tournaments.json');
@@ -425,6 +457,7 @@
         if (!state.fetchedAt || at < state.fetchedAt) state.fetchedAt = at;
       }
       await loadTournamentList();
+      await loadLogos();
       loadCachedTournaments();
       pruneTournamentCache();
       rebuild();
@@ -514,7 +547,7 @@
     const mine = state.tracked.has(t.id);
     const showScore = g.completed || (t.score !== null && t.score !== undefined && g.start < now());
     return `<div class="team${mine ? ' mine' : ''}">
-      <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${esc(t.name)}</span>
+      <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${logoImg(logoFor(t.name, g.league))}${esc(t.name)}</span>
       ${showScore && t.score != null ? `<span class="score">${t.score}</span>` : ''}
     </div>`;
   }
@@ -720,7 +753,7 @@
       return `<div class="team-row${on ? ' on' : ''}${fav ? ' fav' : ''}">
         <label class="team-pick">
           <input type="checkbox" data-team="${esc(t.id)}"${on ? ' checked' : ''}>
-          <span>${esc(t.name)}${showDiv ? `<span class="muted small"> · ${esc(t.division)}</span>` : ''}</span>
+          ${logoImg(logoFor(t.name, t.league))}<span>${esc(t.name)}${showDiv ? `<span class="muted small"> · ${esc(t.division)}</span>` : ''}</span>
         </label>
         <button class="star" data-star="${esc(t.id)}" aria-pressed="${fav}" aria-label="${fav ? 'Remove from favourites' : 'Make favourite'}">${fav ? '★' : '☆'}</button>
       </div>`;

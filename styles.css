@@ -208,3 +208,12 @@ dialog::backdrop { background: rgba(5, 10, 20, .55); }
 /* Also in this building */
 .also + .also { margin-top: 6px; }
 .also.tracked .ice-teams { font-weight: 700; }
+
+/* Club logos (linked from the clubs' own sites) */
+.logo {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid var(--line);
+  margin-right: 6px; vertical-align: -6px; overflow: hidden;
+}
+.logo img { width: 20px; height: 20px; object-fit: contain; }
+.team-pick .logo { margin-right: -4px; }

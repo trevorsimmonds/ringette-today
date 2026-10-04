@@ -1,0 +1,548 @@
+{
+ "_about": "Club logos shown next to team names. The app links to each logo's live address (url). A team gets a logo when its name starts with one of the prefixes; LERQ teams match lerqNames exactly; every GAARA team gets the GAARA logo. 'file' is the name scripts/download-logos.sh saves it under.",
+ "clubs": [
+  {
+   "number": 1,
+   "club": "Arnprior Devils",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/amra.jpg",
+   "file": "arnprior-devils.jpg",
+   "prefixes": [
+    "Arnprior Devils"
+   ]
+  },
+  {
+   "number": 2,
+   "club": "Clarence Rockland Falcons",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/images.jpg",
+   "file": "clarence-rockland-falcons.jpg",
+   "prefixes": [
+    "Clarence Rockland Falcons"
+   ]
+  },
+  {
+   "number": 3,
+   "club": "Gatineau",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/arg_logo.jpg",
+   "file": "gatineau.jpg",
+   "prefixes": [
+    "Gatineau"
+   ]
+  },
+  {
+   "number": 4,
+   "club": "Gloucester Cumberland Devils (GCRA)",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/gloucester_ringette_ah26_mockup222.jpg",
+   "file": "gloucester-cumberland-devils.jpg",
+   "prefixes": [
+    "Gloucester Cumberland Devils"
+   ],
+   "lerqNames": [
+    "GCRA"
+   ],
+   "note": "file is named \"mockup\", so it may be a draft"
+  },
+  {
+   "number": 5,
+   "club": "Kingston Panthers",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/kra.jpg",
+   "file": "kingston-panthers.jpg",
+   "prefixes": [
+    "Kingston Panthers"
+   ]
+  },
+  {
+   "number": 6,
+   "club": "Metcalfe Hornets",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/newlogomdra.jpg",
+   "file": "metcalfe-hornets.jpg",
+   "prefixes": [
+    "Metcalfe Hornets"
+   ]
+  },
+  {
+   "number": 7,
+   "club": "Nepean Ravens",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/nepean-ringette-logo.png",
+   "file": "nepean-ravens.png",
+   "prefixes": [
+    "Nepean Ravens"
+   ],
+   "lerqNames": [
+    "Nepean"
+   ]
+  },
+  {
+   "number": 8,
+   "club": "Ottawa Ice",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/cora-lg.jpg",
+   "file": "ottawa-ice.jpg",
+   "prefixes": [
+    "Ottawa Ice"
+   ],
+   "lerqNames": [
+    "Ottawa"
+   ],
+   "note": "this is the City of Ottawa Ringette Association logo; the Ottawa Ice team crest may differ"
+  },
+  {
+   "number": 9,
+   "club": "Upper Ottawa Valley",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/uov-lg.jpg",
+   "file": "upper-ottawa-valley.jpg",
+   "prefixes": [
+    "Upper Ottawa Valley"
+   ]
+  },
+  {
+   "number": 10,
+   "club": "West Ottawa Wild",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/images/wora.jpg",
+   "file": "west-ottawa-wild.jpg",
+   "prefixes": [
+    "West Ottawa Wild"
+   ],
+   "lerqNames": [
+    "West Ottawa"
+   ]
+  },
+  {
+   "number": 11,
+   "club": "Eastern Ontario AA (Rush, Surge, Force, Impact)",
+   "group": "NCRRL",
+   "url": "https://www.ncrrl.com/cloud/NationalCapitalRegionRingetteLeague/files/EasternOntarioAA_160.jpg",
+   "file": "eastern-ontario-aa.jpg",
+   "prefixes": [
+    "Eastern Ontario"
+   ],
+   "lerqNames": [
+    "Eastern rush",
+    "Eastern surge"
+   ]
+  },
+  {
+   "number": 12,
+   "club": "Régionale de l'Outaouais",
+   "group": "LERQ",
+   "url": "https://ringuette-quebec.qc.ca/wp-content/uploads/2025/07/rq-association-outaouais.webp",
+   "file": "lerq-outaouais.webp",
+   "lerqNames": [
+    "Outaouais"
+   ]
+  },
+  {
+   "number": 13,
+   "club": "Régionale du Lac St-Louis",
+   "group": "LERQ",
+   "url": "https://ringuette-quebec.qc.ca/wp-content/uploads/2025/07/rq-association-lac-stlouis.webp",
+   "file": "lerq-lac-st-louis.webp",
+   "lerqNames": [
+    "Lac St-Louis"
+   ]
+  },
+  {
+   "number": 14,
+   "club": "Régionale de Québec",
+   "group": "LERQ",
+   "url": "https://ringuette-quebec.qc.ca/wp-content/uploads/2025/07/rq-association-quebec.webp",
+   "file": "lerq-quebec.webp",
+   "lerqNames": [
+    "Québec"
+   ]
+  },
+  {
+   "number": 15,
+   "club": "Régionale des Laurentides",
+   "group": "LERQ",
+   "url": "https://ringuette-quebec.qc.ca/wp-content/uploads/2025/07/rq-association-laurentides.webp",
+   "file": "lerq-laurentides.webp",
+   "lerqNames": [
+    "Laurentides"
+   ]
+  },
+  {
+   "number": 16,
+   "club": "Régionale Rive-Sud",
+   "group": "LERQ",
+   "url": "https://ringuette-quebec.qc.ca/wp-content/uploads/2025/07/rq-association-rive-sud.webp",
+   "file": "lerq-rive-sud.webp",
+   "lerqNames": [
+    "Rive-Sud"
+   ]
+  },
+  {
+   "number": 17,
+   "club": "Régionale B.L.L.",
+   "group": "LERQ",
+   "url": "https://ringuette-quebec.qc.ca/wp-content/uploads/2025/06/rq-regionale-bll-1.webp",
+   "file": "lerq-bll.webp",
+   "lerqNames": [
+    "BLL"
+   ]
+  },
+  {
+   "number": 18,
+   "club": "GAARA (all adult teams)",
+   "group": "GAARA",
+   "url": "https://cloud3.rampinteractive.com/gaara/css/img/assocLogo.svg",
+   "file": "gaara.svg",
+   "league": "gaara",
+   "note": "GAARA teams don't have their own logos, so they all share the association logo"
+  },
+  {
+   "number": 19,
+   "club": "Ajax Pickering Power",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Ajax%20Pickering%20Power.svg",
+   "file": "ajax-pickering-power.svg",
+   "prefixes": [
+    "Ajax Pickering",
+    "Ajax-Pickering"
+   ]
+  },
+  {
+   "number": 20,
+   "club": "Barrie Blizzard",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Barrie%20Blizzard.svg",
+   "file": "barrie-blizzard.svg",
+   "prefixes": [
+    "Barrie"
+   ]
+  },
+  {
+   "number": 21,
+   "club": "Burlington Blast",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Burlington%20Blast.png",
+   "file": "burlington-blast.png",
+   "prefixes": [
+    "Burlington"
+   ]
+  },
+  {
+   "number": 22,
+   "club": "Caledonia Lightning",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Caledonia%20Lightning.svg",
+   "file": "caledonia-lightning.svg",
+   "prefixes": [
+    "Caledonia"
+   ]
+  },
+  {
+   "number": 23,
+   "club": "Cambridge Turbos",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Cambridge%20Turbos.svg",
+   "file": "cambridge-turbos.svg",
+   "prefixes": [
+    "Cambridge"
+   ]
+  },
+  {
+   "number": 24,
+   "club": "Chatham Thunder",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Chatham%20Thunder.svg",
+   "file": "chatham-thunder.svg",
+   "prefixes": [
+    "Chatham"
+   ]
+  },
+  {
+   "number": 25,
+   "club": "Dorchester Dragons",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Dorchester%20Dragons.svg",
+   "file": "dorchester-dragons.svg",
+   "prefixes": [
+    "Dorchester"
+   ]
+  },
+  {
+   "number": 26,
+   "club": "Elora Fergus Edge",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Elora%20Fergus%20Edge.svg",
+   "file": "elora-fergus-edge.svg",
+   "prefixes": [
+    "Elora Fergus"
+   ]
+  },
+  {
+   "number": 27,
+   "club": "Etobicoke Stingers",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Etobicoke%20Stingers.svg",
+   "file": "etobicoke-stingers.svg",
+   "prefixes": [
+    "Etobicoke"
+   ]
+  },
+  {
+   "number": 28,
+   "club": "Forest Xtreme",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Forest%20Xtreme.svg",
+   "file": "forest-xtreme.svg",
+   "prefixes": [
+    "Forest"
+   ]
+  },
+  {
+   "number": 29,
+   "club": "Goderich Ice Crushers",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Goderich%20Ice%20Crushers.svg",
+   "file": "goderich-ice-crushers.svg",
+   "prefixes": [
+    "Goderich"
+   ]
+  },
+  {
+   "number": 30,
+   "club": "Greater Sudbury North Stars",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Greater%20Sudbury%20North%20Stars.jpg",
+   "file": "greater-sudbury-north-stars.jpg",
+   "prefixes": [
+    "Greater Sudbury"
+   ]
+  },
+  {
+   "number": 31,
+   "club": "Guelph Predators",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Guelph%20Predators.svg",
+   "file": "guelph-predators.svg",
+   "prefixes": [
+    "Guelph"
+   ]
+  },
+  {
+   "number": 32,
+   "club": "Hamilton Heat",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Hamilton%20Heat.svg",
+   "file": "hamilton-heat.svg",
+   "prefixes": [
+    "Hamilton"
+   ]
+  },
+  {
+   "number": 33,
+   "club": "Kitchener Wildcats",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Kitchener%20Wildcats.svg",
+   "file": "kitchener-wildcats.svg",
+   "prefixes": [
+    "Kitchener"
+   ]
+  },
+  {
+   "number": 34,
+   "club": "London Lynx",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20London%20Lynx.svg",
+   "file": "london-lynx.svg",
+   "prefixes": [
+    "London"
+   ]
+  },
+  {
+   "number": 35,
+   "club": "Manvers Mountain Cats",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Manvers%20Mountain%20Cats.svg",
+   "file": "manvers-mountain-cats.svg",
+   "prefixes": [
+    "Manvers"
+   ]
+  },
+  {
+   "number": 36,
+   "club": "Markham-Stouffville Bears",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Markham%20Stouffville%20Bears.svg",
+   "file": "markham-stouffville-bears.svg",
+   "prefixes": [
+    "Markham-Stouffville",
+    "Markham"
+   ]
+  },
+  {
+   "number": 37,
+   "club": "Mississauga Mustangs",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Mississauga%20Mustangs.svg",
+   "file": "mississauga-mustangs.svg",
+   "prefixes": [
+    "Mississauga"
+   ]
+  },
+  {
+   "number": 38,
+   "club": "Mitchell Stingers",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Mitchell%20Stingers.svg",
+   "file": "mitchell-stingers.svg",
+   "prefixes": [
+    "Mitchell"
+   ]
+  },
+  {
+   "number": 39,
+   "club": "Muskoka Royals",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Muskoka%20Royals.svg",
+   "file": "muskoka-royals.svg",
+   "prefixes": [
+    "Muskoka"
+   ]
+  },
+  {
+   "number": 40,
+   "club": "Newmarket Rays",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Newmarket%20Rays_Resized.svg",
+   "file": "newmarket-rays.svg",
+   "prefixes": [
+    "Newmarket"
+   ]
+  },
+  {
+   "number": 41,
+   "club": "Niagara Falls Daredevils",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Niagara%20Falls%20Daredevils.svg",
+   "file": "niagara-falls-daredevils.svg",
+   "prefixes": [
+    "Niagara Falls"
+   ]
+  },
+  {
+   "number": 42,
+   "club": "Oshawa Storm",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Oshawa%20Storm.svg",
+   "file": "oshawa-storm.svg",
+   "prefixes": [
+    "Oshawa"
+   ]
+  },
+  {
+   "number": 43,
+   "club": "Paris Thunder",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Paris%20Thunder.svg",
+   "file": "paris-thunder.svg",
+   "prefixes": [
+    "Paris"
+   ]
+  },
+  {
+   "number": 44,
+   "club": "Richmond Hill Lightning",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Richmond%20Hill%20Lightning.svg",
+   "file": "richmond-hill-lightning.svg",
+   "prefixes": [
+    "Richmond Hill"
+   ]
+  },
+  {
+   "number": 45,
+   "club": "St. Catharines Comets",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20St%20Catharines%20Comets.svg",
+   "file": "st-catharines-comets.svg",
+   "prefixes": [
+    "St. Catharines",
+    "St Catharines"
+   ]
+  },
+  {
+   "number": 46,
+   "club": "St. Marys Snipers",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20St%20Marys%20Snipers.svg",
+   "file": "st-marys-snipers.svg",
+   "prefixes": [
+    "St. Marys",
+    "St Marys",
+    "St. Mary's"
+   ]
+  },
+  {
+   "number": 47,
+   "club": "St. Thomas Thunder",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20St%20Thomas%20Thunder.svg",
+   "file": "st-thomas-thunder.svg",
+   "prefixes": [
+    "St. Thomas",
+    "St Thomas"
+   ]
+  },
+  {
+   "number": 48,
+   "club": "Sunderland Stingerz",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Sunderland%20Stingerz.svg",
+   "file": "sunderland-stingerz.svg",
+   "prefixes": [
+    "Sunderland"
+   ]
+  },
+  {
+   "number": 49,
+   "club": "Tillsonburg Twisters",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Tillsonburg%20Twisters.svg",
+   "file": "tillsonburg-twisters.svg",
+   "prefixes": [
+    "Tillsonburg"
+   ]
+  },
+  {
+   "number": 50,
+   "club": "Waterloo Wildfire",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Waterloo%20Wildfire.svg",
+   "file": "waterloo-wildfire.svg",
+   "prefixes": [
+    "Waterloo"
+   ]
+  },
+  {
+   "number": 51,
+   "club": "Wellington North Ice Ninjas",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/Wellington%20North%20Ice%20Ninjas.jpg",
+   "file": "wellington-north-ice-ninjas.jpg",
+   "prefixes": [
+    "Wellington North"
+   ]
+  },
+  {
+   "number": 52,
+   "club": "Whitby Wild",
+   "group": "Tournament opponents (LORL clubs)",
+   "url": "https://cloud3.rampinteractive.com/lorl/images/LOGOS/LOGO%20-%20Whitby%20Wild.svg",
+   "file": "whitby-wild.svg",
+   "prefixes": [
+    "Whitby"
+   ]
+  }
+ ]
+}
