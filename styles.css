@@ -204,3 +204,7 @@ dialog::backdrop { background: rgba(5, 10, 20, .55); }
 .league-heading { margin: 28px 0 0; padding-top: 14px; border-top: 3px solid var(--accent); font-size: 1rem; }
 
 .pending { margin-top: 8px; font-size: .85rem; color: var(--muted); font-style: italic; }
+
+/* Also in this building */
+.also + .also { margin-top: 6px; }
+.also.tracked .ice-teams { font-weight: 700; }

@@ -14,6 +14,8 @@ A team has the same ID in the league and in tournaments, so the teams you follow
 
 Each game includes a rink ID, which identifies the exact pad. "Before" and "After" are the neighbouring games (league or tournament) at that rink ID on the same day. Some tournaments don't publish end times; the app estimates them from the next game on that ice and marks them with "~".
 
+**Also here:** for buildings with several pads (Ray Friel, Jim Durrell, Slush Puppie, Nepean Sportsplex, CARDELREC, Walter Baker and others), each upcoming game also lists games on the other pads that overlap it in time. The schedules don't say which pads share a building, so `BUILDINGS` near the top of `app.js` lists them; any rink not in that list is treated as its own building. To add a building, copy one of the lines and adjust the name and patterns.
+
 **Limitation:** only NCRRL, LERQ and GAARA league games and the listed tournaments are included. Hockey, practices, or other leagues on the same ice won't show up.
 
 ## LERQ (Quebec AA league)

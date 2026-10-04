@@ -36,6 +36,29 @@
   ];
   const API = 'https://www.ncrrl.com/api';
   const RESULTS_AFTER_MIN = 90;  // a game moves to Results this long after it starts
+  // Multi-pad buildings. The schedules list each pad separately, so this says
+  // which pads share a building (for "Also in this building") and how to label
+  // each pad. Any rink not matched here is treated as its own building.
+  // pad: regex whose first capture names the pad; label: how to show it.
+  const BUILDINGS = [
+    { name: 'Ray Friel Centre', match: /^ray friel/i, pad: /(?:pad\s*|friel\s+)(\d)/i, label: 'Pad $1' },
+    { name: 'Jim Durrell Complex', match: /^jim durr?ell|^walkley - ottawa/i, pad: /(walkley|peplinski)/i, label: '$1' },
+    { name: 'Slush Puppie Complex', match: /^slush puppie/i, pad: /puppie(?: complex -)? ([a-d])\b/i, label: 'Pad $1' },
+    { name: 'Nepean Sportsplex', match: /nepean sportsplex|^sportsplex \d+ - nepean/i, pad: /(?:arena|pad|sportsplex)\s*(\d)/i, label: 'Arena $1' },
+    { name: 'CARDELREC Recreation Complex', match: /^cardelrec/i, pad: /cardelrec(?: recreation complex)? ([ab])\b/i, label: 'Pad $1' },
+    { name: 'Walter Baker Sports Centre', match: /^walter baker/i, pad: /(?:pad |baker )([ab])\b/i, label: 'Pad $1' },
+    { name: 'Carleton Ice House', match: /^carleton (ice house|university)/i, pad: /arena ([ab])\b/i, label: 'Arena $1' },
+    { name: 'Bob MacQuarrie Recreation Complex', match: /^bob mac ?quarrie/i, pad: /(senecal|manley)/i, label: '$1' },
+    { name: 'Fred Barrett Arena', match: /^fred barrett/i, pad: /(east|west)$/i, label: '$1' },
+    { name: 'Minto Recreation Complex', match: /^minto recreation complex/i, pad: /(north|south)$/i, label: '$1' },
+    { name: 'Nick Smith Centre', match: /^nick smith/i, pad: /pad ([ab])\b/i, label: 'Pad $1' },
+    { name: 'Bernard Grandmaitre Arena', match: /^bernard grandmaitre/i, pad: /- (\w+)$/i, label: '$1' },
+    { name: 'Bell Sensplex', match: /^bell sensplex/i, pad: /- (.+)$/i, label: '$1' },
+    { name: 'Richcraft Sensplex', match: /^richcraft sensplex/i, pad: /\((.+)\)/, label: '$1' },
+    { name: 'Tony Graham Recreation Complex', match: /^tony graham/i, pad: /rink ([a-d])\b/i, label: 'Rink $1' },
+    { name: 'INVISTA Centre', match: /invista centre$/i, pad: /^(.+?) - invista/i, label: '$1' },
+    { name: 'Canlan Ice Sports Scarborough', match: /^canlan ice sports - scarborough/i, pad: /scarborough (\d)/i, label: 'Pad $1' },
+  ];
   // Ringuette Québec writes rink names its own way. These Ottawa-area rinks are
   // matched to RAMP's rink IDs so LERQ games line up with NCRRL/GAARA games on
   // the same ice. Rinks without a pad number (e.g. "Cardelrec - West Ottawa",
@@ -78,6 +101,7 @@
     tournaments: [],    // from tournaments.json
     teams: new Map(),   // id -> {id, name, division, league} (league teams)
     byIce: new Map(),   // "rinkId|yyyy-mm-dd" -> [games sorted]
+    byBuilding: new Map(), // "bldg:name|yyyy-mm-dd" -> [games sorted]
     tracked: new Set(readJSON(LS.tracked, []).map(String)), // team IDs as strings
     fetchedAt: null,
     favs: new Set(readJSON(LS.favs, []).map(String)),
@@ -255,6 +279,43 @@
       });
     }
     for (const g of all) if (!g.end) g.end = new Date(g.start.getTime() + 3600000);
+    state.byBuilding = new Map();
+    for (const g of all) {
+      if (g.cancelled) continue;
+      const b = buildingOf(g.arena);
+      if (!b.key.startsWith('bldg:')) continue;
+      const k = `${b.key}|${dayKey(g.start)}`;
+      if (!state.byBuilding.has(k)) state.byBuilding.set(k, []);
+      state.byBuilding.get(k).push(g);
+    }
+  }
+
+  const buildingCache = new Map();
+  function buildingOf(arena) {
+    if (buildingCache.has(arena)) return buildingCache.get(arena);
+    let out = { key: `rink:${arena}`, name: arena, pad: '' };
+    for (const b of BUILDINGS) {
+      if (!b.match.test(arena)) continue;
+      const m = b.pad.exec(arena);
+      // Tidy the pad name: "c" -> "C", "EAST" -> "East", "walkley" -> "Walkley"; keep "OT", "CUPE 109" as is.
+      const raw = m ? m[1] : '';
+      const tidy = raw.length === 1 ? raw.toUpperCase()
+        : /^[A-Z]{4,}$/.test(raw) ? raw[0] + raw.slice(1).toLowerCase()
+        : raw[0] ? raw[0].toUpperCase() + raw.slice(1) : '';
+      const pad = m ? b.label.replace('$1', tidy) : '';
+      out = { key: `bldg:${b.name}`, name: b.name, pad };
+      break;
+    }
+    buildingCache.set(arena, out);
+    return out;
+  }
+
+  // Games on other pads of the same building that overlap this game's time.
+  function alsoInBuilding(g) {
+    const b = buildingOf(g.arena);
+    if (!b.key.startsWith('bldg:')) return [];
+    return (state.byBuilding.get(`${b.key}|${dayKey(g.start)}`) || [])
+      .filter((x) => x !== g && x.rinkId !== g.rinkId && x.start < g.end && x.end > g.start);
   }
 
   function iceNeighbours(g) {
@@ -478,6 +539,28 @@
     </div>`;
   }
 
+  // "Also here": what's on the building's other pads during this game.
+  function alsoRow(g) {
+    const list = alsoInBuilding(g);
+    if (!list.length) return '';
+    const MAX = 4;
+    const item = (x) => {
+      const fav = isFav(x), tracked = isTracked(x);
+      const tag = fav ? '<span class="chip fav">★ Favourite</span>' : tracked ? '<span class="chip">Following</span>' : '';
+      const pad = buildingOf(x.arena).pad || 'Other pad';
+      return `<div class="also${tracked ? ' tracked' : ''}">
+        <span class="ice-when">${esc(pad)}</span><span class="ice-gap"> · ${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)}</span>${tag}<br>
+        <span class="ice-teams">${esc(x.away.name)} @ ${esc(x.home.name)}</span>
+        <span class="muted small"> · ${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span>
+      </div>`;
+    };
+    const more = list.length - MAX;
+    return `<div class="ice-row also-row">
+      <span class="ice-label">Also here</span>
+      <span>${list.slice(0, MAX).map(item).join('')}${more > 0 ? `<div class="muted small">+ ${more} more in ${esc(buildingOf(g.arena).name)}</div>` : ''}</span>
+    </div>`;
+  }
+
   function mapsLink(arena) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(arena)}`;
   }
@@ -504,6 +587,7 @@
       ${showIce && !g.cancelled ? `<div class="ice">
         ${iceRow('Before', before, g, 'before')}
         ${iceRow('After', after, g, 'after')}
+        ${alsoRow(g)}
       </div>` : ''}
     </article>`;
   }
