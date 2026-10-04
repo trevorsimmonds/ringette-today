@@ -30,7 +30,10 @@
     <button role="tab" data-view="teams" aria-selected="false">Teams <span id="teamCount" class="pill"></span></button>
   </nav>
 
-  <div id="status" class="status" role="status" aria-live="polite"></div>
+  <div class="statusbar">
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <button id="favToggle" class="fav-toggle" aria-pressed="false" hidden>★ Favourites</button>
+  </div>
 
   <main id="main"></main>
 

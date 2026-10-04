@@ -9,7 +9,8 @@ async def main():
         await pg.clock.install(time='2026-09-26T08:00:00-04:00')
         # follow Nepean U14AA (398266), Ottawa Ice U14A (398263), West Ottawa U14AA Gorham (401648)
         await pg.goto('http://localhost:8765/?fixture=1#teams=398266,398263,401648'); await pg.wait_for_timeout(900)
-        print('upcoming cards (All, no favs):', await pg.locator('.card').count(), '| seg:', await pg.locator('.seg').inner_text())
+        print('upcoming cards (All, no favs):', await pg.locator('.card').count(), '| toggle:', await pg.locator('#favToggle').inner_text(), await pg.locator('#favToggle').is_visible())
+        await pg.screenshot(path='test/f3-all.png')
         # star West Ottawa Wild U14AA in Teams tab
         await pg.click('[data-view=teams]'); await pg.wait_for_timeout(300)
         await pg.click('.team-row:has-text("West Ottawa Wild U14AA - Gorham") .star')
@@ -19,16 +20,18 @@ async def main():
         # Upcoming: stars on names; switch to favourites
         await pg.click('[data-view=upcoming]'); await pg.wait_for_timeout(300)
         print('stars on cards:', await pg.locator('.card .fav-star').count(), '| fav chip in ice rows:', await pg.locator('.chip.fav').count())
-        await pg.click('[data-upfilter=fav]'); await pg.wait_for_timeout(300)
+        await pg.click('#favToggle'); await pg.wait_for_timeout(300)
         n_fav = await pg.locator('.card').count()
         print('Favourites view cards:', n_fav)
         await pg.screenshot(path='test/f2-favs.png')
+        await pg.emulate_media(color_scheme='dark'); await pg.screenshot(path='test/f4-favs-dark.png'); await pg.emulate_media(color_scheme='light')
         # restart: filter remembered
         await pg.reload(); await pg.wait_for_timeout(900)
-        print('after restart, fav pressed:', await pg.locator('[data-upfilter=fav]').get_attribute('aria-pressed'), '| cards:', await pg.locator('.card').count())
+        print('after restart, fav pressed:', await pg.locator('#favToggle').get_attribute('aria-pressed'), '| cards:', await pg.locator('.card').count())
         print('share url:', await pg.evaluate("location.origin") , '...', 'favs=' in (await pg.evaluate("localStorage.getItem('rt.favs')")) or await pg.evaluate("localStorage.getItem('rt.favs')"))
         # unfollow the favourite -> star removed
         await pg.click('[data-view=teams]'); await pg.wait_for_timeout(300)
+        print('toggle hidden on Teams tab:', not await pg.locator('#favToggle').is_visible())
         await pg.locator('.division:not(.fav-section) .team-row:has-text("West Ottawa Wild U14AA - Gorham") input').uncheck()
         await pg.wait_for_timeout(200)
         print('after unfollow favs:', await pg.evaluate("localStorage.getItem('rt.favs')"), '| badge:', await pg.locator('#teamCount').inner_text(), '| fav section count:', await pg.locator('.fav-section').count())

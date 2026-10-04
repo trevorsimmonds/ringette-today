@@ -444,9 +444,8 @@
       const t = state.tournaments.find((x) => x.aid === aid);
       return t && tournamentWindow(t).active;
     }).length;
-    el.textContent = state.fetchedAt
-      ? `Updated ${fmtAgo(state.fetchedAt)} · ${state.league.length} league games${nT ? ` · ${nT} tournament${nT === 1 ? '' : 's'}` : ''}`
-      : '';
+    const games = state.league.length + [...state.tourGames.values()].reduce((n, g) => n + g.length, 0);
+    el.textContent = state.fetchedAt ? `Updated ${fmtAgo(state.fetchedAt)} · ${games} games` : '';
   }
   function setBusy(b) { $('#refreshBtn').classList.toggle('spinning', b); }
 
@@ -538,14 +537,11 @@
     let games = state.games.filter(isTracked);
     games = mode === 'upcoming' ? games.filter((g) => !done(g)) : games.filter(done).reverse();
 
-    // Upcoming has an All / ★ Favourites switch (remembered); Results shows everything.
-    let bar = '';
+    // Upcoming can be filtered to favourites with the ★ Favourites button in the
+    // status line (remembered); Results always shows everything.
+    const bar = '';
     if (mode === 'upcoming') {
       const onlyFav = state.upFilter === 'fav';
-      bar = `<div class="seg" role="group" aria-label="Show">
-        <button data-upfilter="all" aria-pressed="${!onlyFav}">All</button>
-        <button data-upfilter="fav" aria-pressed="${onlyFav}">★ Favourites${state.favs.size ? ` (${state.favs.size})` : ''}</button>
-      </div>`;
       if (onlyFav) {
         if (!state.favs.size) {
           main.innerHTML = `${bar}<div class="empty"><h2>No favourites yet</h2>
@@ -556,7 +552,7 @@
         games = games.filter(isFav);
         if (!games.length) {
           main.innerHTML = `${bar}<div class="empty"><h2>No upcoming games for your favourites</h2>
-            <p>Switch to All to see games for the other teams you follow.</p></div>`;
+            <p>Tap ★ Favourites again to see games for all the teams you follow.</p></div>`;
           return;
         }
       }
@@ -690,9 +686,18 @@
     $('#teamCount').textContent = f ? `${f}★ · ${n}` : (n || '');
   }
 
+  function updateFavToggle() {
+    const b = $('#favToggle');
+    b.hidden = !(state.view === 'upcoming' && state.tracked.size);
+    const on = state.upFilter === 'fav';
+    b.setAttribute('aria-pressed', String(on));
+    b.setAttribute('aria-label', on ? 'Showing favourites only. Tap to show all teams.' : 'Show favourites only');
+  }
+
   function render() {
     document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === state.view)));
     updateBadge();
+    updateFavToggle();
     if (state.view === 'teams') renderTeams();
     else renderSchedule(state.view);
   }
@@ -733,13 +738,6 @@
       rerenderTeamsKeepingScroll();
       return;
     }
-    const filt = e.target.closest('[data-upfilter]');
-    if (filt) {
-      state.upFilter = filt.dataset.upfilter === 'fav' ? 'fav' : 'all';
-      writeJSON(LS.upFilter, state.upFilter);
-      render();
-      return;
-    }
     if (e.target.id === 'shareBtn') {
       const url = shareUrl();
       try {
@@ -767,6 +765,12 @@
   }
 
   $('#refreshBtn').addEventListener('click', () => load({ force: true }));
+  $('#favToggle').addEventListener('click', () => {
+    state.upFilter = state.upFilter === 'fav' ? 'all' : 'fav';
+    writeJSON(LS.upFilter, state.upFilter);
+    render();
+    window.scrollTo({ top: 0 });
+  });
   $('#rinkClose').addEventListener('click', () => $('#rinkDialog').close());
   $('#rinkDialog').addEventListener('click', (e) => { if (e.target.id === 'rinkDialog') e.target.close(); });
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') load(); });
