@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-04T06:00:14.026Z",
+ "updatedAt": "2026-10-04T18:39:49.198Z",
  "leagues": [
   {
    "id": 104,
@@ -190,7 +190,11 @@
    "arena": "Ancienne Lorette - Québec",
    "home": "Québec",
    "away": "Eastern surge",
-   "detailId": 23307
+   "detailId": 23307,
+   "score": {
+    "away": 4,
+    "home": 1
+   }
   },
   {
    "num": 1010,
