@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-05T14:51:15.720Z",
+ "updatedAt": "2026-10-05T22:03:35.700Z",
  "leagues": [
   {
    "id": 104,
@@ -168,7 +168,11 @@
    "arena": "Val D'Espoir - St-Janvier",
    "home": "Laurentides",
    "away": "Nepean",
-   "detailId": 23380
+   "detailId": 23380,
+   "score": {
+    "away": 5,
+    "home": 1
+   }
   },
   {
    "num": 2005,
@@ -220,7 +224,11 @@
    "arena": "Ray Friel 1 - Ottawa",
    "home": "GCRA",
    "away": "West Ottawa",
-   "detailId": 23382
+   "detailId": 23382,
+   "score": {
+    "away": 6,
+    "home": 7
+   }
   },
   {
    "num": 1011,
