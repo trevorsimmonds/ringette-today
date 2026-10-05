@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-04T23:58:46.897Z",
+ "updatedAt": "2026-10-05T14:51:15.720Z",
  "leagues": [
   {
    "id": 104,
@@ -112,7 +112,11 @@
    "arena": "St-Hilaire -1- Centre sportif Paul Lemieux",
    "home": "Rive-Sud",
    "away": "Eastern rush",
-   "detailId": 23304
+   "detailId": 23304,
+   "score": {
+    "away": 4,
+    "home": 5
+   }
   },
   {
    "num": 1006,
@@ -122,7 +126,11 @@
    "arena": "Slush Puppie D - Gatineau",
    "home": "Outaouais",
    "away": "West Ottawa",
-   "detailId": 23378
+   "detailId": 23378,
+   "score": {
+    "away": 3,
+    "home": 6
+   }
   },
   {
    "num": 1007,
@@ -170,7 +178,11 @@
    "arena": "Sportplex - Varennes",
    "home": "Rive-Sud",
    "away": "Eastern rush",
-   "detailId": 23306
+   "detailId": 23306,
+   "score": {
+    "away": 1,
+    "home": 6
+   }
   },
   {
    "num": 1009,
