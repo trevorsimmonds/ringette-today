@@ -174,6 +174,10 @@
     return res.json();
   }
 
+  // Saved schedules from before the box-score links lack the division ID;
+  // treat them as out of date so they're downloaded again right away.
+  const oldFormat = (cached) => !!(cached && cached.games && cached.games.length && !('homeDID' in cached.games[0]));
+
   // Keep only the fields we use so the cache stays small.
   const slim = (raw) => raw.map((g) => ({
     GID: g.GID, sDate: g.sDate, eDate: g.eDate, ArenaName: g.ArenaName, RARID: g.RARID,
@@ -368,7 +372,7 @@
     const cached = readJSON(LS.tourn + t.aid, null);
     // During the tournament refresh often (scores); otherwise a few times a day.
     const maxAge = w.live ? 10 * 60000 : 6 * 3600000;
-    if (!force && cached && Date.now() - cached.fetchedAt < maxAge) return;
+    if (!force && cached && Date.now() - cached.fetchedAt < maxAge && !oldFormat(cached)) return;
 
     let games = [];
     let sid = null;
@@ -489,7 +493,7 @@
         }
         if (FIXTURE) state.seasons[l.key] = { sid: l.fallbackSeason, name: '2026-2027 (test data)', checkedAt: Date.now() };
         const sid = FIXTURE ? l.fallbackSeason : await resolveSeason(l);
-        const stale = !cached || cached.season !== sid || Date.now() - cached.fetchedAt > 10 * 60000;
+        const stale = !cached || cached.season !== sid || Date.now() - cached.fetchedAt > 10 * 60000 || oldFormat(cached);
         if (!force && !stale) continue;
         try {
           const raw = await getJSON(FIXTURE ? l.fixture : `${API}/leaguegame/get/${l.aid}/${sid}/0/0/0/0/`);
