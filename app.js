@@ -179,7 +179,7 @@
     GID: g.GID, sDate: g.sDate, eDate: g.eDate, ArenaName: g.ArenaName, RARID: g.RARID,
     HomeTeamName: g.HomeTeamName, homeTID: g.homeTID, homeScore: g.homeScore,
     AwayTeamName: g.AwayTeamName, awayTID: g.awayTID, awayScore: g.awayScore,
-    HomeDivision: g.HomeDivision, AwayDivision: g.AwayDivision, GameTypeName: g.GameTypeName, notes: g.notes,
+    HomeDivision: g.HomeDivision, AwayDivision: g.AwayDivision, homeDID: g.homeDID, GameTypeName: g.GameTypeName, notes: g.notes,
     completed: g.completed, cancelledHome: g.cancelledHome, cancelledAway: g.cancelledAway, rainout: g.rainout,
     trash: g.trash, deletedDate: g.deletedDate,
   }));
@@ -195,6 +195,7 @@
         return {
           key: `${source ? source.aid : league ? league.aid : 'L'}-${g.GID}`,
           id: g.GID,
+          did: g.homeDID || null,        // division ID, needed for the box score link
           start,
           end,                           // may be null for tournaments; filled in rebuild()
           endEstimated: !end,
@@ -226,6 +227,7 @@
       const team = (n, score) => ({ id: `lerq${g.league}:${slug(n)}`, name: n, score: score ?? null });
       return {
         key: `Q-${g.num}`,
+        detailId: g.detailId || null,  // Ringuette Québec's game page (box score)
         id: g.num,
         start: parseLocal(`${g.date}T${g.time}`),
         end: null,
@@ -594,6 +596,15 @@
     </div>`;
   }
 
+  // Box score: RAMP's game sheet (works for NCRRL, GAARA and tournament games
+  // through ncrrl.com, given any real division ID), or Ringuette Québec's game page.
+  function boxScoreUrl(g) {
+    if (g.league && g.league.key === 'lerq') {
+      return g.detailId ? `https://membres.ringuette-quebec.qc.ca/resultats_web.asp?cedules_id=${g.detailId}` : null;
+    }
+    return g.did ? `https://www.ncrrl.com/division/0/${g.did}/gamesheet/${g.id}` : null;
+  }
+
   function mapsLink(arena) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(arena)}`;
   }
@@ -616,6 +627,7 @@
       </div>
       ${g.cancelled ? '<div class="note">Cancelled</div>' : ''}
       ${result && !g.cancelled && g.home.score == null ? '<div class="pending">Score not posted yet</div>' : ''}
+      ${result && g.completed && boxScoreUrl(g) ? `<a class="boxscore" href="${esc(boxScoreUrl(g))}" target="_blank" rel="noopener">Box score <span aria-hidden="true">›</span><span class="sr-only"> — goals, assists and penalties (opens the league's site)</span></a>` : ''}
       ${g.notes ? `<div class="note">${esc(g.notes)}</div>` : ''}
       ${showIce && !g.cancelled ? `<div class="ice">
         ${iceRow('Before', before, g, 'before')}
