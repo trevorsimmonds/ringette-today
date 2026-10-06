@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-06T06:28:41.312Z",
+ "updatedAt": "2026-10-06T15:59:57.306Z",
  "leagues": [
   {
    "id": 104,
@@ -238,7 +238,11 @@
    "arena": "Isatis - St-Hyacinthe",
    "home": "Rive-Sud",
    "away": "Ottawa",
-   "detailId": 23383
+   "detailId": 23383,
+   "score": {
+    "away": 4,
+    "home": 10
+   }
   },
   {
    "num": 2007,
