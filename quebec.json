@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-05T22:03:35.700Z",
+ "updatedAt": "2026-10-06T06:28:41.312Z",
  "leagues": [
   {
    "id": 104,
@@ -248,7 +248,11 @@
    "arena": "St-Eustache - Complexe Walter-Buswell",
    "home": "Laurentides",
    "away": "Lac St-Louis",
-   "detailId": 23308
+   "detailId": 23308,
+   "score": {
+    "away": 5,
+    "home": 9
+   }
   },
   {
    "num": 2008,
