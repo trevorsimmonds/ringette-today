@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-06T22:41:09.407Z",
+ "updatedAt": "2026-10-07T20:39:41.069Z",
  "leagues": [
   {
    "id": 104,
@@ -74,7 +74,11 @@
    "arena": "Ray Friel 1 - Ottawa",
    "home": "Eastern rush",
    "away": "Eastern surge",
-   "detailId": 23303
+   "detailId": 23303,
+   "score": {
+    "away": 6,
+    "home": 2
+   }
   },
   {
    "num": 1004,
