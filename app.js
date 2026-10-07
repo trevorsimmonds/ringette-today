@@ -324,10 +324,38 @@
       .filter((x) => x !== g && x.rinkId !== g.rinkId && x.start < g.end && x.end > g.start);
   }
 
+  // A game in a known building whose listing doesn't say which pad
+  // (e.g. Ringuette Québec's "Cardelrec - West Ottawa").
+  function padUnknown(g) {
+    const b = buildingOf(g.arena);
+    return b.key.startsWith('bldg:') && !b.pad;
+  }
+
+  // Before/after on the same ice. When the pad isn't known we don't guess:
+  // the nearest games anywhere in the building are shown instead, flagged
+  // `sameBuilding` so the card can say the pad isn't confirmed. A game on a
+  // known pad falls back to pad-unknown games in its building only when its
+  // own ice has nothing on that side.
   function iceNeighbours(g) {
     const list = state.byIce.get(`${g.rinkId}|${dayKey(g.start)}`) || [];
     const i = list.indexOf(g);
-    return { before: i > 0 ? list[i - 1] : null, after: i >= 0 && i < list.length - 1 ? list[i + 1] : null, list };
+    let before = i > 0 ? list[i - 1] : null;
+    let after = i >= 0 && i < list.length - 1 ? list[i + 1] : null;
+    const b = buildingOf(g.arena);
+    if (b.key.startsWith('bldg:') && (!before || !after || padUnknown(g))) {
+      const bl = (state.byBuilding.get(`${b.key}|${dayKey(g.start)}`) || [])
+        .filter((x) => x !== g && x.rinkId !== g.rinkId && (padUnknown(g) || padUnknown(x))
+          // games at the same time are on another pad — those go in "Also here"
+          && !(x.start < g.end && x.end > g.start));
+      const prev = bl.filter((x) => x.start < g.start).pop() || null;
+      const next = bl.find((x) => x.start > g.start) || null;
+      const closer = (own, other, isBefore) => !own ? other
+        : !other ? own
+        : (isBefore ? other.start > own.start : other.start < own.start) ? other : own;
+      before = padUnknown(g) ? closer(before, prev, true) : before || prev;
+      after = padUnknown(g) ? closer(after, next, false) : after || next;
+    }
+    return { before, after, list };
   }
 
   const isTracked = (g) => state.tracked.has(g.home.id) || state.tracked.has(g.away.id);
@@ -561,8 +589,15 @@
   function iceRow(label, other, g, which) {
     if (!other) {
       return `<div class="ice-row"><span class="ice-label">${label}</span>
-        <span class="ice-none">No game listed ${which === 'before' ? 'before' : 'after'} on this ice</span></div>`;
+        <span class="ice-none">No game listed ${which === 'before' ? 'before' : 'after'} ${padUnknown(g) ? 'in this building' : 'on this ice'}</span></div>`;
     }
+    const sameBuilding = other.rinkId !== g.rinkId;
+    const otherPad = buildingOf(other.arena).pad;
+    const where = sameBuilding
+      ? `<br><span class="ice-where">${padUnknown(g)
+          ? `Same building${otherPad ? `, ${esc(otherPad)}` : ''} · this game’s pad isn’t listed`
+          : 'Same building · its pad isn’t listed'}</span>`
+      : '';
     const gap = which === 'before' ? g.start - other.end : other.start - g.end;
     const tracked = isTracked(other);
     const fav = isFav(other);
@@ -573,7 +608,7 @@
         <span class="ice-when">${fmtTime(other.start)}–${other.endEstimated ? '~' : ''}${fmtTime(other.end)}</span>
         <span class="ice-gap"> · ${fmtGap(gap)}</span>${tag}<br>
         <span class="ice-teams">${esc(other.away.name)} @ ${esc(other.home.name)}</span>
-        <span class="muted small"> · ${esc(other.division)}${other.tournament ? ` · ${esc(other.tournament.short)}` : ''}</span>
+        <span class="muted small"> · ${esc(other.division)}${other.tournament ? ` · ${esc(other.tournament.short)}` : ''}</span>${where}
       </span>
     </div>`;
   }
@@ -838,11 +873,14 @@
   function openRink(gameId) {
     const g = state.games.find((x) => x.key === gameId);
     if (!g) return;
-    const { list } = iceNeighbours(g);
-    $('#rinkTitle').textContent = g.arena;
-    $('#rinkSub').textContent = `${fmtDay(g.start)} · ${list.length} game${list.length === 1 ? '' : 's'} listed`;
+    // Pad not listed: show the whole building's day, with each game's pad.
+    const whole = padUnknown(g);
+    const b = buildingOf(g.arena);
+    const list = whole ? (state.byBuilding.get(`${b.key}|${dayKey(g.start)}`) || [g]) : iceNeighbours(g).list;
+    $('#rinkTitle').textContent = whole ? b.name : g.arena;
+    $('#rinkSub').textContent = `${fmtDay(g.start)} · ${list.length} game${list.length === 1 ? '' : 's'} listed${whole ? ' in the building (this game’s pad isn’t listed)' : ''}`;
     $('#rinkList').innerHTML = list.map((x) => `<li class="${isTracked(x) ? 'tracked' : ''}${x === g ? ' this' : ''}">
-      <span class="t">${isFav(x) ? '<span class="fav-star">★</span>' : ''}${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)} <span class="d">${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
+      <span class="t">${isFav(x) ? '<span class="fav-star">★</span>' : ''}${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)} <span class="d">${whole ? `${esc(buildingOf(x.arena).pad || 'Pad not listed')} · ` : ''}${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
       ${esc(x.away.name)} @ ${esc(x.home.name)}</li>`).join('');
     $('#rinkDialog').showModal();
   }
