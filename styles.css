@@ -225,3 +225,6 @@ dialog::backdrop { background: rgba(5, 10, 20, .55); }
 }
 .boxscore:active { background: var(--surface-2); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Neighbour from another pad when this game's pad isn't listed */
+.ice-where { font-size: .76rem; color: var(--muted); font-style: italic; }
