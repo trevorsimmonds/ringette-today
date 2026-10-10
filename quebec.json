@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-07T20:39:41.069Z",
+ "updatedAt": "2026-10-10T21:49:36.577Z",
  "leagues": [
   {
    "id": 104,
@@ -280,7 +280,11 @@
    "arena": "Cardelrec - West Ottawa",
    "home": "West Ottawa",
    "away": "BLL",
-   "detailId": 23384
+   "detailId": 23384,
+   "score": {
+    "away": 4,
+    "home": 4
+   }
   },
   {
    "num": 2009,
@@ -300,7 +304,11 @@
    "arena": "St-Bruno - Michael-Bilodeau",
    "home": "Rive-Sud",
    "away": "BLL",
-   "detailId": 23311
+   "detailId": 23311,
+   "score": {
+    "away": 1,
+    "home": 7
+   }
   },
   {
    "num": 1013,
