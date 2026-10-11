@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-10T21:49:36.577Z",
+ "updatedAt": "2026-10-11T05:55:47.270Z",
  "leagues": [
   {
    "id": 104,
@@ -318,7 +318,11 @@
    "arena": "Slush Puppie C - Gatineau",
    "home": "Outaouais",
    "away": "BLL",
-   "detailId": 23385
+   "detailId": 23385,
+   "score": {
+    "away": 1,
+    "home": 9
+   }
   },
   {
    "num": 1014,
