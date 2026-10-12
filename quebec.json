@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-11T19:35:28.003Z",
+ "updatedAt": "2026-10-12T21:18:24.341Z",
  "leagues": [
   {
    "id": 104,
@@ -346,7 +346,11 @@
    "arena": "Olympia - Deux Montagnes",
    "home": "Laurentides",
    "away": "Rive-Sud",
-   "detailId": 23312
+   "detailId": 23312,
+   "score": {
+    "away": 4,
+    "home": 3
+   }
   },
   {
    "num": 2012,
