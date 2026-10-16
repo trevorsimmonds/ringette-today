@@ -1,0 +1,954 @@
+{
+ "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
+ "updatedAt": "2026-10-16T22:21:04.744Z",
+ "today": "2026-10-16",
+ "tournaments": [
+  {
+   "id": 23644,
+   "name": "La Coupe Extrême de l'Outaouais",
+   "city": "Gatineau",
+   "province": "quebec",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23644&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "games": [
+    {
+     "num": 1901,
+     "gameId": 421862,
+     "division": "Fém M19 AA",
+     "date": "2026-10-15",
+     "time": "15:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Rush",
+      "id": 101220
+     },
+     "home": {
+      "name": "Eastern Ontario Surge",
+      "id": 101196
+     },
+     "score": {
+      "away": 2,
+      "home": 3
+     }
+    },
+    {
+     "num": 1601,
+     "gameId": 421880,
+     "division": "Fém M16 AA",
+     "date": "2026-10-15",
+     "time": "15:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Nepean 16AA",
+      "id": 101205
+     },
+     "home": {
+      "name": "Extreme de l'Outaouais",
+      "id": 101199
+     },
+     "score": {
+      "away": 4,
+      "home": 4
+     }
+    },
+    {
+     "num": 1602,
+     "gameId": 421881,
+     "division": "Fém M16 AA",
+     "date": "2026-10-15",
+     "time": "16:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "GCRA U16AA - DEARING",
+      "id": 101297
+     },
+     "home": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "score": {
+      "away": 2,
+      "home": 4
+     }
+    },
+    {
+     "num": 1603,
+     "gameId": 421882,
+     "division": "Fém M16 AA",
+     "date": "2026-10-15",
+     "time": "16:35",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Ottawa Ice U16AA",
+      "id": 101198
+     },
+     "home": {
+      "name": "Lac-Saint-Louis (LSL)",
+      "id": 101422
+     },
+     "score": {
+      "away": 5,
+      "home": 3
+     }
+    },
+    {
+     "num": 1604,
+     "gameId": 421883,
+     "division": "Fém M16 AA",
+     "date": "2026-10-15",
+     "time": "17:40",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Richmond Hill Lightning",
+      "id": 101370
+     },
+     "home": {
+      "name": "Laurentides AA",
+      "id": 101207
+     },
+     "score": {
+      "away": 8,
+      "home": 1
+     }
+    },
+    {
+     "num": 1605,
+     "gameId": 421884,
+     "division": "Fém M16 AA",
+     "date": "2026-10-15",
+     "time": "17:55",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Burlington Blast",
+      "id": 101200
+     },
+     "home": {
+      "name": "Rive-Sud",
+      "id": 101451
+     },
+     "score": {
+      "away": 0,
+      "home": 6
+     }
+    },
+    {
+     "num": 1902,
+     "gameId": 421863,
+     "division": "Fém M19 AA",
+     "date": "2026-10-15",
+     "time": "19:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Laurentides AA",
+      "id": 101206
+     },
+     "home": {
+      "name": "Les Cyclones de Québec",
+      "id": 101201
+     },
+     "score": {
+      "away": 2,
+      "home": 6
+     }
+    },
+    {
+     "num": 1903,
+     "gameId": 421864,
+     "division": "Fém M19 AA",
+     "date": "2026-10-15",
+     "time": "19:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "London Lynx U19AA",
+      "id": 101209
+     },
+     "home": {
+      "name": "Rive-Sud",
+      "id": 101452
+     },
+     "score": {
+      "away": 1,
+      "home": 6
+     }
+    },
+    {
+     "num": 1904,
+     "gameId": 421865,
+     "division": "Fém M19 AA",
+     "date": "2026-10-15",
+     "time": "20:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Rush",
+      "id": 101220
+     },
+     "home": {
+      "name": "Lac St Louis",
+      "id": 101313
+     },
+     "score": {
+      "away": 4,
+      "home": 0
+     }
+    },
+    {
+     "num": 1905,
+     "gameId": 421866,
+     "division": "Fém M19 AA",
+     "date": "2026-10-16",
+     "time": "07:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Surge",
+      "id": 101196
+     },
+     "home": {
+      "name": "Lac St Louis",
+      "id": 101313
+     },
+     "score": {
+      "away": 6,
+      "home": 1
+     }
+    },
+    {
+     "num": 1606,
+     "gameId": 421885,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "07:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Nepean 16AA",
+      "id": 101205
+     },
+     "home": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "score": {
+      "away": 5,
+      "home": 5
+     }
+    },
+    {
+     "num": 1607,
+     "gameId": 421886,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "08:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Lac-Saint-Louis (LSL)",
+      "id": 101422
+     },
+     "home": {
+      "name": "Laurentides AA",
+      "id": 101207
+     },
+     "score": {
+      "away": 6,
+      "home": 2
+     }
+    },
+    {
+     "num": 1608,
+     "gameId": 421887,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "08:35",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "GCRA U16AA - DEARING",
+      "id": 101297
+     },
+     "home": {
+      "name": "Ottawa Ice U16AA",
+      "id": 101198
+     },
+     "score": {
+      "away": 2,
+      "home": 7
+     }
+    },
+    {
+     "num": 1906,
+     "gameId": 421867,
+     "division": "Fém M19 AA",
+     "date": "2026-10-16",
+     "time": "09:40",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Rush",
+      "id": 101220
+     },
+     "home": {
+      "name": "Laurentides AA",
+      "id": 101206
+     },
+     "score": {
+      "away": 6,
+      "home": 6
+     }
+    },
+    {
+     "num": 1609,
+     "gameId": 421888,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "09:55",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Extreme de l'Outaouais",
+      "id": 101199
+     },
+     "home": {
+      "name": "Burlington Blast",
+      "id": 101200
+     },
+     "score": {
+      "away": 9,
+      "home": 9
+     }
+    },
+    {
+     "num": 1610,
+     "gameId": 421889,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "11:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Rive-Sud",
+      "id": 101451
+     },
+     "home": {
+      "name": "Richmond Hill Lightning",
+      "id": 101370
+     },
+     "score": {
+      "away": 4,
+      "home": 7
+     }
+    },
+    {
+     "num": 1907,
+     "gameId": 421868,
+     "division": "Fém M19 AA",
+     "date": "2026-10-16",
+     "time": "11:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Rive-Sud",
+      "id": 101452
+     },
+     "home": {
+      "name": "Les Cyclones de Québec",
+      "id": 101201
+     },
+     "score": {
+      "away": 4,
+      "home": 6
+     }
+    },
+    {
+     "num": 1908,
+     "gameId": 421869,
+     "division": "Fém M19 AA",
+     "date": "2026-10-16",
+     "time": "12:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Lac St Louis",
+      "id": 101313
+     },
+     "home": {
+      "name": "London Lynx U19AA",
+      "id": 101209
+     },
+     "score": {
+      "away": 5,
+      "home": 7
+     }
+    },
+    {
+     "num": 1611,
+     "gameId": 421890,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "12:45",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Laurentides AA",
+      "id": 101207
+     },
+     "home": {
+      "name": "GCRA U16AA - DEARING",
+      "id": 101297
+     },
+     "score": {
+      "away": 2,
+      "home": 7
+     }
+    },
+    {
+     "num": 1612,
+     "gameId": 421891,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "13:40",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Ottawa Ice U16AA",
+      "id": 101198
+     },
+     "home": {
+      "name": "Nepean 16AA",
+      "id": 101205
+     },
+     "score": {
+      "away": 2,
+      "home": 4
+     }
+    },
+    {
+     "num": 1613,
+     "gameId": 421892,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "14:05",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "home": {
+      "name": "Burlington Blast",
+      "id": 101200
+     },
+     "score": {
+      "away": 8,
+      "home": 6
+     }
+    },
+    {
+     "num": 1614,
+     "gameId": 421893,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "15:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Richmond Hill Lightning",
+      "id": 101370
+     },
+     "home": {
+      "name": "Extreme de l'Outaouais",
+      "id": 101199
+     },
+     "score": {
+      "away": 5,
+      "home": 2
+     }
+    },
+    {
+     "num": 1615,
+     "gameId": 421894,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "15:25",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Lac-Saint-Louis (LSL)",
+      "id": 101422
+     },
+     "home": {
+      "name": "Rive-Sud",
+      "id": 101451
+     },
+     "score": {
+      "away": 1,
+      "home": 8
+     }
+    },
+    {
+     "num": 1909,
+     "gameId": 421870,
+     "division": "Fém M19 AA",
+     "date": "2026-10-16",
+     "time": "16:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Rush",
+      "id": 101220
+     },
+     "home": {
+      "name": "Les Cyclones de Québec",
+      "id": 101201
+     },
+     "score": null
+    },
+    {
+     "num": 1910,
+     "gameId": 421871,
+     "division": "Fém M19 AA",
+     "date": "2026-10-16",
+     "time": "16:45",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Laurentides AA",
+      "id": 101206
+     },
+     "home": {
+      "name": "Rive-Sud",
+      "id": 101452
+     },
+     "score": null
+    },
+    {
+     "num": 1911,
+     "gameId": 421872,
+     "division": "Fém M19 AA",
+     "date": "2026-10-16",
+     "time": "17:40",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Surge",
+      "id": 101196
+     },
+     "home": {
+      "name": "London Lynx U19AA",
+      "id": 101209
+     },
+     "score": null
+    },
+    {
+     "num": 1912,
+     "gameId": 421873,
+     "division": "Fém M19 AA",
+     "date": "2026-10-17",
+     "time": "07:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Les Cyclones de Québec",
+      "id": 101201
+     },
+     "home": {
+      "name": "Eastern Ontario Surge",
+      "id": 101196
+     },
+     "score": null
+    },
+    {
+     "num": 1619,
+     "gameId": 421898,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "07:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Extreme de l'Outaouais",
+      "id": 101199
+     },
+     "home": {
+      "name": "Lac-Saint-Louis (LSL)",
+      "id": 101422
+     },
+     "score": null
+    },
+    {
+     "num": 1616,
+     "gameId": 421895,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "08:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Rive-Sud",
+      "id": 101451
+     },
+     "home": {
+      "name": "GCRA U16AA - DEARING",
+      "id": 101297
+     },
+     "score": null
+    },
+    {
+     "num": 1617,
+     "gameId": 421896,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "08:35",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Nepean 16AA",
+      "id": 101205
+     },
+     "home": {
+      "name": "Laurentides AA",
+      "id": 101207
+     },
+     "score": null
+    },
+    {
+     "num": 1914,
+     "gameId": 421875,
+     "division": "Fém M19 AA",
+     "date": "2026-10-17",
+     "time": "09:40",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Rive-Sud",
+      "id": 101452
+     },
+     "home": {
+      "name": "Eastern Ontario Rush",
+      "id": 101220
+     },
+     "score": null
+    },
+    {
+     "num": 1618,
+     "gameId": 421897,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "09:55",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "home": {
+      "name": "Richmond Hill Lightning",
+      "id": 101370
+     },
+     "score": null
+    },
+    {
+     "num": 1913,
+     "gameId": 421874,
+     "division": "Fém M19 AA",
+     "date": "2026-10-17",
+     "time": "11:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Lac St Louis",
+      "id": 101313
+     },
+     "home": {
+      "name": "Laurentides AA",
+      "id": 101206
+     },
+     "score": null
+    },
+    {
+     "num": 1620,
+     "gameId": 421899,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "11:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Burlington Blast",
+      "id": 101200
+     },
+     "home": {
+      "name": "Ottawa Ice U16AA",
+      "id": 101198
+     },
+     "score": null
+    },
+    {
+     "num": 1915,
+     "gameId": 421876,
+     "division": "Fém M19 AA",
+     "date": "2026-10-17",
+     "time": "12:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Les Cyclones de Québec",
+      "id": 101201
+     },
+     "home": {
+      "name": "London Lynx U19AA",
+      "id": 101209
+     },
+     "score": null
+    },
+    {
+     "num": 1621,
+     "gameId": 421900,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "13:40",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "GCRA U16AA - DEARING",
+      "id": 101297
+     },
+     "home": {
+      "name": "Extreme de l'Outaouais",
+      "id": 101199
+     },
+     "score": null
+    },
+    {
+     "num": 1622,
+     "gameId": 421901,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "13:55",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Rive-Sud",
+      "id": 101451
+     },
+     "home": {
+      "name": "Nepean 16AA",
+      "id": 101205
+     },
+     "score": null
+    },
+    {
+     "num": 1623,
+     "gameId": 421902,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "15:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Ottawa Ice U16AA",
+      "id": 101198
+     },
+     "home": {
+      "name": "Richmond Hill Lightning",
+      "id": 101370
+     },
+     "score": null
+    },
+    {
+     "num": 1624,
+     "gameId": 421903,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "15:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Lac-Saint-Louis (LSL)",
+      "id": 101422
+     },
+     "home": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "score": null
+    },
+    {
+     "num": 1916,
+     "gameId": 421877,
+     "division": "Fém M19 AA",
+     "date": "2026-10-17",
+     "time": "16:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Surge",
+      "id": 101196
+     },
+     "home": {
+      "name": "Laurentides AA",
+      "id": 101206
+     },
+     "score": null
+    },
+    {
+     "num": 1625,
+     "gameId": 421904,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "16:35",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Laurentides AA",
+      "id": 101207
+     },
+     "home": {
+      "name": "Burlington Blast",
+      "id": 101200
+     },
+     "score": null
+    },
+    {
+     "num": 1917,
+     "gameId": 421878,
+     "division": "Fém M19 AA",
+     "date": "2026-10-17",
+     "time": "17:40",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "London Lynx U19AA",
+      "id": 101209
+     },
+     "home": {
+      "name": "Eastern Ontario Rush",
+      "id": 101220
+     },
+     "score": null
+    },
+    {
+     "num": 1918,
+     "gameId": 421879,
+     "division": "Fém M19 AA",
+     "date": "2026-10-17",
+     "time": "17:55",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Lac St Louis",
+      "id": 101313
+     },
+     "home": {
+      "name": "Rive-Sud",
+      "id": 101452
+     },
+     "score": null
+    },
+    {
+     "num": 1933,
+     "gameId": 421909,
+     "division": "Fém M19 AA",
+     "date": "2026-10-18",
+     "time": "07:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Demi-finale Meilleure 3 ème Pos.",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Meilleure 2 ème Pos.",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1929,
+     "gameId": 421905,
+     "division": "Fém M16 AA",
+     "date": "2026-10-18",
+     "time": "07:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1934,
+     "gameId": 421910,
+     "division": "Fém M19 AA",
+     "date": "2026-10-18",
+     "time": "08:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Demi-finale Meilleure 4 ème Pos.",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Meilleure 1 ère Pos.",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1930,
+     "gameId": 421906,
+     "division": "Fém M16 AA",
+     "date": "2026-10-18",
+     "time": "08:35",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Demi-finale Groupe B Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1936,
+     "gameId": 421912,
+     "division": "Fém M19 AA",
+     "date": "2026-10-18",
+     "time": "11:50",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Finale consolation Perdant du match 1934",
+      "id": null
+     },
+     "home": {
+      "name": "Finale consolation Perdant du match 1933",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1932,
+     "gameId": 421908,
+     "division": "Fém M16 AA",
+     "date": "2026-10-18",
+     "time": "12:05",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Finale consolation Perdant du match 1930",
+      "id": null
+     },
+     "home": {
+      "name": "Finale consolation Perdant du match 1929",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1931,
+     "gameId": 421907,
+     "division": "Fém M16 AA",
+     "date": "2026-10-18",
+     "time": "13:25",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Finale Gagnant match 1930",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 1929",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1935,
+     "gameId": 421911,
+     "division": "Fém M19 AA",
+     "date": "2026-10-18",
+     "time": "14:45",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Finale Gagnant match 1934",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 1933",
+      "id": null
+     },
+     "score": null
+    }
+   ]
+  }
+ ]
+}

@@ -12,6 +12,8 @@
  * directly; a scheduled GitHub job (scripts/fetch-lerq.mjs) copies it into
  * quebec.json next to the app.
  * Tournament IDs and dates live in tournaments.json.
+ * Quebec tournaments come from Planitournoi via planitournoi.json, written by
+ * the same kind of GitHub job (scripts/fetch-planitournoi.mjs).
  * Team IDs are shared between the league and tournaments, so following a team
  * picks up its tournament games too.
  */
@@ -43,7 +45,7 @@
   const BUILDINGS = [
     { name: 'Ray Friel Centre', match: /^ray friel/i, pad: /(?:pad\s*|friel\s+)(\d)/i, label: 'Pad $1' },
     { name: 'Jim Durrell Complex', match: /^jim durr?ell|^walkley - ottawa/i, pad: /(walkley|peplinski)/i, label: '$1' },
-    { name: 'Slush Puppie Complex', match: /^slush puppie/i, pad: /puppie(?: complex -)? ([a-d])\b/i, label: 'Pad $1' },
+    { name: 'Slush Puppie Complex', match: /^(centre )?slush puppie/i, pad: /(?:puppie(?: complex -)?|glace) ([a-d])\b/i, label: 'Pad $1' },
     { name: 'Nepean Sportsplex', match: /nepean sportsplex|^sportsplex \d+ - nepean/i, pad: /(?:arena|pad|sportsplex)\s*(\d)/i, label: 'Arena $1' },
     { name: 'CARDELREC Recreation Complex', match: /^cardelrec/i, pad: /cardelrec(?: recreation complex)? ([ab])\b/i, label: 'Pad $1' },
     { name: 'Walter Baker Sports Centre', match: /^walter baker/i, pad: /(?:pad |baker )([ab])\b/i, label: 'Pad $1' },
@@ -83,6 +85,7 @@
     favs: 'rt.favs',             // [teamId, ...] — favourites (always also followed)
     upFilter: 'rt.upFilter',     // 'all' | 'fav' — Upcoming filter, remembered
     tourn: 'rt.t.',              // + aid -> {sid, fetchedAt, games}
+    pt: 'rt.pt',                 // {fetchedAt, data} — planitournoi.json
   };
   const params = new URLSearchParams(location.search);
   const FIXTURE = params.has('fixture');
@@ -99,6 +102,7 @@
     lerqUpdatedAt: null,
     tourGames: new Map(), // aid -> normalized games
     tournaments: [],    // from tournaments.json
+    ptTournaments: [],  // Quebec tournaments from planitournoi.json (no games)
     teams: new Map(),   // id -> {id, name, division, league} (league teams)
     byIce: new Map(),   // "rinkId|yyyy-mm-dd" -> [games sorted]
     byBuilding: new Map(), // "bldg:name|yyyy-mm-dd" -> [games sorted]
@@ -252,6 +256,120 @@
     }).filter((g) => g.start);
   }
 
+  // ---------- Quebec tournaments (Planitournoi, via planitournoi.json) ----------
+  // See scripts/fetch-planitournoi.mjs. Planitournoi has its own team IDs and
+  // names ("Nepean 16AA", "GCRA U16AA - DEARING"), so its teams are matched to
+  // the league teams you follow by club name plus age and level.
+  const PT_RINK_ALIASES = {
+    'Centre Slush Puppie - Glace C': [13153, 'Slush Puppie Complex - C - Gerik Ice'],
+    'Centre Slush Puppie - Glace D': [13152, 'Slush Puppie Complex - D - Dilawri Ice'],
+  };
+  // Club names written differently across leagues and tournaments → one name.
+  const CLUB_ALIASES = [
+    [/^west ottawa( wild)?$/, 'west ottawa'],
+    [/^nepean( ravens)?$/, 'nepean'],
+    [/^ottawa( ice)?$/, 'ottawa ice'],
+    [/^eastern( ontario)? rush$/, 'eastern rush'],
+    [/^eastern( ontario)? surge$/, 'eastern surge'],
+    [/^(gcra|gloucester cumberland( devils)?)$/, 'gcra'],
+    [/^(extreme (de l )?)?outaouais$/, 'outaouais'],
+    [/^lac (saint|st) louis( lsl)?$|^lsl$/, 'lsl'],
+  ];
+  const plain = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  function clubOf(name) {
+    const [base, coach = ''] = String(name).split(/\s+-\s+/);
+    let key = plain(base).replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, ' ').trim().split(' ')
+      .filter((w) => w && !/^(u|m)?\d{1,2}(aa|bb|a|b|c)?$/.test(w) && !/^(aa|bb|a|b|c|fem|feminin)$/.test(w))
+      .join(' ');
+    for (const [re, to] of CLUB_ALIASES) if (re.test(key)) { key = to; break; }
+    return { key, coach: plain(coach).trim() };
+  }
+  function ageLevel(s) {
+    const m = /\b[um]\s?(\d{1,2})\s?(aa|bb|a|b|c)?\b/i.exec(s || '') || /\b(\d{2})\s?(aa|bb|a|b|c)\b/i.exec(s || '');
+    return m ? { age: +m[1], level: (m[2] || '').toUpperCase() } : null;
+  }
+  const teamMatchCache = new Map();
+  function matchLeagueTeam(name, division) {
+    const k = `${name}|${division}`;
+    if (teamMatchCache.has(k)) return teamMatchCache.get(k);
+    const club = clubOf(name);
+    const al = ageLevel(division) || ageLevel(name);
+    let hit = null;
+    if (club.key && al) {
+      const cands = [...state.teams.values()].filter((t) => {
+        if (clubOf(t.name).key !== club.key) return false;
+        const tl = ageLevel(t.baseDivision || t.division) || ageLevel(t.name);
+        return tl && tl.age === al.age && (!tl.level || !al.level || tl.level === al.level);
+      });
+      hit = (club.coach && cands.find((t) => plain(t.name).includes(club.coach)))
+        || cands.find((t) => state.tracked.has(t.id)) || cands[0] || null;
+    }
+    teamMatchCache.set(k, hit);
+    return hit;
+  }
+  // "Gagnant match 1930" → "Winner of game 1930", etc.
+  const ptPlaceholder = (n) => n
+    .replace(/quarts? de finale/i, 'Quarter-final').replace(/demi-finale/i, 'Semi-final')
+    .replace(/finale consolation/i, 'Consolation final').replace(/\bfinale\b/i, 'Final')
+    .replace(/meilleure? (\d+)\s*(?:ème|eme|e|ère|ere|re)\s*pos\.?/i, 'Best #$1')
+    .replace(/groupe (\w+) pos\.? ?(\d+)/i, 'Group $1 #$2')
+    .replace(/gagnant (?:du )?match (\d+)/i, 'Winner of game $1').replace(/perdant (?:du )?match (\d+)/i, 'Loser of game $1')
+    .replace(/^(Quarter-final|Semi-final|Consolation final|Final) (?=\S)/, '$1 · ');
+  const ptShort = (name) => name
+    .replace(/^(la coupe|le défi|tournoi)\s+(de ringuette\s+|ringuette\s+)?(de la |de l'|des |du |de |d')?/i, '')
+    .replace(/\s+(édition\s+)?20\d\d$/i, '').trim() || name;
+
+  function normalizePt(data) {
+    const out = new Map();
+    for (const t of data.tournaments || []) {
+      if (!tournamentWindow(t).active) continue;
+      const source = { aid: `pt${t.id}`, name: t.name, short: ptShort(t.name), source: 'pt', url: t.url };
+      out.set(source.aid, (t.games || []).map((g) => {
+        const alias = PT_RINK_ALIASES[g.arena];
+        const al = ageLevel(g.division);
+        const division = al ? `U${al.age}${al.level ? ` ${al.level}` : ''}` : g.division;
+        const team = (x, score) => ({
+          id: x.id ? `pt:${x.id}` : null, ptId: x.id ? `pt:${x.id}` : null, ptName: x.name, division: g.division,
+          name: x.id ? x.name : ptPlaceholder(x.name), score: score ?? null,
+        });
+        return {
+          key: `P-${t.id}-${g.num ?? `${g.date}${g.time}${g.arena}`}`,
+          id: g.num, gameId: g.gameId || null,
+          start: parseLocal(`${g.date}T${g.time}`),
+          end: null, endEstimated: true,
+          arena: alias ? alias[1] : g.arena,
+          rinkId: alias ? alias[0] : `pt:${g.arena}`,
+          home: team(g.home, g.score && g.score.home),
+          away: team(g.away, g.score && g.score.away),
+          division, baseDivision: division,
+          league: null, type: '', notes: '',
+          completed: !!g.score, cancelled: false,
+          tournament: source,
+        };
+      }).filter((g) => g.start));
+    }
+    return out;
+  }
+  function applyPt(data) {
+    for (const k of [...state.tourGames.keys()]) if (String(k).startsWith('pt')) state.tourGames.delete(k);
+    state.ptTournaments = (data.tournaments || []).map(({ games, ...t }) => ({ ...t, n: (games || []).length }));
+    for (const [k, games] of normalizePt(data)) state.tourGames.set(k, games);
+  }
+  // Link Planitournoi teams to followed league teams (needs state.teams).
+  function resolvePtTeams() {
+    teamMatchCache.clear();
+    for (const [k, games] of state.tourGames) {
+      if (!String(k).startsWith('pt')) continue;
+      for (const g of games) for (const t of [g.home, g.away]) {
+        if (!t.ptId) continue; // placeholder ("Winner of game 1930")
+        const hit = matchLeagueTeam(t.ptName, t.division);
+        t.id = hit ? hit.id : t.ptId;
+        t.logoName = hit ? hit.name : null;
+        t.logoLeague = hit ? hit.league : null;
+      }
+    }
+  }
+
   function rebuild() {
     state.league = [];
     for (const l of LEAGUES) state.league.push(...(state.leagueGames.get(l.key) || []));
@@ -267,6 +385,7 @@
         if (t.id && !state.teams.has(t.id)) state.teams.set(t.id, { id: t.id, name: t.name, division: g.division, baseDivision: g.baseDivision, league: g.league });
       }
     }
+    resolvePtTeams();
     state.byIce = new Map();
     for (const g of all) {
       if (g.cancelled) continue;
@@ -493,6 +612,8 @@
       await loadTournamentList();
       await loadLogos();
       loadCachedTournaments();
+      const pt = readJSON(LS.pt, null);
+      if (pt && pt.data) applyPt(pt.data);
       pruneTournamentCache();
       rebuild();
       render();
@@ -533,6 +654,20 @@
         } catch (err) { problems.push(err); }
       }
       if (refreshed && !problems.length) state.fetchedAt = new Date();
+
+      // Quebec tournaments: planitournoi.json is updated by the GitHub job
+      // (hourly); check it every 10 minutes.
+      const ptCached = readJSON(LS.pt, null);
+      if (force || !ptCached || Date.now() - ptCached.fetchedAt > 10 * 60000) {
+        try {
+          const data = await getJSON(FIXTURE ? 'fixture-planitournoi.json' : 'planitournoi.json');
+          writeJSON(LS.pt, { fetchedAt: Date.now(), data });
+          applyPt(data);
+        } catch (err) {
+          // No planitournoi.json yet (the GitHub job hasn't run) isn't worth showing.
+          if (!/HTTP 404/.test(err.message)) problems.push(err);
+        }
+      }
 
       // Tournaments happening soon (or just finished).
       const active = state.tournaments.filter((t) => tournamentWindow(t).active);
@@ -581,7 +716,7 @@
     const mine = state.tracked.has(t.id);
     const showScore = g.completed || (t.score !== null && t.score !== undefined && g.start < now());
     return `<div class="team${mine ? ' mine' : ''}">
-      <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${logoImg(logoFor(t.name, g.league))}${esc(t.name)}</span>
+      <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${logoImg(logoFor(t.logoName || t.name, t.logoLeague || g.league))}${esc(t.name)}</span>
       ${showScore && t.score != null ? `<span class="score">${t.score}</span>` : ''}
     </div>`;
   }
@@ -638,6 +773,9 @@
   // Box score: RAMP's game sheet (works for NCRRL, GAARA and tournament games
   // through ncrrl.com, given any real division ID), or Ringuette Québec's game page.
   function boxScoreUrl(g) {
+    if (g.tournament && g.tournament.source === 'pt') {
+      return g.gameId ? `https://www.planitournoi.com/game_result.php?pdf=1&lang=fr&game_id=${g.gameId}&public&from=public&sheet=match` : null;
+    }
     if (g.league && g.league.key === 'lerq') {
       return g.detailId ? `https://membres.ringuette-quebec.qc.ca/resultats_web.asp?cedules_id=${g.detailId}` : null;
     }
@@ -747,8 +885,19 @@
     return `1-${m[1].padStart(2, '0')}-${tier}`;
   }
 
+  function quebecTournamentSummary() {
+    const list = state.ptTournaments.filter((t) => tournamentWindow(t).active);
+    const line = (t) => {
+      const w = tournamentWindow(t);
+      return `<li><strong>${esc(t.name)}</strong> · ${fmtShortDate(w.start)}${+w.end !== +w.start ? `–${fmtShortDate(w.end)}` : ''} · <span class="muted">${t.n} games</span></li>`;
+    };
+    return `<h3 class="settings-sub">Quebec tournaments</h3>
+      <p class="muted small">Copied from Planitournoi every hour for tournaments in the next month that have Ottawa-area teams. Teams are matched to the ones you follow by club, age and level.</p>
+      ${list.length ? `<ul class="tlist">${list.map(line).join('')}</ul>` : '<p class="small">None in the next month.</p>'}`;
+  }
+
   function tournamentSummary() {
-    if (!state.tournaments.length) return '';
+    if (!state.tournaments.length) return quebecTournamentSummary();
     const today = now(); today.setHours(0, 0, 0, 0);
     const upcoming = state.tournaments
       .map((t) => ({ t, w: tournamentWindow(t) }))
@@ -762,9 +911,10 @@
       return `<li><strong>${esc(t.name)}</strong> · ${fmtShortDate(w.start)}${+w.end !== +w.start ? `–${fmtShortDate(w.end)}` : ''}${t.datesApprox ? ' (approx.)' : ''}${status ? ` · <span class="muted">${status}</span>` : ''}</li>`;
     };
     return `<h3 class="settings-sub">Tournaments</h3>
-      <p class="muted small">The app checks Ringette Ontario tournaments starting in the next month. ${state.tournaments.length} tournaments are on the list.</p>
+      <p class="muted small">The app checks Ringette Ontario tournaments (on RAMP) starting in the next month. ${state.tournaments.length} tournaments are on the list.</p>
       ${active.length ? `<ul class="tlist">${active.map(line).join('')}</ul>` : '<p class="small">None in the next month.</p>'}
-      ${next.length ? `<p class="muted small">Coming later: ${next.map(({ t, w }) => `${esc(t.short)} (${fmtShortDate(w.start)})`).join(', ')}</p>` : ''}`;
+      ${next.length ? `<p class="muted small">Coming later: ${next.map(({ t, w }) => `${esc(t.short)} (${fmtShortDate(w.start)})`).join(', ')}</p>` : ''}
+      ${quebecTournamentSummary()}`;
   }
 
   function renderTeams() {

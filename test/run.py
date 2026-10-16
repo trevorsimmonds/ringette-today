@@ -6,6 +6,7 @@ async def main():
         ctx = await b.new_context(viewport={'width':390,'height':844}, device_scale_factor=2, timezone_id='America/Toronto')
         page = await ctx.new_page()
         errs=[]; page.on('pageerror', lambda e: errs.append(str(e))); page.on('console', lambda m: m.type=='error' and errs.append(m.text))
+        await page.clock.install(time='2026-09-26T12:00:00-04:00')
         await page.goto('http://localhost:8765/?fixture=1#teams=398263,398262')
         await page.wait_for_timeout(800)
         await page.screenshot(path='test/1-upcoming.png', full_page=True)

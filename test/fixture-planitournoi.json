@@ -1,0 +1,217 @@
+{
+ "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
+ "updatedAt": "2026-10-16T22:11:58.926Z",
+ "today": "2026-10-16",
+ "tournaments": [
+  {
+   "id": 23644,
+   "name": "La Coupe Extrême de l'Outaouais",
+   "city": "Gatineau",
+   "province": "quebec",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23644&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "games": [
+    {
+     "num": 1901,
+     "gameId": 421862,
+     "division": "Fém M19 AA",
+     "date": "2026-10-15",
+     "time": "15:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Eastern Ontario Rush",
+      "id": 101220
+     },
+     "home": {
+      "name": "Eastern Ontario Surge",
+      "id": 101196
+     },
+     "score": {
+      "away": 2,
+      "home": 3
+     }
+    },
+    {
+     "num": 1601,
+     "gameId": 421880,
+     "division": "Fém M16 AA",
+     "date": "2026-10-15",
+     "time": "15:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Nepean 16AA",
+      "id": 101205
+     },
+     "home": {
+      "name": "Extreme de l'Outaouais",
+      "id": 101199
+     },
+     "score": {
+      "away": 4,
+      "home": 4
+     }
+    },
+    {
+     "num": 1602,
+     "gameId": 421881,
+     "division": "Fém M16 AA",
+     "date": "2026-10-15",
+     "time": "16:20",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "GCRA U16AA - DEARING",
+      "id": 101297
+     },
+     "home": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "score": {
+      "away": 2,
+      "home": 4
+     }
+    },
+    {
+     "num": 1606,
+     "gameId": 421885,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "07:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Nepean 16AA",
+      "id": 101205
+     },
+     "home": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "score": {
+      "away": 5,
+      "home": 5
+     }
+    },
+    {
+     "num": 1613,
+     "gameId": 421892,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "14:05",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "home": {
+      "name": "Burlington Blast",
+      "id": 101200
+     },
+     "score": null
+    },
+    {
+     "num": 1614,
+     "gameId": 421893,
+     "division": "Fém M16 AA",
+     "date": "2026-10-16",
+     "time": "15:25",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Ottawa Ice U16AA",
+      "id": 101198
+     },
+     "home": {
+      "name": "Lac-Saint-Louis (LSL)",
+      "id": 101422
+     },
+     "score": null
+    },
+    {
+     "num": 1618,
+     "gameId": 421897,
+     "division": "Fém M16 AA",
+     "date": "2026-10-17",
+     "time": "09:55",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "West Ottawa",
+      "id": 101197
+     },
+     "home": {
+      "name": "Richmond Hill Lightning",
+      "id": 101370
+     },
+     "score": null
+    },
+    {
+     "num": 1933,
+     "gameId": 421909,
+     "division": "Fém M19 AA",
+     "date": "2026-10-18",
+     "time": "07:00",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Demi-finale Meilleure 3 ème Pos.",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Meilleure 2 ème Pos.",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1929,
+     "gameId": 421905,
+     "division": "Fém M16 AA",
+     "date": "2026-10-18",
+     "time": "07:15",
+     "arena": "Centre Slush Puppie - Glace D",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1932,
+     "gameId": 421908,
+     "division": "Fém M16 AA",
+     "date": "2026-10-18",
+     "time": "12:05",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Finale consolation Perdant du match 1930",
+      "id": null
+     },
+     "home": {
+      "name": "Finale consolation Perdant du match 1929",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 1935,
+     "gameId": 421911,
+     "division": "Fém M19 AA",
+     "date": "2026-10-18",
+     "time": "14:45",
+     "arena": "Centre Slush Puppie - Glace C",
+     "away": {
+      "name": "Finale Gagnant match 1934",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 1933",
+      "id": null
+     },
+     "score": null
+    }
+   ]
+  }
+ ]
+}

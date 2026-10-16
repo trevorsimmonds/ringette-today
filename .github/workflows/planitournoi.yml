@@ -1,0 +1,67 @@
+# Copies Quebec ringette tournament schedules from Planitournoi into
+# planitournoi.json every hour (tournaments in the next month with
+# Ottawa-area teams). Free for public repositories. Run it by hand from the
+# Actions tab ("Update Quebec tournaments" → Run workflow).
+name: Update Quebec tournaments
+
+on:
+  schedule:
+    - cron: '41 * * * *'   # every hour (UTC), at 41 minutes past
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: planitournoi
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check the page reader
+        # Reads trimmed copies of real Planitournoi pages (test/pt-*.html); fails
+        # if a code change broke the reader. Nothing is downloaded or written.
+        run: node test/pt-check.mjs
+      - name: Download tournaments
+        id: download
+        # Exit code 2 = it worked, but a page looks like its layout changed.
+        # Carry on to save what was read; the last step then fails the run so
+        # GitHub emails you.
+        continue-on-error: true
+        run: node scripts/fetch-planitournoi.mjs
+      - name: Commit if changed
+        id: commit
+        if: always()
+        run: |
+          if [ ! -f planitournoi.json ] || { git diff --quiet -- planitournoi.json && git ls-files --error-unmatch planitournoi.json >/dev/null 2>&1; }; then
+            echo "No tournament changes."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add planitournoi.json
+            git commit -m "Update Quebec tournaments"
+            # The LERQ job may have pushed in the meantime.
+            git pull --rebase
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Republish the site
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+      - name: Report problems
+        if: steps.download.outcome == 'failure'
+        run: |
+          echo "The Planitournoi download reported a problem — see the 'Download tournaments' step above."
+          exit 1

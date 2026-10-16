@@ -63,6 +63,24 @@ A PWA has to be served over HTTPS to install on a phone.
 3. **Results** shows past scores.
 4. **Share my teams** sends a link that sets up the same teams on someone else's phone.
 
+## Quebec tournaments (Planitournoi)
+
+Quebec ringette tournaments post their schedules on [Planitournoi](https://www.planitournoi.com/sport/ringuette/). It has no data feed and browser apps can't read it, so a GitHub job copies it, the same way as the LERQ schedule:
+
+- `.github/workflows/planitournoi.yml` runs every hour (at :41) and runs `scripts/fetch-planitournoi.mjs`.
+- The script reads Planitournoi's ringette list, takes tournaments from a week ago to a month ahead, reads each one's schedule (and each rink's page), keeps only tournaments with Ottawa-area teams, and writes `planitournoi.json`.
+- The app loads `planitournoi.json` every 10 minutes and matches tournament teams ("Nepean 16AA", "GCRA U16AA - DEARING") to the league teams you follow by club, age and level. Club names written differently are listed in `CLUB_ALIASES` in `app.js`; rink names in `PT_RINK_ALIASES`.
+- Finished games link to Planitournoi's game sheet (PDF) as the box score.
+
+Run it by hand from the Actions tab: **Update Quebec tournaments → Run workflow**.
+
+Safety nets:
+- Each run first does `node test/pt-check.mjs`: it checks the reader against trimmed copies of real Planitournoi pages (`test/pt-list.html`, `test/pt-23644.html`) and fails if a code change broke it.
+- If a schedule page can't be read, the last good copy of that tournament is kept. If a page lists games but none can be read (Planitournoi changed its layout), the run still saves what it could but is marked failed, so GitHub emails you.
+- The file is only rewritten when something changed, and never with an empty tournament list.
+
+Testing on your Mac (your own Terminal can reach Planitournoi): `node test/pt-check.mjs`, then `node scripts/fetch-planitournoi.mjs` to download the real schedules into `planitournoi.json`, then `python3 -m http.server 8001` and open http://localhost:8001. Add `--out /tmp/pt.json` to download somewhere else instead.
+
 ## Files
 
 | File | Purpose |
@@ -75,6 +93,8 @@ A PWA has to be served over HTTPS to install on a phone.
 | `tournaments.json` | Tournament IDs and dates |
 | `quebec.json` | LERQ schedule, written by the GitHub job (don't edit by hand) |
 | `scripts/fetch-lerq.mjs`, `.github/workflows/lerq.yml` | The job that copies the LERQ schedule |
+| `planitournoi.json` | Quebec tournament schedules, written by the GitHub job (don't edit by hand) |
+| `scripts/fetch-planitournoi.mjs`, `.github/workflows/planitournoi.yml` | The job that copies Quebec tournaments from Planitournoi |
 | `test/` | Sample data and scripts for checking the app locally (not needed to run it) |
 
 If you change `app.js` or `styles.css` later, bump `CACHE` in `sw.js` (e.g. `ringette-today-v2`) so installed copies pick up the update.
