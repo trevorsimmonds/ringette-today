@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-17T17:30:34.314Z",
+ "updatedAt": "2026-10-17T19:41:06.421Z",
  "today": "2026-10-17",
  "tournaments": [
   {
@@ -707,7 +707,10 @@
       "name": "London Lynx U19AA",
       "id": 101209
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 2
+     }
     },
     {
      "num": 1621,
@@ -724,7 +727,10 @@
       "name": "Extreme de l'Outaouais",
       "id": 101199
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 9
+     }
     },
     {
      "num": 1622,
@@ -741,7 +747,10 @@
       "name": "Nepean 16AA",
       "id": 101205
      },
-     "score": null
+     "score": {
+      "away": 10,
+      "home": 4
+     }
     },
     {
      "num": 1623,
