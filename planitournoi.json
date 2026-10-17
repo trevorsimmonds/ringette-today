@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-17T00:44:49.196Z",
- "today": "2026-10-16",
+ "updatedAt": "2026-10-17T14:23:20.013Z",
+ "today": "2026-10-17",
  "tournaments": [
   {
    "id": 23644,
@@ -547,7 +547,10 @@
       "name": "Eastern Ontario Surge",
       "id": 101196
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": 1619,
@@ -564,7 +567,10 @@
       "name": "Lac-Saint-Louis (LSL)",
       "id": 101422
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": 1616,
@@ -581,7 +587,10 @@
       "name": "GCRA U16AA - DEARING",
       "id": 101297
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 3
+     }
     },
     {
      "num": 1617,
@@ -598,7 +607,10 @@
       "name": "Laurentides AA",
       "id": 101207
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 1
+     }
     },
     {
      "num": 1914,
