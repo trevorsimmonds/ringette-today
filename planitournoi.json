@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-16T22:21:04.744Z",
+ "updatedAt": "2026-10-17T00:44:49.196Z",
  "today": "2026-10-16",
  "tournaments": [
   {
@@ -487,7 +487,10 @@
       "name": "Les Cyclones de Québec",
       "id": 101201
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 7
+     }
     },
     {
      "num": 1910,
@@ -504,7 +507,10 @@
       "name": "Rive-Sud",
       "id": 101452
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 5
+     }
     },
     {
      "num": 1911,
@@ -521,7 +527,10 @@
       "name": "London Lynx U19AA",
       "id": 101209
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 4
+     }
     },
     {
      "num": 1912,
