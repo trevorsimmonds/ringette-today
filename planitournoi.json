@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-17T14:23:20.013Z",
+ "updatedAt": "2026-10-17T17:30:34.314Z",
  "today": "2026-10-17",
  "tournaments": [
   {
@@ -627,7 +627,10 @@
       "name": "Eastern Ontario Rush",
       "id": 101220
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 0
+     }
     },
     {
      "num": 1618,
@@ -644,7 +647,10 @@
       "name": "Richmond Hill Lightning",
       "id": 101370
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 9
+     }
     },
     {
      "num": 1913,
@@ -661,7 +667,10 @@
       "name": "Laurentides AA",
       "id": 101206
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 10
+     }
     },
     {
      "num": 1620,
@@ -678,7 +687,10 @@
       "name": "Ottawa Ice U16AA",
       "id": 101198
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 4
+     }
     },
     {
      "num": 1915,
