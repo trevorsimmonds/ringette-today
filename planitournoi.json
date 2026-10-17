@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-17T19:41:06.421Z",
+ "updatedAt": "2026-10-17T21:43:42.162Z",
  "today": "2026-10-17",
  "tournaments": [
   {
@@ -767,7 +767,10 @@
       "name": "Richmond Hill Lightning",
       "id": 101370
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 7
+     }
     },
     {
      "num": 1624,
@@ -784,7 +787,10 @@
       "name": "West Ottawa",
       "id": 101197
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 5
+     }
     },
     {
      "num": 1916,
@@ -879,12 +885,12 @@
      "time": "07:15",
      "arena": "Centre Slush Puppie - Glace D",
      "away": {
-      "name": "Demi-finale Groupe A Pos. 2",
-      "id": null
+      "name": "Demi-finale Nepean 16AA Groupe A Pos. 2",
+      "id": 101205
      },
      "home": {
-      "name": "Demi-finale Groupe A Pos. 1",
-      "id": null
+      "name": "Demi-finale Richmond Hill Lightning Groupe A Pos. 1",
+      "id": 101370
      },
      "score": null
     },
@@ -900,8 +906,8 @@
       "id": null
      },
      "home": {
-      "name": "Demi-finale Meilleure 1 ère Pos.",
-      "id": null
+      "name": "Demi-finale Les Cyclones de Québec Meilleure 1 ère Pos.",
+      "id": 101201
      },
      "score": null
     },
@@ -913,12 +919,12 @@
      "time": "08:35",
      "arena": "Centre Slush Puppie - Glace D",
      "away": {
-      "name": "Demi-finale Groupe B Pos. 2",
-      "id": null
+      "name": "Demi-finale Extreme de l'Outaouais Groupe B Pos. 2",
+      "id": 101199
      },
      "home": {
-      "name": "Demi-finale Groupe B Pos. 1",
-      "id": null
+      "name": "Demi-finale Rive-Sud Groupe B Pos. 1",
+      "id": 101451
      },
      "score": null
     },
