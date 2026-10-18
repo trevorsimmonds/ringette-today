@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-18T14:08:07.800Z",
+ "updatedAt": "2026-10-18T17:31:43.860Z",
  "today": "2026-10-18",
  "tournaments": [
   {
@@ -944,10 +944,13 @@
       "id": 101199
      },
      "home": {
-      "name": "Demi-finale Rive-Sud Groupe B Pos. 1",
+      "name": "Demi-finale * Rive-Sud Groupe B Pos. 1",
       "id": 101451
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 8
+     }
     },
     {
      "num": 1936,
@@ -961,10 +964,13 @@
       "id": 101209
      },
      "home": {
-      "name": "Finale consolation Eastern Ontario Surge Perdant du match 1933",
+      "name": "Finale consolation * Eastern Ontario Surge Perdant du match 1933",
       "id": 101196
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 7
+     }
     },
     {
      "num": 1932,
@@ -974,14 +980,17 @@
      "time": "12:05",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Finale consolation Perdant du match 1930",
-      "id": null
+      "name": "Finale consolation * Extreme de l'Outaouais Perdant du match 1930",
+      "id": 101199
      },
      "home": {
       "name": "Finale consolation Nepean 16AA Perdant du match 1929",
       "id": 101205
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 4
+     }
     },
     {
      "num": 1931,
@@ -991,8 +1000,8 @@
      "time": "13:25",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Finale Gagnant match 1930",
-      "id": null
+      "name": "Finale Rive-Sud Gagnant match 1930",
+      "id": 101451
      },
      "home": {
       "name": "Finale Richmond Hill Lightning Gagnant match 1929",
