@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-18T19:37:23.477Z",
+ "updatedAt": "2026-10-18T21:49:03.865Z",
  "today": "2026-10-18",
  "tournaments": [
   {
@@ -1020,14 +1020,17 @@
      "time": "14:45",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Finale Rive-Sud Gagnant match 1933",
+      "name": "Finale * Rive-Sud Gagnant match 1933",
       "id": 101452
      },
      "home": {
       "name": "Finale Les Cyclones de Québec Gagnant match 1934",
       "id": 101201
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 0
+     }
     }
    ]
   }
