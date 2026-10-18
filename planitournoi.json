@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-18T00:14:37.808Z",
- "today": "2026-10-17",
+ "updatedAt": "2026-10-18T14:08:07.800Z",
+ "today": "2026-10-18",
  "tournaments": [
   {
    "id": 23644,
@@ -884,10 +884,13 @@
       "id": 101196
      },
      "home": {
-      "name": "Demi-finale Rive-Sud Meilleure 2 ème Pos.",
+      "name": "Demi-finale * Rive-Sud Meilleure 2 ème Pos.",
       "id": 101452
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 6
+     }
     },
     {
      "num": 1929,
@@ -901,10 +904,13 @@
       "id": 101205
      },
      "home": {
-      "name": "Demi-finale Richmond Hill Lightning Groupe A Pos. 1",
+      "name": "Demi-finale * Richmond Hill Lightning Groupe A Pos. 1",
       "id": 101370
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 7
+     }
     },
     {
      "num": 1934,
@@ -918,10 +924,13 @@
       "id": 101209
      },
      "home": {
-      "name": "Demi-finale Les Cyclones de Québec Meilleure 1 ère Pos.",
+      "name": "Demi-finale * Les Cyclones de Québec Meilleure 1 ère Pos.",
       "id": 101201
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 8
+     }
     },
     {
      "num": 1930,
@@ -948,12 +957,12 @@
      "time": "11:50",
      "arena": "Centre Slush Puppie - Glace D",
      "away": {
-      "name": "Finale consolation Perdant du match 1934",
-      "id": null
+      "name": "Finale consolation London Lynx U19AA Perdant du match 1934",
+      "id": 101209
      },
      "home": {
-      "name": "Finale consolation Perdant du match 1933",
-      "id": null
+      "name": "Finale consolation Eastern Ontario Surge Perdant du match 1933",
+      "id": 101196
      },
      "score": null
     },
@@ -969,8 +978,8 @@
       "id": null
      },
      "home": {
-      "name": "Finale consolation Perdant du match 1929",
-      "id": null
+      "name": "Finale consolation Nepean 16AA Perdant du match 1929",
+      "id": 101205
      },
      "score": null
     },
@@ -986,8 +995,8 @@
       "id": null
      },
      "home": {
-      "name": "Finale Gagnant match 1929",
-      "id": null
+      "name": "Finale Richmond Hill Lightning Gagnant match 1929",
+      "id": 101370
      },
      "score": null
     },
@@ -999,12 +1008,12 @@
      "time": "14:45",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Finale Gagnant match 1934",
-      "id": null
+      "name": "Finale Les Cyclones de Québec Gagnant match 1934",
+      "id": 101201
      },
      "home": {
-      "name": "Finale Gagnant match 1933",
-      "id": null
+      "name": "Finale Rive-Sud Gagnant match 1933",
+      "id": 101452
      },
      "score": null
     }
