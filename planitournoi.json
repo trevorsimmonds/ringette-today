@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-17T21:43:42.162Z",
+ "updatedAt": "2026-10-18T00:14:37.808Z",
  "today": "2026-10-17",
  "tournaments": [
   {
@@ -807,7 +807,10 @@
       "name": "Laurentides AA",
       "id": 101206
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 3
+     }
     },
     {
      "num": 1625,
@@ -824,7 +827,10 @@
       "name": "Burlington Blast",
       "id": 101200
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 3
+     }
     },
     {
      "num": 1917,
@@ -841,7 +847,10 @@
       "name": "Eastern Ontario Rush",
       "id": 101220
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": 1918,
@@ -858,7 +867,10 @@
       "name": "Rive-Sud",
       "id": 101452
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 6
+     }
     },
     {
      "num": 1933,
@@ -868,12 +880,12 @@
      "time": "07:00",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Demi-finale Meilleure 3 ème Pos.",
-      "id": null
+      "name": "Demi-finale Eastern Ontario Surge Meilleure 3 ème Pos.",
+      "id": 101196
      },
      "home": {
-      "name": "Demi-finale Meilleure 2 ème Pos.",
-      "id": null
+      "name": "Demi-finale Rive-Sud Meilleure 2 ème Pos.",
+      "id": 101452
      },
      "score": null
     },
@@ -902,8 +914,8 @@
      "time": "08:20",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Demi-finale Meilleure 4 ème Pos.",
-      "id": null
+      "name": "Demi-finale London Lynx U19AA Meilleure 4 ème Pos.",
+      "id": 101209
      },
      "home": {
       "name": "Demi-finale Les Cyclones de Québec Meilleure 1 ère Pos.",
