@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-18T17:31:43.860Z",
+ "updatedAt": "2026-10-18T19:37:23.477Z",
  "today": "2026-10-18",
  "tournaments": [
   {
@@ -1000,14 +1000,17 @@
      "time": "13:25",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Finale Rive-Sud Gagnant match 1930",
+      "name": "Finale * Rive-Sud Gagnant match 1930",
       "id": 101451
      },
      "home": {
       "name": "Finale Richmond Hill Lightning Gagnant match 1929",
       "id": 101370
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 4
+     }
     },
     {
      "num": 1935,
@@ -1017,12 +1020,12 @@
      "time": "14:45",
      "arena": "Centre Slush Puppie - Glace C",
      "away": {
-      "name": "Finale Les Cyclones de Québec Gagnant match 1934",
-      "id": 101201
-     },
-     "home": {
       "name": "Finale Rive-Sud Gagnant match 1933",
       "id": 101452
+     },
+     "home": {
+      "name": "Finale Les Cyclones de Québec Gagnant match 1934",
+      "id": 101201
      },
      "score": null
     }
