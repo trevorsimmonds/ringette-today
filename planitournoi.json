@@ -1,6 +1,1514 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-19T05:14:07.683Z",
+ "updatedAt": "2026-10-20T01:13:35.022Z",
  "today": "2026-10-19",
- "tournaments": []
+ "tournaments": [
+  {
+   "id": 23663,
+   "name": "Tournoi des Avalanches de Sainte-Julie",
+   "city": "Sainte-Julie",
+   "province": "quebec",
+   "start": "2026-11-10",
+   "end": "2026-11-15",
+   "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23663&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "games": [
+    {
+     "num": 25,
+     "gameId": 423588,
+     "division": "Fém Atome B",
+     "date": "2026-11-10",
+     "time": "18:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101949
+     },
+     "home": {
+      "name": "VDR",
+      "id": 101967
+     },
+     "score": null
+    },
+    {
+     "num": 41,
+     "gameId": 423604,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-10",
+     "time": "19:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Sharks de Laval",
+      "id": 102974
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101951
+     },
+     "score": null
+    },
+    {
+     "num": 57,
+     "gameId": 423620,
+     "division": "Fém Cadette A",
+     "date": "2026-11-10",
+     "time": "20:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Pointe Claire Power",
+      "id": 102161
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101622
+     },
+     "score": null
+    },
+    {
+     "num": 73,
+     "gameId": 423636,
+     "division": "Fém Inter A",
+     "date": "2026-11-10",
+     "time": "21:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Faucons de Longueuil-Saint-Hubert",
+      "id": 101947
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101757
+     },
+     "score": null
+    },
+    {
+     "num": 1,
+     "gameId": 423560,
+     "division": "Fém Novice A",
+     "date": "2026-11-11",
+     "time": "18:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Rockets de Roussillon",
+      "id": 102293
+     },
+     "home": {
+      "name": "L'Orbite Boucherville",
+      "id": 102250
+     },
+     "score": null
+    },
+    {
+     "num": 49,
+     "gameId": 423612,
+     "division": "Fém Junior B",
+     "date": "2026-11-11",
+     "time": "19:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101697
+     },
+     "home": {
+      "name": "Les Abeilles de St-Hyacinthe",
+      "id": 101678
+     },
+     "score": null
+    },
+    {
+     "num": 65,
+     "gameId": 423628,
+     "division": "Fém Cadette B",
+     "date": "2026-11-11",
+     "time": "20:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101983
+     },
+     "home": {
+      "name": "Les Intrépides",
+      "id": 102761
+     },
+     "score": null
+    },
+    {
+     "num": 33,
+     "gameId": 423596,
+     "division": "Fém Atome C",
+     "date": "2026-11-12",
+     "time": "18:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "L'Orbite Boucherville",
+      "id": 102299
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101950
+     },
+     "score": null
+    },
+    {
+     "num": 42,
+     "gameId": 423605,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-12",
+     "time": "19:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101951
+     },
+     "home": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102725
+     },
+     "score": null
+    },
+    {
+     "num": 58,
+     "gameId": 423621,
+     "division": "Fém Cadette A",
+     "date": "2026-11-12",
+     "time": "20:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101622
+     },
+     "home": {
+      "name": "L'Orbite Boucherville",
+      "id": 101615
+     },
+     "score": null
+    },
+    {
+     "num": 81,
+     "gameId": 423644,
+     "division": "Fém Inter B",
+     "date": "2026-11-12",
+     "time": "21:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "VDR",
+      "id": 101409
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie B1",
+      "id": 101368
+     },
+     "score": null
+    },
+    {
+     "num": 35,
+     "gameId": 423598,
+     "division": "Fém Atome C",
+     "date": "2026-11-13",
+     "time": "09:00",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Les Colibris de Lévis",
+      "id": 102298
+     },
+     "home": {
+      "name": "Sharks C2",
+      "id": 103416
+     },
+     "score": null
+    },
+    {
+     "num": 17,
+     "gameId": 423580,
+     "division": "Fém Atome A",
+     "date": "2026-11-13",
+     "time": "09:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Les Abeilles de St-Hyacinthe",
+      "id": 103407
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101699
+     },
+     "score": null
+    },
+    {
+     "num": 34,
+     "gameId": 423597,
+     "division": "Fém Atome C",
+     "date": "2026-11-13",
+     "time": "10:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101950
+     },
+     "home": {
+      "name": "Sharks C2",
+      "id": 103416
+     },
+     "score": null
+    },
+    {
+     "num": 9,
+     "gameId": 423572,
+     "division": "Fém Novice B",
+     "date": "2026-11-13",
+     "time": "10:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "MER",
+      "id": 103282
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101807
+     },
+     "score": null
+    },
+    {
+     "num": 2,
+     "gameId": 423561,
+     "division": "Fém Novice A",
+     "date": "2026-11-13",
+     "time": "11:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102045
+     },
+     "home": {
+      "name": "Les Colibris de Lévis",
+      "id": 102168
+     },
+     "score": null
+    },
+    {
+     "num": 10,
+     "gameId": 423573,
+     "division": "Fém Novice B",
+     "date": "2026-11-13",
+     "time": "11:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102109
+     },
+     "home": {
+      "name": "L'Orbite Boucherville B2",
+      "id": 102672
+     },
+     "score": null
+    },
+    {
+     "num": 26,
+     "gameId": 423589,
+     "division": "Fém Atome B",
+     "date": "2026-11-13",
+     "time": "12:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102335
+     },
+     "home": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102308
+     },
+     "score": null
+    },
+    {
+     "num": 18,
+     "gameId": 423581,
+     "division": "Fém Atome A",
+     "date": "2026-11-13",
+     "time": "12:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102560
+     },
+     "home": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102707
+     },
+     "score": null
+    },
+    {
+     "num": 43,
+     "gameId": 423606,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-13",
+     "time": "13:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102301
+     },
+     "home": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102725
+     },
+     "score": null
+    },
+    {
+     "num": 50,
+     "gameId": 423613,
+     "division": "Fém Junior B",
+     "date": "2026-11-13",
+     "time": "13:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Les Abeilles de St-Hyacinthe",
+      "id": 101678
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102330
+     },
+     "score": null
+    },
+    {
+     "num": 66,
+     "gameId": 423629,
+     "division": "Fém Cadette B",
+     "date": "2026-11-13",
+     "time": "14:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "CORA City of Ottawa Gordon",
+      "id": 103310
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101983
+     },
+     "score": null
+    },
+    {
+     "num": 11,
+     "gameId": 423574,
+     "division": "Fém Novice B",
+     "date": "2026-11-13",
+     "time": "14:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "L'Orbite Boucherville B2",
+      "id": 102672
+     },
+     "home": {
+      "name": "MER",
+      "id": 103282
+     },
+     "score": null
+    },
+    {
+     "num": 67,
+     "gameId": 423630,
+     "division": "Fém Cadette B",
+     "date": "2026-11-13",
+     "time": "15:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Les Intrépides",
+      "id": 102761
+     },
+     "home": {
+      "name": "Vortex de Gatineau B1",
+      "id": 102229
+     },
+     "score": null
+    },
+    {
+     "num": 51,
+     "gameId": 423614,
+     "division": "Fém Junior B",
+     "date": "2026-11-13",
+     "time": "15:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101697
+     },
+     "home": {
+      "name": "West Ottawa U16B Irvine",
+      "id": 102726
+     },
+     "score": null
+    },
+    {
+     "num": 19,
+     "gameId": 423582,
+     "division": "Fém Atome A",
+     "date": "2026-11-13",
+     "time": "16:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102560
+     },
+     "home": {
+      "name": "Les Abeilles de St-Hyacinthe",
+      "id": 103407
+     },
+     "score": null
+    },
+    {
+     "num": 3,
+     "gameId": 423562,
+     "division": "Fém Novice A",
+     "date": "2026-11-13",
+     "time": "16:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "L'Orbite Boucherville",
+      "id": 102250
+     },
+     "home": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102045
+     },
+     "score": null
+    },
+    {
+     "num": 82,
+     "gameId": 423645,
+     "division": "Fém Inter B",
+     "date": "2026-11-13",
+     "time": "17:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie B1",
+      "id": 101368
+     },
+     "home": {
+      "name": "Trois-Rivièrs B2",
+      "id": 101304
+     },
+     "score": null
+    },
+    {
+     "num": 27,
+     "gameId": 423590,
+     "division": "Fém Atome B",
+     "date": "2026-11-13",
+     "time": "17:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102335
+     },
+     "home": {
+      "name": "VDR",
+      "id": 101967
+     },
+     "score": null
+    },
+    {
+     "num": 83,
+     "gameId": 423646,
+     "division": "Fém Inter B",
+     "date": "2026-11-13",
+     "time": "17:50",
+     "arena": "Glace #2 Letang",
+     "away": {
+      "name": "VDR",
+      "id": 101409
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101312
+     },
+     "score": null
+    },
+    {
+     "num": 59,
+     "gameId": 423622,
+     "division": "Fém Cadette A",
+     "date": "2026-11-13",
+     "time": "18:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "L'Orbite Boucherville",
+      "id": 101615
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101800
+     },
+     "score": null
+    },
+    {
+     "num": 52,
+     "gameId": 423615,
+     "division": "Fém Junior B",
+     "date": "2026-11-13",
+     "time": "18:50",
+     "arena": "Glace #2 Letang",
+     "away": {
+      "name": "Les Abeilles de St-Hyacinthe",
+      "id": 101678
+     },
+     "home": {
+      "name": "West Ottawa U16B Irvine",
+      "id": 102726
+     },
+     "score": null
+    },
+    {
+     "num": 44,
+     "gameId": 423607,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-13",
+     "time": "19:20",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102301
+     },
+     "home": {
+      "name": "Sharks de Laval",
+      "id": 102974
+     },
+     "score": null
+    },
+    {
+     "num": 68,
+     "gameId": 423631,
+     "division": "Fém Cadette B",
+     "date": "2026-11-13",
+     "time": "19:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Vortex de Gatineau B1",
+      "id": 102229
+     },
+     "home": {
+      "name": "CORA City of Ottawa Gordon",
+      "id": 103310
+     },
+     "score": null
+    },
+    {
+     "num": 74,
+     "gameId": 423637,
+     "division": "Fém Inter A",
+     "date": "2026-11-13",
+     "time": "20:20",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101705
+     },
+     "home": {
+      "name": "Faucons de Longueuil-Saint-Hubert",
+      "id": 101947
+     },
+     "score": null
+    },
+    {
+     "num": 75,
+     "gameId": 423638,
+     "division": "Fém Inter A",
+     "date": "2026-11-13",
+     "time": "20:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101757
+     },
+     "home": {
+      "name": "Roussillon 1",
+      "id": 102009
+     },
+     "score": null
+    },
+    {
+     "num": 60,
+     "gameId": 423623,
+     "division": "Fém Cadette A",
+     "date": "2026-11-13",
+     "time": "21:20",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101800
+     },
+     "home": {
+      "name": "Pointe Claire Power",
+      "id": 102161
+     },
+     "score": null
+    },
+    {
+     "num": 84,
+     "gameId": 423647,
+     "division": "Fém Inter B",
+     "date": "2026-11-13",
+     "time": "21:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101312
+     },
+     "home": {
+      "name": "Trois-Rivièrs B2",
+      "id": 101304
+     },
+     "score": null
+    },
+    {
+     "num": 4,
+     "gameId": 423563,
+     "division": "Fém Novice A",
+     "date": "2026-11-14",
+     "time": "07:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Les Colibris de Lévis",
+      "id": 102168
+     },
+     "home": {
+      "name": "L'Orbite Boucherville",
+      "id": 102250
+     },
+     "score": null
+    },
+    {
+     "num": 12,
+     "gameId": 423575,
+     "division": "Fém Novice B",
+     "date": "2026-11-14",
+     "time": "07:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101807
+     },
+     "home": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102109
+     },
+     "score": null
+    },
+    {
+     "num": 28,
+     "gameId": 423591,
+     "division": "Fém Atome B",
+     "date": "2026-11-14",
+     "time": "08:00",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "VDR",
+      "id": 101967
+     },
+     "home": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102308
+     },
+     "score": null
+    },
+    {
+     "num": 20,
+     "gameId": 423583,
+     "division": "Fém Atome A",
+     "date": "2026-11-14",
+     "time": "08:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102707
+     },
+     "home": {
+      "name": "Les Abeilles de St-Hyacinthe",
+      "id": 103407
+     },
+     "score": null
+    },
+    {
+     "num": 36,
+     "gameId": 423599,
+     "division": "Fém Atome C",
+     "date": "2026-11-14",
+     "time": "09:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Sharks C2",
+      "id": 103416
+     },
+     "home": {
+      "name": "L'Orbite Boucherville",
+      "id": 102299
+     },
+     "score": null
+    },
+    {
+     "num": 37,
+     "gameId": 423600,
+     "division": "Fém Atome C",
+     "date": "2026-11-14",
+     "time": "09:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101950
+     },
+     "home": {
+      "name": "Les Colibris de Lévis",
+      "id": 102298
+     },
+     "score": null
+    },
+    {
+     "num": 45,
+     "gameId": 423608,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-14",
+     "time": "10:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102725
+     },
+     "home": {
+      "name": "Sharks de Laval",
+      "id": 102974
+     },
+     "score": null
+    },
+    {
+     "num": 46,
+     "gameId": 423609,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-14",
+     "time": "10:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101951
+     },
+     "home": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102301
+     },
+     "score": null
+    },
+    {
+     "num": 53,
+     "gameId": 423616,
+     "division": "Fém Junior B",
+     "date": "2026-11-14",
+     "time": "11:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102330
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101697
+     },
+     "score": null
+    },
+    {
+     "num": 76,
+     "gameId": 423639,
+     "division": "Fém Inter A",
+     "date": "2026-11-14",
+     "time": "11:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Roussillon 1",
+      "id": 102009
+     },
+     "home": {
+      "name": "Faucons de Longueuil-Saint-Hubert",
+      "id": 101947
+     },
+     "score": null
+    },
+    {
+     "num": 13,
+     "gameId": 423576,
+     "division": "Fém Novice B",
+     "date": "2026-11-14",
+     "time": "12:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101807
+     },
+     "home": {
+      "name": "L'Orbite Boucherville B2",
+      "id": 102672
+     },
+     "score": null
+    },
+    {
+     "num": 5,
+     "gameId": 423564,
+     "division": "Fém Novice A",
+     "date": "2026-11-14",
+     "time": "12:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Rockets de Roussillon",
+      "id": 102293
+     },
+     "home": {
+      "name": "Les Colibris de Lévis",
+      "id": 102168
+     },
+     "score": null
+    },
+    {
+     "num": 14,
+     "gameId": 423577,
+     "division": "Fém Novice B",
+     "date": "2026-11-14",
+     "time": "13:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102109
+     },
+     "home": {
+      "name": "MER",
+      "id": 103282
+     },
+     "score": null
+    },
+    {
+     "num": 29,
+     "gameId": 423592,
+     "division": "Fém Atome B",
+     "date": "2026-11-14",
+     "time": "13:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102308
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101949
+     },
+     "score": null
+    },
+    {
+     "num": 21,
+     "gameId": 423584,
+     "division": "Fém Atome A",
+     "date": "2026-11-14",
+     "time": "14:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101699
+     },
+     "home": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102707
+     },
+     "score": null
+    },
+    {
+     "num": 38,
+     "gameId": 423601,
+     "division": "Fém Atome C",
+     "date": "2026-11-14",
+     "time": "14:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Les Colibris de Lévis",
+      "id": 102298
+     },
+     "home": {
+      "name": "L'Orbite Boucherville",
+      "id": 102299
+     },
+     "score": null
+    },
+    {
+     "num": 77,
+     "gameId": 423640,
+     "division": "Fém Inter A",
+     "date": "2026-11-14",
+     "time": "15:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101757
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101705
+     },
+     "score": null
+    },
+    {
+     "num": 54,
+     "gameId": 423617,
+     "division": "Fém Junior B",
+     "date": "2026-11-14",
+     "time": "16:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "West Ottawa U16B Irvine",
+      "id": 102726
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102330
+     },
+     "score": null
+    },
+    {
+     "num": 69,
+     "gameId": 423632,
+     "division": "Fém Cadette B",
+     "date": "2026-11-14",
+     "time": "16:30",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101983
+     },
+     "home": {
+      "name": "Vortex de Gatineau B1",
+      "id": 102229
+     },
+     "score": null
+    },
+    {
+     "num": 6,
+     "gameId": 423565,
+     "division": "Fém Novice A",
+     "date": "2026-11-14",
+     "time": "17:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Firebirds de Thetford Mines",
+      "id": 102045
+     },
+     "home": {
+      "name": "Rockets de Roussillon",
+      "id": 102293
+     },
+     "score": null
+    },
+    {
+     "num": 30,
+     "gameId": 423593,
+     "division": "Fém Atome B",
+     "date": "2026-11-14",
+     "time": "17:30",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101949
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102335
+     },
+     "score": null
+    },
+    {
+     "num": 22,
+     "gameId": 423585,
+     "division": "Fém Atome A",
+     "date": "2026-11-14",
+     "time": "18:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101699
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 102560
+     },
+     "score": null
+    },
+    {
+     "num": 70,
+     "gameId": 423633,
+     "division": "Fém Cadette B",
+     "date": "2026-11-14",
+     "time": "18:30",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Les Intrépides",
+      "id": 102761
+     },
+     "home": {
+      "name": "CORA City of Ottawa Gordon",
+      "id": 103310
+     },
+     "score": null
+    },
+    {
+     "num": 78,
+     "gameId": 423641,
+     "division": "Fém Inter A",
+     "date": "2026-11-14",
+     "time": "19:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Roussillon 1",
+      "id": 102009
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101705
+     },
+     "score": null
+    },
+    {
+     "num": 61,
+     "gameId": 423624,
+     "division": "Fém Cadette A",
+     "date": "2026-11-14",
+     "time": "19:30",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101622
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101800
+     },
+     "score": null
+    },
+    {
+     "num": 62,
+     "gameId": 423625,
+     "division": "Fém Cadette A",
+     "date": "2026-11-14",
+     "time": "20:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "L'Orbite Boucherville",
+      "id": 101615
+     },
+     "home": {
+      "name": "Pointe Claire Power",
+      "id": 102161
+     },
+     "score": null
+    },
+    {
+     "num": 85,
+     "gameId": 423648,
+     "division": "Fém Inter B",
+     "date": "2026-11-14",
+     "time": "20:30",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Trois-Rivièrs B2",
+      "id": 101304
+     },
+     "home": {
+      "name": "VDR",
+      "id": 101409
+     },
+     "score": null
+    },
+    {
+     "num": 86,
+     "gameId": 423649,
+     "division": "Fém Inter B",
+     "date": "2026-11-14",
+     "time": "21:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "Avalanches de Sainte-Julie B1",
+      "id": 101368
+     },
+     "home": {
+      "name": "Valkyries de Sainte-Marie",
+      "id": 101312
+     },
+     "score": null
+    },
+    {
+     "num": 15,
+     "gameId": 423578,
+     "division": "Fém Novice B",
+     "date": "2026-11-15",
+     "time": "07:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 16,
+     "gameId": 423579,
+     "division": "Fém Novice B",
+     "date": "2026-11-15",
+     "time": "07:10",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 7,
+     "gameId": 423570,
+     "division": "Fém Novice A",
+     "date": "2026-11-15",
+     "time": "08:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 8,
+     "gameId": 423571,
+     "division": "Fém Novice A",
+     "date": "2026-11-15",
+     "time": "08:15",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 39,
+     "gameId": 423602,
+     "division": "Fém Atome C",
+     "date": "2026-11-15",
+     "time": "09:20",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 40,
+     "gameId": 423603,
+     "division": "Fém Atome C",
+     "date": "2026-11-15",
+     "time": "09:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 32,
+     "gameId": 423595,
+     "division": "Fém Atome B",
+     "date": "2026-11-15",
+     "time": "10:25",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 31,
+     "gameId": 423594,
+     "division": "Fém Atome B",
+     "date": "2026-11-15",
+     "time": "10:30",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 24,
+     "gameId": 423587,
+     "division": "Fém Atome A",
+     "date": "2026-11-15",
+     "time": "11:30",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 23,
+     "gameId": 423586,
+     "division": "Fém Atome A",
+     "date": "2026-11-15",
+     "time": "11:40",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 48,
+     "gameId": 423611,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-15",
+     "time": "12:35",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 47,
+     "gameId": 423610,
+     "division": "Fém Benjamine B",
+     "date": "2026-11-15",
+     "time": "12:50",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 56,
+     "gameId": 423619,
+     "division": "Fém Junior B",
+     "date": "2026-11-15",
+     "time": "13:40",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 55,
+     "gameId": 423618,
+     "division": "Fém Junior B",
+     "date": "2026-11-15",
+     "time": "14:00",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 72,
+     "gameId": 423635,
+     "division": "Fém Cadette B",
+     "date": "2026-11-15",
+     "time": "14:45",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 71,
+     "gameId": 423634,
+     "division": "Fém Cadette B",
+     "date": "2026-11-15",
+     "time": "15:10",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 64,
+     "gameId": 423627,
+     "division": "Fém Cadette A",
+     "date": "2026-11-15",
+     "time": "15:50",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 63,
+     "gameId": 423626,
+     "division": "Fém Cadette A",
+     "date": "2026-11-15",
+     "time": "16:20",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 80,
+     "gameId": 423643,
+     "division": "Fém Inter A",
+     "date": "2026-11-15",
+     "time": "16:55",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 79,
+     "gameId": 423642,
+     "division": "Fém Inter A",
+     "date": "2026-11-15",
+     "time": "17:30",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 88,
+     "gameId": 423651,
+     "division": "Fém Inter B",
+     "date": "2026-11-15",
+     "time": "18:00",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "4e Position",
+      "id": null
+     },
+     "home": {
+      "name": "3e Position",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 87,
+     "gameId": 423650,
+     "division": "Fém Inter B",
+     "date": "2026-11-15",
+     "time": "18:40",
+     "arena": "Glace #1 Batisseur",
+     "away": {
+      "name": "2e Position",
+      "id": null
+     },
+     "home": {
+      "name": "1er Position",
+      "id": null
+     },
+     "score": null
+    }
+   ]
+  }
+ ]
 }
