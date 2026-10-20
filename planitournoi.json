@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-20T01:13:35.022Z",
- "today": "2026-10-19",
+ "updatedAt": "2026-10-20T06:32:12.179Z",
+ "today": "2026-10-20",
  "tournaments": [
   {
    "id": 23663,
@@ -196,23 +196,6 @@
      "home": {
       "name": "Avalanches de Sainte-Julie B1",
       "id": 101368
-     },
-     "score": null
-    },
-    {
-     "num": 35,
-     "gameId": 423598,
-     "division": "Fém Atome C",
-     "date": "2026-11-13",
-     "time": "09:00",
-     "arena": "Glace #3 Hamelin",
-     "away": {
-      "name": "Les Colibris de Lévis",
-      "id": 102298
-     },
-     "home": {
-      "name": "Sharks C2",
-      "id": 103416
      },
      "score": null
     },
@@ -483,7 +466,7 @@
       "id": 101368
      },
      "home": {
-      "name": "Trois-Rivièrs B2",
+      "name": "Trois-Rivières B2",
       "id": 101304
      },
      "score": null
@@ -536,6 +519,23 @@
      "home": {
       "name": "Valkyries de Sainte-Marie",
       "id": 101800
+     },
+     "score": null
+    },
+    {
+     "num": 35,
+     "gameId": 423598,
+     "division": "Fém Atome C",
+     "date": "2026-11-13",
+     "time": "18:20",
+     "arena": "Glace #3 Hamelin",
+     "away": {
+      "name": "Les Colibris de Lévis",
+      "id": 102298
+     },
+     "home": {
+      "name": "Sharks C2",
+      "id": 103416
      },
      "score": null
     },
@@ -653,7 +653,7 @@
       "id": 101312
      },
      "home": {
-      "name": "Trois-Rivièrs B2",
+      "name": "Trois-Rivières B2",
       "id": 101304
      },
      "score": null
@@ -698,7 +698,7 @@
      "division": "Fém Atome B",
      "date": "2026-11-14",
      "time": "08:00",
-     "arena": "Glace #3 Hamelin",
+     "arena": "Glace #1 Batisseur",
      "away": {
       "name": "VDR",
       "id": 101967
@@ -1108,7 +1108,7 @@
      "time": "20:30",
      "arena": "Glace #3 Hamelin",
      "away": {
-      "name": "Trois-Rivièrs B2",
+      "name": "Trois-Rivières B2",
       "id": 101304
      },
      "home": {
