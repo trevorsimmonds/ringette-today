@@ -1,8 +1,1634 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-20T06:32:12.179Z",
- "today": "2026-10-20",
+ "updatedAt": "2026-10-21T19:33:21.128Z",
+ "today": "2026-10-21",
  "tournaments": [
+  {
+   "id": 23652,
+   "name": "Tournoi de Ringuette des Mustangs",
+   "city": "Blainville",
+   "province": "quebec",
+   "start": "2026-11-10",
+   "end": "2026-11-15",
+   "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23652&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "games": [
+    {
+     "num": 1,
+     "gameId": 423195,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-10",
+     "time": "19:15",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Pointe-Claire",
+      "id": 101744
+     },
+     "home": {
+      "name": "Deux-Montagnes",
+      "id": 101646
+     },
+     "score": null
+    },
+    {
+     "num": 2,
+     "gameId": 423269,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-10",
+     "time": "20:15",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Sharks de Laval",
+      "id": 101399
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101259
+     },
+     "score": null
+    },
+    {
+     "num": 3,
+     "gameId": 423251,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-10",
+     "time": "21:15",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Mustangs 1",
+      "id": 101241
+     },
+     "home": {
+      "name": "Montréal-Nord 1",
+      "id": 101491
+     },
+     "score": null
+    },
+    {
+     "num": 4,
+     "gameId": 423186,
+     "division": "Fém U12-Atome A",
+     "date": "2026-11-11",
+     "time": "18:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Tornade Desmoulins",
+      "id": 101709
+     },
+     "home": {
+      "name": "Deux-Montagnes",
+      "id": 102052
+     },
+     "score": null
+    },
+    {
+     "num": 5,
+     "gameId": 423276,
+     "division": "Mix U10-Novice B",
+     "date": "2026-11-11",
+     "time": "18:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Phénix St-Eustache-B",
+      "id": 102273
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101602
+     },
+     "score": null
+    },
+    {
+     "num": 6,
+     "gameId": 423209,
+     "division": "Fém U14-Benjamine B",
+     "date": "2026-11-11",
+     "time": "19:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Deux-Montagnes",
+      "id": 101941
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101606
+     },
+     "score": null
+    },
+    {
+     "num": 7,
+     "gameId": 423215,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-11",
+     "time": "19:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Pointe-Claire",
+      "id": 101819
+     },
+     "home": {
+      "name": "Phénix St-Eustache-Boisbriand",
+      "id": 102071
+     },
+     "score": null
+    },
+    {
+     "num": 8,
+     "gameId": 423242,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-11",
+     "time": "20:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Des Moulins 2",
+      "id": 101253
+     },
+     "home": {
+      "name": "Des Moulins 3",
+      "id": 101626
+     },
+     "score": null
+    },
+    {
+     "num": 9,
+     "gameId": 423231,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-11",
+     "time": "20:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Faucons LSH",
+      "id": 101634
+     },
+     "home": {
+      "name": "Repentigny",
+      "id": 101468
+     },
+     "score": null
+    },
+    {
+     "num": 10,
+     "gameId": 423247,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-11",
+     "time": "21:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Pierrefonds 3",
+      "id": 101248
+     },
+     "home": {
+      "name": "Montréal-Nord 1",
+      "id": 101491
+     },
+     "score": null
+    },
+    {
+     "num": 11,
+     "gameId": 423250,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-11",
+     "time": "21:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Mustangs 1",
+      "id": 101241
+     },
+     "home": {
+      "name": "Des Moulins 1",
+      "id": 101433
+     },
+     "score": null
+    },
+    {
+     "num": 12,
+     "gameId": 423258,
+     "division": "Fém U21+Intermédiaire C",
+     "date": "2026-11-11",
+     "time": "22:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Mustangs",
+      "id": 101242
+     },
+     "home": {
+      "name": "Montréal-Nord 4",
+      "id": 101251
+     },
+     "score": null
+    },
+    {
+     "num": 13,
+     "gameId": 423243,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-11",
+     "time": "22:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Montréal-Nord 5",
+      "id": 101405
+     },
+     "home": {
+      "name": "Mustangs 3",
+      "id": 101240
+     },
+     "score": null
+    },
+    {
+     "num": 14,
+     "gameId": 423273,
+     "division": "Mix U10-Novice B",
+     "date": "2026-11-12",
+     "time": "18:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Mustangs",
+      "id": 101602
+     },
+     "home": {
+      "name": "BKRA 1",
+      "id": 102050
+     },
+     "score": null
+    },
+    {
+     "num": 15,
+     "gameId": 423225,
+     "division": "Fém U16-Junior B",
+     "date": "2026-11-12",
+     "time": "18:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Tornades Desmoulins",
+      "id": 102191
+     },
+     "home": {
+      "name": "Montréal-Nord",
+      "id": 102142
+     },
+     "score": null
+    },
+    {
+     "num": 16,
+     "gameId": 423196,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-12",
+     "time": "19:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Deux-Montagnes",
+      "id": 101646
+     },
+     "home": {
+      "name": "Sharks Laval",
+      "id": 101753
+     },
+     "score": null
+    },
+    {
+     "num": 17,
+     "gameId": 423198,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-12",
+     "time": "19:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Faucons LSH",
+      "id": 101756
+     },
+     "home": {
+      "name": "Pointe-Claire",
+      "id": 101744
+     },
+     "score": null
+    },
+    {
+     "num": 18,
+     "gameId": 423218,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-12",
+     "time": "20:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Roussillon Rockets",
+      "id": 102018
+     },
+     "home": {
+      "name": "Pointe-Claire",
+      "id": 101819
+     },
+     "score": null
+    },
+    {
+     "num": 19,
+     "gameId": 423256,
+     "division": "Fém U21+Intermédiaire C",
+     "date": "2026-11-12",
+     "time": "20:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Des Moulins 1",
+      "id": 101331
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101242
+     },
+     "score": null
+    },
+    {
+     "num": 20,
+     "gameId": 423246,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-12",
+     "time": "21:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Des Moulins 1",
+      "id": 101433
+     },
+     "home": {
+      "name": "Pierrefonds 3",
+      "id": 101248
+     },
+     "score": null
+    },
+    {
+     "num": 21,
+     "gameId": 423263,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-12",
+     "time": "21:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Mustangs",
+      "id": 101259
+     },
+     "home": {
+      "name": "Faucons LSH 1",
+      "id": 101700
+     },
+     "score": null
+    },
+    {
+     "num": 22,
+     "gameId": 423244,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-12",
+     "time": "22:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Des Moulins 3",
+      "id": 101626
+     },
+     "home": {
+      "name": "Montréal-Nord 5",
+      "id": 101405
+     },
+     "score": null
+    },
+    {
+     "num": 23,
+     "gameId": 423241,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-12",
+     "time": "22:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Mustangs 3",
+      "id": 101240
+     },
+     "home": {
+      "name": "Des Moulins 2",
+      "id": 101253
+     },
+     "score": null
+    },
+    {
+     "num": 24,
+     "gameId": 423189,
+     "division": "Fém U12-Atome A",
+     "date": "2026-11-13",
+     "time": "09:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Gatineau Vortex",
+      "id": 101406
+     },
+     "home": {
+      "name": "Tornade Desmoulins",
+      "id": 101709
+     },
+     "score": null
+    },
+    {
+     "num": 25,
+     "gameId": 423208,
+     "division": "Fém U14-Benjamine B",
+     "date": "2026-11-13",
+     "time": "09:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Barrie Ringette",
+      "id": 101445
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101606
+     },
+     "score": null
+    },
+    {
+     "num": 26,
+     "gameId": 423197,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-13",
+     "time": "10:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "London Lynx",
+      "id": 101260
+     },
+     "home": {
+      "name": "Faucons LSH",
+      "id": 101756
+     },
+     "score": null
+    },
+    {
+     "num": 27,
+     "gameId": 423233,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-13",
+     "time": "10:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "GCRA",
+      "id": 101446
+     },
+     "home": {
+      "name": "Guelph Predators",
+      "id": 101271
+     },
+     "score": null
+    },
+    {
+     "num": 28,
+     "gameId": 423216,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-13",
+     "time": "11:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Phénix St-Eustache-Boisbriand",
+      "id": 102071
+     },
+     "home": {
+      "name": "Roussillon Rockets",
+      "id": 102018
+     },
+     "score": null
+    },
+    {
+     "num": 29,
+     "gameId": 423223,
+     "division": "Fém U16-Junior B",
+     "date": "2026-11-13",
+     "time": "11:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Barrie Ringette",
+      "id": 101453
+     },
+     "home": {
+      "name": "Tornades Desmoulins",
+      "id": 102191
+     },
+     "score": null
+    },
+    {
+     "num": 30,
+     "gameId": 423278,
+     "division": "Mix U10-Novice B",
+     "date": "2026-11-13",
+     "time": "12:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Phénix St-Eustache-B",
+      "id": 102273
+     },
+     "home": {
+      "name": "Gatineau",
+      "id": 102305
+     },
+     "score": null
+    },
+    {
+     "num": 31,
+     "gameId": 423214,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-13",
+     "time": "12:20",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Burlington Blast",
+      "id": 101274
+     },
+     "home": {
+      "name": "Ottawa",
+      "id": 101311
+     },
+     "score": null
+    },
+    {
+     "num": 32,
+     "gameId": 423204,
+     "division": "Fém U14-Benjamine B",
+     "date": "2026-11-13",
+     "time": "13:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Arnprior Devils",
+      "id": 101806
+     },
+     "home": {
+      "name": "Barrie Ringette",
+      "id": 101445
+     },
+     "score": null
+    },
+    {
+     "num": 33,
+     "gameId": 423191,
+     "division": "Fém U12-Atome A",
+     "date": "2026-11-13",
+     "time": "13:30",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Gatineau Vortex",
+      "id": 101406
+     },
+     "home": {
+      "name": "West Ottawa",
+      "id": 102314
+     },
+     "score": null
+    },
+    {
+     "num": 34,
+     "gameId": 423268,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-13",
+     "time": "14:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "uOttawa Gee-Gees",
+      "id": 101244
+     },
+     "home": {
+      "name": "Guelph Gryphons",
+      "id": 101257
+     },
+     "score": null
+    },
+    {
+     "num": 35,
+     "gameId": 423229,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-13",
+     "time": "14:30",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Faucons LSH",
+      "id": 101634
+     },
+     "home": {
+      "name": "GCRA",
+      "id": 101446
+     },
+     "score": null
+    },
+    {
+     "num": 36,
+     "gameId": 423237,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-13",
+     "time": "15:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Guelph Predators",
+      "id": 101271
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101309
+     },
+     "score": null
+    },
+    {
+     "num": 37,
+     "gameId": 423224,
+     "division": "Fém U16-Junior B",
+     "date": "2026-11-13",
+     "time": "15:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Gatineau",
+      "id": 102708
+     },
+     "home": {
+      "name": "Barrie Ringette",
+      "id": 101453
+     },
+     "score": null
+    },
+    {
+     "num": 38,
+     "gameId": 423217,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-13",
+     "time": "16:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Ottawa",
+      "id": 101311
+     },
+     "home": {
+      "name": "Phénix St-Eustache-Boisbriand",
+      "id": 102071
+     },
+     "score": null
+    },
+    {
+     "num": 39,
+     "gameId": 423199,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-13",
+     "time": "16:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Sharks Laval",
+      "id": 101753
+     },
+     "home": {
+      "name": "Faucons LSH",
+      "id": 101756
+     },
+     "score": null
+    },
+    {
+     "num": 40,
+     "gameId": 423205,
+     "division": "Fém U14-Benjamine B",
+     "date": "2026-11-13",
+     "time": "17:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Deux-Montagnes",
+      "id": 101941
+     },
+     "home": {
+      "name": "Arnprior Devils",
+      "id": 101806
+     },
+     "score": null
+    },
+    {
+     "num": 41,
+     "gameId": 423264,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-13",
+     "time": "17:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Sharks de Laval",
+      "id": 101399
+     },
+     "home": {
+      "name": "Faucons LSH 1",
+      "id": 101700
+     },
+     "score": null
+    },
+    {
+     "num": 42,
+     "gameId": 423213,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-13",
+     "time": "18:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Roussillon Rockets",
+      "id": 102018
+     },
+     "home": {
+      "name": "Burlington Blast",
+      "id": 101274
+     },
+     "score": null
+    },
+    {
+     "num": 43,
+     "gameId": 423200,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-13",
+     "time": "18:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "London Lynx",
+      "id": 101260
+     },
+     "home": {
+      "name": "Pointe-Claire",
+      "id": 101744
+     },
+     "score": null
+    },
+    {
+     "num": 44,
+     "gameId": 423238,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-13",
+     "time": "19:45",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101309
+     },
+     "home": {
+      "name": "Repentigny",
+      "id": 101468
+     },
+     "score": null
+    },
+    {
+     "num": 45,
+     "gameId": 423226,
+     "division": "Fém U16-Junior B",
+     "date": "2026-11-13",
+     "time": "20:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Montréal-Nord",
+      "id": 102142
+     },
+     "home": {
+      "name": "Gatineau",
+      "id": 102708
+     },
+     "score": null
+    },
+    {
+     "num": 46,
+     "gameId": 423257,
+     "division": "Fém U21+Intermédiaire C",
+     "date": "2026-11-13",
+     "time": "20:45",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Trois-Rivières 1",
+      "id": 101328
+     },
+     "home": {
+      "name": "Des Moulins 1",
+      "id": 101331
+     },
+     "score": null
+    },
+    {
+     "num": 47,
+     "gameId": 423270,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-13",
+     "time": "21:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Mustangs",
+      "id": 101259
+     },
+     "home": {
+      "name": "uOttawa Gee-Gees",
+      "id": 101244
+     },
+     "score": null
+    },
+    {
+     "num": 48,
+     "gameId": 423262,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-13",
+     "time": "21:45",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Faucons LSH 1",
+      "id": 101700
+     },
+     "home": {
+      "name": "Guelph Gryphons",
+      "id": 101257
+     },
+     "score": null
+    },
+    {
+     "num": 49,
+     "gameId": 423248,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-13",
+     "time": "22:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Pierrefonds 3",
+      "id": 101248
+     },
+     "home": {
+      "name": "Mustangs 1",
+      "id": 101241
+     },
+     "score": null
+    },
+    {
+     "num": 50,
+     "gameId": 423206,
+     "division": "Fém U14-Benjamine B",
+     "date": "2026-11-14",
+     "time": "07:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Mustangs",
+      "id": 101606
+     },
+     "home": {
+      "name": "Arnprior Devils",
+      "id": 101806
+     },
+     "score": null
+    },
+    {
+     "num": 51,
+     "gameId": 423277,
+     "division": "Mix U10-Novice B",
+     "date": "2026-11-14",
+     "time": "07:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Gatineau",
+      "id": 102305
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101602
+     },
+     "score": null
+    },
+    {
+     "num": 52,
+     "gameId": 423201,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-14",
+     "time": "08:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Sharks Laval",
+      "id": 101753
+     },
+     "home": {
+      "name": "London Lynx",
+      "id": 101260
+     },
+     "score": null
+    },
+    {
+     "num": 53,
+     "gameId": 423235,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-14",
+     "time": "08:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "GCRA",
+      "id": 101446
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101309
+     },
+     "score": null
+    },
+    {
+     "num": 54,
+     "gameId": 423236,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-14",
+     "time": "09:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Repentigny",
+      "id": 101468
+     },
+     "home": {
+      "name": "Guelph Predators",
+      "id": 101271
+     },
+     "score": null
+    },
+    {
+     "num": 55,
+     "gameId": 423193,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-14",
+     "time": "09:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Faucons LSH",
+      "id": 101756
+     },
+     "home": {
+      "name": "Deux-Montagnes",
+      "id": 101646
+     },
+     "score": null
+    },
+    {
+     "num": 56,
+     "gameId": 423227,
+     "division": "Fém U16-Junior B",
+     "date": "2026-11-14",
+     "time": "10:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Gatineau",
+      "id": 102708
+     },
+     "home": {
+      "name": "Tornades Desmoulins",
+      "id": 102191
+     },
+     "score": null
+    },
+    {
+     "num": 57,
+     "gameId": 423212,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-14",
+     "time": "10:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Burlington Blast",
+      "id": 101274
+     },
+     "home": {
+      "name": "Pointe-Claire",
+      "id": 101819
+     },
+     "score": null
+    },
+    {
+     "num": 58,
+     "gameId": 423220,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-14",
+     "time": "11:05",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Ottawa",
+      "id": 101311
+     },
+     "home": {
+      "name": "Roussillon Rockets",
+      "id": 102018
+     },
+     "score": null
+    },
+    {
+     "num": 59,
+     "gameId": 423207,
+     "division": "Fém U14-Benjamine B",
+     "date": "2026-11-14",
+     "time": "11:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Barrie Ringette",
+      "id": 101445
+     },
+     "home": {
+      "name": "Deux-Montagnes",
+      "id": 101941
+     },
+     "score": null
+    },
+    {
+     "num": 60,
+     "gameId": 423188,
+     "division": "Fém U12-Atome A",
+     "date": "2026-11-14",
+     "time": "12:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "West Ottawa",
+      "id": 102314
+     },
+     "home": {
+      "name": "Deux-Montagnes",
+      "id": 102052
+     },
+     "score": null
+    },
+    {
+     "num": 61,
+     "gameId": 423202,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-14",
+     "time": "12:20",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Pointe-Claire",
+      "id": 101744
+     },
+     "home": {
+      "name": "Sharks Laval",
+      "id": 101753
+     },
+     "score": null
+    },
+    {
+     "num": 62,
+     "gameId": 423194,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-14",
+     "time": "13:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Deux-Montagnes",
+      "id": 101646
+     },
+     "home": {
+      "name": "London Lynx",
+      "id": 101260
+     },
+     "score": null
+    },
+    {
+     "num": 63,
+     "gameId": 423232,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-14",
+     "time": "13:20",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101309
+     },
+     "home": {
+      "name": "Faucons LSH",
+      "id": 101634
+     },
+     "score": null
+    },
+    {
+     "num": 64,
+     "gameId": 423275,
+     "division": "Mix U10-Novice B",
+     "date": "2026-11-14",
+     "time": "14:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "BKRA 1",
+      "id": 102050
+     },
+     "home": {
+      "name": "Gatineau",
+      "id": 102305
+     },
+     "score": null
+    },
+    {
+     "num": 65,
+     "gameId": 423267,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-14",
+     "time": "14:30",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Guelph Gryphons",
+      "id": 101257
+     },
+     "home": {
+      "name": "Sharks de Laval",
+      "id": 101399
+     },
+     "score": null
+    },
+    {
+     "num": 66,
+     "gameId": 423265,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-14",
+     "time": "15:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Faucons LSH 1",
+      "id": 101700
+     },
+     "home": {
+      "name": "uOttawa Gee-Gees",
+      "id": 101244
+     },
+     "score": null
+    },
+    {
+     "num": 67,
+     "gameId": 423219,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-14",
+     "time": "15:30",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Pointe-Claire",
+      "id": 101819
+     },
+     "home": {
+      "name": "Ottawa",
+      "id": 101311
+     },
+     "score": null
+    },
+    {
+     "num": 68,
+     "gameId": 423187,
+     "division": "Fém U12-Atome A",
+     "date": "2026-11-14",
+     "time": "16:15",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Deux-Montagnes",
+      "id": 102052
+     },
+     "home": {
+      "name": "Gatineau Vortex",
+      "id": 101406
+     },
+     "score": null
+    },
+    {
+     "num": 69,
+     "gameId": 423222,
+     "division": "Fém U16-Junior B",
+     "date": "2026-11-14",
+     "time": "16:30",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Montréal-Nord",
+      "id": 102142
+     },
+     "home": {
+      "name": "Barrie Ringette",
+      "id": 101453
+     },
+     "score": null
+    },
+    {
+     "num": 70,
+     "gameId": 423234,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-14",
+     "time": "17:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Repentigny",
+      "id": 101468
+     },
+     "home": {
+      "name": "GCRA",
+      "id": 101446
+     },
+     "score": null
+    },
+    {
+     "num": 71,
+     "gameId": 423211,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-14",
+     "time": "17:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Phénix St-Eustache-Boisbriand",
+      "id": 102071
+     },
+     "home": {
+      "name": "Burlington Blast",
+      "id": 101274
+     },
+     "score": null
+    },
+    {
+     "num": 72,
+     "gameId": 423230,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-14",
+     "time": "18:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Guelph Predators",
+      "id": 101271
+     },
+     "home": {
+      "name": "Faucons LSH",
+      "id": 101634
+     },
+     "score": null
+    },
+    {
+     "num": 73,
+     "gameId": 423245,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-14",
+     "time": "18:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Des Moulins 3",
+      "id": 101626
+     },
+     "home": {
+      "name": "Mustangs 3",
+      "id": 101240
+     },
+     "score": null
+    },
+    {
+     "num": 74,
+     "gameId": 423240,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-14",
+     "time": "19:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Des Moulins 2",
+      "id": 101253
+     },
+     "home": {
+      "name": "Montréal-Nord 5",
+      "id": 101405
+     },
+     "score": null
+    },
+    {
+     "num": 75,
+     "gameId": 423260,
+     "division": "Fém U21+Intermédiaire C",
+     "date": "2026-11-14",
+     "time": "19:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Trois-Rivières 1",
+      "id": 101328
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101242
+     },
+     "score": null
+    },
+    {
+     "num": 76,
+     "gameId": 423249,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-14",
+     "time": "20:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Montréal-Nord 1",
+      "id": 101491
+     },
+     "home": {
+      "name": "Des Moulins 1",
+      "id": 101433
+     },
+     "score": null
+    },
+    {
+     "num": 77,
+     "gameId": 423255,
+     "division": "Fém U21+Intermédiaire C",
+     "date": "2026-11-14",
+     "time": "20:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Montréal-Nord 4",
+      "id": 101251
+     },
+     "home": {
+      "name": "Des Moulins 1",
+      "id": 101331
+     },
+     "score": null
+    },
+    {
+     "num": 78,
+     "gameId": 423266,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-14",
+     "time": "21:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Guelph Gryphons",
+      "id": 101257
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 101259
+     },
+     "score": null
+    },
+    {
+     "num": 79,
+     "gameId": 423271,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-14",
+     "time": "21:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "uOttawa Gee-Gees",
+      "id": 101244
+     },
+     "home": {
+      "name": "Sharks de Laval",
+      "id": 101399
+     },
+     "score": null
+    },
+    {
+     "num": 80,
+     "gameId": 423274,
+     "division": "Mix U10-Novice B",
+     "date": "2026-11-15",
+     "time": "07:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "BKRA 1",
+      "id": 102050
+     },
+     "home": {
+      "name": "Phénix St-Eustache-B",
+      "id": 102273
+     },
+     "score": null
+    },
+    {
+     "num": 81,
+     "gameId": 423190,
+     "division": "Fém U12-Atome A",
+     "date": "2026-11-15",
+     "time": "07:15",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Tornade Desmoulins",
+      "id": 101709
+     },
+     "home": {
+      "name": "West Ottawa",
+      "id": 102314
+     },
+     "score": null
+    },
+    {
+     "num": 82,
+     "gameId": 423252,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-15",
+     "time": "08:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Demi-finale Groupe B Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 83,
+     "gameId": 423253,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-15",
+     "time": "08:15",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 84,
+     "gameId": 423490,
+     "division": "Mix Moustique C",
+     "date": "2026-11-15",
+     "time": "09:00",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Moustique Mustangs",
+      "id": 103913
+     },
+     "home": {
+      "name": "Moustique Phénix",
+      "id": 103914
+     },
+     "score": null
+    },
+    {
+     "num": 85,
+     "gameId": 423259,
+     "division": "Fém U21+Intermédiaire C",
+     "date": "2026-11-15",
+     "time": "09:15",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Montréal-Nord 4",
+      "id": 101251
+     },
+     "home": {
+      "name": "Trois-Rivières 1",
+      "id": 101328
+     },
+     "score": null
+    },
+    {
+     "num": 86,
+     "gameId": 423210,
+     "division": "Fém U14-Benjamine B",
+     "date": "2026-11-15",
+     "time": "10:05",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 87,
+     "gameId": 423203,
+     "division": "Fém U14-Benjamine A",
+     "date": "2026-11-15",
+     "time": "10:30",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 88,
+     "gameId": 423279,
+     "division": "Mix U10-Novice B",
+     "date": "2026-11-15",
+     "time": "11:20",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 89,
+     "gameId": 423192,
+     "division": "Fém U12-Atome A",
+     "date": "2026-11-15",
+     "time": "11:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 90,
+     "gameId": 423228,
+     "division": "Fém U16-Junior B",
+     "date": "2026-11-15",
+     "time": "12:30",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 91,
+     "gameId": 423221,
+     "division": "Fém U16-Junior A",
+     "date": "2026-11-15",
+     "time": "13:00",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 92,
+     "gameId": 423254,
+     "division": "Fém U21+Intermédiaire B",
+     "date": "2026-11-15",
+     "time": "13:45",
+     "arena": "Glace 2",
+     "away": {
+      "name": "Finale Gagnant match 83",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 82",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 93,
+     "gameId": 423272,
+     "division": "Fém Ouverte/Open A",
+     "date": "2026-11-15",
+     "time": "14:15",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 94,
+     "gameId": 423239,
+     "division": "Fém U19-Cadette A",
+     "date": "2026-11-15",
+     "time": "15:30",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 95,
+     "gameId": 423261,
+     "division": "Fém U21+Intermédiaire C",
+     "date": "2026-11-15",
+     "time": "16:45",
+     "arena": "Glace 1",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    }
+   ]
+  },
   {
    "id": 23663,
    "name": "Tournoi des Avalanches de Sainte-Julie",
