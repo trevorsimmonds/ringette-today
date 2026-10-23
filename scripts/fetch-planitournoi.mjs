@@ -14,6 +14,9 @@
 //   node scripts/fetch-planitournoi.mjs --out /tmp/pt.json    # download, write somewhere else
 //   node scripts/fetch-planitournoi.mjs --from test --out x   # read test/pt-list.html, test/pt-<id>.html
 // Exit code 2 = finished, but something looks like a page-layout change (see PROBLEM lines).
+// A page that doesn't come back right is retried twice; if Planitournoi still
+// doesn't send it (error or "too many requests" page), the run keeps the old
+// data, leaves a warning on the run's summary page, and exits 0 (no email).
 //
 // Needs Node 18+ (built-in fetch). No packages.
 import { readFile, writeFile } from 'node:fs/promises';
@@ -56,10 +59,39 @@ function decode(buf, contentType = '') {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-async function get(url) {
-  const res = await fetch(url, { headers: HEADERS });
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  return decode(await res.arrayBuffer(), res.headers.get('content-type') || '');
+const RETRY_WAITS = [15000, 45000];  // between attempts when a page doesn't come back right
+
+// Messages that also show on the GitHub run's summary page (readable on a phone).
+const onGitHub = !!process.env.GITHUB_ACTIONS;
+const oneLine = (m) => String(m).replace(/\s+/g, ' ');
+export const note = (m) => console.log(onGitHub ? `::notice::${oneLine(m)}` : m);
+export const warn = (m) => console.log(onGitHub ? `::warning::${oneLine(m)}` : `WARNING: ${m}`);
+export const fail = (m) => console.log(onGitHub ? `::error::${oneLine(m)}` : `PROBLEM: ${m}`);
+
+// What a page says, briefly — to tell a "too many requests" or error page apart.
+export function describePage(html) {
+  const title = text(/<title[^>]*>([\s\S]*?)<\/title>/i.exec(html)?.[1] || '') || 'no title';
+  const body = text(String(html).replace(/<head[\s\S]*?<\/head>/i, '')).slice(0, 160);
+  return `"${title}" — ${body || '(empty page)'}`;
+}
+
+// Fetch a page, retrying a couple of times if it fails or doesn't look right
+// (expect: a regex the real page always contains).
+async function get(url, expect = null) {
+  let last = '';
+  for (let attempt = 0; attempt <= RETRY_WAITS.length; attempt++) {
+    if (attempt) { console.log(`  retrying in ${RETRY_WAITS[attempt - 1] / 1000}s (${last})`); await sleep(RETRY_WAITS[attempt - 1]); }
+    try {
+      const res = await fetch(url, { headers: HEADERS });
+      const html = decode(await res.arrayBuffer(), res.headers.get('content-type') || '');
+      if (!res.ok) { last = `HTTP ${res.status}: ${describePage(html)}`; continue; }
+      if (expect && !expect.test(html)) { last = `unexpected page ${describePage(html)}`; continue; }
+      return html;
+    } catch (err) { last = err.message; }
+  }
+  const e = new Error(last);
+  e.unavailable = true;  // the site didn't give us the page — not a layout change
+  throw e;
 }
 
 // ---------- tournament list ----------
@@ -157,14 +189,33 @@ async function main() {
   const fromDir = arg('--from');
   const OUT = arg('--out') || DEFAULT_OUT;
   if (arg('--today')) TODAY_MS = Date.parse(`${arg('--today')}T12:00:00-04:00`);
-  const load = async (name, url) => fromDir ? decode(await readFile(`${fromDir}/${name}`)) : get(url);
+  const load = async (name, url, expect) => fromDir ? decode(await readFile(`${fromDir}/${name}`)) : get(url, expect);
 
   let old = null;
   try { old = JSON.parse(await readFile(OUT, 'utf8')); } catch {}
 
-  // 1. The list of current and upcoming tournaments.
-  const tournaments = parseList(await load('pt-list.html', LIST_URL)).tournaments;
-  if (!tournaments.length) throw new Error('No tournaments found on the ringette list — page may have changed. planitournoi.json left as it was.');
+  // 1. The list of current and upcoming tournaments. The real list always has
+  // "tourn_league" boxes; anything else (an error or "too many requests" page)
+  // is a hiccup: keep planitournoi.json and try again next hour, quietly.
+  let listHtml;
+  try { listHtml = await load('pt-list.html', LIST_URL, /id="tourn_league"|Ringuette/); }
+  catch (err) {
+    if (!err.unavailable) throw err;
+    warn(`Planitournoi didn't send its tournament list this time (${err.message}). planitournoi.json kept as it was; the next run will try again.`);
+    return;
+  }
+  const tournaments = parseList(listHtml).tournaments;
+  if (!tournaments.length) {
+    if (/id="tourn_league"/.test(listHtml)) {
+      // The boxes are there but nothing could be read: Planitournoi changed its layout.
+      fail(`The ringette list has tournaments but none could be read — Planitournoi may have changed its page layout. planitournoi.json kept as it was.`);
+      process.exitCode = 2;
+    } else {
+      // A ringette page with no current tournaments (e.g. end of season) or a different page.
+      warn(`No current tournaments on the ringette list (page: ${describePage(listHtml)}). planitournoi.json kept as it was.`);
+    }
+    return;
+  }
   console.log(`Ringette list: ${tournaments.length} tournaments`);
 
   const today = ottawaDay(), from = ottawaDay(-LOOKBACK_DAYS), to = ottawaDay(LOOKAHEAD_DAYS);
@@ -181,7 +232,7 @@ async function main() {
   for (const t of toFetch) {
     try {
       if (!fromDir) await sleep(PAUSE_MS);
-      const html = await load(`pt-${t.id}.html`, scheduleUrl(t.id));
+      const html = await load(`pt-${t.id}.html`, scheduleUrl(t.id), /PlaniTournoi|planitournoi/i);
       const games = parseSchedule(html);
       if (!games.length) {
         // Game-sheet links on the page but nothing read means the layout changed;
@@ -201,9 +252,9 @@ async function main() {
       const start = games[0].date, end = games[games.length - 1].date;
       out.push({ id: t.id, name: t.name, city: t.city, province: t.province, start, end, url: scheduleUrl(t.id), games });
     } catch (err) {
-      console.warn(`${t.name} (${t.id}): ${err.message}`);
       // Keep what we had rather than dropping the tournament on a bad download.
       const prev = previous(t.id);
+      warn(`${t.name} (${t.id}): couldn't download the schedule (${err.message})${prev ? ' — kept the last good copy' : ''}.`);
       if (prev) out.push(prev);
     }
   }
@@ -215,11 +266,11 @@ async function main() {
     console.log(`Wrote planitournoi.json (${out.length} tournaments, ${out.reduce((n, t) => n + t.games.length, 0)} games).`);
   }
   if (problems.length) {
-    for (const p of problems) console.error(`PROBLEM: ${p}`);
+    for (const p of problems) fail(p);
     process.exitCode = 2;  // the GitHub job shows this run as failed (and emails you)
   }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main().catch((err) => { console.error(err.message); process.exit(1); });
+  main().catch((err) => { fail(`The Planitournoi job stopped: ${err.message}`); process.exit(1); });
 }

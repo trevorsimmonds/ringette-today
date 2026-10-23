@@ -54,5 +54,20 @@ const after = JSON.parse(await readFile(out, 'utf8'));
 check(code2 === 2, `unreadable page reported as a problem (exit ${code2})`);
 check(after.tournaments.some((t) => t.id === 23644 && t.games.length === 1), 'unreadable page: last good copy kept');
 
+// A hiccup page instead of the list: keep the data, no failure.
+const runIn = async (folder, listHtml) => {
+  execFileSync('mkdir', ['-p', folder]);
+  await writeFile(join(folder, 'pt-list.html'), listHtml);
+  await writeFile(out, JSON.stringify({ tournaments: [{ id: 1, name: 'Kept', start: '2026-10-15', end: '2026-10-18', games: [{ num: 1 }] }] }));
+  let code, output = '';
+  try { output = execFileSync(process.execPath, [join(dir, '../scripts/fetch-planitournoi.mjs'), '--from', folder, '--out', out, '--today', '2026-10-16'], { stdio: 'pipe' }).toString(); code = 0; }
+  catch (e) { code = e.status; output = String(e.stdout); }
+  return { code, output, kept: JSON.parse(await readFile(out, 'utf8')).tournaments.some((t) => t.name === 'Kept') };
+};
+const hiccup = await runIn(join(tmp, 'hiccup'), '<html><head><title>429 Too Many Requests</title></head><body>Too Many Requests</body></html>');
+check(hiccup.code === 0 && hiccup.kept && /WARNING/.test(hiccup.output) && /Too Many Requests/.test(hiccup.output), `"too many requests" page: data kept, warning, no failure (exit ${hiccup.code})`);
+const redesign = await runIn(join(tmp, 'redesign'), '<html><body><div id="tourn_league" class="row"><div class="new-card">La Coupe</div></div></body></html>');
+check(redesign.code === 2 && redesign.kept && /PROBLEM/.test(redesign.output), `list redesign: data kept and reported as a problem (exit ${redesign.code})`);
+
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);
