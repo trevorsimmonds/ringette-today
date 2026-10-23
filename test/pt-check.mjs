@@ -8,6 +8,10 @@ import { execFileSync } from 'node:child_process';
 import { parseList, parseSchedule } from '../scripts/fetch-planitournoi.mjs';
 
 const dir = new URL('.', import.meta.url).pathname;
+// The sample runs below feed the job deliberately broken pages. Run them as if
+// outside GitHub, so their messages stay plain (and don't post fake warnings
+// on the real run's summary page).
+const env = { ...process.env }; delete env.GITHUB_ACTIONS;
 let failed = 0;
 const check = (ok, what) => { console.log(`${ok ? 'ok  ' : 'FAIL'} ${what}`); if (!ok) failed++; };
 
@@ -33,7 +37,7 @@ check(slot && slot.away.id === null && /Gagnant match 1934/.test(slot.away.name)
 // Whole run on the samples, written to a temp file (never the real one).
 const tmp = await mkdtemp(join(tmpdir(), 'pt-'));
 const out = join(tmp, 'pt.json');
-const run = () => { try { execFileSync(process.execPath, [join(dir, '../scripts/fetch-planitournoi.mjs'), '--from', dir, '--out', out, '--today', '2026-10-16'], { stdio: 'pipe' }); return 0; } catch (e) { return e.status; } };
+const run = () => { try { execFileSync(process.execPath, [join(dir, '../scripts/fetch-planitournoi.mjs'), '--from', dir, '--out', out, '--today', '2026-10-16'], { stdio: 'pipe', env }); return 0; } catch (e) { return e.status; } };
 const code = run();
 const data = JSON.parse(await readFile(out, 'utf8').catch(() => '{"tournaments":[]}'));
 check(code === 0, `full run exits cleanly (exit ${code})`);
@@ -49,7 +53,7 @@ await writeFile(join(broken, 'pt-23663.html'), '<html></html>');
 await writeFile(join(broken, 'pt-23681.html'), '<html></html>');
 await writeFile(out, JSON.stringify({ tournaments: [{ id: 23644, name: 'La Coupe', start: '2099-01-01', end: '2099-01-03', games: [{ num: 1 }] }] }));
 let code2;
-try { execFileSync(process.execPath, [join(dir, '../scripts/fetch-planitournoi.mjs'), '--from', broken, '--out', out, '--today', '2026-10-16'], { stdio: 'pipe' }); code2 = 0; } catch (e) { code2 = e.status; }
+try { execFileSync(process.execPath, [join(dir, '../scripts/fetch-planitournoi.mjs'), '--from', broken, '--out', out, '--today', '2026-10-16'], { stdio: 'pipe', env }); code2 = 0; } catch (e) { code2 = e.status; }
 const after = JSON.parse(await readFile(out, 'utf8'));
 check(code2 === 2, `unreadable page reported as a problem (exit ${code2})`);
 check(after.tournaments.some((t) => t.id === 23644 && t.games.length === 1), 'unreadable page: last good copy kept');
@@ -60,7 +64,7 @@ const runIn = async (folder, listHtml) => {
   await writeFile(join(folder, 'pt-list.html'), listHtml);
   await writeFile(out, JSON.stringify({ tournaments: [{ id: 1, name: 'Kept', start: '2026-10-15', end: '2026-10-18', games: [{ num: 1 }] }] }));
   let code, output = '';
-  try { output = execFileSync(process.execPath, [join(dir, '../scripts/fetch-planitournoi.mjs'), '--from', folder, '--out', out, '--today', '2026-10-16'], { stdio: 'pipe' }).toString(); code = 0; }
+  try { output = execFileSync(process.execPath, [join(dir, '../scripts/fetch-planitournoi.mjs'), '--from', folder, '--out', out, '--today', '2026-10-16'], { stdio: 'pipe', env }).toString(); code = 0; }
   catch (e) { code = e.status; output = String(e.stdout); }
   return { code, output, kept: JSON.parse(await readFile(out, 'utf8')).tournaments.some((t) => t.name === 'Kept') };
 };
