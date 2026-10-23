@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-21T19:33:21.128Z",
- "today": "2026-10-21",
+ "updatedAt": "2026-10-23T21:39:45.548Z",
+ "today": "2026-10-23",
  "tournaments": [
   {
    "id": 23652,
@@ -1639,7 +1639,7 @@
    "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23663&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
    "games": [
     {
-     "num": 25,
+     "num": null,
      "gameId": 423588,
      "division": "Fém Atome B",
      "date": "2026-11-10",
@@ -1656,7 +1656,7 @@
      "score": null
     },
     {
-     "num": 41,
+     "num": null,
      "gameId": 423604,
      "division": "Fém Benjamine B",
      "date": "2026-11-10",
@@ -1673,7 +1673,7 @@
      "score": null
     },
     {
-     "num": 57,
+     "num": null,
      "gameId": 423620,
      "division": "Fém Cadette A",
      "date": "2026-11-10",
@@ -1690,7 +1690,7 @@
      "score": null
     },
     {
-     "num": 73,
+     "num": null,
      "gameId": 423636,
      "division": "Fém Inter A",
      "date": "2026-11-10",
@@ -1707,7 +1707,7 @@
      "score": null
     },
     {
-     "num": 1,
+     "num": null,
      "gameId": 423560,
      "division": "Fém Novice A",
      "date": "2026-11-11",
@@ -1724,7 +1724,7 @@
      "score": null
     },
     {
-     "num": 49,
+     "num": null,
      "gameId": 423612,
      "division": "Fém Junior B",
      "date": "2026-11-11",
@@ -1741,7 +1741,7 @@
      "score": null
     },
     {
-     "num": 65,
+     "num": null,
      "gameId": 423628,
      "division": "Fém Cadette B",
      "date": "2026-11-11",
@@ -1758,7 +1758,7 @@
      "score": null
     },
     {
-     "num": 33,
+     "num": null,
      "gameId": 423596,
      "division": "Fém Atome C",
      "date": "2026-11-12",
@@ -1775,7 +1775,7 @@
      "score": null
     },
     {
-     "num": 42,
+     "num": null,
      "gameId": 423605,
      "division": "Fém Benjamine B",
      "date": "2026-11-12",
@@ -1792,7 +1792,7 @@
      "score": null
     },
     {
-     "num": 58,
+     "num": null,
      "gameId": 423621,
      "division": "Fém Cadette A",
      "date": "2026-11-12",
@@ -1809,7 +1809,7 @@
      "score": null
     },
     {
-     "num": 81,
+     "num": null,
      "gameId": 423644,
      "division": "Fém Inter B",
      "date": "2026-11-12",
@@ -1826,7 +1826,7 @@
      "score": null
     },
     {
-     "num": 17,
+     "num": null,
      "gameId": 423580,
      "division": "Fém Atome A",
      "date": "2026-11-13",
@@ -1843,7 +1843,7 @@
      "score": null
     },
     {
-     "num": 34,
+     "num": null,
      "gameId": 423597,
      "division": "Fém Atome C",
      "date": "2026-11-13",
@@ -1854,13 +1854,13 @@
       "id": 101950
      },
      "home": {
-      "name": "Sharks C2",
+      "name": "Sharks de Laval",
       "id": 103416
      },
      "score": null
     },
     {
-     "num": 9,
+     "num": null,
      "gameId": 423572,
      "division": "Fém Novice B",
      "date": "2026-11-13",
@@ -1877,7 +1877,7 @@
      "score": null
     },
     {
-     "num": 2,
+     "num": null,
      "gameId": 423561,
      "division": "Fém Novice A",
      "date": "2026-11-13",
@@ -1894,7 +1894,7 @@
      "score": null
     },
     {
-     "num": 10,
+     "num": null,
      "gameId": 423573,
      "division": "Fém Novice B",
      "date": "2026-11-13",
@@ -1911,7 +1911,7 @@
      "score": null
     },
     {
-     "num": 26,
+     "num": null,
      "gameId": 423589,
      "division": "Fém Atome B",
      "date": "2026-11-13",
@@ -1928,7 +1928,7 @@
      "score": null
     },
     {
-     "num": 18,
+     "num": null,
      "gameId": 423581,
      "division": "Fém Atome A",
      "date": "2026-11-13",
@@ -1945,7 +1945,7 @@
      "score": null
     },
     {
-     "num": 43,
+     "num": null,
      "gameId": 423606,
      "division": "Fém Benjamine B",
      "date": "2026-11-13",
@@ -1962,7 +1962,7 @@
      "score": null
     },
     {
-     "num": 50,
+     "num": null,
      "gameId": 423613,
      "division": "Fém Junior B",
      "date": "2026-11-13",
@@ -1979,7 +1979,7 @@
      "score": null
     },
     {
-     "num": 66,
+     "num": null,
      "gameId": 423629,
      "division": "Fém Cadette B",
      "date": "2026-11-13",
@@ -1996,7 +1996,7 @@
      "score": null
     },
     {
-     "num": 11,
+     "num": null,
      "gameId": 423574,
      "division": "Fém Novice B",
      "date": "2026-11-13",
@@ -2013,7 +2013,7 @@
      "score": null
     },
     {
-     "num": 67,
+     "num": null,
      "gameId": 423630,
      "division": "Fém Cadette B",
      "date": "2026-11-13",
@@ -2030,7 +2030,7 @@
      "score": null
     },
     {
-     "num": 51,
+     "num": null,
      "gameId": 423614,
      "division": "Fém Junior B",
      "date": "2026-11-13",
@@ -2047,7 +2047,7 @@
      "score": null
     },
     {
-     "num": 19,
+     "num": null,
      "gameId": 423582,
      "division": "Fém Atome A",
      "date": "2026-11-13",
@@ -2064,7 +2064,7 @@
      "score": null
     },
     {
-     "num": 3,
+     "num": null,
      "gameId": 423562,
      "division": "Fém Novice A",
      "date": "2026-11-13",
@@ -2081,7 +2081,7 @@
      "score": null
     },
     {
-     "num": 82,
+     "num": null,
      "gameId": 423645,
      "division": "Fém Inter B",
      "date": "2026-11-13",
@@ -2098,7 +2098,7 @@
      "score": null
     },
     {
-     "num": 27,
+     "num": null,
      "gameId": 423590,
      "division": "Fém Atome B",
      "date": "2026-11-13",
@@ -2115,7 +2115,7 @@
      "score": null
     },
     {
-     "num": 83,
+     "num": null,
      "gameId": 423646,
      "division": "Fém Inter B",
      "date": "2026-11-13",
@@ -2132,7 +2132,7 @@
      "score": null
     },
     {
-     "num": 59,
+     "num": null,
      "gameId": 423622,
      "division": "Fém Cadette A",
      "date": "2026-11-13",
@@ -2149,7 +2149,7 @@
      "score": null
     },
     {
-     "num": 35,
+     "num": null,
      "gameId": 423598,
      "division": "Fém Atome C",
      "date": "2026-11-13",
@@ -2160,13 +2160,13 @@
       "id": 102298
      },
      "home": {
-      "name": "Sharks C2",
+      "name": "Sharks de Laval",
       "id": 103416
      },
      "score": null
     },
     {
-     "num": 52,
+     "num": null,
      "gameId": 423615,
      "division": "Fém Junior B",
      "date": "2026-11-13",
@@ -2183,7 +2183,7 @@
      "score": null
     },
     {
-     "num": 44,
+     "num": null,
      "gameId": 423607,
      "division": "Fém Benjamine B",
      "date": "2026-11-13",
@@ -2200,7 +2200,7 @@
      "score": null
     },
     {
-     "num": 68,
+     "num": null,
      "gameId": 423631,
      "division": "Fém Cadette B",
      "date": "2026-11-13",
@@ -2217,7 +2217,7 @@
      "score": null
     },
     {
-     "num": 74,
+     "num": null,
      "gameId": 423637,
      "division": "Fém Inter A",
      "date": "2026-11-13",
@@ -2234,7 +2234,7 @@
      "score": null
     },
     {
-     "num": 75,
+     "num": null,
      "gameId": 423638,
      "division": "Fém Inter A",
      "date": "2026-11-13",
@@ -2251,7 +2251,7 @@
      "score": null
     },
     {
-     "num": 60,
+     "num": null,
      "gameId": 423623,
      "division": "Fém Cadette A",
      "date": "2026-11-13",
@@ -2268,7 +2268,7 @@
      "score": null
     },
     {
-     "num": 84,
+     "num": null,
      "gameId": 423647,
      "division": "Fém Inter B",
      "date": "2026-11-13",
@@ -2285,7 +2285,7 @@
      "score": null
     },
     {
-     "num": 4,
+     "num": null,
      "gameId": 423563,
      "division": "Fém Novice A",
      "date": "2026-11-14",
@@ -2302,7 +2302,7 @@
      "score": null
     },
     {
-     "num": 12,
+     "num": null,
      "gameId": 423575,
      "division": "Fém Novice B",
      "date": "2026-11-14",
@@ -2319,7 +2319,7 @@
      "score": null
     },
     {
-     "num": 28,
+     "num": null,
      "gameId": 423591,
      "division": "Fém Atome B",
      "date": "2026-11-14",
@@ -2336,7 +2336,7 @@
      "score": null
     },
     {
-     "num": 20,
+     "num": null,
      "gameId": 423583,
      "division": "Fém Atome A",
      "date": "2026-11-14",
@@ -2353,14 +2353,14 @@
      "score": null
     },
     {
-     "num": 36,
+     "num": null,
      "gameId": 423599,
      "division": "Fém Atome C",
      "date": "2026-11-14",
      "time": "09:00",
      "arena": "Glace #1 Batisseur",
      "away": {
-      "name": "Sharks C2",
+      "name": "Sharks de Laval",
       "id": 103416
      },
      "home": {
@@ -2370,7 +2370,7 @@
      "score": null
     },
     {
-     "num": 37,
+     "num": null,
      "gameId": 423600,
      "division": "Fém Atome C",
      "date": "2026-11-14",
@@ -2387,7 +2387,7 @@
      "score": null
     },
     {
-     "num": 45,
+     "num": null,
      "gameId": 423608,
      "division": "Fém Benjamine B",
      "date": "2026-11-14",
@@ -2404,7 +2404,7 @@
      "score": null
     },
     {
-     "num": 46,
+     "num": null,
      "gameId": 423609,
      "division": "Fém Benjamine B",
      "date": "2026-11-14",
@@ -2421,7 +2421,7 @@
      "score": null
     },
     {
-     "num": 53,
+     "num": null,
      "gameId": 423616,
      "division": "Fém Junior B",
      "date": "2026-11-14",
@@ -2438,7 +2438,7 @@
      "score": null
     },
     {
-     "num": 76,
+     "num": null,
      "gameId": 423639,
      "division": "Fém Inter A",
      "date": "2026-11-14",
@@ -2455,7 +2455,7 @@
      "score": null
     },
     {
-     "num": 13,
+     "num": null,
      "gameId": 423576,
      "division": "Fém Novice B",
      "date": "2026-11-14",
@@ -2472,7 +2472,7 @@
      "score": null
     },
     {
-     "num": 5,
+     "num": null,
      "gameId": 423564,
      "division": "Fém Novice A",
      "date": "2026-11-14",
@@ -2489,7 +2489,7 @@
      "score": null
     },
     {
-     "num": 14,
+     "num": null,
      "gameId": 423577,
      "division": "Fém Novice B",
      "date": "2026-11-14",
@@ -2506,7 +2506,7 @@
      "score": null
     },
     {
-     "num": 29,
+     "num": null,
      "gameId": 423592,
      "division": "Fém Atome B",
      "date": "2026-11-14",
@@ -2523,7 +2523,7 @@
      "score": null
     },
     {
-     "num": 21,
+     "num": null,
      "gameId": 423584,
      "division": "Fém Atome A",
      "date": "2026-11-14",
@@ -2540,7 +2540,7 @@
      "score": null
     },
     {
-     "num": 38,
+     "num": null,
      "gameId": 423601,
      "division": "Fém Atome C",
      "date": "2026-11-14",
@@ -2557,7 +2557,7 @@
      "score": null
     },
     {
-     "num": 77,
+     "num": null,
      "gameId": 423640,
      "division": "Fém Inter A",
      "date": "2026-11-14",
@@ -2574,7 +2574,7 @@
      "score": null
     },
     {
-     "num": 54,
+     "num": null,
      "gameId": 423617,
      "division": "Fém Junior B",
      "date": "2026-11-14",
@@ -2591,7 +2591,7 @@
      "score": null
     },
     {
-     "num": 69,
+     "num": null,
      "gameId": 423632,
      "division": "Fém Cadette B",
      "date": "2026-11-14",
@@ -2608,7 +2608,7 @@
      "score": null
     },
     {
-     "num": 6,
+     "num": null,
      "gameId": 423565,
      "division": "Fém Novice A",
      "date": "2026-11-14",
@@ -2625,7 +2625,7 @@
      "score": null
     },
     {
-     "num": 30,
+     "num": null,
      "gameId": 423593,
      "division": "Fém Atome B",
      "date": "2026-11-14",
@@ -2642,7 +2642,7 @@
      "score": null
     },
     {
-     "num": 22,
+     "num": null,
      "gameId": 423585,
      "division": "Fém Atome A",
      "date": "2026-11-14",
@@ -2659,7 +2659,7 @@
      "score": null
     },
     {
-     "num": 70,
+     "num": null,
      "gameId": 423633,
      "division": "Fém Cadette B",
      "date": "2026-11-14",
@@ -2676,7 +2676,7 @@
      "score": null
     },
     {
-     "num": 78,
+     "num": null,
      "gameId": 423641,
      "division": "Fém Inter A",
      "date": "2026-11-14",
@@ -2693,7 +2693,7 @@
      "score": null
     },
     {
-     "num": 61,
+     "num": null,
      "gameId": 423624,
      "division": "Fém Cadette A",
      "date": "2026-11-14",
@@ -2710,7 +2710,7 @@
      "score": null
     },
     {
-     "num": 62,
+     "num": null,
      "gameId": 423625,
      "division": "Fém Cadette A",
      "date": "2026-11-14",
@@ -2727,7 +2727,7 @@
      "score": null
     },
     {
-     "num": 85,
+     "num": null,
      "gameId": 423648,
      "division": "Fém Inter B",
      "date": "2026-11-14",
@@ -2744,7 +2744,7 @@
      "score": null
     },
     {
-     "num": 86,
+     "num": null,
      "gameId": 423649,
      "division": "Fém Inter B",
      "date": "2026-11-14",
@@ -2761,7 +2761,7 @@
      "score": null
     },
     {
-     "num": 15,
+     "num": null,
      "gameId": 423578,
      "division": "Fém Novice B",
      "date": "2026-11-15",
@@ -2778,7 +2778,7 @@
      "score": null
     },
     {
-     "num": 16,
+     "num": null,
      "gameId": 423579,
      "division": "Fém Novice B",
      "date": "2026-11-15",
@@ -2795,7 +2795,7 @@
      "score": null
     },
     {
-     "num": 7,
+     "num": null,
      "gameId": 423570,
      "division": "Fém Novice A",
      "date": "2026-11-15",
@@ -2812,7 +2812,7 @@
      "score": null
     },
     {
-     "num": 8,
+     "num": null,
      "gameId": 423571,
      "division": "Fém Novice A",
      "date": "2026-11-15",
@@ -2829,7 +2829,7 @@
      "score": null
     },
     {
-     "num": 39,
+     "num": null,
      "gameId": 423602,
      "division": "Fém Atome C",
      "date": "2026-11-15",
@@ -2846,7 +2846,7 @@
      "score": null
     },
     {
-     "num": 40,
+     "num": null,
      "gameId": 423603,
      "division": "Fém Atome C",
      "date": "2026-11-15",
@@ -2863,7 +2863,7 @@
      "score": null
     },
     {
-     "num": 32,
+     "num": null,
      "gameId": 423595,
      "division": "Fém Atome B",
      "date": "2026-11-15",
@@ -2880,7 +2880,7 @@
      "score": null
     },
     {
-     "num": 31,
+     "num": null,
      "gameId": 423594,
      "division": "Fém Atome B",
      "date": "2026-11-15",
@@ -2897,7 +2897,7 @@
      "score": null
     },
     {
-     "num": 24,
+     "num": null,
      "gameId": 423587,
      "division": "Fém Atome A",
      "date": "2026-11-15",
@@ -2914,7 +2914,7 @@
      "score": null
     },
     {
-     "num": 23,
+     "num": null,
      "gameId": 423586,
      "division": "Fém Atome A",
      "date": "2026-11-15",
@@ -2931,7 +2931,7 @@
      "score": null
     },
     {
-     "num": 48,
+     "num": null,
      "gameId": 423611,
      "division": "Fém Benjamine B",
      "date": "2026-11-15",
@@ -2948,7 +2948,7 @@
      "score": null
     },
     {
-     "num": 47,
+     "num": null,
      "gameId": 423610,
      "division": "Fém Benjamine B",
      "date": "2026-11-15",
@@ -2965,7 +2965,7 @@
      "score": null
     },
     {
-     "num": 56,
+     "num": null,
      "gameId": 423619,
      "division": "Fém Junior B",
      "date": "2026-11-15",
@@ -2982,7 +2982,7 @@
      "score": null
     },
     {
-     "num": 55,
+     "num": null,
      "gameId": 423618,
      "division": "Fém Junior B",
      "date": "2026-11-15",
@@ -2999,7 +2999,7 @@
      "score": null
     },
     {
-     "num": 72,
+     "num": null,
      "gameId": 423635,
      "division": "Fém Cadette B",
      "date": "2026-11-15",
@@ -3016,7 +3016,7 @@
      "score": null
     },
     {
-     "num": 71,
+     "num": null,
      "gameId": 423634,
      "division": "Fém Cadette B",
      "date": "2026-11-15",
@@ -3033,7 +3033,7 @@
      "score": null
     },
     {
-     "num": 64,
+     "num": null,
      "gameId": 423627,
      "division": "Fém Cadette A",
      "date": "2026-11-15",
@@ -3050,7 +3050,7 @@
      "score": null
     },
     {
-     "num": 63,
+     "num": null,
      "gameId": 423626,
      "division": "Fém Cadette A",
      "date": "2026-11-15",
@@ -3067,7 +3067,7 @@
      "score": null
     },
     {
-     "num": 80,
+     "num": null,
      "gameId": 423643,
      "division": "Fém Inter A",
      "date": "2026-11-15",
@@ -3084,7 +3084,7 @@
      "score": null
     },
     {
-     "num": 79,
+     "num": null,
      "gameId": 423642,
      "division": "Fém Inter A",
      "date": "2026-11-15",
@@ -3101,7 +3101,7 @@
      "score": null
     },
     {
-     "num": 88,
+     "num": null,
      "gameId": 423651,
      "division": "Fém Inter B",
      "date": "2026-11-15",
@@ -3118,7 +3118,7 @@
      "score": null
     },
     {
-     "num": 87,
+     "num": null,
      "gameId": 423650,
      "division": "Fém Inter B",
      "date": "2026-11-15",
