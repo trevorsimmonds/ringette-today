@@ -13,7 +13,7 @@ async def main():
         print(await page.locator('.card.tourney').first.inner_text())
         await page.screenshot(path='test/t1-upcoming.png', full_page=True)
         await page.click('.card.tourney .arena >> nth=1'); await page.wait_for_timeout(300)
-        print('RINK', await page.locator('#rinkSub').inner_text(), '|', await page.locator('#rinkList').inner_text())
+        print('RINK', await page.locator('#rinkSub').inner_text(), '|', await page.locator('#rinkPanes').inner_text())
         await page.click('#rinkClose')
         await page.click('[data-view=teams]'); await page.wait_for_timeout(300)
         await page.locator('.settings').screenshot(path='test/t2-settings.png')

@@ -14,7 +14,7 @@ async def main():
         print(await page.locator('.card').first.inner_text())
         await page.click('.arena >> nth=0'); await page.wait_for_timeout(300)
         await page.screenshot(path='test/2-rink.png')
-        print('rink:', await page.locator('#rinkList').inner_text())
+        print('rink:', await page.locator('#rinkPanes').inner_text())
         await page.click('#rinkClose')
         await page.click('[data-view=results]'); await page.wait_for_timeout(200)
         print('results cards', await page.locator('.card').count())

@@ -188,6 +188,28 @@ dialog::backdrop { background: rgba(5, 10, 20, .55); }
 .dialog-head h2 { margin: 0; font-size: 1.05rem; }
 .dialog-head p { margin: 2px 0 0; font-size: .85rem; }
 .rink-list { list-style: none; padding: 0; margin: 12px 0; display: grid; gap: 6px; }
+/* One card per pad, side by side; flick sideways between them. */
+.rink-panes {
+  display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  align-items: flex-start;
+}
+.rink-panes::-webkit-scrollbar { display: none; }
+.rink-pane { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+.rink-pads { display: flex; gap: 6px; align-items: center; margin-top: 10px; overflow-x: auto; scrollbar-width: none; }
+.rink-pads::-webkit-scrollbar { display: none; }
+.rink-pads button {
+  flex: none; border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+  border-radius: 999px; padding: 5px 11px; font-size: .8rem; font-weight: 700; cursor: pointer; min-height: 32px;
+}
+.rink-pads button .n {
+  display: inline-block; min-width: 18px; margin-left: 6px; padding: 0 5px; border-radius: 999px;
+  background: var(--surface-2); color: var(--muted); font-size: .7rem; font-weight: 700; line-height: 18px; text-align: center;
+}
+.rink-pads button[aria-selected="true"] .n { background: rgba(255, 255, 255, .25); color: #fff; }
+.rink-pads button.has-tracked { border-color: var(--tracked-line); }
+.rink-pads button[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.rink-pads .swipe-hint { flex: none; font-size: .72rem; color: var(--muted); margin-left: 4px; white-space: nowrap; }
 .rink-list li { padding: 10px 12px; border-radius: 10px; background: var(--surface-2); font-size: .9rem; }
 .rink-list li.tracked { background: var(--tracked-bg); outline: 2px solid var(--tracked-line); }
 .rink-list li.this { outline-width: 3px; }

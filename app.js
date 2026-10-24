@@ -431,6 +431,15 @@
       out = { key: `bldg:${b.name}`, name: b.name, pad };
       break;
     }
+    // Any other rink named like "Delpark Homes Centre - Pad 2", "X - Arena B" or
+    // "X - Rink 3" belongs with the other pads of "X".
+    if (out.key.startsWith('rink:')) {
+      const m = /^(.+?)\s+[-–]\s+(pad|arena|rink|ice)\s+([a-z]|\d{1,2})\b/i.exec(arena);
+      if (m) {
+        const kind = m[2][0].toUpperCase() + m[2].slice(1).toLowerCase();
+        out = { key: `bldg:${m[1].trim()}`, name: m[1].trim(), pad: `${kind} ${m[3].toUpperCase()}` };
+      }
+    }
     buildingCache.set(arena, out);
     return out;
   }
@@ -1020,20 +1029,81 @@
     else renderSchedule(state.view);
   }
 
+  // Rink card: the day's games on this pad. In a multi-pad building there's
+  // one card per pad that day, side by side: flick sideways (or tap a pad name)
+  // to see the others. Games whose pad isn't listed get their own card.
+  const rinkView = { panes: [], g: null, idx: 0 };
+  const padSort = (a, b) => (a.unknown - b.unknown) || a.label.localeCompare(b.label, 'en', { numeric: true });
+  function rinkPanesFor(g) {
+    const b = buildingOf(g.arena);
+    const day = dayKey(g.start);
+    if (!b.key.startsWith('bldg:')) return [{ label: '', title: g.arena, games: iceNeighbours(g).list, rinkId: g.rinkId }];
+    const byRink = new Map();
+    for (const x of state.byBuilding.get(`${b.key}|${day}`) || [g]) {
+      const unknown = padUnknown(x);
+      const k = unknown ? 'unknown' : x.rinkId;
+      if (!byRink.has(k)) byRink.set(k, { label: unknown ? 'Pad not listed' : (buildingOf(x.arena).pad || x.arena), title: unknown ? b.name : x.arena, unknown: unknown ? 1 : 0, games: [], rinkId: k });
+      byRink.get(k).games.push(x);
+    }
+    return [...byRink.values()].sort(padSort);
+  }
+  function showRinkPane(i, { scroll = false } = {}) {
+    const { panes, g } = rinkView;
+    i = Math.max(0, Math.min(panes.length - 1, i));
+    rinkView.idx = i;
+    const p = panes[i];
+    const many = panes.length > 1;
+    $('#rinkTitle').textContent = many ? buildingOf(g.arena).name : p.title;
+    $('#rinkSub').textContent = `${many ? `${p.label} · ` : ''}${fmtDay(g.start)} · ${p.games.length} game${p.games.length === 1 ? '' : 's'} listed`;
+    document.querySelectorAll('#rinkPads button').forEach((btn, j) => btn.setAttribute('aria-selected', String(j === i)));
+    const pill = document.querySelectorAll('#rinkPads button')[i];
+    if (pill) pill.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (scroll) { const box = $('#rinkPanes'); box.scrollTo({ left: i * box.clientWidth, behavior: 'instant' }); }
+  }
   function openRink(gameId) {
     const g = state.games.find((x) => x.key === gameId);
     if (!g) return;
-    // Pad not listed: show the whole building's day, with each game's pad.
-    const whole = padUnknown(g);
-    const b = buildingOf(g.arena);
-    const list = whole ? (state.byBuilding.get(`${b.key}|${dayKey(g.start)}`) || [g]) : iceNeighbours(g).list;
-    $('#rinkTitle').textContent = whole ? b.name : g.arena;
-    $('#rinkSub').textContent = `${fmtDay(g.start)} · ${list.length} game${list.length === 1 ? '' : 's'} listed${whole ? ' in the building (this game’s pad isn’t listed)' : ''}`;
-    $('#rinkList').innerHTML = list.map((x) => `<li class="${isTracked(x) ? 'tracked' : ''}${x === g ? ' this' : ''}">
-      <span class="t">${isFav(x) ? '<span class="fav-star">★</span>' : ''}${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)} <span class="d">${whole ? `${esc(buildingOf(x.arena).pad || 'Pad not listed')} · ` : ''}${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
-      ${esc(x.away.name)} @ ${esc(x.home.name)}</li>`).join('');
+    const panes = rinkPanesFor(g);
+    rinkView.panes = panes; rinkView.g = g;
+    const start = Math.max(0, panes.findIndex((p) => p.games.includes(g)));
+    const item = (x) => `<li class="${isTracked(x) ? 'tracked' : ''}${x === g ? ' this' : ''}">
+      <span class="t">${isFav(x) ? '<span class="fav-star">★</span>' : ''}${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)} <span class="d">${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
+      ${esc(x.away.name)} @ ${esc(x.home.name)}</li>`;
+    $('#rinkPanes').innerHTML = panes.map((p, i) => `<section class="rink-pane" aria-label="${esc(p.label || p.title)}" data-i="${i}">
+      <ol class="rink-list">${p.games.map(item).join('')}</ol></section>`).join('');
+    const pads = $('#rinkPads');
+    pads.hidden = panes.length < 2;
+    pads.innerHTML = panes.length < 2 ? '' : panes.map((p, i) => {
+      const mine = p.games.some(isTracked);
+      return `<button type="button" role="tab" data-pane="${i}" class="${mine ? 'has-tracked' : ''}">${esc(p.label)}<span class="n" aria-label="${p.games.length} game${p.games.length === 1 ? '' : 's'}">${p.games.length}</span></button>`;
+    }).join('') + '<span class="swipe-hint" aria-hidden="true">Swipe ›</span>';
     $('#rinkDialog').showModal();
+    showRinkPane(start, { scroll: true });
   }
+  $('#rinkPads').addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-pane]');
+    if (!btn) return;
+    const i = +btn.dataset.pane, box = $('#rinkPanes');
+    box.scrollTo({ left: i * box.clientWidth, behavior: 'smooth' });
+    showRinkPane(i);
+  });
+  // Follow the flick: update the title and pad names once the cards settle.
+  let paneTimer = null;
+  $('#rinkPanes').addEventListener('scroll', () => {
+    clearTimeout(paneTimer);
+    paneTimer = setTimeout(() => {
+      const box = $('#rinkPanes');
+      const i = Math.round(box.scrollLeft / Math.max(1, box.clientWidth));
+      if (i !== rinkView.idx) showRinkPane(i);
+    }, 60);
+  }, { passive: true });
+  $('#rinkDialog').addEventListener('keydown', (e) => {
+    if (rinkView.panes.length < 2 || (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft')) return;
+    e.preventDefault();
+    const i = rinkView.idx + (e.key === 'ArrowRight' ? 1 : -1), box = $('#rinkPanes');
+    box.scrollTo({ left: Math.max(0, Math.min(rinkView.panes.length - 1, i)) * box.clientWidth, behavior: 'smooth' });
+    showRinkPane(i);
+  });
 
   // ---------- events ----------
   document.querySelector('.tabs').addEventListener('click', (e) => {
