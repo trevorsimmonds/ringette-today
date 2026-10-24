@@ -78,6 +78,11 @@
     'Slush Puppie C - Gatineau': [13153, 'Slush Puppie Complex - C - Gerik Ice'],
     'Slush Puppie D - Gatineau': [13152, 'Slush Puppie Complex - D - Dilawri Ice'],
   };
+  // RAMP sometimes lists the same ice under two rink IDs (each league names it
+  // its own way). Map the extra ID onto the main one so games line up.
+  const SAME_RINK = {
+    13061: 13020,  // GAARA "Nepean Sportsplex - Pad 2 (MacDonald)" = NCRRL "Nepean Sportsplex - Arena 2" (Allen J. MacDonald Arena)
+  };
   const LOOKAHEAD_DAYS = 31;     // download tournaments starting within this many days
   const LOOKBACK_DAYS = 7;       // …or that ended within this many days (for results)
   const LS = {
@@ -208,7 +213,7 @@
           end,                           // may be null for tournaments; filled in rebuild()
           endEstimated: !end,
           arena: String(g.ArenaName || 'TBD').trim(),
-          rinkId: g.RARID ?? g.ArenaName,
+          rinkId: SAME_RINK[g.RARID] ?? g.RARID ?? g.ArenaName,
           home: { id: g.homeTID != null ? String(g.homeTID) : null, name: cleanName(g.HomeTeamName), score: g.homeScore },
           away: { id: g.awayTID != null ? String(g.awayTID) : null, name: cleanName(g.AwayTeamName), score: g.awayScore },
           division: `${league ? league.divPrefix : ''}${g.HomeDivision || g.AwayDivision || ''}`,
