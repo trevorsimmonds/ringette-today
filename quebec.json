@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-26T13:13:18.241Z",
+ "updatedAt": "2026-10-26T20:33:46.736Z",
  "leagues": [
   {
    "id": 104,
@@ -474,7 +474,11 @@
    "arena": "Mascouche",
    "home": "BLL",
    "away": "Laurentides",
-   "detailId": 23316
+   "detailId": 23316,
+   "score": {
+    "away": 9,
+    "home": 2
+   }
   },
   {
    "num": 1021,
