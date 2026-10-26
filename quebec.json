@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-25T23:19:19.803Z",
+ "updatedAt": "2026-10-26T13:13:18.241Z",
  "leagues": [
   {
    "id": 104,
@@ -382,7 +382,11 @@
    "arena": "Rolland - Montréal Nord",
    "home": "BLL",
    "away": "Nepean",
-   "detailId": 23387
+   "detailId": 23387,
+   "score": {
+    "away": 6,
+    "home": 2
+   }
   },
   {
    "num": 1016,
@@ -446,7 +450,11 @@
    "arena": "Mascouche",
    "home": "BLL",
    "away": "Laurentides",
-   "detailId": 23391
+   "detailId": 23391,
+   "score": {
+    "away": 2,
+    "home": 3
+   }
   },
   {
    "num": 1020,
