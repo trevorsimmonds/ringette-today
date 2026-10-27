@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-26T20:33:46.736Z",
+ "updatedAt": "2026-10-27T09:06:54.080Z",
  "leagues": [
   {
    "id": 104,
@@ -372,7 +372,11 @@
    "arena": "BSR - Lévis",
    "home": "Québec",
    "away": "Eastern rush",
-   "detailId": 23313
+   "detailId": 23313,
+   "score": {
+    "away": 3,
+    "home": 4
+   }
   },
   {
    "num": 1015,
@@ -406,7 +410,11 @@
    "arena": "Ray Friel 1 - Ottawa",
    "home": "GCRA",
    "away": "Ottawa",
-   "detailId": 23389
+   "detailId": 23389,
+   "score": {
+    "away": 7,
+    "home": 1
+   }
   },
   {
    "num": 2013,
@@ -416,7 +424,11 @@
    "arena": "Duberger - Québec",
    "home": "Québec",
    "away": "Eastern rush",
-   "detailId": 23314
+   "detailId": 23314,
+   "score": {
+    "away": 4,
+    "home": 8
+   }
   },
   {
    "num": 1018,
