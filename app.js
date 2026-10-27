@@ -60,6 +60,9 @@
     { name: 'Tony Graham Recreation Complex', match: /^tony graham/i, pad: /rink ([a-d])\b/i, label: 'Rink $1' },
     { name: 'INVISTA Centre', match: /invista centre$/i, pad: /^(.+?) - invista/i, label: '$1' },
     { name: 'Canlan Ice Sports Scarborough', match: /^canlan ice sports - scarborough/i, pad: /scarborough (\d)/i, label: 'Pad $1' },
+    // Fredericton (Ed Benoit Early Bird)
+    { name: "Willie O'Ree Place", match: /^willie o'?ree place/i, pad: /sheet (\d)/i, label: 'Sheet $1' },
+    { name: 'Grant-Harvey Centre', match: /^grant-harvey cent/i, pad: /\/(nhl|olympic) sheet/i, label: '$1 sheet' },
   ];
   // Ringuette Québec writes rink names its own way. These Ottawa-area rinks are
   // matched to RAMP's rink IDs so LERQ games line up with NCRRL/GAARA games on
@@ -198,6 +201,15 @@
   }));
 
   // ---------- data ----------
+  // A team on a RAMP game. For tournaments with matchTeams (teams registered
+  // outside Ringette Ontario, so their IDs differ), resolvePtTeams() later swaps
+  // the ID for the matching followed team's.
+  function rampTeam(tid, rawName, score, division, source) {
+    const id = tid != null ? String(tid) : null;
+    const t = { id: source && source.matchTeams && id ? `ramp:${id}` : id, name: cleanName(rawName), score };
+    if (source && source.matchTeams && id) Object.assign(t, { ptId: t.id, ptName: t.name, division: division || '' });
+    return t;
+  }
   function normalize(raw, source, league) {
     return raw
       .filter((g) => !g.trash && !g.deletedDate)
@@ -214,8 +226,8 @@
           endEstimated: !end,
           arena: String(g.ArenaName || 'TBD').trim(),
           rinkId: SAME_RINK[g.RARID] ?? g.RARID ?? g.ArenaName,
-          home: { id: g.homeTID != null ? String(g.homeTID) : null, name: cleanName(g.HomeTeamName), score: g.homeScore },
-          away: { id: g.awayTID != null ? String(g.awayTID) : null, name: cleanName(g.AwayTeamName), score: g.awayScore },
+          home: rampTeam(g.homeTID, g.HomeTeamName, g.homeScore, g.HomeDivision || g.AwayDivision, source),
+          away: rampTeam(g.awayTID, g.AwayTeamName, g.awayScore, g.AwayDivision || g.HomeDivision, source),
           division: `${league ? league.divPrefix : ''}${g.HomeDivision || g.AwayDivision || ''}`,
           baseDivision: g.HomeDivision || g.AwayDivision || '',
           league: league || null,
@@ -298,7 +310,8 @@
     const k = `${name}|${division}`;
     if (teamMatchCache.has(k)) return teamMatchCache.get(k);
     const club = clubOf(name);
-    const al = ageLevel(division) || ageLevel(name);
+    const fromDiv = ageLevel(division), fromName = ageLevel(name);
+    const al = fromDiv ? { age: fromDiv.age, level: fromDiv.level || (fromName && fromName.age === fromDiv.age ? fromName.level : '') } : fromName;
     let hit = null;
     if (club.key && al) {
       const cands = [...state.teams.values()].filter((t) => {
@@ -363,8 +376,7 @@
   // Link Planitournoi teams to followed league teams (needs state.teams).
   function resolvePtTeams() {
     teamMatchCache.clear();
-    for (const [k, games] of state.tourGames) {
-      if (!String(k).startsWith('pt')) continue;
+    for (const games of state.tourGames.values()) {
       for (const g of games) for (const t of [g.home, g.away]) {
         if (!t.ptId) continue; // placeholder ("Winner of game 1930")
         const hit = matchLeagueTeam(t.ptName, t.division);
@@ -521,10 +533,16 @@
     };
   }
 
+  // Tournament details carried on each game. Options in tournaments.json:
+  //   feed: "league"  — set up in RAMP as a league (games come from the league feed)
+  //   matchTeams: true — teams registered outside Ringette Ontario (other IDs):
+  //                      match them to followed teams by club, age and level
+  //   site: the tournament's own RAMP site, for box score links
+  const tourSource = (t) => ({ aid: t.aid, name: t.name, short: t.short, matchTeams: !!t.matchTeams, site: t.site || null });
   function loadCachedTournaments() {
     for (const t of state.tournaments) {
       const c = readJSON(LS.tourn + t.aid, null);
-      if (c && c.games && c.games.length) state.tourGames.set(t.aid, normalize(c.games, { aid: t.aid, name: t.name, short: t.short }));
+      if (c && c.games && c.games.length) state.tourGames.set(t.aid, normalize(c.games, tourSource(t)));
     }
   }
 
@@ -545,7 +563,9 @@
       const seasons = (await getJSON(`${API}/association/getseasons/${t.aid}/`)).sort((a, b) => b.sid - a.sid);
       const lo = w.start.getTime() - 4 * DAY, hi = w.end.getTime() + 4 * DAY;
       for (const s of seasons.slice(0, 3)) {
-        const raw = await getJSON(`${API}/leaguetournamentgame/get/${t.aid}/${s.sid}/0/0/0/0/0`);
+        const raw = await getJSON(t.feed === 'league'
+          ? `${API}/leaguegame/get/${t.aid}/${s.sid}/0/0/0/0/`
+          : `${API}/leaguetournamentgame/get/${t.aid}/${s.sid}/0/0/0/0/0`);
         if (!Array.isArray(raw) || !raw.length) continue;
         const inRange = raw.some((g) => { const d = parseLocal(g.sDate); return d && d >= lo && d <= hi; });
         if (inRange) { games = raw; sid = s.sid; break; }
@@ -553,7 +573,7 @@
     }
     const s = slim(games);
     writeJSON(LS.tourn + t.aid, { sid, fetchedAt: Date.now(), games: s });
-    if (s.length) state.tourGames.set(t.aid, normalize(s, { aid: t.aid, name: t.name, short: t.short }));
+    if (s.length) state.tourGames.set(t.aid, normalize(s, tourSource(t)));
     else state.tourGames.delete(t.aid);
   }
 
@@ -793,7 +813,8 @@
     if (g.league && g.league.key === 'lerq') {
       return g.detailId ? `https://membres.ringuette-quebec.qc.ca/resultats_web.asp?cedules_id=${g.detailId}` : null;
     }
-    return g.did ? `https://www.ncrrl.com/division/0/${g.did}/gamesheet/${g.id}` : null;
+    const site = (g.tournament && g.tournament.site) || 'https://www.ncrrl.com';
+    return g.did ? `${site}/division/0/${g.did}/gamesheet/${g.id}` : null;
   }
 
   function mapsLink(arena) {
