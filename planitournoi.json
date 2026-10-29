@@ -1,16 +1,30 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-23T21:39:45.548Z",
- "today": "2026-10-23",
+ "updatedAt": "2026-10-29T06:23:48.106Z",
+ "today": "2026-10-29",
  "tournaments": [
   {
    "id": 23652,
    "name": "Tournoi de Ringuette des Mustangs",
+   "slug": "tournoi-de-ringuette-des-mustangs",
    "city": "Blainville",
    "province": "quebec",
    "start": "2026-11-10",
    "end": "2026-11-15",
    "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23652&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "standings": {
+    "Fém U14-Benjamine A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u14-benjamine-a-90277/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém Ouverte/Open A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-ouverte-open-a-90293/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém U21+Intermédiaire B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u21-intermediaire-b-90290/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém U12-Atome A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u12-atome-a-90273/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Mix U10-Novice B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/mixte-u10-novice-b-90326/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém U14-Benjamine B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u14-benjamine-b-90278/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém U16-Junior A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u16-junior-a-90281/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém U19-Cadette A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u19-cadette-a-90285/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém U21+Intermédiaire C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u21-intermediaire-c-90291/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Fém U16-Junior B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u16-junior-b-90282/tournoi-de-ringuette-des-mustangs-23652.html",
+    "Mix Moustique C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/mixte-moustique-c-92323/tournoi-de-ringuette-des-mustangs-23652.html"
+   },
    "games": [
     {
      "num": 1,
@@ -1632,11 +1646,25 @@
   {
    "id": 23663,
    "name": "Tournoi des Avalanches de Sainte-Julie",
+   "slug": "tournoi-des-avalanches-de-sainte-julie",
    "city": "Sainte-Julie",
    "province": "quebec",
    "start": "2026-11-10",
    "end": "2026-11-15",
    "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23663&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "standings": {
+    "Fém Atome B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-atome-b-90492/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Benjamine B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-benjamine-b-90502/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Cadette A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-cadette-a-90495/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Inter A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-inter-a-90497/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Novice A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-novice-a-90489/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Junior B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-junior-b-90494/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Cadette B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-cadette-b-90496/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Atome C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-atome-c-90501/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Inter B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-inter-b-90498/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Atome A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-atome-a-90491/tournoi-des-avalanches-de-sainte-julie-23663.html",
+    "Fém Novice B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-novice-b-90500/tournoi-des-avalanches-de-sainte-julie-23663.html"
+   },
    "games": [
     {
      "num": null,
