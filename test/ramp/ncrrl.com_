@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><body><nav>
+<button id="accordion-menu-title-20295" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-20295"><span>U14AA</span></button>
+<a target="_parent" href="/team/14554/0/20295/398265/masterschedule" class="modal-submenu-item"><p>Gloucester Cumberland Devils U14AA - McDonald</p></a>
+<a target="_parent" href="/team/14554/0/20295/398266/masterschedule" class="modal-submenu-item"><p>Nepean Ravens U14AA - Price</p></a>
+<a target="_parent" href="/team/14554/0/20295/398267/masterschedule" class="modal-submenu-item"><img src="https://cloud3.rampinteractive.com/NationalCapitalRegionRingetteLeagueimages/team-logos/fd6fd154-6e42-47b1-9639-3fad7d6528a9_CORAIce.png" alt="Ottawa Ice U14AA - McWaters" id="Ottawa Ice U14AA - McWaters" class="inline h-5 w-5 m-1" /><p>Ottawa Ice U14AA - McWaters</p></a>
+<a target="_parent" href="/team/14554/0/20295/401648/masterschedule" class="modal-submenu-item"><p>West Ottawa Wild U14AA - Gorham</p></a>
+<button id="accordion-menu-title-24983" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-24983"><span>U14C</span></button>
+<a target="_parent" href="/team/14554/0/24983/409173/masterschedule" class="modal-submenu-item"><p>Clarence Rockland Falcons U14C - Rochette</p></a>
+<a target="_parent" href="/team/14554/0/24983/409174/masterschedule" class="modal-submenu-item"><p>Gatineau U14C - Carbonneau</p></a>
+<a target="_parent" href="/team/14554/0/24983/409175/masterschedule" class="modal-submenu-item"><p>Gloucester Cumberland Devils U14C - Bradley</p></a>
+<a target="_parent" href="/team/14554/0/24983/409176/masterschedule" class="modal-submenu-item"><p>Kingston Panthers U14C - Leclair</p></a>
+<a target="_parent" href="/team/14554/0/24983/409177/masterschedule" class="modal-submenu-item"><p>Metcalfe Hornets U14C</p></a>
+<a target="_parent" href="/team/14554/0/24983/409178/masterschedule" class="modal-submenu-item"><p>Nepean Ravens U14C - Willison</p></a>
+<a target="_parent" href="/team/14554/0/24983/409179/masterschedule" class="modal-submenu-item"><p>Nepean Ravens U14C - Hall</p></a>
+<a target="_parent" href="/team/14554/0/24983/409180/masterschedule" class="modal-submenu-item"><p>Ottawa Ice U14C - Charette</p></a>
+<a target="_parent" href="/team/14554/0/24983/409181/masterschedule" class="modal-submenu-item"><p>Ottawa Ice U14C - Telewiak</p></a>
+<a target="_parent" href="/team/14554/0/24983/409182/masterschedule" class="modal-submenu-item"><p>Upper Ottawa Valley U14C - Murphy</p></a>
+<a target="_parent" href="/team/14554/0/24983/409183/masterschedule" class="modal-submenu-item"><p>West Ottawa Wild U14C - Jack</p></a>
+</nav></body></html>

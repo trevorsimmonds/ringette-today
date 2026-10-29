@@ -1,16 +1,21 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-10-16T22:11:58.926Z",
+ "updatedAt": "2026-10-27T03:27:06.128Z",
  "today": "2026-10-16",
  "tournaments": [
   {
    "id": 23644,
    "name": "La Coupe Extrême de l'Outaouais",
+   "slug": "la-coupe-extreme-de-loutaouais",
    "city": "Gatineau",
    "province": "quebec",
    "start": "2026-10-15",
    "end": "2026-10-18",
    "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23644&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "standings": {
+    "Fém M19 AA": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-m19-aa-90257/la-coupe-extreme-de-loutaouais-23644.html",
+    "Fém M16 AA": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-m16-aa-90256/la-coupe-extreme-de-loutaouais-23644.html"
+   },
    "games": [
     {
      "num": 1901,

@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><body><nav>
+<button id="accordion-menu-title-39457" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-39457"><span>Blue</span></button>
+<a target="_parent" href="/team/14539/0/39457/402531/masterschedule" class="modal-submenu-item"><p>Bulldogs</p></a>
+<a target="_parent" href="/team/14539/0/39457/402527/masterschedule" class="modal-submenu-item"><p>Diablos</p></a>
+<a target="_parent" href="/team/14539/0/39457/402530/masterschedule" class="modal-submenu-item"><p>Nepean Ravens BB</p></a>
+<a target="_parent" href="/team/14539/0/39457/402529/masterschedule" class="modal-submenu-item"><p>Ottawa Storm</p></a>
+<a target="_parent" href="/team/14539/0/39457/402577/masterschedule" class="modal-submenu-item"><p>Vortex BB2</p></a>
+<a target="_parent" href="/team/14539/0/39457/402528/masterschedule" class="modal-submenu-item"><p>Wild</p></a>
+<a target="_parent" href="/team/14539/0/39457/410890/masterschedule" class="modal-submenu-item"><p>GAARA League Affiliate Red-Blue Tiers</p></a>
+<button id="accordion-menu-title-39463" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-39463"><span>Yellow</span></button>
+<a target="_parent" href="/team/14539/0/39463/402576/masterschedule" class="modal-submenu-item"><p>Capital Chaos</p></a>
+<a target="_parent" href="/team/14539/0/39463/402571/masterschedule" class="modal-submenu-item"><p>Hotshots</p></a>
+<a target="_parent" href="/team/14539/0/39463/402574/masterschedule" class="modal-submenu-item"><p>Houle Stars</p></a>
+<a target="_parent" href="/team/14539/0/39463/402575/masterschedule" class="modal-submenu-item"><p>Jaguars</p></a>
+<a target="_parent" href="/team/14539/0/39463/402572/masterschedule" class="modal-submenu-item"><p>Les Girls</p></a>
+<a target="_parent" href="/team/14539/0/39463/402573/masterschedule" class="modal-submenu-item"><p>Lil Devils</p></a>
+</nav></body></html>

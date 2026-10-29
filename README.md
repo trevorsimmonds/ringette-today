@@ -4,15 +4,19 @@ A phone app (PWA) that shows NCRRL, LERQ and GAARA league games and Ringette Ont
 
 ## How it gets the schedule
 
-The NCRRL website and the Ringette Ontario tournament sites all run on RAMP InterActive, which loads schedules from public JSON feeds. The app reads them straight from your phone, so there's no scraper or server to run.
+The NCRRL and GAARA websites and the Ringette Ontario tournament sites all run on RAMP InterActive. Until October 2026 RAMP had public JSON feeds the app read straight from your phone. RAMP then rebuilt its sites, the feeds stopped working, and the new pages don't let browser apps on other websites read them. So a scheduled GitHub job now copies the schedules into `ramp.json`, and the app reads that file from its own site.
 
-- **League games:** `https://www.ncrrl.com/api/leaguegame/get/{league ID}/{season}/0/0/0/0/`. NCRRL is 1648 and GAARA (the Gloucester & Area Adult Ringette Association, https://www.gaara.ca/) is 2786. Both are set in `LEAGUES` at the top of `app.js`; GAARA teams are listed after all the NCRRL divisions in the team picker.
-- **Season:** picked automatically for each league from `https://www.ncrrl.com/api/association/getseasons/{league ID}/`, so a new season needs no change.
-- **Tournament games:** `https://www.ncrrl.com/api/leaguetournamentgame/get/{tournament ID}/{season}/0/0/0/0/0`.
+- `.github/workflows/ramp.yml` runs `scripts/fetch-ramp.mjs`. It reads each league's menu page (division and team names and IDs) and its calendar file (`https://www.ncrrl.com/calendar/master-schedule/1648.ics?SID={season}&DID=0`), and writes `ramp.json`. When anything changed, the job commits the file and republishes the site.
+- **How often** (Ottawa time): every 15 minutes on Saturdays and Sundays from 7 am to 11 pm and on Friday evenings; every 30 minutes Monday to Thursday from 5 to 11 pm; hourly the rest of the time. GitHub sometimes runs scheduled jobs a few minutes late.
+- To run it right away: repository → **Actions** → **Update RAMP schedules** → **Run workflow**.
+- **Leagues:** NCRRL is 1648 and GAARA (the Gloucester & Area Adult Ringette Association, https://www.gaara.ca/) is 2786. They're set in `LEAGUES` at the top of both `scripts/fetch-ramp.mjs` and `app.js`. The season is whatever the league's menu lists, so a new season needs no change.
+- **Tournaments:** from Ringette Ontario's calendar files (or the tournament's own RAMP site, like Fredericton), for tournaments in `tournaments.json` that start within the next 31 days or ended in the last 7.
+- **If RAMP is down** or a calendar comes back empty, the last good copy is kept and the job doesn't fail. If a page looks like RAMP changed its layout (no teams found), the job still keeps the last good copy, but fails so GitHub emails you.
+- `test/ramp-check.mjs` checks the reader against trimmed copies of real RAMP pages in `test/ramp/`; the job runs it first. To try the whole thing on your Mac: `node test/ramp-check.mjs && node scripts/fetch-ramp.mjs`.
 
 A team has the same ID in the league and in tournaments, so the teams you follow pick up their tournament games automatically.
 
-Each game includes a rink ID, which identifies the exact pad. "Before" and "After" are the neighbouring games (league or tournament) at that rink ID on the same day. Some tournaments don't publish end times; the app estimates them from the next game on that ice and marks them with "~".
+"Before" and "After" are the neighbouring games (league or tournament) on the same pad on the same day, matched by rink name. Some tournaments don't publish end times; the app estimates them from the next game on that ice and marks them with "~".
 
 **Also here:** for buildings with several pads (Ray Friel, Jim Durrell, Slush Puppie, Nepean Sportsplex, CARDELREC, Walter Baker and others), each upcoming game also lists games on the other pads that overlap it in time. The schedules don't say which pads share a building, so `BUILDINGS` near the top of `app.js` lists them; any rink not in that list is treated as its own building. To add a building, copy one of the lines and adjust the name and patterns.
 
@@ -35,8 +39,8 @@ The LERQ U16 AA and U19 AA schedules come from Ringuette Québec's public schedu
 
 `tournaments.json` lists the Ringette Ontario 2026-27 sanctioned tournaments that publish schedules on RAMP: each one's RAMP ID, name and dates (from https://www.ringetteontario.com/content/sanctioned-events).
 
-- The app only downloads a tournament that starts within the next 31 days or ended in the last 7, so opening it stays quick.
-- Tournament schedules refresh every 6 hours, or every 10 minutes while the tournament is on.
+- Only tournaments that start within the next 31 days or ended in the last 7 are copied.
+- They're copied by the RAMP job above, on the same schedule.
 - Teams → Settings shows which tournaments the app is checking right now.
 
 **Each summer:** update the `start`/`end` dates in `tournaments.json` for the new season and add any new tournaments. A tournament keeps its RAMP ID every year.

@@ -110,6 +110,7 @@ export function parseList(html) {
     if (tournaments.some((t) => t.id === id)) continue;
     tournaments.push({
       id,
+      slug: link[2],
       name: name ? text(name[1]).replace(/’/g, "'") : link[2].replace(/-/g, ' '),
       province: link[1],
       city: text(/class="tournament-location"[^>]*>([\s\S]*?)<\/div>/i.exec(block)?.[1] || '').split(',')[0],
@@ -162,6 +163,8 @@ export function parseSchedule(html) {
     const num = /^\d+$/.test(text(p['match-no'] || '')) ? +text(p['match-no']) : null;
     const gameId = /game_id=(\d+)/.exec(p['match-no'] || '')?.[1];
     const score = /(\d+)\s*[-–]\s*(\d+)/.exec(text(p.result || ''));
+    // The division links to its schedule; the same path under "classements" is its standings.
+    const divHref = /href="([^"]*\/horaire\/division\/[^"]+\.html)"/.exec(p.division || '')?.[1];
     const k = num ?? `${date}|${t[0]}|${arena}|${away.name}|${home.name}`;
     if (seen.has(k)) continue;
     seen.add(k);
@@ -172,6 +175,7 @@ export function parseSchedule(html) {
       date, time: `${t[1].padStart(2, '0')}:${t[2]}`, arena: arena || 'TBD',
       away, home,
       score: score ? { away: +score[1], home: +score[2] } : null,
+      standingsUrl: divHref ? new URL(divHref.replace('/horaire/division/', '/classements/division/'), BASE).href : null,
     });
   }
   return games;
@@ -250,7 +254,10 @@ async function main() {
       games.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time) || (a.num ?? 0) - (b.num ?? 0));
       // The games' own dates are more reliable than the list's.
       const start = games[0].date, end = games[games.length - 1].date;
-      out.push({ id: t.id, name: t.name, city: t.city, province: t.province, start, end, url: scheduleUrl(t.id), games });
+      // One standings link per division, kept on the tournament rather than on every game.
+      const standings = {};
+      for (const g of games) { if (g.standingsUrl && g.division) standings[g.division] = g.standingsUrl; delete g.standingsUrl; }
+      out.push({ id: t.id, name: t.name, slug: t.slug, city: t.city, province: t.province, start, end, url: scheduleUrl(t.id), standings, games });
     } catch (err) {
       // Keep what we had rather than dropping the tournament on a bad download.
       const prev = previous(t.id);

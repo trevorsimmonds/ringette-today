@@ -1,0 +1,40 @@
+{
+ "tournaments": [
+  {
+   "aid": 3043,
+   "name": "Oshawa Autumn Storm Tournament",
+   "short": "Oshawa",
+   "city": "Oshawa",
+   "start": "2026-10-23",
+   "end": "2026-10-25"
+  },
+  {
+   "aid": 3022,
+   "name": "London Pink in the Rink",
+   "short": "London Pink in the Rink",
+   "city": "London",
+   "start": "2026-11-06",
+   "end": "2026-11-08"
+  },
+  {
+   "aid": 1941,
+   "name": "Ed Benoit Early Bird Tournament (Fredericton)",
+   "short": "Fredericton Early Bird",
+   "city": "Fredericton, NB",
+   "start": "2026-11-27",
+   "end": "2026-11-29",
+   "feed": "league",
+   "matchTeams": true,
+   "site": "https://frederictonearlybird.ca",
+   "tz": "America/Moncton"
+  },
+  {
+   "aid": 3106,
+   "name": "Nepean Ringette Tournament",
+   "short": "Nepean Tournament",
+   "city": "Nepean",
+   "start": "2026-11-19",
+   "end": "2026-11-22"
+  }
+ ]
+}

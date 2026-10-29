@@ -1,0 +1,79 @@
+# Copies the NCRRL, GAARA and RAMP tournament schedules from RAMP's calendar
+# files into ramp.json (scripts/fetch-ramp.mjs). Free for public repositories.
+# Run it by hand from the Actions tab ("Update RAMP schedules" → Run workflow).
+name: Update RAMP schedules
+
+# Most games are on weekends, so it checks more often then.
+# GitHub's times are UTC: Ottawa is UTC-4 in summer and UTC-5 in winter, so the
+# windows below are a little wide to cover both. In Ottawa time:
+#   Sat & Sun 7 am – 11 pm, and Fri 5 – 11 pm ......... every 15 minutes
+#   Mon – Thu 5 – 11 pm ................................ every 30 minutes
+#   any other time (weekday days, overnight) ........... hourly
+# (GitHub sometimes runs scheduled jobs late or skips one when it's busy.)
+on:
+  schedule:
+    - cron: '12,27,42,57 11-23 * * 0,6'   # Sat & Sun daytime
+    - cron: '12,27,42,57 0-3 * * 0,1'     # Sat & Sun evenings (already Sun/Mon in UTC)
+    - cron: '12,27,42,57 21-23 * * 5'     # Fri evening
+    - cron: '12,27,42,57 0-3 * * 6'       # Fri late evening (already Sat in UTC)
+    - cron: '27,57 21-23 * * 1-4'         # Mon–Thu evenings
+    - cron: '27,57 0-3 * * 2-5'           # Mon–Thu late evenings (already Tue–Fri in UTC)
+    - cron: '27 * * * *'                  # hourly, all the time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: ramp
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check the reader
+        # Reads trimmed copies of real RAMP pages and calendars (test/ramp/);
+        # fails if a code change broke the reader. Nothing is downloaded.
+        run: node test/ramp-check.mjs
+      - name: Download schedules
+        id: download
+        # Exit code 2 = it worked, but a page looks like RAMP changed its layout.
+        # Carry on to save what was read; the last step then fails the run so
+        # GitHub emails you.
+        continue-on-error: true
+        run: node scripts/fetch-ramp.mjs
+      - name: Commit if changed
+        id: commit
+        if: always()
+        run: |
+          if [ ! -f ramp.json ] || { git diff --quiet -- ramp.json && git ls-files --error-unmatch ramp.json >/dev/null 2>&1; }; then
+            echo "No schedule changes."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add ramp.json
+            git commit -m "Update RAMP schedules"
+            # The other jobs may have pushed in the meantime.
+            git pull --rebase
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Republish the site
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+      - name: Report problems
+        if: steps.download.outcome == 'failure'
+        run: |
+          echo "The RAMP download reported a problem — see the 'Download schedules' step above."
+          exit 1

@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><body><nav>
+<button id="accordion-menu-title-1648" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-1648"><span>National Capital Region Ringette League</span></button>
+<button id="accordion-submenu-title-20295" type="button" class="modal-menu-accordion modal-menu-subaccordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-1648"><span>U14AA</span></button>
+<a target="_parent" href="/portal/team/1648/14554/0/20295/398265/" class="modal-submenu-item"><p>Gloucester Cumberland Devils U14AA - McDonald</p></a>
+<a target="_parent" href="/portal/team/1648/14554/0/20295/398266/" class="modal-submenu-item"><p>Nepean Ravens U14AA - Price</p></a>
+<a target="_parent" href="/portal/team/1648/14554/0/20295/398267/" class="modal-submenu-item"><p>Ottawa Ice U14AA - McWaters</p></a>
+<a target="_parent" href="/portal/team/1648/14554/0/20295/401648/" class="modal-submenu-item"><p>West Ottawa Wild U14AA - Gorham</p></a>
+<button id="accordion-menu-title-3022" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-3022"><span>London PINK THE RINK Tournament</span></button>
+<button id="accordion-submenu-title-25814" type="button" class="modal-menu-accordion modal-menu-subaccordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-3022"><span>U12A</span></button>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/399706/" class="modal-submenu-item"><p>Dorchester Dragons U12A</p></a>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/399349/" class="modal-submenu-item"><p>Forest Xtreme U12A</p></a>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/406959/" class="modal-submenu-item"><p>Guelph Predators U12A</p></a>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/399379/" class="modal-submenu-item"><p>London Lynx U12A</p></a>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/406163/" class="modal-submenu-item"><p>Sunderland Stingerz U12A</p></a>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/406590/" class="modal-submenu-item"><p>Tillsonburg Twisters U12A</p></a>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/409134/" class="modal-submenu-item"><p>West Ottawa Wild U12A - Pattyson</p></a>
+<a target="_parent" href="/portal/team/3022/14614/0/25814/407840/" class="modal-submenu-item"><p>Whitby Wild U12A</p></a>
+<button id="accordion-menu-title-3043" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-3043"><span>Oshawa Autumn Storm Ringette Tournament</span></button>
+<button id="accordion-submenu-title-19962" type="button" class="modal-menu-accordion modal-menu-subaccordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-3043"><span>U14AA</span></button>
+<a target="_parent" href="/portal/team/3043/14561/0/19962/401131/" class="modal-submenu-item"><p>Burlington U14AA</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/19962/398265/" class="modal-submenu-item"><p>Gloucester Cumberland Devils U14AA - McDonald</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/19962/401129/" class="modal-submenu-item"><p>Guelph U14AA</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/19962/401130/" class="modal-submenu-item"><p>Oshawa U14AA</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/19962/398267/" class="modal-submenu-item"><p>Ottawa Ice U14AA - McWaters</p></a>
+<button id="accordion-submenu-title-18564" type="button" class="modal-menu-accordion modal-menu-subaccordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-3043"><span>U12A</span></button>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/407391/" class="modal-submenu-item"><p>Ajax Pickering Power U12A</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/409126/" class="modal-submenu-item"><p>Arnprior Devils U12A - Schweertman</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/402778/" class="modal-submenu-item"><p>Burlington Blast U12A</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/408764/" class="modal-submenu-item"><p>Greater Sudbury North Stars U12A</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/405092/" class="modal-submenu-item"><p>Mitchell Stingers U12A</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/409130/" class="modal-submenu-item"><p>Nepean Ravens U12A - Young</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/406150/" class="modal-submenu-item"><p>Oshawa Storm U12A</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/407004/" class="modal-submenu-item"><p>Richmond Hill Lightning U12A</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/414841/" class="modal-submenu-item"><p>Sault Ice Hawks - U12A</p></a>
+<a target="_parent" href="/portal/team/3043/14561/0/18564/409134/" class="modal-submenu-item"><p>West Ottawa Wild U12A - Pattyson</p></a>
+</nav></body></html>

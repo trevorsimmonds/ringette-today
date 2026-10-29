@@ -1,11 +1,10 @@
 /* Ringette Today — NCRRL + Ringette Ontario tournament schedules (PWA)
  *
- * Data source: RAMP InterActive (which runs ncrrl.com and the tournament sites)
- * serves schedules as JSON with CORS open, so the app reads them straight from
- * the browser — no scraping server needed.
- *   League games:     https://www.ncrrl.com/api/leaguegame/get/1648/{season}/0/0/0/0/
- *   Seasons:          https://www.ncrrl.com/api/association/getseasons/{aid}/
- *   Tournament games: https://www.ncrrl.com/api/leaguetournamentgame/get/{aid}/{season}/0/0/0/0/0
+ * Data sources: RAMP InterActive runs ncrrl.com, gaara.ca and the tournament
+ * sites. Since RAMP rebuilt its sites (Oct 2026) its JSON feed no longer works
+ * and its calendar files can't be read by other websites, so a GitHub job
+ * (scripts/fetch-ramp.mjs) copies the calendars into ramp.json next to the app,
+ * with team, division and game IDs filled in from the sites' menus.
  * Leagues: NCRRL (AID 1648), LERQ (Quebec AA, via quebec.json) and GAARA
  * adult league (AID 2786) — see LEAGUES.
  * LERQ comes from Ringuette Québec's site, which browser apps can't read
@@ -22,21 +21,17 @@
 
   // Leagues in the order they appear in the team picker. NCRRL keeps its
   // original storage keys so existing installs don't lose their cache.
-  // fallbackSeason is only used if the season lookup fails with nothing cached.
   const LEAGUES = [
-    { type: 'ramp', aid: 1648, key: 'ncrrl', name: 'NCRRL', divPrefix: '', fallbackSeason: 14554,
-      cacheKey: 'rt.cache', seasonKey: 'rt.season', fixture: 'fixture.json' },
+    { type: 'ramp', aid: 1648, key: 'ncrrl', name: 'NCRRL', divPrefix: '', site: 'https://www.ncrrl.com' },
     { type: 'lerq', key: 'lerq', name: 'LERQ', heading: 'LERQ — Quebec AA league',
       cacheKey: 'rt.lerq', fixture: 'fixture-quebec.json',
       divOrder: ['LERQ U16 AA', 'LERQ U19 AA'],
       // Only these teams are offered in the picker; all LERQ games still count
       // for opponents and for who's on the ice before and after.
       pickerTeams: ['Ottawa', 'Nepean', 'GCRA', 'West Ottawa', 'Outaouais', 'Eastern rush', 'Eastern surge'] },
-    { type: 'ramp', aid: 2786, key: 'gaara', name: 'GAARA', heading: 'GAARA — adult league', divPrefix: 'GAARA ', fallbackSeason: 14539,
-      cacheKey: 'rt.cache.2786', seasonKey: 'rt.season.2786', fixture: 'fixture-gaara.json',
+    { type: 'ramp', aid: 2786, key: 'gaara', name: 'GAARA', heading: 'GAARA — adult league', divPrefix: 'GAARA ', site: 'https://www.gaara.ca',
       divOrder: ['Black', 'Brown', 'Red', 'Blue', 'Yellow', 'Green', 'Orange', 'Purple'] },
   ];
-  const API = 'https://www.ncrrl.com/api';
   const RESULTS_AFTER_MIN = 90;  // a game moves to Results this long after it starts
   // Multi-pad buildings. The schedules list each pad separately, so this says
   // which pads share a building (for "Also in this building") and how to label
@@ -65,8 +60,9 @@
     { name: 'Grant-Harvey Centre', match: /^grant-harvey cent/i, pad: /\/(nhl|olympic) sheet/i, label: '$1 sheet' },
   ];
   // Ringuette Québec writes rink names its own way. These Ottawa-area rinks are
-  // matched to RAMP's rink IDs so LERQ games line up with NCRRL/GAARA games on
-  // the same ice. Rinks without a pad number (e.g. "Cardelrec - West Ottawa",
+  // matched to RAMP's rink names so LERQ games line up with NCRRL/GAARA games on
+  // the same ice (rinks are identified by RAMP's name; the old feed's rink IDs
+  // are kept here for reference). Rinks without a pad number (e.g. "Cardelrec - West Ottawa",
   // "Carleton University - Ottawa") are left unmatched on purpose.
   const RINK_ALIASES = {
     'Ray Friel 1 - Ottawa': [12436, 'Ray Friel Centre - Pad 1 (Ron Racette Arena)'],
@@ -81,18 +77,19 @@
     'Slush Puppie C - Gatineau': [13153, 'Slush Puppie Complex - C - Gerik Ice'],
     'Slush Puppie D - Gatineau': [13152, 'Slush Puppie Complex - D - Dilawri Ice'],
   };
-  // RAMP sometimes lists the same ice under two rink IDs (each league names it
-  // its own way). Map the extra ID onto the main one so games line up.
+  // The same ice under two RAMP names (each league names it its own way).
+  // Map the extra name onto the main one so games line up.
   const SAME_RINK = {
-    13061: 13020,  // GAARA "Nepean Sportsplex - Pad 2 (MacDonald)" = NCRRL "Nepean Sportsplex - Arena 2" (Allen J. MacDonald Arena)
+    'Nepean Sportsplex - Pad 2 (MacDonald)': 'Nepean Sportsplex - Arena 2',  // the Allen J. MacDonald Arena
   };
+  const rinkKey = (name) => { const n = String(name || 'TBD').trim(); return SAME_RINK[n] || n; };
   const LOOKAHEAD_DAYS = 31;     // download tournaments starting within this many days
   const LOOKBACK_DAYS = 7;       // …or that ended within this many days (for results)
   const LS = {
     tracked: 'rt.tracked',       // [teamId, ...]
     favs: 'rt.favs',             // [teamId, ...] — favourites (always also followed)
     upFilter: 'rt.upFilter',     // 'all' | 'fav' — Upcoming filter, remembered
-    tourn: 'rt.t.',              // + aid -> {sid, fetchedAt, games}
+    ramp: 'rt.ramp',             // {fetchedAt, data} — ramp.json (NCRRL, GAARA, RAMP tournaments)
     pt: 'rt.pt',                 // {fetchedAt, data} — planitournoi.json
   };
   const params = new URLSearchParams(location.search);
@@ -106,8 +103,8 @@
     games: [],          // league + tournament, normalized, sorted by start
     league: [],         // normalized league games (all leagues)
     leagueGames: new Map(), // league key -> normalized games
-    seasons: Object.fromEntries(LEAGUES.filter((l) => l.seasonKey).map((l) => [l.key, readJSON(l.seasonKey, null)])),
     lerqUpdatedAt: null,
+    rampUpdatedAt: null, // when ramp.json last changed
     tourGames: new Map(), // aid -> normalized games
     tournaments: [],    // from tournaments.json
     ptTournaments: [],  // Quebec tournaments from planitournoi.json (no games)
@@ -154,14 +151,35 @@
     const d = parseLocal(`${TODAY_OVERRIDE}T12:00`);
     return d || new Date();
   }
-  // Feed times are local rink time (Eastern) with no zone; parse as local wall-clock.
-  function parseLocal(s) {
+  // Feed times are the rink's local clock time with no zone. Most rinks are on
+  // Ottawa time; tournaments elsewhere say so (tz in tournaments.json, e.g.
+  // Fredericton = America/Moncton). Times are turned into real moments so
+  // "Results", "Today" and gaps are right wherever the phone is, and shown in
+  // the rink's own time (with its zone when it isn't Ottawa's).
+  const HOME_TZ = 'America/Toronto';
+  const tzParts = new Map();
+  function wallClockIn(t, tz) {
+    if (!tzParts.has(tz)) tzParts.set(tz, new Intl.DateTimeFormat('en-US', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+    const p = Object.fromEntries(tzParts.get(tz).formatToParts(new Date(t)).map((x) => [x.type, x.value]));
+    return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour % 24, +p.minute, +p.second);
+  }
+  function parseLocal(s, tz = HOME_TZ) {
     const m = /^(\d{4})-(\d\d)-(\d\d)(?:T(\d\d):(\d\d))?/.exec(s || '');
-    return m ? new Date(+m[1], +m[2] - 1, +m[3], +(m[4] || 0), +(m[5] || 0)) : null;
+    if (!m) return null;
+    const wall = Date.UTC(+m[1], +m[2] - 1, +m[3], +(m[4] || 0), +(m[5] || 0));
+    let t = wall - (wallClockIn(wall, tz) - wall);
+    t = wall - (wallClockIn(t, tz) - t);  // second pass settles daylight-saving changes
+    return new Date(t);
+  }
+  const tzName = (d, tz) => new Intl.DateTimeFormat('en-CA', { timeZone: tz, timeZoneName: 'short' }).formatToParts(d).find((x) => x.type === 'timeZoneName').value;
+  // "10:15 AM–~11:15 AM", plus " AST" for a rink outside Ottawa's time zone.
+  function fmtRange(g, sep = '–') {
+    const tz = g.tz || HOME_TZ;
+    return `${fmtTime(g.start, tz)}${sep}${g.endEstimated ? '~' : ''}${fmtTime(g.end, tz)}${tz !== HOME_TZ ? ` <span class="tz">${esc(tzName(g.start, tz))}</span>` : ''}`;
   }
   const DAY = 86400000;
   const dayKey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  const fmtTime = (d) => d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit' }).replace(/\s?([ap])\.?m\.?/i, (_, x) => ` ${x.toUpperCase()}M`);
+  const fmtTime = (d, tz = HOME_TZ) => d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit', timeZone: tz }).replace(/\s?([ap])\.?m\.?/i, (_, x) => ` ${x.toUpperCase()}M`);
   const fmtDay = (d) => d.toLocaleDateString('en-CA', { weekday: 'long', month: 'short', day: 'numeric' });
   const fmtShortDate = (d) => d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' });
   function relDay(d) {
@@ -186,19 +204,8 @@
     return res.json();
   }
 
-  // Saved schedules from before the box-score links lack the division ID;
-  // treat them as out of date so they're downloaded again right away.
-  const oldFormat = (cached) => !!(cached && cached.games && cached.games.length && !('homeDID' in cached.games[0]));
 
-  // Keep only the fields we use so the cache stays small.
-  const slim = (raw) => raw.map((g) => ({
-    GID: g.GID, sDate: g.sDate, eDate: g.eDate, ArenaName: g.ArenaName, RARID: g.RARID,
-    HomeTeamName: g.HomeTeamName, homeTID: g.homeTID, homeScore: g.homeScore,
-    AwayTeamName: g.AwayTeamName, awayTID: g.awayTID, awayScore: g.awayScore,
-    HomeDivision: g.HomeDivision, AwayDivision: g.AwayDivision, homeDID: g.homeDID, GameTypeName: g.GameTypeName, notes: g.notes,
-    completed: g.completed, cancelledHome: g.cancelledHome, cancelledAway: g.cancelledAway, rainout: g.rainout,
-    trash: g.trash, deletedDate: g.deletedDate,
-  }));
+
 
   // ---------- data ----------
   // A team on a RAMP game. For tournaments with matchTeams (teams registered
@@ -214,8 +221,9 @@
     return raw
       .filter((g) => !g.trash && !g.deletedDate)
       .map((g) => {
-        const start = parseLocal(g.sDate);
-        let end = parseLocal(g.eDate);
+        const tz = (source && source.tz) || HOME_TZ;
+        const start = parseLocal(g.sDate, tz);
+        let end = parseLocal(g.eDate, tz);
         if (end && start && end <= start) end = null; // some feeds repeat the start time as the end
         return {
           key: `${source ? source.aid : league ? league.aid : 'L'}-${g.GID}`,
@@ -224,10 +232,11 @@
           start,
           end,                           // may be null for tournaments; filled in rebuild()
           endEstimated: !end,
+          tz,
           arena: String(g.ArenaName || 'TBD').trim(),
-          rinkId: SAME_RINK[g.RARID] ?? g.RARID ?? g.ArenaName,
-          home: rampTeam(g.homeTID, g.HomeTeamName, g.homeScore, g.HomeDivision || g.AwayDivision, source),
-          away: rampTeam(g.awayTID, g.AwayTeamName, g.awayScore, g.AwayDivision || g.HomeDivision, source),
+          rinkId: rinkKey(g.ArenaName),
+          home: { ...rampTeam(g.homeTID, g.HomeTeamName, g.homeScore, g.HomeDivision || g.AwayDivision, source), did: g.homeDID || null },
+          away: { ...rampTeam(g.awayTID, g.AwayTeamName, g.awayScore, g.AwayDivision || g.HomeDivision, source), did: g.awayDID || g.homeDID || null },
           division: `${league ? league.divPrefix : ''}${g.HomeDivision || g.AwayDivision || ''}`,
           baseDivision: g.HomeDivision || g.AwayDivision || '',
           league: league || null,
@@ -253,12 +262,13 @@
       return {
         key: `Q-${g.num}`,
         detailId: g.detailId || null,  // Ringuette Québec's game page (box score)
+        lerqLeague: g.league,          // 104 = U16 AA, 105 = U19 AA (for the standings link)
         id: g.num,
         start: parseLocal(`${g.date}T${g.time}`),
         end: null,
         endEstimated: true,
         arena: alias ? alias[1] : g.arena,
-        rinkId: alias ? alias[0] : `lerq:${g.arena}`,
+        rinkId: alias ? alias[1] : `lerq:${g.arena}`,
         home: team(g.home, g.score && g.score.home),
         away: team(g.away, g.score && g.score.away),
         division: div,
@@ -341,7 +351,9 @@
     const out = new Map();
     for (const t of data.tournaments || []) {
       if (!tournamentWindow(t).active) continue;
-      const source = { aid: `pt${t.id}`, name: t.name, short: ptShort(t.name), source: 'pt', url: t.url };
+      const source = { aid: `pt${t.id}`, name: t.name, short: ptShort(t.name), source: 'pt', url: t.url,
+        standings: t.standings || {},
+        standingsAll: t.slug ? `https://www.planitournoi.com/tournois/ringuette/canada/${t.province || 'quebec'}/classements/${t.slug}-${t.id}.html` : null };
       out.set(source.aid, (t.games || []).map((g) => {
         const alias = PT_RINK_ALIASES[g.arena];
         const al = ageLevel(g.division);
@@ -356,10 +368,10 @@
           start: parseLocal(`${g.date}T${g.time}`),
           end: null, endEstimated: true,
           arena: alias ? alias[1] : g.arena,
-          rinkId: alias ? alias[0] : `pt:${g.arena}`,
+          rinkId: alias ? alias[1] : `pt:${g.arena}`,
           home: team(g.home, g.score && g.score.home),
           away: team(g.away, g.score && g.score.away),
-          division, baseDivision: division,
+          division, baseDivision: division, ptDivision: g.division,
           league: null, type: '', notes: '',
           completed: !!g.score, cancelled: false,
           tournament: source,
@@ -506,22 +518,6 @@
   const isTracked = (g) => state.tracked.has(g.home.id) || state.tracked.has(g.away.id);
   const isFav = (g) => state.favs.has(g.home.id) || state.favs.has(g.away.id);
 
-  // --- season (automatic) ---
-  async function resolveSeason(league) {
-    const s = state.seasons[league.key];
-    if (s && Date.now() - s.checkedAt < 24 * 3600000) return s.sid;
-    try {
-      const list = await getJSON(`${API}/association/getseasons/${league.aid}/`);
-      const pick = list.find((x) => x.current) || [...list].sort((a, b) => b.sid - a.sid)[0];
-      if (pick) {
-        state.seasons[league.key] = { sid: pick.sid, name: pick.name, checkedAt: Date.now() };
-        writeJSON(league.seasonKey, state.seasons[league.key]);
-        return pick.sid;
-      }
-    } catch {}
-    return s ? s.sid : league.fallbackSeason;
-  }
-
   // --- tournaments ---
   function tournamentWindow(t) {
     const today = now(); today.setHours(0, 0, 0, 0);
@@ -537,55 +533,40 @@
   //   feed: "league"  — set up in RAMP as a league (games come from the league feed)
   //   matchTeams: true — teams registered outside Ringette Ontario (other IDs):
   //                      match them to followed teams by club, age and level
-  //   site: the tournament's own RAMP site, for box score links
-  const tourSource = (t) => ({ aid: t.aid, name: t.name, short: t.short, matchTeams: !!t.matchTeams, site: t.site || null });
-  function loadCachedTournaments() {
-    for (const t of state.tournaments) {
-      const c = readJSON(LS.tourn + t.aid, null);
-      if (c && c.games && c.games.length) state.tourGames.set(t.aid, normalize(c.games, tourSource(t)));
-    }
+  //   site: the tournament's own RAMP site, for box score and standings links
+  //   tz: the rinks' time zone if not Ottawa's (e.g. "America/Moncton" for New Brunswick)
+  const tourSource = (t) => ({ aid: t.aid, name: t.name, short: t.short, matchTeams: !!t.matchTeams, site: t.site || null, tz: t.tz || HOME_TZ });
+  // NCRRL, GAARA and RAMP tournaments all come from ramp.json (see
+  // scripts/fetch-ramp.mjs). In test mode (?fixture=1) the same shape is built
+  // from the sample files in test/.
+  async function getRampData() {
+    if (!FIXTURE) return getJSON('ramp.json');
+    const [ncrrl, gaara, tours] = await Promise.all(['fixture.json', 'fixture-gaara.json', 'fixture-tournaments.json'].map((f) => getJSON(f)));
+    const tournaments = {};
+    for (const [aid, games] of Object.entries(tours.games || {})) tournaments[aid] = { aid: +aid, games };
+    return { updatedAt: new Date().toISOString(), leagues: { ncrrl: { games: ncrrl }, gaara: { games: gaara } }, tournaments };
   }
-
-  async function fetchTournament(t, { force }) {
-    const w = tournamentWindow(t);
-    const cached = readJSON(LS.tourn + t.aid, null);
-    // During the tournament refresh often (scores); otherwise a few times a day.
-    const maxAge = w.live ? 10 * 60000 : 6 * 3600000;
-    if (!force && cached && Date.now() - cached.fetchedAt < maxAge && !oldFormat(cached)) return;
-
-    let games = [];
-    let sid = null;
-    if (FIXTURE) {
-      const fx = await getJSON('fixture-tournaments.json');
-      games = fx.games[t.aid] || [];
-    } else {
-      // Pick the tournament year whose games fall on this year's dates.
-      const seasons = (await getJSON(`${API}/association/getseasons/${t.aid}/`)).sort((a, b) => b.sid - a.sid);
-      const lo = w.start.getTime() - 4 * DAY, hi = w.end.getTime() + 4 * DAY;
-      for (const s of seasons.slice(0, 3)) {
-        const raw = await getJSON(t.feed === 'league'
-          ? `${API}/leaguegame/get/${t.aid}/${s.sid}/0/0/0/0/`
-          : `${API}/leaguetournamentgame/get/${t.aid}/${s.sid}/0/0/0/0/0`);
-        if (!Array.isArray(raw) || !raw.length) continue;
-        const inRange = raw.some((g) => { const d = parseLocal(g.sDate); return d && d >= lo && d <= hi; });
-        if (inRange) { games = raw; sid = s.sid; break; }
-      }
+  function applyRamp(data) {
+    for (const l of LEAGUES) {
+      if (l.type !== 'ramp') continue;
+      const lg = data.leagues && data.leagues[l.key];
+      if (lg && lg.games) state.leagueGames.set(l.key, normalize(lg.games, null, l));
     }
-    const s = slim(games);
-    writeJSON(LS.tourn + t.aid, { sid, fetchedAt: Date.now(), games: s });
-    if (s.length) state.tourGames.set(t.aid, normalize(s, tourSource(t)));
-    else state.tourGames.delete(t.aid);
-  }
-
-  function pruneTournamentCache() {
-    // Drop cached tournaments that ended more than 60 days ago.
-    const cutoff = now().getTime() - 60 * DAY;
+    // RAMP tournaments (keyed by their RAMP ID; Planitournoi ones are "pt…").
+    for (const k of [...state.tourGames.keys()]) if (!String(k).startsWith('pt')) state.tourGames.delete(k);
     for (const t of state.tournaments) {
-      if (parseLocal(t.end) < cutoff) {
-        try { localStorage.removeItem(LS.tourn + t.aid); } catch {}
-        state.tourGames.delete(t.aid);
-      }
+      const tg = data.tournaments && data.tournaments[t.aid];
+      if (tg && tg.games && tg.games.length && tournamentWindow(t).active) state.tourGames.set(t.aid, normalize(tg.games, tourSource(t)));
     }
+    state.rampUpdatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
+  }
+  // Saved data from the old RAMP feed (before Oct 2026) isn't used any more.
+  function dropOldCaches() {
+    try {
+      for (const k of Object.keys(localStorage)) {
+        if (/^rt\.(cache(\.\d+)?|season(\.\d+)?|t\.\d+)$/.test(k)) localStorage.removeItem(k);
+      }
+    } catch {}
   }
 
   // ---------- club logos ----------
@@ -631,88 +612,72 @@
   async function load({ force = false } = {}) {
     if (firstLoad) {
       firstLoad = false;
-      for (const l of LEAGUES) {
-        const cached = readJSON(l.cacheKey, null);
-        if (!cached) continue;
-        if (l.type === 'lerq') {
-          state.leagueGames.set(l.key, normalizeLerq(cached.data, l));
-          state.lerqUpdatedAt = cached.data.updatedAt ? new Date(cached.data.updatedAt) : null;
-          continue;
-        }
-        state.leagueGames.set(l.key, normalize(cached.games, null, l));
-        const at = new Date(cached.fetchedAt);
-        if (!state.fetchedAt || at < state.fetchedAt) state.fetchedAt = at;
+      dropOldCaches();
+      const lerq = LEAGUES.find((l) => l.type === 'lerq');
+      const lerqCached = readJSON(lerq.cacheKey, null);
+      if (lerqCached && lerqCached.data) {
+        state.leagueGames.set(lerq.key, normalizeLerq(lerqCached.data, lerq));
+        state.lerqUpdatedAt = lerqCached.data.updatedAt ? new Date(lerqCached.data.updatedAt) : null;
       }
       await loadTournamentList();
       await loadLogos();
-      loadCachedTournaments();
+      const ramp = readJSON(LS.ramp, null);
+      if (ramp && ramp.data) { applyRamp(ramp.data); state.fetchedAt = new Date(ramp.fetchedAt); }
       const pt = readJSON(LS.pt, null);
       if (pt && pt.data) applyPt(pt.data);
-      pruneTournamentCache();
       rebuild();
       render();
     }
 
     setBusy(true);
     const problems = [];
+    // Each file comes from the app's own site and is refreshed by a GitHub job;
+    // checking it is cheap, so look every few minutes (or now, on refresh).
+    const due = (cached, minutes) => force || !cached || Date.now() - cached.fetchedAt > minutes * 60000;
     try {
-      // Leagues: refresh if forced, no cache, or older than 10 minutes.
-      let refreshed = false;
-      for (const l of LEAGUES) {
-        const cached = readJSON(l.cacheKey, null);
-        if (l.type === 'lerq') {
-          // quebec.json changes at most every few hours; check it every 30 minutes.
-          if (!force && cached && Date.now() - cached.fetchedAt < 30 * 60000) continue;
-          try {
-            const data = await getJSON(FIXTURE ? l.fixture : 'quebec.json');
-            writeJSON(l.cacheKey, { fetchedAt: Date.now(), data });
-            state.leagueGames.set(l.key, normalizeLerq(data, l));
-            state.lerqUpdatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
-          } catch (err) {
-            // No quebec.json yet (the GitHub job hasn't run) isn't an error worth showing.
-            if (!/HTTP 404/.test(err.message)) problems.push(err);
-          }
-          continue;
-        }
-        if (FIXTURE) state.seasons[l.key] = { sid: l.fallbackSeason, name: '2026-2027 (test data)', checkedAt: Date.now() };
-        const sid = FIXTURE ? l.fallbackSeason : await resolveSeason(l);
-        const stale = !cached || cached.season !== sid || Date.now() - cached.fetchedAt > 10 * 60000 || oldFormat(cached);
-        if (!force && !stale) continue;
+      // NCRRL, GAARA and RAMP tournaments.
+      const rampCached = readJSON(LS.ramp, null);
+      if (due(rampCached, 5)) {
         try {
-          const raw = await getJSON(FIXTURE ? l.fixture : `${API}/leaguegame/get/${l.aid}/${sid}/0/0/0/0/`);
-          if (!Array.isArray(raw)) throw new Error('Unexpected response');
-          const s = slim(raw);
-          writeJSON(l.cacheKey, { season: sid, fetchedAt: Date.now(), games: s });
-          state.leagueGames.set(l.key, normalize(s, null, l));
-          refreshed = true;
+          const data = await getRampData();
+          writeJSON(LS.ramp, { fetchedAt: Date.now(), data });
+          applyRamp(data);
+          state.fetchedAt = new Date();
         } catch (err) { problems.push(err); }
       }
-      if (refreshed && !problems.length) state.fetchedAt = new Date();
 
-      // Quebec tournaments: planitournoi.json is updated by the GitHub job
-      // (hourly); check it every 10 minutes.
+      // LERQ (quebec.json).
+      const lerq = LEAGUES.find((l) => l.type === 'lerq');
+      const lerqCached = readJSON(lerq.cacheKey, null);
+      if (due(lerqCached, 10)) {
+        try {
+          const data = await getJSON(FIXTURE ? lerq.fixture : 'quebec.json');
+          writeJSON(lerq.cacheKey, { fetchedAt: Date.now(), data });
+          state.leagueGames.set(lerq.key, normalizeLerq(data, lerq));
+          state.lerqUpdatedAt = data.updatedAt ? new Date(data.updatedAt) : null;
+        } catch (err) {
+          // No quebec.json yet (the GitHub job hasn't run) isn't an error worth showing.
+          if (!/HTTP 404/.test(err.message)) problems.push(err);
+        }
+      }
+
+      // Quebec tournaments (planitournoi.json).
       const ptCached = readJSON(LS.pt, null);
-      if (force || !ptCached || Date.now() - ptCached.fetchedAt > 10 * 60000) {
+      if (due(ptCached, 10)) {
         try {
           const data = await getJSON(FIXTURE ? 'fixture-planitournoi.json' : 'planitournoi.json');
           writeJSON(LS.pt, { fetchedAt: Date.now(), data });
           applyPt(data);
         } catch (err) {
-          // No planitournoi.json yet (the GitHub job hasn't run) isn't worth showing.
           if (!/HTTP 404/.test(err.message)) problems.push(err);
         }
       }
 
-      // Tournaments happening soon (or just finished).
-      const active = state.tournaments.filter((t) => tournamentWindow(t).active);
-      for (const t of active) {
-        try { await fetchTournament(t, { force }); } catch (err) { problems.push(err); }
-      }
       rebuild();
       if (problems.length) {
-        setStatus(state.games.length
+        setStatus(state.games.length && state.fetchedAt
           ? `Offline — showing schedule from ${fmtAgo(state.fetchedAt)}.`
-          : `Couldn't reach ncrrl.com (${problems[0].message}). Check your connection and tap refresh.`, true);
+          : `Couldn't load the schedule (${problems[0].message}). Check your connection and tap refresh.`, true);
       } else setStatus();
     } finally {
       setBusy(false);
@@ -746,11 +711,26 @@
   }
   function setBusy(b) { $('#refreshBtn').classList.toggle('spinning', b); }
 
+  // Official standings for the team's division: the league's own site for
+  // league games, the tournament's for tournament games. Tiebreakers are theirs.
+  function standingsUrl(t, g) {
+    if (!t.id) return null; // playoff slot ("Winner of game 1930")
+    const tour = g.tournament;
+    if (tour && tour.source === 'pt') return tour.standings[g.ptDivision] || tour.standingsAll || null;
+    if (g.league && g.league.key === 'lerq') return g.lerqLeague ? `https://membres.ringuette-quebec.qc.ca/classements_web.asp?ligues_id=${g.lerqLeague}&button1=+Classement+` : null;
+    const did = t.did || g.did;
+    if (!did) return null;
+    if (tour) return tour.site ? `${tour.site}/division/0/${did}/standings` : `https://www.ringetteontario.com/portal/${tour.aid}/0/${did}/standings`;
+    return g.league && g.league.site ? `${g.league.site}/division/0/${did}/standings` : null;
+  }
   function teamLine(t, g, side) {
     const mine = state.tracked.has(t.id);
     const showScore = g.completed || (t.score !== null && t.score !== undefined && g.start < now());
     return `<div class="team${mine ? ' mine' : ''}">
-      <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${logoImg(logoFor(t.logoName || t.name, t.logoLeague || g.league))}${esc(t.name)}</span>
+      <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${logoImg(logoFor(t.logoName || t.name, t.logoLeague || g.league))}${(() => {
+        const url = standingsUrl(t, g);
+        return url ? `<a class="team-link" href="${esc(url)}" target="_blank" rel="noopener" title="Standings">${esc(t.name)}<span class="sr-only"> — standings (opens the ${g.tournament ? 'tournament' : 'league'}'s site)</span></a>` : esc(t.name);
+      })()}</span>
       ${showScore && t.score != null ? `<span class="score">${t.score}</span>` : ''}
     </div>`;
   }
@@ -774,7 +754,7 @@
     return `<div class="ice-row${tracked ? ' tracked' : ''}">
       <span class="ice-label">${label}</span>
       <span>
-        <span class="ice-when">${fmtTime(other.start)}–${other.endEstimated ? '~' : ''}${fmtTime(other.end)}</span>
+        <span class="ice-when">${fmtRange(other)}</span>
         <span class="ice-gap"> · ${fmtGap(gap)}</span>${tag}<br>
         <span class="ice-teams">${esc(other.away.name)} @ ${esc(other.home.name)}</span>
         <span class="muted small"> · ${esc(other.division)}${other.tournament ? ` · ${esc(other.tournament.short)}` : ''}</span>${where}
@@ -792,7 +772,7 @@
       const tag = fav ? '<span class="chip fav">★ Favourite</span>' : tracked ? '<span class="chip">Following</span>' : '';
       const pad = buildingOf(x.arena).pad || 'Other pad';
       return `<div class="also${tracked ? ' tracked' : ''}">
-        <span class="ice-when">${esc(pad)}</span><span class="ice-gap"> · ${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)}</span>${tag}<br>
+        <span class="ice-when">${esc(pad)}</span><span class="ice-gap"> · ${fmtRange(x)}</span>${tag}<br>
         <span class="ice-teams">${esc(x.away.name)} @ ${esc(x.home.name)}</span>
         <span class="muted small"> · ${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span>
       </div>`;
@@ -804,8 +784,9 @@
     </div>`;
   }
 
-  // Box score: RAMP's game sheet (works for NCRRL, GAARA and tournament games
-  // through ncrrl.com, given any real division ID), or Ringuette Québec's game page.
+  // Box score: RAMP's game page on the league's or tournament's own site
+  // (/division/0/{division}/game/view/{game}), Planitournoi's game sheet, or
+  // Ringuette Québec's game page.
   function boxScoreUrl(g) {
     if (g.tournament && g.tournament.source === 'pt') {
       return g.gameId ? `https://www.planitournoi.com/game_result.php?pdf=1&lang=fr&game_id=${g.gameId}&public&from=public&sheet=match` : null;
@@ -813,8 +794,8 @@
     if (g.league && g.league.key === 'lerq') {
       return g.detailId ? `https://membres.ringuette-quebec.qc.ca/resultats_web.asp?cedules_id=${g.detailId}` : null;
     }
-    const site = (g.tournament && g.tournament.site) || 'https://www.ncrrl.com';
-    return g.did ? `${site}/division/0/${g.did}/gamesheet/${g.id}` : null;
+    const site = g.tournament ? (g.tournament.site || 'https://www.ringetteontario.com') : (g.league && g.league.site) || 'https://www.ncrrl.com';
+    return g.did ? `${site}/division/0/${g.did}/game/view/${g.id}` : null;
   }
 
   function mapsLink(arena) {
@@ -826,7 +807,7 @@
     return `<article class="card${g.tournament ? ' tourney' : ''}">
       ${g.tournament ? `<div class="tourney-tag">Tournament · ${esc(g.tournament.name)}${g.type ? ` · ${esc(g.type)}` : ''}</div>` : ''}
       <div class="card-top">
-        <span class="time">${fmtTime(g.start)} – ${g.endEstimated ? '~' : ''}${fmtTime(g.end)}</span>
+        <span class="time">${fmtRange(g, ' – ')}</span>
         <span class="div-tag">${esc(g.division)}</span>
       </div>
       <div class="place">
@@ -1020,7 +1001,7 @@
         <h3>Settings</h3>
         ${share ? `<div class="row"><button class="btn secondary" id="shareBtn">Share my teams</button>
           <span class="muted small">Sends a link that sets up the same teams and favourites on another phone.</span></div>` : ''}
-        <p class="muted small">${LEAGUES.filter((l) => l.type === 'ramp').map((l) => `${esc(l.name)} season: ${esc(state.seasons[l.key] ? state.seasons[l.key].name : 'checking…')}`).join(' · ')} (picked automatically).</p>
+        <p class="muted small">NCRRL, GAARA and RAMP tournament schedules copied from RAMP's calendars ${state.rampUpdatedAt ? `— last changed ${esc(fmtAgo(state.rampUpdatedAt))}` : '— not available yet'}. Checked every 15 minutes on weekends and weekday evenings, hourly otherwise.</p>
         <p class="muted small">LERQ schedule copied from Ringuette Québec ${state.lerqUpdatedAt ? `— last changed ${esc(fmtAgo(state.lerqUpdatedAt))}` : '— not available yet'}. Scores appear once they're entered on Ringuette Québec's site.</p>
         ${tournamentSummary()}
       </section>`;
@@ -1093,7 +1074,7 @@
     rinkView.panes = panes; rinkView.g = g;
     const start = Math.max(0, panes.findIndex((p) => p.games.includes(g)));
     const item = (x) => `<li class="${isTracked(x) ? 'tracked' : ''}${x === g ? ' this' : ''}">
-      <span class="t">${isFav(x) ? '<span class="fav-star">★</span>' : ''}${fmtTime(x.start)}–${x.endEstimated ? '~' : ''}${fmtTime(x.end)} <span class="d">${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
+      <span class="t">${isFav(x) ? '<span class="fav-star">★</span>' : ''}${fmtRange(x)} <span class="d">${esc(x.division)}${x.tournament ? ` · ${esc(x.tournament.short)}` : ''}</span></span>
       ${esc(x.away.name)} @ ${esc(x.home.name)}</li>`;
     $('#rinkPanes').innerHTML = panes.map((p, i) => `<section class="rink-pane" aria-label="${esc(p.label || p.title)}" data-i="${i}">
       <ol class="rink-list">${p.games.map(item).join('')}</ol></section>`).join('');

@@ -43,6 +43,8 @@ const data = JSON.parse(await readFile(out, 'utf8').catch(() => '{"tournaments":
 check(code === 0, `full run exits cleanly (exit ${code})`);
 check(data.tournaments.length === 1 && data.tournaments[0].id === 23644 && data.tournaments[0].games.length === 11, 'full run: Coupe Extrême saved with 11 games');
 check(!data.tournaments.some((t) => t.id === 23663), 'full run: tournament without Ottawa-area teams skipped');
+check(data.tournaments[0] && data.tournaments[0].standings['Fém M16 AA'] === 'https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-m16-aa-90256/la-coupe-extreme-de-loutaouais-23644.html'
+  && data.tournaments[0].slug === 'la-coupe-extreme-de-loutaouais' && !('standingsUrl' in data.tournaments[0].games[0]), 'full run: standings link saved for each division');
 
 // Keep the last good copy when a schedule page comes back unreadable.
 const broken = join(tmp, 'broken');

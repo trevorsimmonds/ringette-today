@@ -250,3 +250,10 @@ dialog::backdrop { background: rgba(5, 10, 20, .55); }
 
 /* Neighbour from another pad when this game's pad isn't listed */
 .ice-where { font-size: .76rem; color: var(--muted); font-style: italic; }
+
+/* Team name → official standings for its division */
+.team-link { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.team-link:hover, .team-link:active { text-decoration-color: var(--accent); }
+
+/* Time zone after a time at a rink outside Ottawa's zone ("AST") */
+.tz { font-size: .72em; font-weight: 800; letter-spacing: .03em; color: var(--accent); }

@@ -1,0 +1,10 @@
+<!DOCTYPE html><html><body><nav>
+<button id="accordion-menu-title-15534" type="button" class="modal-menu-accordion modal-menu-accordion-title" x-on:click="expanded = !expanded" :aria-expanded="expanded" aria-controls="assoc-menu-text-15534"><span>U14 Tier 1</span></button>
+<a target="_parent" href="/team/14071/0/15534/411781/masterschedule" class="modal-submenu-item"><p>WAVE - Bailey</p></a>
+<a target="_parent" href="/team/14071/0/15534/411782/masterschedule" class="modal-submenu-item"><p>Fusion U14</p></a>
+<a target="_parent" href="/team/14071/0/15534/411783/masterschedule" class="modal-submenu-item"><p>NC U14AA - Halfyard</p></a>
+<a target="_parent" href="/team/14071/0/15534/411784/masterschedule" class="modal-submenu-item"><p>WAVE - Fraser</p></a>
+<a target="_parent" href="/team/14071/0/15534/411785/masterschedule" class="modal-submenu-item"><p>U14 - Tier 1</p></a>
+<a target="_parent" href="/team/14071/0/15534/411786/masterschedule" class="modal-submenu-item"><p>West Ottawa - U14AA</p></a>
+<a target="_parent" href="/team/14071/0/15534/418685/masterschedule" class="modal-submenu-item"><p>FYRA U14 Tier 1 Stars</p></a>
+</nav></body></html>
