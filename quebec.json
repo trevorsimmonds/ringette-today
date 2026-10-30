@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-27T15:24:32.855Z",
+ "updatedAt": "2026-10-30T18:04:05.614Z",
  "leagues": [
   {
    "id": 104,
@@ -400,7 +400,11 @@
    "arena": "Blainville",
    "home": "Laurentides",
    "away": "West Ottawa",
-   "detailId": 23388
+   "detailId": 23388,
+   "score": {
+    "away": 3,
+    "home": 1
+   }
   },
   {
    "num": 1017,
