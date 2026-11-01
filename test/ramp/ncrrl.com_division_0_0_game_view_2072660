@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><body><!-- trimmed copy of https://www.ncrrl.com/division/0/0/game/view/2072660 on 2026-11-01 09:20, game in progress -->
+<section class="card-title-container"><div class="flex flex-col p-4 leading-normal"><div class="justify-normal text-justify"><h1 class="card-title-table">Scoring</h1>
+                <div x-data="data()" class="relative md:rounded-lg overflow-x-auto justify-normal text-justify"><table class="w-full table-auto text-center align-middle md:rounded-lg"><thead class="bg-gradient-to-br from-lighttones-700 to-lighttone text-white md:rounded-lg my-2"><th class="table-cell ~px-1/3 ~py-2/4 text-justify" colspan="2">Team</th>
+                        <th class="table-cell ~px-1/3 ~py-2/4">1</th>
+                        <th class="table-cell ~px-1/3 ~py-2/4">2</th>
+                        <th class="table-cell ~px-1/3 ~py-2/4">3</th><th class="table-cell ~px-1/3 ~py-2/4">4</th><th class="table-cell ~px-1/3 ~py-2/4">T</th></thead>
+                        <tbody class="divide-y divide-gray-200 text-center text-darktone ~text-base/lg font-content font-semibold text-pretty" x-ref="tbody"><tr><td><button class="~p-1/2"><img src="https://cloud3.rampinteractive.com/NationalCapitalRegionRingetteLeague/css/img/assocLogo.svg" class="inline h-10" /></button></td>
+                                <td class="text-justify table-cell ~text-xs/xl align-middle">West Ottawa Wild U12A - Pattyson</td>
+                                <td class="left-0 min-w-10">0</td>
+                                <td class="text-center px-2">0</td>
+                                <td>0</td><td>0</td><td>0</td></tr>
+                            <tr><td><button class="~p-1/2"><img src="https://cloud3.rampinteractive.com/NationalCapitalRegionRingetteLeague/css/img/assocLogo.svg" class="inline h-10" /></button></td>
+                                <td class="text-justify table-cell ~text-xs/xl align-middle">Ottawa Ice U12A - Doherty</td>
+                                <td class="left-0 min-w-10">3</td>
+                                <td class="text-center px-2">0</td>
+                                <td>0</td><td>0</td><td>3</td></tr></tbody>
+                        <tfoot></tfoot></table></div></div></div></section>
+</body></html>

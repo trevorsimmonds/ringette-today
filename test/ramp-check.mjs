@@ -6,7 +6,7 @@ import { readFile, writeFile, mkdtemp, mkdir, copyFile, readdir } from 'node:fs/
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { parseIcs, parseMenu, seasonOf, withIds, isSlot } from '../scripts/fetch-ramp.mjs';
+import { parseIcs, parseMenu, seasonOf, withIds, isSlot, parseLiveScore, addLiveScores } from '../scripts/fetch-ramp.mjs';
 
 const dir = new URL('./ramp/', import.meta.url).pathname;
 const script = new URL('../scripts/fetch-ramp.mjs', import.meta.url).pathname;
@@ -40,6 +40,24 @@ const on = parseMenu(await read('ringetteontario.com_'));
 check(seasonOf(on, 3043) === 14561 && on.titles.get(19962) === 'U14AA', 'Ringette Ontario menu: tournament season and divisions');
 check(on.teams.filter((t) => t.aid === 1648).length === 4 && on.teams.filter((t) => t.aid === 3043).length === 15, 'Ringette Ontario menu: teams kept per tournament');
 check(isSlot('1st') && isSlot('2ND BLUE') && !isSlot('Ottawa Ice U14AA - McWaters'), 'playoff slots recognised');
+
+// Live scores from the game page
+const livePage = await read('ncrrl.com_division_0_0_game_view_2072660');
+const rows = parseLiveScore(livePage);
+check(rows && rows[0].name === 'West Ottawa Wild U12A - Pattyson' && rows[0].total === 0 && rows[1].total === 3, 'game page: live score read (Pattyson 0, Doherty 3)');
+check(parseLiveScore(await read('ncrrl.com_division_0_0_game_view_2072663')) === null, 'game page: no score before the game starts');
+const mk = (gid, sDate, eDate, extra = {}) => ({ GID: gid, sDate, eDate, homeDID: 0, HomeTeamName: 'West Ottawa Wild U12A - Pattyson', AwayTeamName: 'Ottawa Ice U12A - Doherty', homeScore: null, awayScore: null, completed: false, cancelledHome: false, ...extra });
+const lg = [mk(2072660, '2026-11-01T09:00:00', '2026-11-01T10:00:00'), mk(2072663, '2026-11-01T10:15:00', '2026-11-01T11:15:00'),
+  mk(2072000, '2026-11-01T06:00:00', '2026-11-01T07:00:00'), mk(2072001, '2026-11-01T08:00:00', '2026-11-01T09:00:00', { completed: true, homeScore: 2, awayScore: 11 })];
+const asked = [];
+const fake = async (url) => { asked.push(url); try { return await readFile(join(dir, url.replace(/^https:\/\/(www\.)?/, '').replace(/[^a-z0-9.]+/gi, '_')), 'utf8'); } catch { const e = new Error('none'); e.unavailable = true; throw e; } };
+const nLive = await addLiveScores(lg, 'https://www.ncrrl.com', 'America/Toronto', Date.parse('2026-11-01T09:20:00-05:00'), fake);
+check(nLive === 1 && lg[0].homeScore === 0 && lg[0].awayScore === 3 && lg[0].live === true, 'live: game on the ice gets its score (0 - 3)');
+check(asked.length === 1 && asked[0] === 'https://www.ncrrl.com/division/0/0/game/view/2072660', 'live: only games on the ice now are looked up (not later, long over, or final)');
+check(lg[3].homeScore === 2 && !lg[3].live, 'live: final calendar score left alone');
+const swapped = [mk(5, '2026-11-01T09:00:00', null, { HomeTeamName: 'Ottawa Ice U12A - Doherty', AwayTeamName: 'West Ottawa Wild U12A - Pattyson' })];
+await addLiveScores(swapped, 'https://www.ncrrl.com', 'America/Toronto', Date.parse('2026-11-01T09:20:00-05:00'), async () => livePage);
+check(swapped[0].homeScore === 3 && swapped[0].awayScore === 0, 'live: rows matched to home/away by name');
 
 // Whole run on the samples
 const tmp = await mkdtemp(join(tmpdir(), 'ramp-'));

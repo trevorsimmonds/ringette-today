@@ -8,6 +8,8 @@
 //     and notes. They have no team, division or rink IDs.
 //   • The sites' menus (plain HTML), which list every division and team with
 //     their IDs. Team IDs are the same as before, so followed teams keep working.
+//   • Each game's own page, only for games on the ice now — the calendar has
+//     no score until the game is final, the game page has the live score.
 // The calendar files don't let browser apps on other sites read them, so this
 // runs as a GitHub job and the app reads ramp.json from its own site.
 //
@@ -15,6 +17,7 @@
 //   node scripts/fetch-ramp.mjs --out /tmp/ramp.json     # write somewhere else
 //   node scripts/fetch-ramp.mjs --from test/ramp --out x --today 2026-10-24
 //                                                        # read saved samples instead
+//   (--now 2026-11-01T09:20 sets the Ottawa time used for live scores)
 // Exit code 2 = finished, but something looks like RAMP changed its pages (see PROBLEM lines).
 //
 // Needs Node 18+ (built-in fetch). No packages.
@@ -50,10 +53,10 @@ const warn = (m) => console.log(onGitHub ? `::warning::${oneLine(m)}` : `WARNING
 const fail = (m) => console.log(onGitHub ? `::error::${oneLine(m)}` : `PROBLEM: ${m}`);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function get(url, expect) {
+async function get(url, expect, waits = RETRY_WAITS) {
   let last = '';
-  for (let attempt = 0; attempt <= RETRY_WAITS.length; attempt++) {
-    if (attempt) { console.log(`  retrying in ${RETRY_WAITS[attempt - 1] / 1000}s (${last})`); await sleep(RETRY_WAITS[attempt - 1]); }
+  for (let attempt = 0; attempt <= waits.length; attempt++) {
+    if (attempt) { console.log(`  retrying in ${waits[attempt - 1] / 1000}s (${last})`); await sleep(waits[attempt - 1]); }
     try {
       const res = await fetch(url, { headers: HEADERS });
       const body = await res.text();
@@ -204,6 +207,61 @@ export function withIds(icsGames, menu, aid, sid) {
   return { games, unmatched: [...unmatched] };
 }
 
+// ---------- live scores (each game's own page) ----------
+// The calendar only gets "Final: x - y" once the game is finalised, but the
+// game page (/division/0/{DID}/game/view/{GID}) shows the score while it's
+// being played: a "Scoring" table, one row per team, the last cell the total.
+// Returns [{ name, total }] or null when the page has no scoring table yet.
+export function parseLiveScore(html) {
+  const i = html.search(/<h1[^>]*>\s*Scoring\s*<\/h1>/i);
+  if (i < 0) return null;
+  const end = html.indexOf('</table>', i);
+  const body = html.slice(i, end < 0 ? undefined : end);
+  const tb = body.indexOf('<tbody');
+  const rows = [];
+  for (const tr of (tb < 0 ? '' : body.slice(tb)).split(/<tr[\s>]/i).slice(1)) {
+    const cells = [...tr.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => decodeEntities(m[1].replace(/<[^>]+>/g, '')).trim());
+    const name = cells.find((c) => c && !/^\d+$/.test(c));
+    const total = cells.length ? cells[cells.length - 1] : '';
+    if (name && /^\d+$/.test(total)) rows.push({ name, total: +total });
+  }
+  return rows.length === 2 ? rows : null;
+}
+
+// Wall-clock time in a time zone as "YYYY-MM-DDTHH:MM:SS" (same form as sDate).
+function wallNow(ms, tz) {
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })
+    .formatToParts(new Date(ms)).map((x) => [x.type, x.value]));
+  return `${p.year}-${p.month}-${p.day}T${p.hour}:${p.minute}:${p.second}`;
+}
+const shiftWall = (s, minutes) => new Date(Date.parse(`${s}Z`) + minutes * 60000).toISOString().slice(0, 19);
+
+// Fill in scores for games on the ice now (or that ended in the last 2 hours
+// and aren't final in the calendar yet). Changes the games in place; a page
+// that can't be read is just skipped. Returns how many got a score.
+export async function addLiveScores(games, site, tz, nowMs, load) {
+  const nowWall = wallNow(nowMs, tz);
+  let n = 0;
+  for (const g of games) {
+    if (g.completed || g.cancelledHome || g.sDate > nowWall) continue;
+    const end = g.eDate || shiftWall(g.sDate, 90);
+    if (shiftWall(end, 120) < nowWall) continue;
+    let rows;
+    // One try, no waiting: a score that's missing now comes in on the next run.
+    try { rows = parseLiveScore(await load(`${site}/division/0/${g.homeDID || 0}/game/view/${g.GID}`, null, [])); }
+    catch (err) { if (!err.unavailable) throw err; continue; }
+    if (!rows) continue;
+    // Rows are home then away; match by name when the names line up.
+    let [h, a] = rows;
+    if (key(rows[1].name) === key(g.HomeTeamName) || key(rows[0].name) === key(g.AwayTeamName)) [h, a] = [rows[1], rows[0]];
+    g.homeScore = h.total;
+    g.awayScore = a.total;
+    g.live = true;
+    n++;
+  }
+  return n;
+}
+
 // ---------- run ----------
 function ottawaDay(offsetDays, todayMs) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Toronto', year: 'numeric', month: '2-digit', day: '2-digit' })
@@ -216,10 +274,12 @@ async function main() {
   const fromDir = arg('--from');
   const OUT = arg('--out') || DEFAULT_OUT;
   const todayMs = arg('--today') ? Date.parse(`${arg('--today')}T12:00:00-04:00`) : Date.now();
+  // "Now" for live scores: --now 2026-11-01T09:20 (Ottawa time) for tests, else --today's noon, else the clock.
+  const nowMs = arg('--now') ? Date.parse(`${arg('--now')}:00-05:00`) : todayMs;  // --now is read as EST (winter)
   // In --from mode, a URL maps to a saved file named after its host + path.
   const sample = (url) => `${fromDir}/${url.replace(/^https:\/\/(www\.)?/, '').replace(/\?.*$/, '').replace(/[^a-z0-9.]+/gi, '_')}`;
-  const load = async (url, expect) => {
-    if (!fromDir) { await sleep(PAUSE_MS); return get(url, expect); }
+  const load = async (url, expect, waits) => {
+    if (!fromDir) { await sleep(PAUSE_MS); return get(url, expect, waits); }
     try { return await readFile(sample(url), 'utf8'); }
     catch { const e = new Error(`no sample ${sample(url)}`); e.unavailable = true; throw e; }
   };
@@ -246,7 +306,8 @@ async function main() {
       const { games, unmatched } = withIds(ics, menu, lg.aid, sid);
       if (unmatched.length) warn(`${lg.key}: ${unmatched.length} team name(s) not in the menu, e.g. ${unmatched.slice(0, 3).join('; ')}`);
       if (unmatched.length > games.length) problems.push(`${lg.key}: most team names couldn't be matched to the menu — RAMP may have changed its pages.`);
-      console.log(`${lg.key}: ${games.length} games (season ${sid}), ${games.filter((g) => g.completed).length} with scores`);
+      const live = await addLiveScores(games, lg.site, 'America/Toronto', nowMs, load);
+      console.log(`${lg.key}: ${games.length} games (season ${sid}), ${games.filter((g) => g.completed).length} with scores${live ? `, ${live} live` : ''}`);
       out.leagues[lg.key] = { aid: lg.aid, sid, site: lg.site, games };
     } catch (err) {
       if (!err.unavailable) throw err;
@@ -281,7 +342,8 @@ async function main() {
       const ics = parseIcs(await load(url, /BEGIN:VCALENDAR/)).filter((g) => g.date >= lo && g.date <= hi);
       const { games, unmatched } = withIds(ics, menu, t.aid, sid);
       if (unmatched.length) warn(`${t.name}: ${unmatched.length} team name(s) not in the menu, e.g. ${unmatched.slice(0, 3).join('; ')}`);
-      console.log(`${t.name} (${t.aid}): ${games.length} games (season ${sid}), ${games.filter((g) => g.completed).length} with scores`);
+      const live = await addLiveScores(games, own ? t.site : ONTARIO, t.tz || 'America/Toronto', nowMs, load);
+      console.log(`${t.name} (${t.aid}): ${games.length} games (season ${sid}), ${games.filter((g) => g.completed).length} with scores${live ? `, ${live} live` : ''}`);
       if (games.length) out.tournaments[t.aid] = { aid: t.aid, sid, games };
       else if (prev) out.tournaments[t.aid] = prev;
     } catch (err) {
