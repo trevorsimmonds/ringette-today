@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-10-30T18:04:05.614Z",
+ "updatedAt": "2026-11-01T22:07:50.915Z",
  "leagues": [
   {
    "id": 104,
@@ -512,7 +512,11 @@
    "arena": "Bob Macquarrie- Senecal",
    "home": "GCRA",
    "away": "BLL",
-   "detailId": 23393
+   "detailId": 23393,
+   "score": {
+    "away": 3,
+    "home": 6
+   }
   },
   {
    "num": 2016,
