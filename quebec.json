@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-01T22:07:50.915Z",
+ "updatedAt": "2026-11-02T06:19:11.222Z",
  "leagues": [
   {
    "id": 104,
@@ -616,7 +616,11 @@
    "arena": "Walkley - Ottawa",
    "home": "Ottawa",
    "away": "Laurentides",
-   "detailId": 23399
+   "detailId": 23399,
+   "score": {
+    "away": 3,
+    "home": 8
+   }
   },
   {
    "num": 1028,
