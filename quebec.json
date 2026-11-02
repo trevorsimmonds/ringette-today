@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-02T06:19:11.222Z",
+ "updatedAt": "2026-11-02T19:33:31.429Z",
  "leagues": [
   {
    "id": 104,
@@ -566,7 +566,11 @@
    "arena": "Vaudreuil - Dorion",
    "home": "Lac St-Louis",
    "away": "Eastern rush",
-   "detailId": 23318
+   "detailId": 23318,
+   "score": {
+    "away": 8,
+    "home": 1
+   }
   },
   {
    "num": 2018,
@@ -576,7 +580,11 @@
    "arena": "Beaconsfield - LSL",
    "home": "Lac St-Louis",
    "away": "Québec",
-   "detailId": 23319
+   "detailId": 23319,
+   "score": {
+    "away": 11,
+    "home": 2
+   }
   },
   {
    "num": 1025,
