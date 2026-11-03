@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-02T19:33:31.429Z",
+ "updatedAt": "2026-11-03T02:56:40.516Z",
  "leagues": [
   {
    "id": 104,
@@ -546,7 +546,11 @@
    "arena": "Cardelrec A - West Ottawa",
    "home": "Nepean",
    "away": "BLL",
-   "detailId": 23395
+   "detailId": 23395,
+   "score": {
+    "away": 2,
+    "home": 6
+   }
   },
   {
    "num": 1024,
@@ -594,7 +598,11 @@
    "arena": "Sportsplex 2 - Nepean",
    "home": "Nepean",
    "away": "Laurentides",
-   "detailId": 23397
+   "detailId": 23397,
+   "score": {
+    "away": 1,
+    "home": 5
+   }
   },
   {
    "num": 1026,
@@ -614,7 +622,11 @@
    "arena": "Isatis - St-Hyacinthe",
    "home": "Rive-Sud",
    "away": "Québec",
-   "detailId": 23320
+   "detailId": 23320,
+   "score": {
+    "away": 6,
+    "home": 3
+   }
   },
   {
    "num": 1027,
