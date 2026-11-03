@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-03T02:56:40.516Z",
+ "updatedAt": "2026-11-03T19:32:46.691Z",
  "leagues": [
   {
    "id": 104,
@@ -560,7 +560,11 @@
    "arena": "Slush Puppie C - Gatineau",
    "home": "Outaouais",
    "away": "Québec",
-   "detailId": 23396
+   "detailId": 23396,
+   "score": {
+    "away": 6,
+    "home": 2
+   }
   },
   {
    "num": 2017,
@@ -816,7 +820,7 @@
    "num": 2026,
    "league": 105,
    "date": "2026-11-14",
-   "time": "17:00",
+   "time": "16:30",
    "arena": "Vaudreuil - Dorion",
    "home": "Lac St-Louis",
    "away": "Rive-Sud",
