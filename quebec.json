@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-05T01:29:26.001Z",
+ "updatedAt": "2026-11-05T20:02:15.273Z",
  "leagues": [
   {
    "id": 104,
@@ -1162,8 +1162,8 @@
    "num": 2041,
    "league": 105,
    "date": "2026-12-13",
-   "time": "12:00",
-   "arena": "Mascouche",
+   "time": "11:45",
+   "arena": "Val D'Espoir - St-Janvier",
    "home": "BLL",
    "away": "Eastern rush",
    "detailId": 23342
