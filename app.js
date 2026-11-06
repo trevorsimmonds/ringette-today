@@ -548,7 +548,16 @@
   //                      match them to followed teams by club, age and level
   //   site: the tournament's own RAMP site, for box score and standings links
   //   tz: the rinks' time zone if not Ottawa's (e.g. "America/Moncton" for New Brunswick)
-  const tourSource = (t) => ({ aid: t.aid, name: t.name, short: t.short, matchTeams: !!t.matchTeams, site: t.site || null, tz: t.tz || HOME_TZ });
+  const tourSource = (t) => ({ aid: t.aid, name: t.name, short: t.short, matchTeams: !!t.matchTeams, site: t.site || null, tz: t.tz || HOME_TZ, url: t.url || null });
+  // The tournament's own page: a url in tournaments.json if given, else its own
+  // RAMP site, its Planitournoi page, or its full schedule on Ringette Ontario.
+  function tournamentUrl(t) {
+    if (!t) return null;
+    if (t.url) return t.url;
+    if (t.site) return `${t.site}/`;
+    if (t.source === 'pt' || String(t.aid).startsWith('pt')) return null;
+    return `https://www.ringetteontario.com/portal/${t.aid}/0/0/masterschedule`;
+  }
   // NCRRL, GAARA and RAMP tournaments all come from ramp.json (see
   // scripts/fetch-ramp.mjs). In test mode (?fixture=1) the same shape is built
   // from the sample files in test/.
@@ -818,7 +827,10 @@
   function gameCard(g, { showIce = true, result = false } = {}) {
     const { before, after } = iceNeighbours(g);
     return `<article class="card${g.tournament ? ' tourney' : ''}">
-      ${g.tournament ? `<div class="tourney-tag">Tournament · ${esc(g.tournament.name)}${g.type ? ` · ${esc(g.type)}` : ''}</div>` : ''}
+      ${g.tournament ? `<div class="tourney-tag">Tournament · ${(() => {
+        const url = tournamentUrl(g.tournament);
+        return url ? `<a class="tourney-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(g.tournament.name)}<span class="sr-only"> — tournament website</span></a>` : esc(g.tournament.name);
+      })()}${g.type ? ` · ${esc(g.type)}` : ''}</div>` : ''}
       <div class="card-top">
         <span class="time">${fmtRange(g, ' – ')}</span>
         <span class="div-tag">${esc(g.division)}</span>

@@ -14,5 +14,7 @@ async def main():
         n = await cards.count(); print('UPCOMING', n)
         for i in range(min(n, 8)):
             print('  ', (await cards.nth(i).inner_text()).replace('\n', ' | ')[:170])
+        links = pg.locator('.tourney-link')
+        print('TOURNAMENT LINKS', sorted(set([await links.nth(i).get_attribute('href') for i in range(await links.count())])))
         print('errors', errs); await b.close()
 asyncio.run(main())
