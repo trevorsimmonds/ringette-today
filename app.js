@@ -210,11 +210,14 @@
   // ---------- data ----------
   // A team on a RAMP game. For tournaments with matchTeams (teams registered
   // outside Ringette Ontario, so their IDs differ), resolvePtTeams() later swaps
-  // the ID for the matching followed team's.
+  // the ID for the matching followed team's. In other RAMP tournaments a team
+  // that isn't an NCRRL/GAARA team (e.g. Eastern Ontario U19AA Rush, which you
+  // follow through LERQ) is matched to its LERQ team the same way.
   function rampTeam(tid, rawName, score, division, source) {
     const id = tid != null ? String(tid) : null;
     const t = { id: source && source.matchTeams && id ? `ramp:${id}` : id, name: cleanName(rawName), score };
     if (source && source.matchTeams && id) Object.assign(t, { ptId: t.id, ptName: t.name, division: division || '' });
+    else if (source && id) Object.assign(t, { rampId: id, ptName: t.name, division: division || '' });
     return t;
   }
   function normalize(raw, source, league) {
@@ -390,6 +393,16 @@
     teamMatchCache.clear();
     for (const games of state.tourGames.values()) {
       for (const g of games) for (const t of [g.home, g.away]) {
+        if (t.rampId) {
+          // RAMP tournament team: keep its own ID if it's a league team we
+          // know; otherwise use the matching LERQ team, if there is one.
+          const hit = state.teams.has(t.rampId) ? null : matchLeagueTeam(t.ptName, t.division);
+          const lerq = hit && hit.league && hit.league.key === 'lerq' ? hit : null;
+          t.id = lerq ? lerq.id : t.rampId;
+          t.logoName = lerq ? lerq.name : null;
+          t.logoLeague = lerq ? lerq.league : null;
+          continue;
+        }
         if (!t.ptId) continue; // placeholder ("Winner of game 1930")
         const hit = matchLeagueTeam(t.ptName, t.division);
         t.id = hit ? hit.id : t.ptId;
