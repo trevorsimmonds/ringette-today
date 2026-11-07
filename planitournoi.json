@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-06T23:28:46.603Z",
- "today": "2026-11-06",
+ "updatedAt": "2026-11-07T10:38:24.239Z",
+ "today": "2026-11-07",
  "tournaments": [
   {
    "id": 23652,
@@ -6404,6 +6404,1558 @@
      },
      "home": {
       "name": "Finale Gagnant match INTB20",
+      "id": null
+     },
+     "score": null
+    }
+   ]
+  },
+  {
+   "id": 23677,
+   "name": "Tournoi Marcial Fontaine 4-Cités 2026",
+   "slug": "tournoi-marcial-fontaine-4-cites-2026",
+   "city": "Vaudreuil-Dorion",
+   "province": "quebec",
+   "start": "2026-12-08",
+   "end": "2026-12-13",
+   "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23677&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "standings": {
+    "Fém U16 (Junior) C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u16-junior-c-90717/tournoi-marcial-fontaine-4-cites-2026-23677.html",
+    "Fém U16 (Junior) A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u16-junior-a-90693/tournoi-marcial-fontaine-4-cites-2026-23677.html",
+    "Fém O21+ (Inter) B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-o21-inter-b-90707/tournoi-marcial-fontaine-4-cites-2026-23677.html",
+    "Fém U19 (Cadette) B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u19-cadette-b-90706/tournoi-marcial-fontaine-4-cites-2026-23677.html",
+    "Fém U14 (Benjamine) B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u14-benjamine-b-90704/tournoi-marcial-fontaine-4-cites-2026-23677.html",
+    "Fém U10 (Novice) C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u10-novice-c-90714/tournoi-marcial-fontaine-4-cites-2026-23677.html",
+    "Fém U12 (Atome) B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u12-atome-b-90703/tournoi-marcial-fontaine-4-cites-2026-23677.html",
+    "Fém U14 (Benjamine) C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-u14-benjamine-c-90716/tournoi-marcial-fontaine-4-cites-2026-23677.html"
+   },
+   "games": [
+    {
+     "num": 48,
+     "gameId": 423852,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-08",
+     "time": "19:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "4-Cités",
+      "id": 101483
+     },
+     "home": {
+      "name": "PCRA Power",
+      "id": 103395
+     },
+     "score": null
+    },
+    {
+     "num": 149,
+     "gameId": 424593,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-08",
+     "time": "19:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Rockets",
+      "id": 102019
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101475
+     },
+     "score": null
+    },
+    {
+     "num": 76,
+     "gameId": 423880,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-08",
+     "time": "20:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Phenix 3",
+      "id": 101780
+     },
+     "home": {
+      "name": "MER-1",
+      "id": 101683
+     },
+     "score": null
+    },
+    {
+     "num": 71,
+     "gameId": 423875,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-08",
+     "time": "20:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Hyènes Du Nord",
+      "id": 103776
+     },
+     "home": {
+      "name": "Rocket B2",
+      "id": 103572
+     },
+     "score": null
+    },
+    {
+     "num": 61,
+     "gameId": 423865,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-09",
+     "time": "19:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "4-Cités",
+      "id": 101474
+     },
+     "home": {
+      "name": "Phénix",
+      "id": 103965
+     },
+     "score": null
+    },
+    {
+     "num": 14,
+     "gameId": 423675,
+     "division": "Fém U14 (Benjamine) B",
+     "date": "2026-12-09",
+     "time": "19:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Faucons",
+      "id": 103398
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101476
+     },
+     "score": null
+    },
+    {
+     "num": 72,
+     "gameId": 423876,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-09",
+     "time": "20:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "MER-1",
+      "id": 101683
+     },
+     "home": {
+      "name": "4 Cités-1",
+      "id": 101490
+     },
+     "score": null
+    },
+    {
+     "num": 67,
+     "gameId": 423871,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-09",
+     "time": "20:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Hyènes Du Nord",
+      "id": 103776
+     },
+     "home": {
+      "name": "4 cités - 3",
+      "id": 102066
+     },
+     "score": null
+    },
+    {
+     "num": 70,
+     "gameId": 423874,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-09",
+     "time": "21:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "4-Cités-2",
+      "id": 101484
+     },
+     "home": {
+      "name": "Rocket B2",
+      "id": 103572
+     },
+     "score": null
+    },
+    {
+     "num": 123,
+     "gameId": 423988,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-10",
+     "time": "18:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "BKRA Flames Blue",
+      "id": 103061
+     },
+     "home": {
+      "name": "Rockets de Roussillon",
+      "id": 103984
+     },
+     "score": null
+    },
+    {
+     "num": 47,
+     "gameId": 423851,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-10",
+     "time": "19:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "4-Cités",
+      "id": 101483
+     },
+     "home": {
+      "name": "Montréal Nord",
+      "id": 101751
+     },
+     "score": null
+    },
+    {
+     "num": 74,
+     "gameId": 423878,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-10",
+     "time": "19:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4 Cités-1",
+      "id": 101490
+     },
+     "home": {
+      "name": "Phenix 3",
+      "id": 101780
+     },
+     "score": null
+    },
+    {
+     "num": 62,
+     "gameId": 423866,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-10",
+     "time": "20:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Phénix",
+      "id": 103965
+     },
+     "home": {
+      "name": "MTL Nord",
+      "id": 103385
+     },
+     "score": null
+    },
+    {
+     "num": 68,
+     "gameId": 423872,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-10",
+     "time": "20:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Rocket B2",
+      "id": 103572
+     },
+     "home": {
+      "name": "4 cités - 3",
+      "id": 102066
+     },
+     "score": null
+    },
+    {
+     "num": 118,
+     "gameId": 423983,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-11",
+     "time": "07:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4-Cités",
+      "id": 101479
+     },
+     "home": {
+      "name": "Rockets de Roussillon",
+      "id": 103984
+     },
+     "score": null
+    },
+    {
+     "num": 120,
+     "gameId": 423985,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-11",
+     "time": "08:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Avalanches de Ste Julie",
+      "id": 103473
+     },
+     "home": {
+      "name": "Mustangs",
+      "id": 102498
+     },
+     "score": null
+    },
+    {
+     "num": 134,
+     "gameId": 424271,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-11",
+     "time": "08:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4-Cités",
+      "id": 101480
+     },
+     "home": {
+      "name": "MER",
+      "id": 103827
+     },
+     "score": null
+    },
+    {
+     "num": 53,
+     "gameId": 423857,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-11",
+     "time": "09:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "PCRA Power",
+      "id": 103395
+     },
+     "home": {
+      "name": "Montréal Nord",
+      "id": 101751
+     },
+     "score": null
+    },
+    {
+     "num": 46,
+     "gameId": 423850,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-11",
+     "time": "09:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Faucons",
+      "id": 102327
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101483
+     },
+     "score": null
+    },
+    {
+     "num": 128,
+     "gameId": 424265,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-11",
+     "time": "10:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Rockets Roussillon",
+      "id": 103956
+     },
+     "home": {
+      "name": "Nepean Ravens U12B Martin",
+      "id": 102988
+     },
+     "score": null
+    },
+    {
+     "num": 12,
+     "gameId": 423673,
+     "division": "Fém U14 (Benjamine) B",
+     "date": "2026-12-11",
+     "time": "10:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4-Cités",
+      "id": 101476
+     },
+     "home": {
+      "name": "Abeille St-Hyacinthe",
+      "id": 103803
+     },
+     "score": null
+    },
+    {
+     "num": 164,
+     "gameId": 424608,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-11",
+     "time": "11:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Rockets",
+      "id": 102019
+     },
+     "home": {
+      "name": "U16A Sirenko WORA",
+      "id": 101473
+     },
+     "score": null
+    },
+    {
+     "num": 21,
+     "gameId": 423682,
+     "division": "Fém U14 (Benjamine) C",
+     "date": "2026-12-11",
+     "time": "11:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Montréal Nord",
+      "id": 101752
+     },
+     "home": {
+      "name": "Faucons",
+      "id": 103733
+     },
+     "score": null
+    },
+    {
+     "num": 156,
+     "gameId": 424600,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-11",
+     "time": "12:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "GCRA U16",
+      "id": 102495
+     },
+     "home": {
+      "name": "Valkyries",
+      "id": 103469
+     },
+     "score": null
+    },
+    {
+     "num": 17,
+     "gameId": 423678,
+     "division": "Fém U14 (Benjamine) B",
+     "date": "2026-12-11",
+     "time": "12:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Faucons",
+      "id": 103398
+     },
+     "home": {
+      "name": "Colibris 2",
+      "id": 102336
+     },
+     "score": null
+    },
+    {
+     "num": 116,
+     "gameId": 423981,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-11",
+     "time": "13:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "BKRA Flames Blue",
+      "id": 103061
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101479
+     },
+     "score": null
+    },
+    {
+     "num": 157,
+     "gameId": 424601,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-11",
+     "time": "13:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Orbite Boucherville",
+      "id": 103462
+     },
+     "home": {
+      "name": "Rafales de la Capitale",
+      "id": 102857
+     },
+     "score": null
+    },
+    {
+     "num": 131,
+     "gameId": 424268,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-11",
+     "time": "14:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "U12B Marum",
+      "id": 103044
+     },
+     "home": {
+      "name": "Rockets Roussillon",
+      "id": 103956
+     },
+     "score": null
+    },
+    {
+     "num": 130,
+     "gameId": 424267,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-11",
+     "time": "14:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Nepean Ravens U12B Martin",
+      "id": 102988
+     },
+     "home": {
+      "name": "Valkyries de Ste-Marie",
+      "id": 103018
+     },
+     "score": null
+    },
+    {
+     "num": 135,
+     "gameId": 424272,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-11",
+     "time": "15:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Rebelles bellechasse",
+      "id": 102698
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101480
+     },
+     "score": null
+    },
+    {
+     "num": 138,
+     "gameId": 424275,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-11",
+     "time": "15:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "MER",
+      "id": 103827
+     },
+     "home": {
+      "name": "U12B Gorham Cole",
+      "id": 103437
+     },
+     "score": null
+    },
+    {
+     "num": 52,
+     "gameId": 423856,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-11",
+     "time": "16:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Faucons",
+      "id": 102327
+     },
+     "home": {
+      "name": "U16C Stevens' Red Riots",
+      "id": 102756
+     },
+     "score": null
+    },
+    {
+     "num": 150,
+     "gameId": 424594,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-11",
+     "time": "16:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "U16A Sirenko WORA",
+      "id": 101473
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101475
+     },
+     "score": null
+    },
+    {
+     "num": 58,
+     "gameId": 423862,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-11",
+     "time": "17:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Nepean Ravens U19B - Bonden",
+      "id": 103202
+     },
+     "home": {
+      "name": "Colibris de Lévis",
+      "id": 103188
+     },
+     "score": null
+    },
+    {
+     "num": 19,
+     "gameId": 423680,
+     "division": "Fém U14 (Benjamine) C",
+     "date": "2026-12-11",
+     "time": "17:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Faucons",
+      "id": 103733
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101477
+     },
+     "score": null
+    },
+    {
+     "num": 161,
+     "gameId": 424605,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-11",
+     "time": "18:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Rafales de la Capitale",
+      "id": 102857
+     },
+     "home": {
+      "name": "Rockets",
+      "id": 102019
+     },
+     "score": null
+    },
+    {
+     "num": 15,
+     "gameId": 423676,
+     "division": "Fém U14 (Benjamine) B",
+     "date": "2026-12-11",
+     "time": "18:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Abeille St-Hyacinthe",
+      "id": 103803
+     },
+     "home": {
+      "name": "Colibris 2",
+      "id": 102336
+     },
+     "score": null
+    },
+    {
+     "num": 160,
+     "gameId": 424604,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-11",
+     "time": "19:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Valkyries",
+      "id": 103469
+     },
+     "home": {
+      "name": "Orbite Boucherville",
+      "id": 103462
+     },
+     "score": null
+    },
+    {
+     "num": 60,
+     "gameId": 423864,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-11",
+     "time": "19:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "MTL Nord",
+      "id": 103385
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101474
+     },
+     "score": null
+    },
+    {
+     "num": 146,
+     "gameId": 424590,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-11",
+     "time": "20:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "4-Cités",
+      "id": 101475
+     },
+     "home": {
+      "name": "GCRA U16",
+      "id": 102495
+     },
+     "score": null
+    },
+    {
+     "num": 75,
+     "gameId": 423879,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-11",
+     "time": "20:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Montréal-Nord B2",
+      "id": 101488
+     },
+     "home": {
+      "name": "MER-1",
+      "id": 101683
+     },
+     "score": null
+    },
+    {
+     "num": 59,
+     "gameId": 423863,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-11",
+     "time": "21:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "GCRA U19B Rodgers",
+      "id": 103378
+     },
+     "home": {
+      "name": "Nepean Ravens U19B - Bonden",
+      "id": 103202
+     },
+     "score": null
+    },
+    {
+     "num": 66,
+     "gameId": 423870,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-11",
+     "time": "21:45",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4 cités - 3",
+      "id": 102066
+     },
+     "home": {
+      "name": "4-Cités-2",
+      "id": 101484
+     },
+     "score": null
+    },
+    {
+     "num": 122,
+     "gameId": 423987,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-12",
+     "time": "07:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Mustangs",
+      "id": 102498
+     },
+     "home": {
+      "name": "BKRA Flames Blue",
+      "id": 103061
+     },
+     "score": null
+    },
+    {
+     "num": 162,
+     "gameId": 424606,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-12",
+     "time": "07:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "U16A Sirenko WORA",
+      "id": 101473
+     },
+     "home": {
+      "name": "Rafales de la Capitale",
+      "id": 102857
+     },
+     "score": null
+    },
+    {
+     "num": 165,
+     "gameId": 424609,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-12",
+     "time": "08:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Valkyries",
+      "id": 103469
+     },
+     "home": {
+      "name": "Rockets",
+      "id": 102019
+     },
+     "score": null
+    },
+    {
+     "num": 152,
+     "gameId": 424596,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-12",
+     "time": "08:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "GCRA U16",
+      "id": 102495
+     },
+     "home": {
+      "name": "Orbite Boucherville",
+      "id": 103462
+     },
+     "score": null
+    },
+    {
+     "num": 137,
+     "gameId": 424274,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-12",
+     "time": "09:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "MER",
+      "id": 103827
+     },
+     "home": {
+      "name": "Rebelles bellechasse",
+      "id": 102698
+     },
+     "score": null
+    },
+    {
+     "num": 115,
+     "gameId": 423980,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-12",
+     "time": "09:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4-Cités",
+      "id": 101479
+     },
+     "home": {
+      "name": "Avalanches de Ste Julie",
+      "id": 103473
+     },
+     "score": null
+    },
+    {
+     "num": 133,
+     "gameId": 424270,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-12",
+     "time": "10:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "U12B Marum",
+      "id": 103044
+     },
+     "home": {
+      "name": "Valkyries de Ste-Marie",
+      "id": 103018
+     },
+     "score": null
+    },
+    {
+     "num": 49,
+     "gameId": 423853,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-12",
+     "time": "10:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "U16C Stevens' Red Riots",
+      "id": 102756
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101483
+     },
+     "score": null
+    },
+    {
+     "num": 136,
+     "gameId": 424273,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-12",
+     "time": "11:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "U12B Gorham Cole",
+      "id": 103437
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101480
+     },
+     "score": null
+    },
+    {
+     "num": 51,
+     "gameId": 423855,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-12",
+     "time": "11:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "PCRA Power",
+      "id": 103395
+     },
+     "home": {
+      "name": "Faucons",
+      "id": 102327
+     },
+     "score": null
+    },
+    {
+     "num": 20,
+     "gameId": 423681,
+     "division": "Fém U14 (Benjamine) C",
+     "date": "2026-12-12",
+     "time": "12:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "4-Cités",
+      "id": 101477
+     },
+     "home": {
+      "name": "Montréal Nord",
+      "id": 101752
+     },
+     "score": null
+    },
+    {
+     "num": 153,
+     "gameId": 424597,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-12",
+     "time": "12:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Rafales de la Capitale",
+      "id": 102857
+     },
+     "home": {
+      "name": "GCRA U16",
+      "id": 102495
+     },
+     "score": null
+    },
+    {
+     "num": 121,
+     "gameId": 423986,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-12",
+     "time": "13:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Rockets de Roussillon",
+      "id": 103984
+     },
+     "home": {
+      "name": "Avalanches de Ste Julie",
+      "id": 103473
+     },
+     "score": null
+    },
+    {
+     "num": 117,
+     "gameId": 423982,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-12",
+     "time": "14:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Mustangs",
+      "id": 102498
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101479
+     },
+     "score": null
+    },
+    {
+     "num": 129,
+     "gameId": 424266,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-12",
+     "time": "14:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Nepean Ravens U12B Martin",
+      "id": 102988
+     },
+     "home": {
+      "name": "U12B Marum",
+      "id": 103044
+     },
+     "score": null
+    },
+    {
+     "num": 139,
+     "gameId": 424276,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-12",
+     "time": "15:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Rebelles bellechasse",
+      "id": 102698
+     },
+     "home": {
+      "name": "U12B Gorham Cole",
+      "id": 103437
+     },
+     "score": null
+    },
+    {
+     "num": 57,
+     "gameId": 423861,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-12",
+     "time": "15:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Colibris de Lévis",
+      "id": 103188
+     },
+     "home": {
+      "name": "GCRA U19B Rodgers",
+      "id": 103378
+     },
+     "score": null
+    },
+    {
+     "num": 54,
+     "gameId": 423858,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-12",
+     "time": "16:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Montréal Nord",
+      "id": 101751
+     },
+     "home": {
+      "name": "U16C Stevens' Red Riots",
+      "id": 102756
+     },
+     "score": null
+    },
+    {
+     "num": 77,
+     "gameId": 423881,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-12",
+     "time": "16:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Montréal-Nord B2",
+      "id": 101488
+     },
+     "home": {
+      "name": "Phenix 3",
+      "id": 101780
+     },
+     "score": null
+    },
+    {
+     "num": 132,
+     "gameId": 424269,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-12",
+     "time": "17:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Valkyries de Ste-Marie",
+      "id": 103018
+     },
+     "home": {
+      "name": "Rockets Roussillon",
+      "id": 103956
+     },
+     "score": null
+    },
+    {
+     "num": 159,
+     "gameId": 424603,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-12",
+     "time": "17:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Orbite Boucherville",
+      "id": 103462
+     },
+     "home": {
+      "name": "U16A Sirenko WORA",
+      "id": 101473
+     },
+     "score": null
+    },
+    {
+     "num": 151,
+     "gameId": 424595,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-12",
+     "time": "18:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4-Cités",
+      "id": 101475
+     },
+     "home": {
+      "name": "Valkyries",
+      "id": 103469
+     },
+     "score": null
+    },
+    {
+     "num": 13,
+     "gameId": 423674,
+     "division": "Fém U14 (Benjamine) B",
+     "date": "2026-12-12",
+     "time": "18:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Colibris 2",
+      "id": 102336
+     },
+     "home": {
+      "name": "4-Cités",
+      "id": 101476
+     },
+     "score": null
+    },
+    {
+     "num": 16,
+     "gameId": 423677,
+     "division": "Fém U14 (Benjamine) B",
+     "date": "2026-12-12",
+     "time": "19:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Abeille St-Hyacinthe",
+      "id": 103803
+     },
+     "home": {
+      "name": "Faucons",
+      "id": 103398
+     },
+     "score": null
+    },
+    {
+     "num": 22,
+     "gameId": 423684,
+     "division": "Fém U14 (Benjamine) C",
+     "date": "2026-12-12",
+     "time": "19:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 87,
+     "gameId": 423894,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-12",
+     "time": "20:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Quart de finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Quart de finale Groupe B Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 88,
+     "gameId": 423896,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-12",
+     "time": "20:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Quart de finale Groupe B Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Quart de finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 69,
+     "gameId": 423873,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-12",
+     "time": "21:00",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "4-Cités-2",
+      "id": 101484
+     },
+     "home": {
+      "name": "Hyènes Du Nord",
+      "id": 103776
+     },
+     "score": null
+    },
+    {
+     "num": 73,
+     "gameId": 423877,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-12",
+     "time": "21:15",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "4 Cités-1",
+      "id": 101490
+     },
+     "home": {
+      "name": "Montréal-Nord B2",
+      "id": 101488
+     },
+     "score": null
+    },
+    {
+     "num": 124,
+     "gameId": 423996,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-13",
+     "time": "07:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 141,
+     "gameId": 424278,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-13",
+     "time": "07:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 140,
+     "gameId": 424277,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-13",
+     "time": "08:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Demi-finale Groupe B Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 143,
+     "gameId": 424587,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-13",
+     "time": "08:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 4",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 126,
+     "gameId": 423999,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-13",
+     "time": "09:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 144,
+     "gameId": 424588,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-13",
+     "time": "09:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 89,
+     "gameId": 423897,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-13",
+     "time": "10:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Demi-finale Gagnant match 0087",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 90,
+     "gameId": 423898,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-13",
+     "time": "10:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Demi-finale Gagnant match 0088",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 125,
+     "gameId": 423997,
+     "division": "Fém U10 (Novice) C",
+     "date": "2026-12-13",
+     "time": "11:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Finale Gagnant match 0124",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 79,
+     "gameId": 423883,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-13",
+     "time": "11:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 78,
+     "gameId": 423882,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-13",
+     "time": "12:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Demi-finale Groupe B Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 142,
+     "gameId": 424279,
+     "division": "Fém U12 (Atome) B",
+     "date": "2026-12-13",
+     "time": "12:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Finale Gagnant match 0141",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 0140",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 23,
+     "gameId": 423685,
+     "division": "Fém U14 (Benjamine) C",
+     "date": "2026-12-13",
+     "time": "13:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Finale Gagnant match 0022",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 18,
+     "gameId": 423679,
+     "division": "Fém U14 (Benjamine) B",
+     "date": "2026-12-13",
+     "time": "14:00",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 145,
+     "gameId": 424589,
+     "division": "Fém U16 (Junior) A",
+     "date": "2026-12-13",
+     "time": "14:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Finale Gagnant match 0144",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 0143",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 91,
+     "gameId": 423899,
+     "division": "Fém U19 (Cadette) B",
+     "date": "2026-12-13",
+     "time": "15:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Finale Gagnant match 0090",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 0089",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 127,
+     "gameId": 424000,
+     "division": "Fém U16 (Junior) C",
+     "date": "2026-12-13",
+     "time": "16:15",
+     "arena": "Glace Vaudreuil",
+     "away": {
+      "name": "Finale Gagnant match 0126",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 80,
+     "gameId": 423884,
+     "division": "Fém O21+ (Inter) B",
+     "date": "2026-12-13",
+     "time": "16:30",
+     "arena": "Glace Dorion",
+     "away": {
+      "name": "Finale Gagnant match 0079",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 0078",
       "id": null
      },
      "score": null
