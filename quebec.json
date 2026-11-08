@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-08T13:35:55.880Z",
+ "updatedAt": "2026-11-08T19:45:19.533Z",
  "leagues": [
   {
    "id": 104,
@@ -738,7 +738,11 @@
    "arena": "Ancienne Lorette - Québec",
    "home": "Québec",
    "away": "Nepean",
-   "detailId": 23404
+   "detailId": 23404,
+   "score": {
+    "away": 3,
+    "home": 11
+   }
   },
   {
    "num": 2022,
