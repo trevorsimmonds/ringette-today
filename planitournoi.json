@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-07T10:38:24.239Z",
- "today": "2026-11-07",
+ "updatedAt": "2026-11-08T06:38:26.305Z",
+ "today": "2026-11-08",
  "tournaments": [
   {
    "id": 23652,
@@ -3479,7 +3479,7 @@
       "id": 102735
      },
      "home": {
-      "name": "CORA",
+      "name": "Ring Robbers",
       "id": 102856
      },
      "score": null
@@ -3883,7 +3883,7 @@
      "time": "16:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "CORA",
+      "name": "Ring Robbers",
       "id": 102856
      },
      "home": {
@@ -4584,7 +4584,7 @@
       "id": 102713
      },
      "home": {
-      "name": "CORA",
+      "name": "Ring Robbers",
       "id": 102856
      },
      "score": null
@@ -5447,7 +5447,7 @@
      "time": "19:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "CORA",
+      "name": "Ring Robbers",
       "id": 102856
      },
      "home": {
