@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-07T21:56:36.863Z",
+ "updatedAt": "2026-11-08T13:35:55.880Z",
  "leagues": [
   {
    "id": 104,
@@ -680,7 +680,11 @@
    "arena": "Sportium - Ste-Catherine",
    "home": "Rive-Sud",
    "away": "Québec",
-   "detailId": 23321
+   "detailId": 23321,
+   "score": {
+    "away": 2,
+    "home": 1
+   }
   },
   {
    "num": 1029,
