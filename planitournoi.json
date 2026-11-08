@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-08T19:03:47.859Z",
+ "updatedAt": "2026-11-08T23:05:36.127Z",
  "today": "2026-11-08",
  "tournaments": [
   {
@@ -3183,6 +3183,7 @@
     "Fém Cadette U19 B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-cadette-u19-b-90572/ringuette-pointe-claire-23669.html",
     "Fém Atome C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-atome-c-90564/ringuette-pointe-claire-23669.html",
     "Fém Junior U16 A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-junior-u16-a-90568/ringuette-pointe-claire-23669.html",
+    "Fém Benjamine U14 C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-benjamine-u14-c-90567/ringuette-pointe-claire-23669.html",
     "Fém Cadette U19 A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-cadette-u19-a-90571/ringuette-pointe-claire-23669.html",
     "Fém Intermédiaire B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-intermediaire-b-90575/ringuette-pointe-claire-23669.html",
     "Fém Intermédiaire C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-intermediaire-c-90576/ringuette-pointe-claire-23669.html",
@@ -3195,7 +3196,7 @@
    },
    "games": [
     {
-     "num": 0,
+     "num": null,
      "gameId": 429437,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -3276,6 +3277,23 @@
      "home": {
       "name": "PCRA",
       "id": 101392
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429428,
+     "division": "Fém Novice B",
+     "date": "2026-11-27",
+     "time": "08:00",
+     "arena": "BB Main",
+     "away": {
+      "name": "PCRA",
+      "id": 102976
+     },
+     "home": {
+      "name": "BKRA-Red",
+      "id": 103487
      },
      "score": null
     },
@@ -3434,6 +3452,74 @@
     },
     {
      "num": null,
+     "gameId": 429454,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-27",
+     "time": "11:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "Metcalfe-Beuman",
+      "id": 102556
+     },
+     "home": {
+      "name": "La Capitale",
+      "id": 102735
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429431,
+     "division": "Fém Novice B",
+     "date": "2026-11-27",
+     "time": "11:00",
+     "arena": "BB Main",
+     "away": {
+      "name": "WORA-Lagrois",
+      "id": 103019
+     },
+     "home": {
+      "name": "GCRA-Juteau",
+      "id": 102870
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429434,
+     "division": "Fém Novice B",
+     "date": "2026-11-27",
+     "time": "11:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "CORA-Lemire",
+      "id": 102837
+     },
+     "home": {
+      "name": "Metcalfe",
+      "id": 102153
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429457,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-27",
+     "time": "12:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Lévis-2",
+      "id": 103488
+     },
+     "home": {
+      "name": "Ottawa-Telewiak",
+      "id": 102387
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425116,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-27",
@@ -3514,6 +3600,23 @@
      "home": {
       "name": "Nepean-Jenson",
       "id": 102770
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429462,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-27",
+     "time": "13:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "Ring Robbers",
+      "id": 102856
+     },
+     "home": {
+      "name": "PCRA",
+      "id": 104640
      },
      "score": null
     },
@@ -3706,6 +3809,40 @@
     },
     {
      "num": null,
+     "gameId": 429427,
+     "division": "Fém Novice B",
+     "date": "2026-11-27",
+     "time": "15:00",
+     "arena": "BB Main",
+     "away": {
+      "name": "BKRA-Red",
+      "id": 103487
+     },
+     "home": {
+      "name": "GCRA-Juteau",
+      "id": 102870
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429435,
+     "division": "Fém Novice B",
+     "date": "2026-11-27",
+     "time": "15:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "CORA-Lemire",
+      "id": 102837
+     },
+     "home": {
+      "name": "Saint-Laurent",
+      "id": 103912
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425044,
      "division": "Fém Atome C",
      "date": "2026-11-27",
@@ -3718,6 +3855,23 @@
      "home": {
       "name": "Laval-C1",
       "id": 103861
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429455,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-27",
+     "time": "16:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "La Capitale",
+      "id": 102735
+     },
+     "home": {
+      "name": "Nepean-1",
+      "id": 103315
      },
      "score": null
     },
@@ -3778,7 +3932,7 @@
      "division": "Fém Atome B",
      "date": "2026-11-27",
      "time": "17:00",
-     "arena": "Ray Bourque B",
+     "arena": "Westwood",
      "away": {
       "name": "PCRA-B2",
       "id": 104537
@@ -3786,6 +3940,23 @@
      "home": {
       "name": "NDG",
       "id": 104566
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429459,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-27",
+     "time": "17:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Ottawa-Telewiak",
+      "id": 102387
+     },
+     "home": {
+      "name": "Pierrefonds",
+      "id": 103316
      },
      "score": null
     },
@@ -3820,6 +3991,23 @@
      "home": {
       "name": "Des Moulins-B4",
       "id": 101454
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429432,
+     "division": "Fém Novice B",
+     "date": "2026-11-27",
+     "time": "17:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "WORA-Lagrois",
+      "id": 103019
+     },
+     "home": {
+      "name": "PCRA",
+      "id": 102976
      },
      "score": null
     },
@@ -3995,6 +4183,23 @@
     },
     {
      "num": null,
+     "gameId": 429460,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-27",
+     "time": "20:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "PCRA",
+      "id": 104640
+     },
+     "home": {
+      "name": "Metcalfe",
+      "id": 102713
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425108,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-27",
@@ -4012,7 +4217,7 @@
     },
     {
      "num": null,
-     "gameId": 425126,
+     "gameId": 429527,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-27",
      "time": "20:00",
@@ -4046,7 +4251,24 @@
     },
     {
      "num": null,
-     "gameId": 425127,
+     "gameId": 429424,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-27",
+     "time": "20:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Metcalfe-Leptick",
+      "id": 102197
+     },
+     "home": {
+      "name": "PCRA",
+      "id": 101392
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429529,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-27",
      "time": "21:00",
@@ -4063,18 +4285,18 @@
     },
     {
      "num": null,
-     "gameId": 425128,
+     "gameId": 429534,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-27",
      "time": "21:00",
      "arena": "Ray Bourque B",
      "away": {
-      "name": "Saint-Laurent",
-      "id": 104543
-     },
-     "home": {
       "name": "Roussillon-1",
       "id": 102010
+     },
+     "home": {
+      "name": "Saint-Laurent",
+      "id": 104543
      },
      "score": null
     },
@@ -4182,6 +4404,57 @@
     },
     {
      "num": null,
+     "gameId": 429449,
+     "division": "Fém Benjamine U14 B",
+     "date": "2026-11-28",
+     "time": "07:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "CORA-Lugtigheid",
+      "id": 102749
+     },
+     "home": {
+      "name": "La Capitale",
+      "id": 102239
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429452,
+     "division": "Fém Benjamine U14 B",
+     "date": "2026-11-28",
+     "time": "07:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "GCRA-Beauchamp",
+      "id": 103223
+     },
+     "home": {
+      "name": "Pierrefonds",
+      "id": 102670
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429446,
+     "division": "Fém Benjamine U14 B",
+     "date": "2026-11-28",
+     "time": "07:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "PCRA",
+      "id": 103907
+     },
+     "home": {
+      "name": "Nepean-Jenson",
+      "id": 102770
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425010,
      "division": "Fém Atome A",
      "date": "2026-11-28",
@@ -4211,6 +4484,40 @@
      "home": {
       "name": "PCRA-B2",
       "id": 104537
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429456,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-28",
+     "time": "08:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Nepean-1",
+      "id": 103315
+     },
+     "home": {
+      "name": "Metcalfe-Beuman",
+      "id": 102556
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429429,
+     "division": "Fém Novice B",
+     "date": "2026-11-28",
+     "time": "08:00",
+     "arena": "BB Annex",
+     "away": {
+      "name": "BKRA-Red",
+      "id": 103487
+     },
+     "home": {
+      "name": "WORA-Lagrois",
+      "id": 103019
      },
      "score": null
     },
@@ -4250,6 +4557,57 @@
     },
     {
      "num": null,
+     "gameId": 429458,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-28",
+     "time": "09:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Pierrefonds",
+      "id": 103316
+     },
+     "home": {
+      "name": "Lévis-2",
+      "id": 103488
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429430,
+     "division": "Fém Novice B",
+     "date": "2026-11-28",
+     "time": "09:00",
+     "arena": "BB Annex",
+     "away": {
+      "name": "GCRA-Juteau",
+      "id": 102870
+     },
+     "home": {
+      "name": "PCRA",
+      "id": 102976
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429438,
+     "division": "Fém Novice B",
+     "date": "2026-11-28",
+     "time": "09:00",
+     "arena": "BB Main",
+     "away": {
+      "name": "Saint-Laurent",
+      "id": 103912
+     },
+     "home": {
+      "name": "Metcalfe",
+      "id": 102153
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425002,
      "division": "Fém Novice C",
      "date": "2026-11-28",
@@ -4284,6 +4642,23 @@
     },
     {
      "num": null,
+     "gameId": 429461,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-28",
+     "time": "10:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Metcalfe",
+      "id": 102713
+     },
+     "home": {
+      "name": "Ring Robbers",
+      "id": 102856
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425120,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -4296,6 +4671,40 @@
      "home": {
       "name": "GCRA",
       "id": 102836
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 425099,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-28",
+     "time": "10:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "4Cités",
+      "id": 104046
+     },
+     "home": {
+      "name": "Metcalfe-Leptick",
+      "id": 102197
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429433,
+     "division": "Fém Novice B",
+     "date": "2026-11-28",
+     "time": "10:00",
+     "arena": "BB Main",
+     "away": {
+      "name": "Laval",
+      "id": 103259
+     },
+     "home": {
+      "name": "CORA-Lemire",
+      "id": 102837
      },
      "score": null
     },
@@ -4369,6 +4778,23 @@
     },
     {
      "num": null,
+     "gameId": 425101,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-28",
+     "time": "11:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Ottawa-Winer",
+      "id": 102759
+     },
+     "home": {
+      "name": "Saint-Laurent",
+      "id": 103904
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425197,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -4437,6 +4863,23 @@
     },
     {
      "num": null,
+     "gameId": 429426,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-28",
+     "time": "12:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "PCRA",
+      "id": 101392
+     },
+     "home": {
+      "name": "Thetford Mines",
+      "id": 102286
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425014,
      "division": "Fém Atome A",
      "date": "2026-11-28",
@@ -4466,6 +4909,40 @@
      "home": {
       "name": "Ottawa",
       "id": 102994
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429443,
+     "division": "Fém Benjamine U14 B",
+     "date": "2026-11-28",
+     "time": "13:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "BKRA",
+      "id": 102361
+     },
+     "home": {
+      "name": "Ottawa-Killough",
+      "id": 102859
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429450,
+     "division": "Fém Benjamine U14 B",
+     "date": "2026-11-28",
+     "time": "13:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "Pierrefonds",
+      "id": 102670
+     },
+     "home": {
+      "name": "CORA-Lugtigheid",
+      "id": 102749
      },
      "score": null
     },
@@ -4505,6 +4982,23 @@
     },
     {
      "num": null,
+     "gameId": 429451,
+     "division": "Fém Benjamine U14 B",
+     "date": "2026-11-28",
+     "time": "14:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "La Capitale",
+      "id": 102239
+     },
+     "home": {
+      "name": "GCRA-Beauchamp",
+      "id": 103223
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425167,
      "division": "Fém Cadtte AA A",
      "date": "2026-11-28",
@@ -4539,6 +5033,23 @@
     },
     {
      "num": null,
+     "gameId": 429518,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-28",
+     "time": "15:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "8ième de finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "8ième de finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425124,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -4556,18 +5067,35 @@
     },
     {
      "num": null,
-     "gameId": 425163,
+     "gameId": 425159,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-28",
      "time": "15:00",
      "arena": "Westwood",
      "away": {
+      "name": "MER",
+      "id": 102228
+     },
+     "home": {
       "name": "CRTR-Stephane",
       "id": 101369
      },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429436,
+     "division": "Fém Novice B",
+     "date": "2026-11-28",
+     "time": "15:00",
+     "arena": "BB Annex",
+     "away": {
+      "name": "Metcalfe",
+      "id": 102153
+     },
      "home": {
-      "name": "Saint-Laurent",
-      "id": 103944
+      "name": "Laval",
+      "id": 103259
      },
      "score": null
     },
@@ -4624,6 +5152,23 @@
     },
     {
      "num": null,
+     "gameId": 429530,
+     "division": "Fém Intermédiaire A",
+     "date": "2026-11-28",
+     "time": "16:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "PCRA",
+      "id": 101375
+     },
+     "home": {
+      "name": "La Capitale-Belleville",
+      "id": 102259
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425140,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -4675,7 +5220,41 @@
     },
     {
      "num": null,
-     "gameId": 425133,
+     "gameId": 429519,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-28",
+     "time": "17:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Quart de finale Groupe B Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Quart de finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429521,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-28",
+     "time": "17:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Quart de finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Quart de finale Groupe C Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429528,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
      "time": "17:00",
@@ -4685,8 +5264,8 @@
       "id": 102010
      },
      "home": {
-      "name": "La Capitale-A4",
-      "id": 102024
+      "name": "BKRA-1",
+      "id": 102122
      },
      "score": null
     },
@@ -4760,14 +5339,31 @@
     },
     {
      "num": null,
-     "gameId": 425132,
+     "gameId": 429520,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-28",
+     "time": "18:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Quart de finale Groupe C Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Quart de finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429532,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
      "time": "18:00",
      "arena": "BB Annex",
      "away": {
-      "name": "BKRA-1",
-      "id": 102122
+      "name": "La Capitale-A4",
+      "id": 102024
      },
      "home": {
       "name": "Saint-Laurent",
@@ -4777,18 +5373,86 @@
     },
     {
      "num": null,
-     "gameId": 425159,
-     "division": "Fém Intermédiaire C",
+     "gameId": 429447,
+     "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
-     "time": "18:00",
-     "arena": "Ray Bourque A",
+     "time": "19:00",
+     "arena": "BB Annex",
      "away": {
-      "name": "MER",
-      "id": 102228
+      "name": "Ottawa-Killough",
+      "id": 102859
      },
      "home": {
-      "name": "CRTR-Stephane",
-      "id": 101369
+      "name": "PCRA",
+      "id": 103907
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429442,
+     "division": "Fém Benjamine U14 B",
+     "date": "2026-11-28",
+     "time": "19:00",
+     "arena": "BB Main",
+     "away": {
+      "name": "Nepean-Jenson",
+      "id": 102770
+     },
+     "home": {
+      "name": "BKRA",
+      "id": 102361
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 425150,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-11-28",
+     "time": "19:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Des Moulins-B4",
+      "id": 101454
+     },
+     "home": {
+      "name": "PCRA-B3",
+      "id": 101336
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 425151,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-11-28",
+     "time": "19:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "Saint-Laurent-B2",
+      "id": 103951
+     },
+     "home": {
+      "name": "GAARA-Dino Mights",
+      "id": 102033
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429422,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-28",
+     "time": "19:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Saint-Laurent",
+      "id": 103904
+     },
+     "home": {
+      "name": "4Cités",
+      "id": 104046
      },
      "score": null
     },
@@ -4862,6 +5526,23 @@
     },
     {
      "num": null,
+     "gameId": 425103,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-28",
+     "time": "20:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Ottawa-Winer",
+      "id": 102759
+     },
+     "home": {
+      "name": "Thetford Mines",
+      "id": 102286
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 428900,
      "division": "Fém Adult Rec C",
      "date": "2026-11-28",
@@ -4879,18 +5560,18 @@
     },
     {
      "num": null,
-     "gameId": 425130,
+     "gameId": 429531,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
      "time": "21:00",
      "arena": "BB Annex",
      "away": {
-      "name": "Roussillon-1",
-      "id": 102010
-     },
-     "home": {
       "name": "PCRA",
       "id": 101375
+     },
+     "home": {
+      "name": "Roussillon-1",
+      "id": 102010
      },
      "score": null
     },
@@ -4913,41 +5594,41 @@
     },
     {
      "num": null,
-     "gameId": 425150,
-     "division": "Fém Intermédiaire B",
-     "date": "2026-11-28",
-     "time": "21:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Des Moulins-B4",
-      "id": 101454
-     },
-     "home": {
-      "name": "PCRA-B3",
-      "id": 101336
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 425151,
+     "gameId": 425153,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
      "time": "21:00",
      "arena": "Ray Bourque B",
      "away": {
-      "name": "Saint-Laurent-B2",
-      "id": 103951
+      "name": "Pierrefonds-B4",
+      "id": 102719
      },
      "home": {
-      "name": "GAARA-Dino Mights",
-      "id": 102033
+      "name": "PCRA-B1",
+      "id": 101373
      },
      "score": null
     },
     {
      "num": null,
-     "gameId": 425129,
+     "gameId": 425163,
+     "division": "Fém Intermédiaire C",
+     "date": "2026-11-28",
+     "time": "21:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "CRTR-Stephane",
+      "id": 101369
+     },
+     "home": {
+      "name": "Saint-Laurent",
+      "id": 103944
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429526,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
      "time": "22:00",
@@ -4964,7 +5645,7 @@
     },
     {
      "num": null,
-     "gameId": 425131,
+     "gameId": 429533,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
      "time": "22:00",
@@ -4976,23 +5657,6 @@
      "home": {
       "name": "La Capitale-Belleville",
       "id": 102259
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 425153,
-     "division": "Fém Intermédiaire B",
-     "date": "2026-11-28",
-     "time": "22:00",
-     "arena": "Ray Bourque B",
-     "away": {
-      "name": "Pierrefonds-B4",
-      "id": 102719
-     },
-     "home": {
-      "name": "PCRA-B1",
-      "id": 101373
      },
      "score": null
     },
@@ -5043,6 +5707,23 @@
      },
      "home": {
       "name": "Quart de finale Groupe B Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429522,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-29",
+     "time": "07:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Quart de finale Gagnant match BENC10",
+      "id": null
+     },
+     "home": {
+      "name": "Quart de finale Meilleur 2 ème",
       "id": null
      },
      "score": null
@@ -5100,18 +5781,18 @@
     },
     {
      "num": null,
-     "gameId": 425134,
-     "division": "Fém Intermédiaire A",
+     "gameId": 425154,
+     "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
      "time": "08:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "PCRA",
-      "id": 101375
+      "name": "Montréal Nord-B4",
+      "id": 102070
      },
      "home": {
-      "name": "La Capitale-Belleville",
-      "id": 102259
+      "name": "BKRA",
+      "id": 102483
      },
      "score": null
     },
@@ -5134,18 +5815,35 @@
     },
     {
      "num": null,
-     "gameId": 425154,
-     "division": "Fém Intermédiaire B",
+     "gameId": 425105,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-29",
+     "time": "08:00",
+     "arena": "Westwood",
+     "away": {
+      "name": "Demi-finale Groupe B Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 425047,
+     "division": "Fém Atome C",
      "date": "2026-11-29",
      "time": "09:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "Montréal Nord-B4",
-      "id": 102070
+      "name": "Finale Groupe A Pos. 2",
+      "id": null
      },
      "home": {
-      "name": "BKRA",
-      "id": 102483
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
      },
      "score": null
     },
@@ -5185,11 +5883,28 @@
     },
     {
      "num": null,
-     "gameId": 425105,
+     "gameId": 425106,
      "division": "Fém Junior U16 B",
      "date": "2026-11-29",
      "time": "09:00",
      "arena": "Westwood",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429439,
+     "division": "Fém Novice B",
+     "date": "2026-11-29",
+     "time": "09:00",
+     "arena": "BB Annex",
      "away": {
       "name": "Demi-finale Groupe B Pos. 2",
       "id": null
@@ -5236,8 +5951,8 @@
     },
     {
      "num": null,
-     "gameId": 425106,
-     "division": "Fém Junior U16 B",
+     "gameId": 425063,
+     "division": "Fém Benjamine U14 B",
      "date": "2026-11-29",
      "time": "10:00",
      "arena": "Westwood",
@@ -5270,11 +5985,28 @@
     },
     {
      "num": null,
+     "gameId": 429440,
+     "division": "Fém Novice B",
+     "date": "2026-11-29",
+     "time": "10:00",
+     "arena": "BB Annex",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe B Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 428914,
      "division": "Fém Atome B",
      "date": "2026-11-29",
      "time": "11:00",
-     "arena": "BB Annex",
+     "arena": "Ray Bourque A",
      "away": {
       "name": "Demi-finale Gagnant match ATOB19",
       "id": null
@@ -5287,17 +6019,17 @@
     },
     {
      "num": null,
-     "gameId": 425063,
-     "division": "Fém Benjamine U14 B",
+     "gameId": 429523,
+     "division": "Fém Benjamine U14 C",
      "date": "2026-11-29",
      "time": "11:00",
-     "arena": "Ray Bourque B",
+     "arena": "BB Annex",
      "away": {
-      "name": "Demi-finale Groupe A Pos. 2",
+      "name": "Demi-finale Gagnant match BENC13",
       "id": null
      },
      "home": {
-      "name": "Demi-finale Groupe B Pos. 1",
+      "name": "Demi-finale Gagnant match BENC11",
       "id": null
      },
      "score": null
@@ -5315,6 +6047,23 @@
      },
      "home": {
       "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429535,
+     "division": "Fém Intermédiaire A",
+     "date": "2026-11-29",
+     "time": "11:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "Demi-finale Groupe B Pos. 2",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
       "id": null
      },
      "score": null
@@ -5355,24 +6104,24 @@
     },
     {
      "num": null,
-     "gameId": 425135,
-     "division": "Fém Intermédiaire A",
+     "gameId": 429524,
+     "division": "Fém Benjamine U14 C",
      "date": "2026-11-29",
      "time": "12:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "Demi-finale Groupe B Pos. 2",
+      "name": "Demi-finale Gagnant match BENC14",
       "id": null
      },
      "home": {
-      "name": "Demi-finale Groupe A Pos. 1",
+      "name": "Demi-finale Gagnant match BENC12",
       "id": null
      },
      "score": null
     },
     {
      "num": null,
-     "gameId": 425136,
+     "gameId": 429536,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-29",
      "time": "12:00",
@@ -5423,6 +6172,23 @@
     },
     {
      "num": null,
+     "gameId": 425156,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-11-29",
+     "time": "13:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "Demi-finale Meilleure 2 ème Pos.",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Meilleure 1 ère Pos.",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
      "gameId": 425005,
      "division": "Fém Novice C",
      "date": "2026-11-29",
@@ -5434,23 +6200,6 @@
      },
      "home": {
       "name": "Finale Gagnant match NOVC09",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 425156,
-     "division": "Fém Intermédiaire B",
-     "date": "2026-11-29",
-     "time": "14:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Demi-finale Meilleure 2 ème Pos.",
-      "id": null
-     },
-     "home": {
-      "name": "Demi-finale Meilleure 1 ère Pos.",
       "id": null
      },
      "score": null
@@ -5474,17 +6223,51 @@
     },
     {
      "num": null,
-     "gameId": 425047,
-     "division": "Fém Atome C",
+     "gameId": 425107,
+     "division": "Fém Junior U16 B",
+     "date": "2026-11-29",
+     "time": "14:00",
+     "arena": "Ray Bourque A",
+     "away": {
+      "name": "Finale Gagnant match JUNB11",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match JUNB10",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 429441,
+     "division": "Fém Novice B",
+     "date": "2026-11-29",
+     "time": "14:00",
+     "arena": "BB Annex",
+     "away": {
+      "name": "Finale Gagnant match NOVB14",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match NOVB13",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 425064,
+     "division": "Fém Benjamine U14 B",
      "date": "2026-11-29",
      "time": "15:00",
      "arena": "BB Main",
      "away": {
-      "name": "Finale Groupe A Pos. 2",
+      "name": "Finale Gagnant match BENB14",
       "id": null
      },
      "home": {
-      "name": "Finale Groupe A Pos. 1",
+      "name": "Finale Gagnant match BENB13",
       "id": null
      },
      "score": null
@@ -5508,17 +6291,34 @@
     },
     {
      "num": null,
-     "gameId": 425107,
-     "division": "Fém Junior U16 B",
+     "gameId": 425165,
+     "division": "Fém Intermédiaire C",
      "date": "2026-11-29",
      "time": "15:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "Finale Gagnant match JUNB11",
+      "name": "Finale Groupe A Pos. 2",
       "id": null
      },
      "home": {
-      "name": "Finale Gagnant match JUNB10",
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": null,
+     "gameId": 425021,
+     "division": "Fém Atome A",
+     "date": "2026-11-29",
+     "time": "16:00",
+     "arena": "BB Main",
+     "away": {
+      "name": "Finale Gagnant match ATOA12",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match ATOA13",
       "id": null
      },
      "score": null
@@ -5542,58 +6342,24 @@
     },
     {
      "num": null,
-     "gameId": 425064,
-     "division": "Fém Benjamine U14 B",
-     "date": "2026-11-29",
-     "time": "16:00",
-     "arena": "BB Main",
-     "away": {
-      "name": "Finale Gagnant match BENB14",
-      "id": null
-     },
-     "home": {
-      "name": "Finale Gagnant match BENB13",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 425165,
-     "division": "Fém Intermédiaire C",
+     "gameId": 429525,
+     "division": "Fém Benjamine U14 C",
      "date": "2026-11-29",
      "time": "16:00",
      "arena": "BB Annex",
      "away": {
-      "name": "Finale Groupe A Pos. 2",
+      "name": "Finale Gagnant match BENC16",
       "id": null
      },
      "home": {
-      "name": "Finale Groupe A Pos. 1",
+      "name": "Finale Gagnant match BENC15",
       "id": null
      },
      "score": null
     },
     {
      "num": null,
-     "gameId": 425021,
-     "division": "Fém Atome A",
-     "date": "2026-11-29",
-     "time": "17:00",
-     "arena": "BB Main",
-     "away": {
-      "name": "Finale Gagnant match ATOA12",
-      "id": null
-     },
-     "home": {
-      "name": "Finale Gagnant match ATOA13",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 425137,
+     "gameId": 429537,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-29",
      "time": "17:00",
@@ -5613,7 +6379,7 @@
      "gameId": 425158,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
-     "time": "18:00",
+     "time": "17:00",
      "arena": "BB Main",
      "away": {
       "name": "Finale Gagnant match INTB19",
