@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-08T19:45:19.533Z",
+ "updatedAt": "2026-11-09T22:27:49.511Z",
  "leagues": [
   {
    "id": 104,
@@ -718,7 +718,11 @@
    "arena": "Slush Puppie C - Gatineau",
    "home": "Outaouais",
    "away": "Laurentides",
-   "detailId": 23403
+   "detailId": 23403,
+   "score": {
+    "away": 2,
+    "home": 5
+   }
   },
   {
    "num": 2021,
@@ -728,7 +732,11 @@
    "arena": "Bob Birnie - Pointe-Claire",
    "home": "Lac St-Louis",
    "away": "Québec",
-   "detailId": 23322
+   "detailId": 23322,
+   "score": {
+    "away": 13,
+    "home": 1
+   }
   },
   {
    "num": 1032,
@@ -792,7 +800,11 @@
    "arena": "Émile Bouchard - Longueuil",
    "home": "Rive-Sud",
    "away": "BLL",
-   "detailId": 23406
+   "detailId": 23406,
+   "score": {
+    "away": 1,
+    "home": 7
+   }
   },
   {
    "num": 1035,
