@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-08T23:05:36.127Z",
- "today": "2026-11-08",
+ "updatedAt": "2026-11-09T22:39:47.288Z",
+ "today": "2026-11-09",
  "tournaments": [
   {
    "id": 23652,
@@ -6419,7 +6419,7 @@
      "division": "Fém U16 (Junior) C",
      "date": "2026-12-08",
      "time": "19:00",
-     "arena": "Glace Dorion",
+     "arena": "Glace Vaudreuil",
      "away": {
       "name": "4-Cités",
       "id": 101483
@@ -6436,7 +6436,7 @@
      "division": "Fém U16 (Junior) A",
      "date": "2026-12-08",
      "time": "19:15",
-     "arena": "Glace Vaudreuil",
+     "arena": "Glace Dorion",
      "away": {
       "name": "Rockets",
       "id": 102019
@@ -6453,7 +6453,7 @@
      "division": "Fém O21+ (Inter) B",
      "date": "2026-12-08",
      "time": "20:00",
-     "arena": "Glace Dorion",
+     "arena": "Glace Vaudreuil",
      "away": {
       "name": "Phenix 3",
       "id": 101780
@@ -6470,7 +6470,7 @@
      "division": "Fém O21+ (Inter) B",
      "date": "2026-12-08",
      "time": "20:15",
-     "arena": "Glace Vaudreuil",
+     "arena": "Glace Dorion",
      "away": {
       "name": "Hyènes Du Nord",
       "id": 103776
@@ -6487,7 +6487,7 @@
      "division": "Fém U19 (Cadette) B",
      "date": "2026-12-09",
      "time": "19:00",
-     "arena": "Glace Dorion",
+     "arena": "Glace Vaudreuil",
      "away": {
       "name": "4-Cités",
       "id": 101474
@@ -6504,7 +6504,7 @@
      "division": "Fém U14 (Benjamine) B",
      "date": "2026-12-09",
      "time": "19:15",
-     "arena": "Glace Vaudreuil",
+     "arena": "Glace Dorion",
      "away": {
       "name": "Faucons",
       "id": 103398
@@ -6521,7 +6521,7 @@
      "division": "Fém O21+ (Inter) B",
      "date": "2026-12-09",
      "time": "20:00",
-     "arena": "Glace Dorion",
+     "arena": "Glace Vaudreuil",
      "away": {
       "name": "MER-1",
       "id": 101683
@@ -6538,7 +6538,7 @@
      "division": "Fém O21+ (Inter) B",
      "date": "2026-12-09",
      "time": "20:15",
-     "arena": "Glace Vaudreuil",
+     "arena": "Glace Dorion",
      "away": {
       "name": "Hyènes Du Nord",
       "id": 103776
@@ -6555,7 +6555,7 @@
      "division": "Fém O21+ (Inter) B",
      "date": "2026-12-09",
      "time": "21:00",
-     "arena": "Glace Dorion",
+     "arena": "Glace Vaudreuil",
      "away": {
       "name": "4-Cités-2",
       "id": 101484
