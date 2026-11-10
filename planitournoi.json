@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-09T22:39:47.288Z",
- "today": "2026-11-09",
+ "updatedAt": "2026-11-10T20:35:09.649Z",
+ "today": "2026-11-10",
  "tournaments": [
   {
    "id": 23652,
@@ -4034,7 +4034,7 @@
      "division": "Fém Cadette U19 B",
      "date": "2026-11-27",
      "time": "18:00",
-     "arena": "BB Main",
+     "arena": "Ray Bourque B",
      "away": {
       "name": "Metcalfe",
       "id": 101988
@@ -4068,7 +4068,7 @@
      "division": "Fém Junior U16 A",
      "date": "2026-11-27",
      "time": "18:00",
-     "arena": "Ray Bourque B",
+     "arena": "BB Main",
      "away": {
       "name": "PEI",
       "id": 101818
@@ -4680,7 +4680,7 @@
      "division": "Fém Junior U16 B",
      "date": "2026-11-28",
      "time": "10:00",
-     "arena": "Ray Bourque A",
+     "arena": "BB Main",
      "away": {
       "name": "4Cités",
       "id": 104046
@@ -4697,7 +4697,7 @@
      "division": "Fém Novice B",
      "date": "2026-11-28",
      "time": "10:00",
-     "arena": "BB Main",
+     "arena": "Ray Bourque A",
      "away": {
       "name": "Laval",
       "id": 103259
