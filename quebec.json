@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-09T22:27:49.511Z",
+ "updatedAt": "2026-11-10T07:26:38.547Z",
  "leagues": [
   {
    "id": 104,
@@ -1180,8 +1180,8 @@
    "num": 1056,
    "league": 104,
    "date": "2026-12-13",
-   "time": "10:30",
-   "arena": "Mascouche",
+   "time": "10:15",
+   "arena": "Val D'Espoir - St-Janvier",
    "home": "BLL",
    "away": "GCRA",
    "detailId": 23428
