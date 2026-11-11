@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-10T20:35:09.649Z",
- "today": "2026-11-10",
+ "updatedAt": "2026-11-11T08:19:18.924Z",
+ "today": "2026-11-11",
  "tournaments": [
   {
    "id": 23652,
@@ -41,7 +41,10 @@
       "name": "Deux-Montagnes",
       "id": 101646
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 4
+     }
     },
     {
      "num": 2,
@@ -58,7 +61,10 @@
       "name": "Mustangs",
       "id": 101259
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 8
+     }
     },
     {
      "num": 3,
@@ -75,7 +81,10 @@
       "name": "Montréal-Nord 1",
       "id": 101491
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 6
+     }
     },
     {
      "num": 4,
@@ -1681,7 +1690,10 @@
       "name": "VDR",
       "id": 101967
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -1698,7 +1710,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101951
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -1715,7 +1730,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101622
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -1732,7 +1750,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101757
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -6387,6 +6408,2449 @@
      },
      "home": {
       "name": "Finale Gagnant match INTB20",
+      "id": null
+     },
+     "score": null
+    }
+   ]
+  },
+  {
+   "id": 23693,
+   "name": "Tournoi de Ringuette de Gatineau 2026",
+   "slug": "tournoi-de-ringuette-de-gatineau-2026",
+   "city": "Gatineau",
+   "province": "quebec",
+   "start": "2026-12-02",
+   "end": "2026-12-06",
+   "url": "https://www.planitournoi.com/tournament_public.php?tournament_id=23693&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr",
+   "standings": {
+    "Fém Intermédiaire B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-intermediaire-b-91058/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Atome B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-atome-b-91046/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Novice C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-novice-c-91044/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Junior A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-junior-a-91051/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Open A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-open-a-91060/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Atome C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-atome-c-91047/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Junior B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-junior-b-91052/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Novice B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-novice-b-91966/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Benjamine A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-benjamine-a-91048/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Junior C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-junior-c-91053/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Benjamine B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-benjamine-b-91049/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Atome A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-atome-a-91045/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Cadette B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-cadette-b-91055/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Benjamine C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-benjamine-c-91050/tournoi-de-ringuette-de-gatineau-2026-23693.html",
+    "Fém Cadette A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-cadette-a-91054/tournoi-de-ringuette-de-gatineau-2026-23693.html"
+   },
+   "games": [
+    {
+     "num": 1,
+     "gameId": 429936,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-02",
+     "time": "20:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101690
+     },
+     "home": {
+      "name": "South Side Snipers",
+      "id": 101612
+     },
+     "score": null
+    },
+    {
+     "num": 2,
+     "gameId": 430036,
+     "division": "Fém Atome B",
+     "date": "2026-12-03",
+     "time": "17:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101731
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101730
+     },
+     "score": null
+    },
+    {
+     "num": 3,
+     "gameId": 430028,
+     "division": "Fém Novice C",
+     "date": "2026-12-03",
+     "time": "17:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Vortex de Gatineau - C1",
+      "id": 101727
+     },
+     "home": {
+      "name": "Ice breakers",
+      "id": 104545
+     },
+     "score": null
+    },
+    {
+     "num": 4,
+     "gameId": 429983,
+     "division": "Fém Junior A",
+     "date": "2026-12-03",
+     "time": "18:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101629
+     },
+     "home": {
+      "name": "Nepean Ravens",
+      "id": 102249
+     },
+     "score": null
+    },
+    {
+     "num": 5,
+     "gameId": 430029,
+     "division": "Fém Novice C",
+     "date": "2026-12-03",
+     "time": "18:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Vortex de Gatineau - C2",
+      "id": 101729
+     },
+     "home": {
+      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "id": 102985
+     },
+     "score": null
+    },
+    {
+     "num": 6,
+     "gameId": 429957,
+     "division": "Fém Open A",
+     "date": "2026-12-03",
+     "time": "19:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "uOttawa Gee-Gees",
+      "id": 103058
+     },
+     "home": {
+      "name": "Open A - Villeneuve",
+      "id": 102979
+     },
+     "score": null
+    },
+    {
+     "num": 7,
+     "gameId": 429947,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-03",
+     "time": "19:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101740
+     },
+     "home": {
+      "name": "South Side Snipers",
+      "id": 101612
+     },
+     "score": null
+    },
+    {
+     "num": 8,
+     "gameId": 430010,
+     "division": "Fém Atome C",
+     "date": "2026-12-04",
+     "time": "09:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Coyotes",
+      "id": 102283
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101732
+     },
+     "score": null
+    },
+    {
+     "num": 10,
+     "gameId": 430004,
+     "division": "Fém Junior B",
+     "date": "2026-12-04",
+     "time": "12:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Xtreme St-Laurent",
+      "id": 103538
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 101696
+     },
+     "score": null
+    },
+    {
+     "num": 11,
+     "gameId": 430011,
+     "division": "Fém Atome C",
+     "date": "2026-12-04",
+     "time": "12:15",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "BKRA",
+      "id": 103492
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101732
+     },
+     "score": null
+    },
+    {
+     "num": 12,
+     "gameId": 430022,
+     "division": "Fém Novice B",
+     "date": "2026-12-04",
+     "time": "12:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "BKRA Flames Red",
+      "id": 102373
+     },
+     "home": {
+      "name": "BKRA Flames Blue",
+      "id": 102380
+     },
+     "score": null
+    },
+    {
+     "num": 13,
+     "gameId": 430030,
+     "division": "Fém Novice C",
+     "date": "2026-12-04",
+     "time": "13:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau - C2",
+      "id": 101729
+     },
+     "home": {
+      "name": "Ice breakers",
+      "id": 104545
+     },
+     "score": null
+    },
+    {
+     "num": 14,
+     "gameId": 429998,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-04",
+     "time": "13:30",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101628
+     },
+     "home": {
+      "name": "Power",
+      "id": 101745
+     },
+     "score": null
+    },
+    {
+     "num": 15,
+     "gameId": 429977,
+     "division": "Fém Junior C",
+     "date": "2026-12-04",
+     "time": "13:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 102710
+     },
+     "home": {
+      "name": "Sharks de Laval",
+      "id": 103441
+     },
+     "score": null
+    },
+    {
+     "num": 16,
+     "gameId": 429989,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-04",
+     "time": "13:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101695
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101734
+     },
+     "score": null
+    },
+    {
+     "num": 17,
+     "gameId": 430016,
+     "division": "Fém Atome A",
+     "date": "2026-12-04",
+     "time": "15:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101627
+     },
+     "home": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102370
+     },
+     "score": null
+    },
+    {
+     "num": 18,
+     "gameId": 430031,
+     "division": "Fém Novice C",
+     "date": "2026-12-04",
+     "time": "15:15",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "id": 102985
+     },
+     "home": {
+      "name": "Coyotes deux-montagnes",
+      "id": 101963
+     },
+     "score": null
+    },
+    {
+     "num": 19,
+     "gameId": 430037,
+     "division": "Fém Atome B",
+     "date": "2026-12-04",
+     "time": "15:30",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101730
+     },
+     "home": {
+      "name": "BKRA",
+      "id": 102164
+     },
+     "score": null
+    },
+    {
+     "num": 20,
+     "gameId": 430038,
+     "division": "Fém Atome B",
+     "date": "2026-12-04",
+     "time": "15:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101731
+     },
+     "home": {
+      "name": "Avalanches de Ste-Julie",
+      "id": 101703
+     },
+     "score": null
+    },
+    {
+     "num": 21,
+     "gameId": 430023,
+     "division": "Fém Novice B",
+     "date": "2026-12-04",
+     "time": "15:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101726
+     },
+     "home": {
+      "name": "Les Intrépides",
+      "id": 102068
+     },
+     "score": null
+    },
+    {
+     "num": 22,
+     "gameId": 429963,
+     "division": "Fém Cadette B",
+     "date": "2026-12-04",
+     "time": "16:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101738
+     },
+     "home": {
+      "name": "Faucons Longueuil St Hubert",
+      "id": 101803
+     },
+     "score": null
+    },
+    {
+     "num": 23,
+     "gameId": 429984,
+     "division": "Fém Junior A",
+     "date": "2026-12-04",
+     "time": "16:15",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Pierrefonds Lynx",
+      "id": 102083
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 101631
+     },
+     "score": null
+    },
+    {
+     "num": 24,
+     "gameId": 429990,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-04",
+     "time": "16:30",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Coyotes",
+      "id": 101621
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101733
+     },
+     "score": null
+    },
+    {
+     "num": 25,
+     "gameId": 430012,
+     "division": "Fém Atome C",
+     "date": "2026-12-04",
+     "time": "16:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "BKRA",
+      "id": 103492
+     },
+     "home": {
+      "name": "Coyotes",
+      "id": 102283
+     },
+     "score": null
+    },
+    {
+     "num": 26,
+     "gameId": 429971,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-04",
+     "time": "16:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101735
+     },
+     "home": {
+      "name": "Intrépides",
+      "id": 102013
+     },
+     "score": null
+    },
+    {
+     "num": 27,
+     "gameId": 430017,
+     "division": "Fém Atome A",
+     "date": "2026-12-04",
+     "time": "17:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Valkyries de Ste-Marie",
+      "id": 102233
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 101664
+     },
+     "score": null
+    },
+    {
+     "num": 28,
+     "gameId": 429937,
+     "division": "Fém Cadette A",
+     "date": "2026-12-04",
+     "time": "17:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101625
+     },
+     "home": {
+      "name": "Faucons LSH",
+      "id": 101623
+     },
+     "score": null
+    },
+    {
+     "num": 29,
+     "gameId": 429972,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-04",
+     "time": "17:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Coyotes deux-montagnes",
+      "id": 101911
+     },
+     "home": {
+      "name": "BKRA Flames",
+      "id": 102378
+     },
+     "score": null
+    },
+    {
+     "num": 30,
+     "gameId": 429978,
+     "division": "Fém Junior C",
+     "date": "2026-12-04",
+     "time": "17:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 102710
+     },
+     "home": {
+      "name": "Phénix ARSEB",
+      "id": 103080
+     },
+     "score": null
+    },
+    {
+     "num": 31,
+     "gameId": 430005,
+     "division": "Fém Junior B",
+     "date": "2026-12-04",
+     "time": "18:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101736
+     },
+     "home": {
+      "name": "Sharks Laval",
+      "id": 101693
+     },
+     "score": null
+    },
+    {
+     "num": 32,
+     "gameId": 429999,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-04",
+     "time": "18:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Faucons LSH Benjamine A",
+      "id": 101633
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101685
+     },
+     "score": null
+    },
+    {
+     "num": 33,
+     "gameId": 429991,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-04",
+     "time": "18:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "VDR",
+      "id": 101968
+     },
+     "home": {
+      "name": "Intrépides",
+      "id": 101802
+     },
+     "score": null
+    },
+    {
+     "num": 34,
+     "gameId": 429964,
+     "division": "Fém Cadette B",
+     "date": "2026-12-04",
+     "time": "18:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101739
+     },
+     "home": {
+      "name": "Rockets",
+      "id": 101747
+     },
+     "score": null
+    },
+    {
+     "num": 35,
+     "gameId": 429965,
+     "division": "Fém Cadette B",
+     "date": "2026-12-04",
+     "time": "19:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Faucons Longueuil St Hubert",
+      "id": 101803
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 102055
+     },
+     "score": null
+    },
+    {
+     "num": 36,
+     "gameId": 429958,
+     "division": "Fém Open A",
+     "date": "2026-12-04",
+     "time": "19:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "OPEN A BOUCHERVILLE",
+      "id": 102251
+     },
+     "home": {
+      "name": "BKRA Open A",
+      "id": 102095
+     },
+     "score": null
+    },
+    {
+     "num": 37,
+     "gameId": 429948,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-04",
+     "time": "19:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101740
+     },
+     "home": {
+      "name": "Des moulins 2",
+      "id": 101611
+     },
+     "score": null
+    },
+    {
+     "num": 38,
+     "gameId": 429949,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-04",
+     "time": "19:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Phénix 1",
+      "id": 101613
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101690
+     },
+     "score": null
+    },
+    {
+     "num": 39,
+     "gameId": 429938,
+     "division": "Fém Cadette A",
+     "date": "2026-12-04",
+     "time": "20:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Valkyrie",
+      "id": 101785
+     },
+     "home": {
+      "name": "Aigles de Montréal-Nord",
+      "id": 101670
+     },
+     "score": null
+    },
+    {
+     "num": 40,
+     "gameId": 429950,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-04",
+     "time": "20:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Phénix 5",
+      "id": 101617
+     },
+     "home": {
+      "name": "Mustang B1",
+      "id": 101610
+     },
+     "score": null
+    },
+    {
+     "num": 41,
+     "gameId": 429939,
+     "division": "Fém Cadette A",
+     "date": "2026-12-04",
+     "time": "20:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101625
+     },
+     "home": {
+      "name": "Avalanches de Ste-Julie",
+      "id": 101620
+     },
+     "score": null
+    },
+    {
+     "num": 42,
+     "gameId": 429979,
+     "division": "Fém Junior C",
+     "date": "2026-12-04",
+     "time": "20:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Sharks de Laval",
+      "id": 103441
+     },
+     "home": {
+      "name": "Phénix ARSEB",
+      "id": 103080
+     },
+     "score": null
+    },
+    {
+     "num": 43,
+     "gameId": 430024,
+     "division": "Fém Novice B",
+     "date": "2026-12-05",
+     "time": "07:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101726
+     },
+     "home": {
+      "name": "BKRA Flames Red",
+      "id": 102373
+     },
+     "score": null
+    },
+    {
+     "num": 44,
+     "gameId": 430039,
+     "division": "Fém Atome B",
+     "date": "2026-12-05",
+     "time": "07:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Avalanches de Ste-Julie",
+      "id": 101703
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101730
+     },
+     "score": null
+    },
+    {
+     "num": 45,
+     "gameId": 429992,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-05",
+     "time": "07:15",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Coyotes",
+      "id": 101621
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101734
+     },
+     "score": null
+    },
+    {
+     "num": 46,
+     "gameId": 429993,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-05",
+     "time": "07:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101695
+     },
+     "home": {
+      "name": "Intrépides",
+      "id": 101802
+     },
+     "score": null
+    },
+    {
+     "num": 47,
+     "gameId": 430000,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-05",
+     "time": "08:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101628
+     },
+     "home": {
+      "name": "Faucons LSH Benjamine A",
+      "id": 101633
+     },
+     "score": null
+    },
+    {
+     "num": 48,
+     "gameId": 430040,
+     "division": "Fém Atome B",
+     "date": "2026-12-05",
+     "time": "08:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "BKRA",
+      "id": 102164
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101731
+     },
+     "score": null
+    },
+    {
+     "num": 49,
+     "gameId": 430018,
+     "division": "Fém Atome A",
+     "date": "2026-12-05",
+     "time": "08:15",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101627
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 101664
+     },
+     "score": null
+    },
+    {
+     "num": 50,
+     "gameId": 430032,
+     "division": "Fém Novice C",
+     "date": "2026-12-05",
+     "time": "08:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Vortex de Gatineau - C1",
+      "id": 101727
+     },
+     "home": {
+      "name": "Coyotes deux-montagnes",
+      "id": 101963
+     },
+     "score": null
+    },
+    {
+     "num": 51,
+     "gameId": 429973,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-05",
+     "time": "08:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101735
+     },
+     "home": {
+      "name": "Coyotes deux-montagnes",
+      "id": 101911
+     },
+     "score": null
+    },
+    {
+     "num": 52,
+     "gameId": 430001,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-05",
+     "time": "09:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Power",
+      "id": 101745
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101685
+     },
+     "score": null
+    },
+    {
+     "num": 53,
+     "gameId": 430006,
+     "division": "Fém Junior B",
+     "date": "2026-12-05",
+     "time": "09:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101736
+     },
+     "home": {
+      "name": "Xtreme St-Laurent",
+      "id": 103538
+     },
+     "score": null
+    },
+    {
+     "num": 54,
+     "gameId": 430013,
+     "division": "Fém Atome C",
+     "date": "2026-12-05",
+     "time": "09:15",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101732
+     },
+     "home": {
+      "name": "BKRA",
+      "id": 103492
+     },
+     "score": null
+    },
+    {
+     "num": 55,
+     "gameId": 430033,
+     "division": "Fém Novice C",
+     "date": "2026-12-05",
+     "time": "09:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Ice breakers",
+      "id": 104545
+     },
+     "home": {
+      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "id": 102985
+     },
+     "score": null
+    },
+    {
+     "num": 56,
+     "gameId": 430019,
+     "division": "Fém Atome A",
+     "date": "2026-12-05",
+     "time": "09:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102370
+     },
+     "home": {
+      "name": "Valkyries de Ste-Marie",
+      "id": 102233
+     },
+     "score": null
+    },
+    {
+     "num": 57,
+     "gameId": 430025,
+     "division": "Fém Novice B",
+     "date": "2026-12-05",
+     "time": "10:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "BKRA Flames Blue",
+      "id": 102380
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101726
+     },
+     "score": null
+    },
+    {
+     "num": 58,
+     "gameId": 429985,
+     "division": "Fém Junior A",
+     "date": "2026-12-05",
+     "time": "10:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101629
+     },
+     "home": {
+      "name": "Pierrefonds Lynx",
+      "id": 102083
+     },
+     "score": null
+    },
+    {
+     "num": 59,
+     "gameId": 429940,
+     "division": "Fém Cadette A",
+     "date": "2026-12-05",
+     "time": "10:15",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Aigles de Montréal-Nord",
+      "id": 101670
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101625
+     },
+     "score": null
+    },
+    {
+     "num": 60,
+     "gameId": 430026,
+     "division": "Fém Novice B",
+     "date": "2026-12-05",
+     "time": "10:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Les Intrépides",
+      "id": 102068
+     },
+     "home": {
+      "name": "BKRA Flames Red",
+      "id": 102373
+     },
+     "score": null
+    },
+    {
+     "num": 61,
+     "gameId": 429966,
+     "division": "Fém Cadette B",
+     "date": "2026-12-05",
+     "time": "10:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101739
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 102055
+     },
+     "score": null
+    },
+    {
+     "num": 63,
+     "gameId": 430041,
+     "division": "Fém Atome B",
+     "date": "2026-12-05",
+     "time": "11:15",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "BKRA",
+      "id": 102164
+     },
+     "home": {
+      "name": "Avalanches de Ste-Julie",
+      "id": 101703
+     },
+     "score": null
+    },
+    {
+     "num": 64,
+     "gameId": 430007,
+     "division": "Fém Junior B",
+     "date": "2026-12-05",
+     "time": "11:30",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Sharks Laval",
+      "id": 101693
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 101696
+     },
+     "score": null
+    },
+    {
+     "num": 65,
+     "gameId": 429980,
+     "division": "Fém Junior C",
+     "date": "2026-12-05",
+     "time": "11:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Sharks de Laval",
+      "id": 103441
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 102710
+     },
+     "score": null
+    },
+    {
+     "num": 66,
+     "gameId": 429994,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-05",
+     "time": "11:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Intrépides",
+      "id": 101802
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101733
+     },
+     "score": null
+    },
+    {
+     "num": 67,
+     "gameId": 430034,
+     "division": "Fém Novice C",
+     "date": "2026-12-05",
+     "time": "12:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "id": 102985
+     },
+     "home": {
+      "name": "Vortex de Gatineau - C1",
+      "id": 101727
+     },
+     "score": null
+    },
+    {
+     "num": 68,
+     "gameId": 429995,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-05",
+     "time": "12:30",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "VDR",
+      "id": 101968
+     },
+     "home": {
+      "name": "Coyotes",
+      "id": 101621
+     },
+     "score": null
+    },
+    {
+     "num": 69,
+     "gameId": 430014,
+     "division": "Fém Atome C",
+     "date": "2026-12-05",
+     "time": "12:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Coyotes",
+      "id": 102283
+     },
+     "home": {
+      "name": "BKRA",
+      "id": 103492
+     },
+     "score": null
+    },
+    {
+     "num": 70,
+     "gameId": 429986,
+     "division": "Fém Junior A",
+     "date": "2026-12-05",
+     "time": "12:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Nepean Ravens",
+      "id": 102249
+     },
+     "home": {
+      "name": "Avalanches",
+      "id": 101631
+     },
+     "score": null
+    },
+    {
+     "num": 71,
+     "gameId": 430020,
+     "division": "Fém Atome A",
+     "date": "2026-12-05",
+     "time": "13:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Avalanches",
+      "id": 101664
+     },
+     "home": {
+      "name": "Lynx de Pierrefonds",
+      "id": 102370
+     },
+     "score": null
+    },
+    {
+     "num": 72,
+     "gameId": 430035,
+     "division": "Fém Novice C",
+     "date": "2026-12-05",
+     "time": "13:30",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Coyotes deux-montagnes",
+      "id": 101963
+     },
+     "home": {
+      "name": "Vortex de Gatineau - C2",
+      "id": 101729
+     },
+     "score": null
+    },
+    {
+     "num": 73,
+     "gameId": 429967,
+     "division": "Fém Cadette B",
+     "date": "2026-12-05",
+     "time": "13:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101738
+     },
+     "home": {
+      "name": "Rockets",
+      "id": 101747
+     },
+     "score": null
+    },
+    {
+     "num": 74,
+     "gameId": 429941,
+     "division": "Fém Cadette A",
+     "date": "2026-12-05",
+     "time": "13:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Faucons LSH",
+      "id": 101623
+     },
+     "home": {
+      "name": "Valkyrie",
+      "id": 101785
+     },
+     "score": null
+    },
+    {
+     "num": 75,
+     "gameId": 429942,
+     "division": "Fém Cadette A",
+     "date": "2026-12-05",
+     "time": "14:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Avalanches de Ste-Julie",
+      "id": 101620
+     },
+     "home": {
+      "name": "Aigles de Montréal-Nord",
+      "id": 101670
+     },
+     "score": null
+    },
+    {
+     "num": 76,
+     "gameId": 429974,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-05",
+     "time": "14:30",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "BKRA Flames",
+      "id": 102378
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101735
+     },
+     "score": null
+    },
+    {
+     "num": 77,
+     "gameId": 430027,
+     "division": "Fém Novice B",
+     "date": "2026-12-05",
+     "time": "14:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Les Intrépides",
+      "id": 102068
+     },
+     "home": {
+      "name": "BKRA Flames Blue",
+      "id": 102380
+     },
+     "score": null
+    },
+    {
+     "num": 78,
+     "gameId": 429968,
+     "division": "Fém Cadette B",
+     "date": "2026-12-05",
+     "time": "14:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Faucons Longueuil St Hubert",
+      "id": 101803
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101739
+     },
+     "score": null
+    },
+    {
+     "num": 79,
+     "gameId": 430021,
+     "division": "Fém Atome A",
+     "date": "2026-12-05",
+     "time": "15:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Valkyries de Ste-Marie",
+      "id": 102233
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101627
+     },
+     "score": null
+    },
+    {
+     "num": 80,
+     "gameId": 429981,
+     "division": "Fém Junior C",
+     "date": "2026-12-05",
+     "time": "15:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Phénix ARSEB",
+      "id": 103080
+     },
+     "home": {
+      "name": "Sharks de Laval",
+      "id": 103441
+     },
+     "score": null
+    },
+    {
+     "num": 81,
+     "gameId": 430015,
+     "division": "Fém Atome C",
+     "date": "2026-12-05",
+     "time": "15:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Vortex de Gatineau",
+      "id": 101732
+     },
+     "home": {
+      "name": "Coyotes",
+      "id": 102283
+     },
+     "score": null
+    },
+    {
+     "num": 82,
+     "gameId": 429975,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-05",
+     "time": "15:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Intrépides",
+      "id": 102013
+     },
+     "home": {
+      "name": "Coyotes deux-montagnes",
+      "id": 101911
+     },
+     "score": null
+    },
+    {
+     "num": 83,
+     "gameId": 430008,
+     "division": "Fém Junior B",
+     "date": "2026-12-05",
+     "time": "16:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Avalanches",
+      "id": 101696
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101736
+     },
+     "score": null
+    },
+    {
+     "num": 84,
+     "gameId": 429951,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-05",
+     "time": "16:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Phénix 5",
+      "id": 101617
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101740
+     },
+     "score": null
+    },
+    {
+     "num": 85,
+     "gameId": 429952,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-05",
+     "time": "16:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "South Side Snipers",
+      "id": 101612
+     },
+     "home": {
+      "name": "Mustang B1",
+      "id": 101610
+     },
+     "score": null
+    },
+    {
+     "num": 86,
+     "gameId": 429959,
+     "division": "Fém Open A",
+     "date": "2026-12-05",
+     "time": "16:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "OPEN A BOUCHERVILLE",
+      "id": 102251
+     },
+     "home": {
+      "name": "Open A - Villeneuve",
+      "id": 102979
+     },
+     "score": null
+    },
+    {
+     "num": 87,
+     "gameId": 429960,
+     "division": "Fém Open A",
+     "date": "2026-12-05",
+     "time": "17:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "BKRA Open A",
+      "id": 102095
+     },
+     "home": {
+      "name": "uOttawa Gee-Gees",
+      "id": 103058
+     },
+     "score": null
+    },
+    {
+     "num": 88,
+     "gameId": 430002,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-05",
+     "time": "17:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101685
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101628
+     },
+     "score": null
+    },
+    {
+     "num": 89,
+     "gameId": 429953,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-05",
+     "time": "17:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Des moulins 2",
+      "id": 101611
+     },
+     "home": {
+      "name": "Phénix 1",
+      "id": 101613
+     },
+     "score": null
+    },
+    {
+     "num": 90,
+     "gameId": 429943,
+     "division": "Fém Cadette A",
+     "date": "2026-12-05",
+     "time": "17:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Faucons LSH",
+      "id": 101623
+     },
+     "home": {
+      "name": "Avalanches de Ste-Julie",
+      "id": 101620
+     },
+     "score": null
+    },
+    {
+     "num": 91,
+     "gameId": 430009,
+     "division": "Fém Junior B",
+     "date": "2026-12-05",
+     "time": "17:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Xtreme St-Laurent",
+      "id": 103538
+     },
+     "home": {
+      "name": "Sharks Laval",
+      "id": 101693
+     },
+     "score": null
+    },
+    {
+     "num": 92,
+     "gameId": 429944,
+     "division": "Fém Cadette A",
+     "date": "2026-12-05",
+     "time": "18:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Valkyrie",
+      "id": 101785
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101625
+     },
+     "score": null
+    },
+    {
+     "num": 93,
+     "gameId": 430003,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-05",
+     "time": "18:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Power",
+      "id": 101745
+     },
+     "home": {
+      "name": "Faucons LSH Benjamine A",
+      "id": 101633
+     },
+     "score": null
+    },
+    {
+     "num": 94,
+     "gameId": 429996,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-05",
+     "time": "18:45",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101734
+     },
+     "home": {
+      "name": "VDR",
+      "id": 101968
+     },
+     "score": null
+    },
+    {
+     "num": 95,
+     "gameId": 429987,
+     "division": "Fém Junior A",
+     "date": "2026-12-05",
+     "time": "18:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Pierrefonds Lynx",
+      "id": 102083
+     },
+     "home": {
+      "name": "Nepean Ravens",
+      "id": 102249
+     },
+     "score": null
+    },
+    {
+     "num": 96,
+     "gameId": 429997,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-05",
+     "time": "18:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101733
+     },
+     "home": {
+      "name": "Avalanches de Sainte-Julie",
+      "id": 101695
+     },
+     "score": null
+    },
+    {
+     "num": 97,
+     "gameId": 429976,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-05",
+     "time": "19:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Intrépides",
+      "id": 102013
+     },
+     "home": {
+      "name": "BKRA Flames",
+      "id": 102378
+     },
+     "score": null
+    },
+    {
+     "num": 98,
+     "gameId": 429988,
+     "division": "Fém Junior A",
+     "date": "2026-12-05",
+     "time": "19:45",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Avalanches",
+      "id": 101631
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 101629
+     },
+     "score": null
+    },
+    {
+     "num": 99,
+     "gameId": 429982,
+     "division": "Fém Junior C",
+     "date": "2026-12-05",
+     "time": "20:00",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Phénix ARSEB",
+      "id": 103080
+     },
+     "home": {
+      "name": "Vortex de Gatineau",
+      "id": 102710
+     },
+     "score": null
+    },
+    {
+     "num": 100,
+     "gameId": 429969,
+     "division": "Fém Cadette B",
+     "date": "2026-12-05",
+     "time": "20:00",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Rockets",
+      "id": 101747
+     },
+     "home": {
+      "name": "Faucons Longueuil St Hubert",
+      "id": 101803
+     },
+     "score": null
+    },
+    {
+     "num": 101,
+     "gameId": 429970,
+     "division": "Fém Cadette B",
+     "date": "2026-12-05",
+     "time": "20:00",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Avalanches",
+      "id": 102055
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101738
+     },
+     "score": null
+    },
+    {
+     "num": 102,
+     "gameId": 429961,
+     "division": "Fém Open A",
+     "date": "2026-12-05",
+     "time": "20:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Open A - Villeneuve",
+      "id": 102979
+     },
+     "home": {
+      "name": "BKRA Open A",
+      "id": 102095
+     },
+     "score": null
+    },
+    {
+     "num": 103,
+     "gameId": 429954,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-05",
+     "time": "20:45",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Mustang B1",
+      "id": 101610
+     },
+     "home": {
+      "name": "Des moulins 2",
+      "id": 101611
+     },
+     "score": null
+    },
+    {
+     "num": 104,
+     "gameId": 429955,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-05",
+     "time": "21:00",
+     "arena": "Glace B - Desjardins",
+     "away": {
+      "name": "Vortex de Gatineau - B1",
+      "id": 101690
+     },
+     "home": {
+      "name": "Phénix 5",
+      "id": 101617
+     },
+     "score": null
+    },
+    {
+     "num": 105,
+     "gameId": 429956,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-05",
+     "time": "21:00",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Phénix 1",
+      "id": 101613
+     },
+     "home": {
+      "name": "Vortex de Gatineau - B2",
+      "id": 101740
+     },
+     "score": null
+    },
+    {
+     "num": 106,
+     "gameId": 429962,
+     "division": "Fém Open A",
+     "date": "2026-12-05",
+     "time": "21:00",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "uOttawa Gee-Gees",
+      "id": 103058
+     },
+     "home": {
+      "name": "OPEN A BOUCHERVILLE",
+      "id": 102251
+     },
+     "score": null
+    },
+    {
+     "num": 126,
+     "gameId": 430114,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-06",
+     "time": "07:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 4",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 129,
+     "gameId": 430121,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-06",
+     "time": "07:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 119,
+     "gameId": 430095,
+     "division": "Fém Atome A",
+     "date": "2026-12-06",
+     "time": "07:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 125,
+     "gameId": 430113,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-06",
+     "time": "07:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 112,
+     "gameId": 429945,
+     "division": "Fém Cadette A",
+     "date": "2026-12-06",
+     "time": "08:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Aigles de Montréal-Nord",
+      "id": 101670
+     },
+     "home": {
+      "name": "Faucons LSH",
+      "id": 101623
+     },
+     "score": null
+    },
+    {
+     "num": 115,
+     "gameId": 430052,
+     "division": "Fém Novice B",
+     "date": "2026-12-06",
+     "time": "08:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 114,
+     "gameId": 429946,
+     "division": "Fém Cadette A",
+     "date": "2026-12-06",
+     "time": "08:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Avalanches de Ste-Julie",
+      "id": 101620
+     },
+     "home": {
+      "name": "Valkyrie",
+      "id": 101785
+     },
+     "score": null
+    },
+    {
+     "num": 139,
+     "gameId": 430146,
+     "division": "Fém Junior C",
+     "date": "2026-12-06",
+     "time": "08:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 131,
+     "gameId": 430127,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-06",
+     "time": "09:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 137,
+     "gameId": 430140,
+     "division": "Fém Junior B",
+     "date": "2026-12-06",
+     "time": "09:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 141,
+     "gameId": 430152,
+     "division": "Fém Cadette B",
+     "date": "2026-12-06",
+     "time": "09:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 145,
+     "gameId": 430164,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-06",
+     "time": "09:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 147,
+     "gameId": 430169,
+     "division": "Fém Open A",
+     "date": "2026-12-06",
+     "time": "10:00",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 4",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 148,
+     "gameId": 430170,
+     "division": "Fém Open A",
+     "date": "2026-12-06",
+     "time": "10:00",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 120,
+     "gameId": 430096,
+     "division": "Fém Atome A",
+     "date": "2026-12-06",
+     "time": "10:15",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Finale Gagnant match 0119",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 123,
+     "gameId": 430108,
+     "division": "Fém Atome C",
+     "date": "2026-12-06",
+     "time": "10:15",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 121,
+     "gameId": 430102,
+     "division": "Fém Atome B",
+     "date": "2026-12-06",
+     "time": "11:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 143,
+     "gameId": 430158,
+     "division": "Fém Cadette A",
+     "date": "2026-12-06",
+     "time": "11:15",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 116,
+     "gameId": 430053,
+     "division": "Fém Novice B",
+     "date": "2026-12-06",
+     "time": "11:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Finale Gagnant match 0115",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 127,
+     "gameId": 430115,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-06",
+     "time": "11:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Finale Gagnant match 0126",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 0125",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 134,
+     "gameId": 430133,
+     "division": "Fém Junior A",
+     "date": "2026-12-06",
+     "time": "12:15",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 4",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 140,
+     "gameId": 430147,
+     "division": "Fém Junior C",
+     "date": "2026-12-06",
+     "time": "12:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Finale Gagnant match 0139",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 117,
+     "gameId": 430075,
+     "division": "Fém Novice C",
+     "date": "2026-12-06",
+     "time": "12:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 2",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 130,
+     "gameId": 430122,
+     "division": "Fém Benjamine B",
+     "date": "2026-12-06",
+     "time": "12:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Finale Gagnant match 0129",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 132,
+     "gameId": 430128,
+     "division": "Fém Benjamine C",
+     "date": "2026-12-06",
+     "time": "13:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Finale Gagnant match 0131",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 138,
+     "gameId": 430141,
+     "division": "Fém Junior B",
+     "date": "2026-12-06",
+     "time": "13:15",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Finale Gagnant match 0137",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 133,
+     "gameId": 430132,
+     "division": "Fém Junior A",
+     "date": "2026-12-06",
+     "time": "13:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Demi-finale Groupe A Pos. 3",
+      "id": null
+     },
+     "home": {
+      "name": "Demi-finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 142,
+     "gameId": 430153,
+     "division": "Fém Cadette B",
+     "date": "2026-12-06",
+     "time": "13:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Finale Gagnant match 0141",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 124,
+     "gameId": 430109,
+     "division": "Fém Atome C",
+     "date": "2026-12-06",
+     "time": "14:15",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Finale Gagnant match 0123",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 144,
+     "gameId": 430159,
+     "division": "Fém Cadette A",
+     "date": "2026-12-06",
+     "time": "14:15",
+     "arena": "Glace Branchaud",
+     "away": {
+      "name": "Finale Gagnant match 0143",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 122,
+     "gameId": 430103,
+     "division": "Fém Atome B",
+     "date": "2026-12-06",
+     "time": "14:30",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Finale Gagnant match 0121",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 149,
+     "gameId": 430171,
+     "division": "Fém Open A",
+     "date": "2026-12-06",
+     "time": "14:30",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Finale Gagnant match 0148",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 0147",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 146,
+     "gameId": 430165,
+     "division": "Fém Intermédiaire B",
+     "date": "2026-12-06",
+     "time": "15:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Finale Gagnant match 0145",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 118,
+     "gameId": 430076,
+     "division": "Fém Novice C",
+     "date": "2026-12-06",
+     "time": "15:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Finale Gagnant match 0117",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Groupe A Pos. 1",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 128,
+     "gameId": 430116,
+     "division": "Fém Benjamine A",
+     "date": "2026-12-06",
+     "time": "15:45",
+     "arena": "Glace Kruger",
+     "away": {
+      "name": "Finale consolation Perdant du match 0126",
+      "id": null
+     },
+     "home": {
+      "name": "Finale consolation Perdant du match 0125",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 135,
+     "gameId": 430134,
+     "division": "Fém Junior A",
+     "date": "2026-12-06",
+     "time": "16:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Finale Gagnant match 0134",
+      "id": null
+     },
+     "home": {
+      "name": "Finale Gagnant match 0133",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 136,
+     "gameId": 430135,
+     "division": "Fém Junior A",
+     "date": "2026-12-06",
+     "time": "16:45",
+     "arena": "Glace D - Dilawri Auto",
+     "away": {
+      "name": "Finale consolation Perdant du match 0134",
+      "id": null
+     },
+     "home": {
+      "name": "Finale consolation Perdant du match 0133",
+      "id": null
+     },
+     "score": null
+    },
+    {
+     "num": 150,
+     "gameId": 430172,
+     "division": "Fém Open A",
+     "date": "2026-12-06",
+     "time": "17:30",
+     "arena": "Glace C - Gerik",
+     "away": {
+      "name": "Finale consolation Perdant du match 0148",
+      "id": null
+     },
+     "home": {
+      "name": "Finale consolation Perdant du match 0147",
       "id": null
      },
      "score": null
