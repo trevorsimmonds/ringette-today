@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-10T17:06:25.148Z",
+ "updatedAt": "2026-11-11T17:13:51.031Z",
  "leagues": [
   {
    "id": 104,
@@ -770,7 +770,11 @@
    "arena": "Olympia - Deux Montagnes",
    "home": "Laurentides",
    "away": "Ottawa",
-   "detailId": 23405
+   "detailId": 23405,
+   "score": {
+    "away": 6,
+    "home": 0
+   }
   },
   {
    "num": 2023,
