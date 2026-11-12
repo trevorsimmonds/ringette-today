@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-12T04:08:00.507Z",
- "today": "2026-11-11",
+ "updatedAt": "2026-11-12T13:11:04.823Z",
+ "today": "2026-11-12",
  "tournaments": [
   {
    "id": 23652,
@@ -281,7 +281,10 @@
       "name": "Mustangs 3",
       "id": 101240
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 9
+     }
     },
     {
      "num": 14,
