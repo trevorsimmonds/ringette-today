@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-11T17:13:51.031Z",
+ "updatedAt": "2026-11-12T00:48:18.834Z",
  "leagues": [
   {
    "id": 104,
@@ -694,7 +694,11 @@
    "arena": "Rolland - Montréal Nord",
    "home": "BLL",
    "away": "West Ottawa",
-   "detailId": 23401
+   "detailId": 23401,
+   "score": {
+    "away": 7,
+    "home": 2
+   }
   },
   {
    "num": 1030,
@@ -760,7 +764,11 @@
    "arena": "Colisée Videotron B - Trois-Rivières",
    "home": "BLL",
    "away": "Québec",
-   "detailId": 23323
+   "detailId": 23323,
+   "score": {
+    "away": 8,
+    "home": 0
+   }
   },
   {
    "num": 1033,
@@ -798,7 +806,11 @@
    "arena": "Colisée Videotron B - Trois-Rivières",
    "home": "BLL",
    "away": "Québec",
-   "detailId": 23325
+   "detailId": 23325,
+   "score": {
+    "away": 13,
+    "home": 0
+   }
   },
   {
    "num": 1034,
