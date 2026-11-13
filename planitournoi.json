@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-12T13:11:04.823Z",
- "today": "2026-11-12",
+ "updatedAt": "2026-11-13T18:00:29.955Z",
+ "today": "2026-11-13",
  "tournaments": [
   {
    "id": 23652,
@@ -301,7 +301,10 @@
       "name": "BKRA 1",
       "id": 102050
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 2
+     }
     },
     {
      "num": 15,
@@ -318,7 +321,10 @@
       "name": "Montréal-Nord",
       "id": 102142
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 7
+     }
     },
     {
      "num": 16,
@@ -335,7 +341,10 @@
       "name": "Sharks Laval",
       "id": 101753
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 4
+     }
     },
     {
      "num": 17,
@@ -352,7 +361,10 @@
       "name": "Pointe-Claire",
       "id": 101744
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": 18,
@@ -369,7 +381,10 @@
       "name": "Pointe-Claire",
       "id": 101819
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 8
+     }
     },
     {
      "num": 19,
@@ -386,7 +401,10 @@
       "name": "Mustangs",
       "id": 101242
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 8
+     }
     },
     {
      "num": 20,
@@ -403,7 +421,10 @@
       "name": "Pierrefonds 3",
       "id": 101248
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 7
+     }
     },
     {
      "num": 21,
@@ -420,7 +441,10 @@
       "name": "Faucons LSH 1",
       "id": 101700
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": 22,
@@ -437,7 +461,10 @@
       "name": "Montréal-Nord 5",
       "id": 101405
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 3
+     }
     },
     {
      "num": 23,
@@ -454,7 +481,10 @@
       "name": "Des Moulins 2",
       "id": 101253
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 4
+     }
     },
     {
      "num": 24,
@@ -471,7 +501,10 @@
       "name": "Tornade Desmoulins",
       "id": 101709
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 2
+     }
     },
     {
      "num": 25,
@@ -488,7 +521,10 @@
       "name": "Mustangs",
       "id": 101606
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 0
+     }
     },
     {
      "num": 26,
@@ -505,7 +541,10 @@
       "name": "Faucons LSH",
       "id": 101756
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 1
+     }
     },
     {
      "num": 27,
@@ -522,7 +561,10 @@
       "name": "Guelph Predators",
       "id": 101271
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 5
+     }
     },
     {
      "num": 28,
@@ -539,7 +581,10 @@
       "name": "Roussillon Rockets",
       "id": 102018
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": 29,
@@ -556,7 +601,10 @@
       "name": "Tornades Desmoulins",
       "id": 102191
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 4
+     }
     },
     {
      "num": 30,
@@ -1860,7 +1908,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101950
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 0
+     }
     },
     {
      "num": null,
@@ -1877,7 +1928,10 @@
       "name": "Lynx de Pierrefonds",
       "id": 102725
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -1894,7 +1948,10 @@
       "name": "L'Orbite Boucherville",
       "id": 101615
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -1911,7 +1968,10 @@
       "name": "Avalanches de Sainte-Julie B1",
       "id": 101368
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -1928,7 +1988,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101699
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -1945,7 +2008,10 @@
       "name": "Sharks de Laval",
       "id": 103416
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -1962,7 +2028,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101807
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -1979,7 +2048,10 @@
       "name": "Les Colibris de Lévis",
       "id": 102168
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -1996,7 +2068,10 @@
       "name": "L'Orbite Boucherville B2",
       "id": 102672
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 6
+     }
     },
     {
      "num": null,
@@ -2030,7 +2105,10 @@
       "name": "Lynx de Pierrefonds",
       "id": 102707
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -3477,6 +3555,23 @@
      "score": null
     },
     {
+     "num": 0,
+     "gameId": 429454,
+     "division": "Fém Benjamine U14 C",
+     "date": "2026-11-27",
+     "time": "11:00",
+     "arena": "Ray Bourque B",
+     "away": {
+      "name": "Metcalfe-Beuman",
+      "id": 102556
+     },
+     "home": {
+      "name": "La Capitale",
+      "id": 102735
+     },
+     "score": null
+    },
+    {
      "num": null,
      "gameId": 425012,
      "division": "Fém Atome A",
@@ -3512,23 +3607,6 @@
     },
     {
      "num": null,
-     "gameId": 429454,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-27",
-     "time": "11:00",
-     "arena": "Ray Bourque B",
-     "away": {
-      "name": "Metcalfe-Beuman",
-      "id": 102556
-     },
-     "home": {
-      "name": "La Capitale",
-      "id": 102735
-     },
-     "score": null
-    },
-    {
-     "num": null,
      "gameId": 429431,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -3558,23 +3636,6 @@
      "home": {
       "name": "Metcalfe",
       "id": 102153
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429457,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-27",
-     "time": "12:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Lévis-2",
-      "id": 103488
-     },
-     "home": {
-      "name": "Ottawa-Telewiak",
-      "id": 102387
      },
      "score": null
     },
@@ -3660,23 +3721,6 @@
      "home": {
       "name": "Nepean-Jenson",
       "id": 102770
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429462,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-27",
-     "time": "13:00",
-     "arena": "Ray Bourque B",
-     "away": {
-      "name": "Ring Robbers",
-      "id": 102856
-     },
-     "home": {
-      "name": "PCRA",
-      "id": 104640
      },
      "score": null
     },
@@ -3920,23 +3964,6 @@
     },
     {
      "num": null,
-     "gameId": 429455,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-27",
-     "time": "16:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "La Capitale",
-      "id": 102735
-     },
-     "home": {
-      "name": "Nepean-1",
-      "id": 103315
-     },
-     "score": null
-    },
-    {
-     "num": null,
      "gameId": 425139,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -4000,23 +4027,6 @@
      "home": {
       "name": "NDG",
       "id": 104566
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429459,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-27",
-     "time": "17:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Ottawa-Telewiak",
-      "id": 102387
-     },
-     "home": {
-      "name": "Pierrefonds",
-      "id": 103316
      },
      "score": null
     },
@@ -4238,23 +4248,6 @@
      "home": {
       "name": "Ste-Marie",
       "id": 102252
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429460,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-27",
-     "time": "20:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "PCRA",
-      "id": 104640
-     },
-     "home": {
-      "name": "Metcalfe",
-      "id": 102713
      },
      "score": null
     },
@@ -4549,23 +4542,6 @@
     },
     {
      "num": null,
-     "gameId": 429456,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-28",
-     "time": "08:00",
-     "arena": "Westwood",
-     "away": {
-      "name": "Nepean-1",
-      "id": 103315
-     },
-     "home": {
-      "name": "Metcalfe-Beuman",
-      "id": 102556
-     },
-     "score": null
-    },
-    {
-     "num": null,
      "gameId": 429429,
      "division": "Fém Novice B",
      "date": "2026-11-28",
@@ -4612,23 +4588,6 @@
      "home": {
       "name": "BKRA",
       "id": 104560
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429458,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-28",
-     "time": "09:00",
-     "arena": "Westwood",
-     "away": {
-      "name": "Pierrefonds",
-      "id": 103316
-     },
-     "home": {
-      "name": "Lévis-2",
-      "id": 103488
      },
      "score": null
     },
@@ -4697,23 +4656,6 @@
      "home": {
       "name": "Laval-C1",
       "id": 103861
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429461,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-28",
-     "time": "10:00",
-     "arena": "Westwood",
-     "away": {
-      "name": "Metcalfe",
-      "id": 102713
-     },
-     "home": {
-      "name": "Ring Robbers",
-      "id": 102856
      },
      "score": null
     },
@@ -5093,23 +5035,6 @@
     },
     {
      "num": null,
-     "gameId": 429518,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-28",
-     "time": "15:00",
-     "arena": "Ray Bourque B",
-     "away": {
-      "name": "8ième de finale Groupe A Pos. 2",
-      "id": null
-     },
-     "home": {
-      "name": "8ième de finale Groupe A Pos. 2",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
      "gameId": 425124,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -5280,40 +5205,6 @@
     },
     {
      "num": null,
-     "gameId": 429519,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-28",
-     "time": "17:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Quart de finale Groupe B Pos. 3",
-      "id": null
-     },
-     "home": {
-      "name": "Quart de finale Groupe A Pos. 1",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429521,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-28",
-     "time": "17:00",
-     "arena": "Westwood",
-     "away": {
-      "name": "Quart de finale Groupe A Pos. 3",
-      "id": null
-     },
-     "home": {
-      "name": "Quart de finale Groupe C Pos. 1",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
      "gameId": 429528,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
@@ -5394,23 +5285,6 @@
      "home": {
       "name": "Pierrefonds",
       "id": 103450
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429520,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-28",
-     "time": "18:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Quart de finale Groupe C Pos. 3",
-      "id": null
-     },
-     "home": {
-      "name": "Quart de finale Groupe B Pos. 1",
-      "id": null
      },
      "score": null
     },
@@ -5773,23 +5647,6 @@
     },
     {
      "num": null,
-     "gameId": 429522,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-29",
-     "time": "07:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Quart de finale Gagnant match BENC10",
-      "id": null
-     },
-     "home": {
-      "name": "Quart de finale Meilleur 2 ème",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
      "gameId": 425113,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-29",
@@ -6079,23 +5936,6 @@
     },
     {
      "num": null,
-     "gameId": 429523,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-29",
-     "time": "11:00",
-     "arena": "BB Annex",
-     "away": {
-      "name": "Demi-finale Gagnant match BENC13",
-      "id": null
-     },
-     "home": {
-      "name": "Demi-finale Gagnant match BENC11",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
      "gameId": 425114,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-29",
@@ -6158,23 +5998,6 @@
      },
      "home": {
       "name": "Demi-finale Groupe A Pos. 1",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429524,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-29",
-     "time": "12:00",
-     "arena": "Ray Bourque A",
-     "away": {
-      "name": "Demi-finale Gagnant match BENC14",
-      "id": null
-     },
-     "home": {
-      "name": "Demi-finale Gagnant match BENC12",
       "id": null
      },
      "score": null
@@ -6396,23 +6219,6 @@
      },
      "home": {
       "name": "Finale Gagnant match ATOB20",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
-     "gameId": 429525,
-     "division": "Fém Benjamine U14 C",
-     "date": "2026-11-29",
-     "time": "16:00",
-     "arena": "BB Annex",
-     "away": {
-      "name": "Finale Gagnant match BENC16",
-      "id": null
-     },
-     "home": {
-      "name": "Finale Gagnant match BENC15",
       "id": null
      },
      "score": null
