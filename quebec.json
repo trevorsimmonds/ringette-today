@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-12T00:48:18.834Z",
+ "updatedAt": "2026-11-14T22:32:19.502Z",
  "leagues": [
   {
    "id": 104,
@@ -854,7 +854,11 @@
    "arena": "Carleton University - Ottawa",
    "home": "Ottawa",
    "away": "Rive-Sud",
-   "detailId": 23409
+   "detailId": 23409,
+   "score": {
+    "away": 7,
+    "home": 3
+   }
   },
   {
    "num": 2025,
