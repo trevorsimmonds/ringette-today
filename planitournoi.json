@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-14T19:26:50.947Z",
+ "updatedAt": "2026-11-14T23:19:42.880Z",
  "today": "2026-11-14",
  "tournaments": [
   {
@@ -1261,7 +1261,10 @@
       "name": "London Lynx",
       "id": 101260
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 3
+     }
     },
     {
      "num": 63,
@@ -1278,7 +1281,10 @@
       "name": "Faucons LSH",
       "id": 101634
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": 64,
@@ -1295,7 +1301,10 @@
       "name": "Gatineau",
       "id": 102305
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 5
+     }
     },
     {
      "num": 65,
@@ -1312,7 +1321,10 @@
       "name": "Sharks de Laval",
       "id": 101399
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 2
+     }
     },
     {
      "num": 66,
@@ -1329,7 +1341,10 @@
       "name": "uOttawa Gee-Gees",
       "id": 101244
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 5
+     }
     },
     {
      "num": 67,
@@ -1346,7 +1361,10 @@
       "name": "Ottawa",
       "id": 101311
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 3
+     }
     },
     {
      "num": 68,
@@ -1363,7 +1381,10 @@
       "name": "Gatineau Vortex",
       "id": 101406
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 1
+     }
     },
     {
      "num": 69,
@@ -1380,7 +1401,10 @@
       "name": "Barrie Ringette",
       "id": 101453
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 6
+     }
     },
     {
      "num": 70,
@@ -1662,12 +1686,12 @@
      "time": "10:05",
      "arena": "Glace 2",
      "away": {
-      "name": "Finale Groupe A Pos. 2",
-      "id": null
+      "name": "Finale Barrie Ringette Groupe A Pos. 2",
+      "id": 101445
      },
      "home": {
-      "name": "Finale Groupe A Pos. 1",
-      "id": null
+      "name": "Finale Arnprior Devils Groupe A Pos. 1",
+      "id": 101806
      },
      "score": null
     },
@@ -1679,12 +1703,12 @@
      "time": "10:30",
      "arena": "Glace 1",
      "away": {
-      "name": "Finale Groupe A Pos. 2",
-      "id": null
+      "name": "Finale Deux-Montagnes Groupe A Pos. 2",
+      "id": 101646
      },
      "home": {
-      "name": "Finale Groupe A Pos. 1",
-      "id": null
+      "name": "Finale Pointe-Claire Groupe A Pos. 1",
+      "id": 101744
      },
      "score": null
     },
@@ -2864,7 +2888,10 @@
       "name": "MER",
       "id": 103282
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 11
+     }
     },
     {
      "num": null,
@@ -2881,7 +2908,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101949
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -2898,7 +2928,10 @@
       "name": "Lynx de Pierrefonds",
       "id": 102707
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -2915,7 +2948,10 @@
       "name": "L'Orbite Boucherville",
       "id": 102299
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -2932,7 +2968,10 @@
       "name": "Valkyries de Sainte-Marie",
       "id": 101705
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -2949,7 +2988,10 @@
       "name": "Valkyries de Sainte-Marie",
       "id": 102330
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -3129,12 +3171,12 @@
      "time": "07:00",
      "arena": "Glace #1 Batisseur",
      "away": {
-      "name": "2e Position",
-      "id": null
+      "name": "Avalanches de Sainte-Julie (2e Position)",
+      "id": 101807
      },
      "home": {
-      "name": "1er Position",
-      "id": null
+      "name": "MER (1er Position)",
+      "id": 103282
      },
      "score": null
     },
@@ -3146,12 +3188,12 @@
      "time": "07:10",
      "arena": "Glace #3 Hamelin",
      "away": {
-      "name": "4e Position",
-      "id": null
+      "name": "Firebirds de Thetford Mines (4e Position)",
+      "id": 102109
      },
      "home": {
-      "name": "3e Position",
-      "id": null
+      "name": "L'Orbite Boucherville B2 (3e Position)",
+      "id": 102672
      },
      "score": null
     },
@@ -3197,12 +3239,12 @@
      "time": "09:20",
      "arena": "Glace #1 Batisseur",
      "away": {
-      "name": "2e Position",
-      "id": null
+      "name": "L'Orbite Boucherville (2e Position)",
+      "id": 102299
      },
      "home": {
-      "name": "1er Position",
-      "id": null
+      "name": "Les Colibris de Lévis (1er Position)",
+      "id": 102298
      },
      "score": null
     },
@@ -3214,12 +3256,12 @@
      "time": "09:20",
      "arena": "Glace #3 Hamelin",
      "away": {
-      "name": "4e Position",
-      "id": null
+      "name": "Sharks de Laval (4e Position)",
+      "id": 103416
      },
      "home": {
-      "name": "3e Position",
-      "id": null
+      "name": "Avalanches de Sainte-Julie (3e Position)",
+      "id": 101950
      },
      "score": null
     },
@@ -3299,12 +3341,12 @@
      "time": "12:35",
      "arena": "Glace #3 Hamelin",
      "away": {
-      "name": "4e Position",
-      "id": null
+      "name": "Avalanches de Sainte-Julie (4e Position)",
+      "id": 101951
      },
      "home": {
-      "name": "3e Position",
-      "id": null
+      "name": "Lynx de Pierrefonds (3e Position)",
+      "id": 102725
      },
      "score": null
     },
@@ -3316,12 +3358,12 @@
      "time": "12:50",
      "arena": "Glace #1 Batisseur",
      "away": {
-      "name": "2e Position",
-      "id": null
+      "name": "Sharks de Laval (2e Position)",
+      "id": 102974
      },
      "home": {
-      "name": "1er Position",
-      "id": null
+      "name": "Firebirds de Thetford Mines (1er Position)",
+      "id": 102301
      },
      "score": null
     },
@@ -3333,12 +3375,12 @@
      "time": "13:40",
      "arena": "Glace #3 Hamelin",
      "away": {
-      "name": "4e Position",
-      "id": null
+      "name": "Valkyries de Sainte-Marie (4e Position)",
+      "id": 102330
      },
      "home": {
-      "name": "3e Position",
-      "id": null
+      "name": "Avalanches de Sainte-Julie (3e Position)",
+      "id": 101697
      },
      "score": null
     },
@@ -3350,12 +3392,12 @@
      "time": "14:00",
      "arena": "Glace #1 Batisseur",
      "away": {
-      "name": "2e Position",
-      "id": null
+      "name": "Les Abeilles de St-Hyacinthe (2e Position)",
+      "id": 101678
      },
      "home": {
-      "name": "1er Position",
-      "id": null
+      "name": "West Ottawa U16B Irvine (1er Position)",
+      "id": 102726
      },
      "score": null
     },
