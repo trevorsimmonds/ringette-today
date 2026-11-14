@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-14T06:57:43.240Z",
+ "updatedAt": "2026-11-14T14:26:55.844Z",
  "today": "2026-11-14",
  "tournaments": [
   {
@@ -2588,7 +2588,10 @@
       "name": "L'Orbite Boucherville",
       "id": 102250
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -2605,7 +2608,10 @@
       "name": "Firebirds de Thetford Mines",
       "id": 102109
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -2622,7 +2628,10 @@
       "name": "Firebirds de Thetford Mines",
       "id": 102308
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -2639,7 +2648,10 @@
       "name": "Les Abeilles de St-Hyacinthe",
       "id": 103407
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 7
+     }
     },
     {
      "num": null,
