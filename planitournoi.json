@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-14T14:26:55.844Z",
+ "updatedAt": "2026-11-14T19:26:50.947Z",
  "today": "2026-11-14",
  "tournaments": [
   {
@@ -1021,7 +1021,10 @@
       "name": "Arnprior Devils",
       "id": 101806
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 8
+     }
     },
     {
      "num": 51,
@@ -1038,7 +1041,10 @@
       "name": "Mustangs",
       "id": 101602
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 6
+     }
     },
     {
      "num": 52,
@@ -1055,7 +1061,10 @@
       "name": "London Lynx",
       "id": 101260
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 8
+     }
     },
     {
      "num": 53,
@@ -1072,7 +1081,10 @@
       "name": "Vortex de Gatineau",
       "id": 101309
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 6
+     }
     },
     {
      "num": 54,
@@ -1089,7 +1101,10 @@
       "name": "Guelph Predators",
       "id": 101271
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 2
+     }
     },
     {
      "num": 55,
@@ -1106,7 +1121,10 @@
       "name": "Deux-Montagnes",
       "id": 101646
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": 56,
@@ -1123,7 +1141,10 @@
       "name": "Tornades Desmoulins",
       "id": 102191
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 4
+     }
     },
     {
      "num": 57,
@@ -1140,7 +1161,10 @@
       "name": "Pointe-Claire",
       "id": 101819
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 2
+     }
     },
     {
      "num": 58,
@@ -1157,7 +1181,10 @@
       "name": "Roussillon Rockets",
       "id": 102018
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 2
+     }
     },
     {
      "num": 59,
@@ -1174,7 +1201,10 @@
       "name": "Deux-Montagnes",
       "id": 101941
      },
-     "score": null
+     "score": {
+      "away": 10,
+      "home": 3
+     }
     },
     {
      "num": 60,
@@ -1191,7 +1221,10 @@
       "name": "Deux-Montagnes",
       "id": 102052
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 3
+     }
     },
     {
      "num": 61,
@@ -1208,7 +1241,10 @@
       "name": "Sharks Laval",
       "id": 101753
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 1
+     }
     },
     {
      "num": 62,
@@ -2668,7 +2704,10 @@
       "name": "L'Orbite Boucherville",
       "id": 102299
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -2685,7 +2724,10 @@
       "name": "Les Colibris de Lévis",
       "id": 102298
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 8
+     }
     },
     {
      "num": null,
@@ -2702,7 +2744,10 @@
       "name": "Sharks de Laval",
       "id": 102974
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -2719,7 +2764,10 @@
       "name": "Firebirds de Thetford Mines",
       "id": 102301
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -2736,7 +2784,10 @@
       "name": "Avalanches de Sainte-Julie",
       "id": 101697
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -2753,7 +2804,10 @@
       "name": "Faucons de Longueuil-Saint-Hubert",
       "id": 101947
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -2770,7 +2824,10 @@
       "name": "L'Orbite Boucherville B2",
       "id": 102672
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 6
+     }
     },
     {
      "num": null,
@@ -2787,7 +2844,10 @@
       "name": "Les Colibris de Lévis",
       "id": 102168
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 4
+     }
     },
     {
      "num": null,
