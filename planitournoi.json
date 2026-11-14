@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-13T23:49:45.631Z",
- "today": "2026-11-13",
+ "updatedAt": "2026-11-14T06:57:43.240Z",
+ "today": "2026-11-14",
  "tournaments": [
   {
    "id": 23652,
@@ -821,7 +821,10 @@
       "name": "Arnprior Devils",
       "id": 101806
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 10
+     }
     },
     {
      "num": 41,
@@ -838,7 +841,10 @@
       "name": "Faucons LSH 1",
       "id": 101700
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 9
+     }
     },
     {
      "num": 42,
@@ -855,7 +861,10 @@
       "name": "Burlington Blast",
       "id": 101274
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 6
+     }
     },
     {
      "num": 43,
@@ -872,7 +881,10 @@
       "name": "Pointe-Claire",
       "id": 101744
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 10
+     }
     },
     {
      "num": 44,
@@ -889,7 +901,10 @@
       "name": "Repentigny",
       "id": 101468
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 3
+     }
     },
     {
      "num": 45,
@@ -906,7 +921,10 @@
       "name": "Gatineau",
       "id": 102708
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 3
+     }
     },
     {
      "num": 46,
@@ -923,7 +941,10 @@
       "name": "Des Moulins 1",
       "id": 101331
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 1
+     }
     },
     {
      "num": 47,
@@ -940,7 +961,10 @@
       "name": "uOttawa Gee-Gees",
       "id": 101244
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 1
+     }
     },
     {
      "num": 48,
@@ -957,7 +981,10 @@
       "name": "Guelph Gryphons",
       "id": 101257
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 5
+     }
     },
     {
      "num": 49,
@@ -974,7 +1001,10 @@
       "name": "Mustangs 1",
       "id": 101241
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 3
+     }
     },
     {
      "num": 50,
@@ -2318,7 +2348,10 @@
       "name": "Trois-Rivières B2",
       "id": 101304
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -2335,7 +2368,10 @@
       "name": "VDR",
       "id": 101967
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -2352,7 +2388,10 @@
       "name": "Valkyries de Sainte-Marie",
       "id": 101312
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -2369,7 +2408,10 @@
       "name": "Valkyries de Sainte-Marie",
       "id": 101800
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -2386,7 +2428,10 @@
       "name": "Sharks de Laval",
       "id": 103416
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -2403,7 +2448,10 @@
       "name": "West Ottawa U16B Irvine",
       "id": 102726
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -2420,7 +2468,10 @@
       "name": "Sharks de Laval",
       "id": 102974
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -2437,7 +2488,10 @@
       "name": "CORA City of Ottawa Gordon",
       "id": 103310
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 0
+     }
     },
     {
      "num": null,
@@ -2454,7 +2508,10 @@
       "name": "Faucons de Longueuil-Saint-Hubert",
       "id": 101947
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -2471,7 +2528,10 @@
       "name": "Roussillon 1",
       "id": 102009
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -2488,7 +2548,10 @@
       "name": "Pointe Claire Power",
       "id": 102161
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -2505,7 +2568,10 @@
       "name": "Trois-Rivières B2",
       "id": 101304
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 1
+     }
     },
     {
      "num": null,
