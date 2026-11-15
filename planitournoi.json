@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-15T03:01:33.807Z",
- "today": "2026-11-14",
+ "updatedAt": "2026-11-15T11:26:16.094Z",
+ "today": "2026-11-15",
  "tournaments": [
   {
    "id": 23652,
@@ -1541,7 +1541,10 @@
       "name": "Des Moulins 1",
       "id": 101433
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 2
+     }
     },
     {
      "num": 77,
@@ -1558,7 +1561,10 @@
       "name": "Des Moulins 1",
       "id": 101331
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 5
+     }
     },
     {
      "num": 78,
@@ -1575,7 +1581,10 @@
       "name": "Mustangs",
       "id": 101259
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 9
+     }
     },
     {
      "num": 79,
@@ -1592,7 +1601,10 @@
       "name": "Sharks de Laval",
       "id": 101399
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 5
+     }
     },
     {
      "num": 80,
@@ -1636,8 +1648,8 @@
      "time": "08:00",
      "arena": "Glace 2",
      "away": {
-      "name": "Demi-finale Groupe B Pos. 2",
-      "id": null
+      "name": "Demi-finale Montréal-Nord 1 Groupe B Pos. 2",
+      "id": 101491
      },
      "home": {
       "name": "Demi-finale Des Moulins 2 Groupe A Pos. 1",
@@ -3186,7 +3198,10 @@
       "name": "VDR",
       "id": 101409
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -3203,7 +3218,10 @@
       "name": "Valkyries de Sainte-Marie",
       "id": 101312
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 6
+     }
     },
     {
      "num": null,
@@ -3553,12 +3571,12 @@
      "time": "18:00",
      "arena": "Glace #3 Hamelin",
      "away": {
-      "name": "4e Position",
-      "id": null
+      "name": "Avalanches de Sainte-Julie B1 (4e Position)",
+      "id": 101368
      },
      "home": {
-      "name": "3e Position",
-      "id": null
+      "name": "Trois-Rivières B2 (3e Position)",
+      "id": 101304
      },
      "score": null
     },
@@ -3570,12 +3588,12 @@
      "time": "18:40",
      "arena": "Glace #1 Batisseur",
      "away": {
-      "name": "2e Position",
-      "id": null
+      "name": "Valkyries de Sainte-Marie (2e Position)",
+      "id": 101312
      },
      "home": {
-      "name": "1er Position",
-      "id": null
+      "name": "VDR (1er Position)",
+      "id": 101409
      },
      "score": null
     }
