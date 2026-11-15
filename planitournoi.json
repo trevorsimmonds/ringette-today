@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-15T11:26:16.094Z",
+ "updatedAt": "2026-11-15T17:57:31.272Z",
  "today": "2026-11-15",
  "tournaments": [
   {
@@ -1621,7 +1621,10 @@
       "name": "Phénix St-Eustache-B",
       "id": 102273
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 2
+     }
     },
     {
      "num": 81,
@@ -1638,7 +1641,10 @@
       "name": "West Ottawa",
       "id": 102314
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 3
+     }
     },
     {
      "num": 82,
@@ -1648,14 +1654,17 @@
      "time": "08:00",
      "arena": "Glace 2",
      "away": {
-      "name": "Demi-finale Montréal-Nord 1 Groupe B Pos. 2",
+      "name": "Demi-finale * Montréal-Nord 1 Groupe B Pos. 2",
       "id": 101491
      },
      "home": {
       "name": "Demi-finale Des Moulins 2 Groupe A Pos. 1",
       "id": 101253
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 5
+     }
     },
     {
      "num": 83,
@@ -1669,10 +1678,13 @@
       "id": 101240
      },
      "home": {
-      "name": "Demi-finale Pierrefonds 3 Groupe B Pos. 1",
+      "name": "Demi-finale * Pierrefonds 3 Groupe B Pos. 1",
       "id": 101248
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 7
+     }
     },
     {
      "num": 84,
@@ -1689,7 +1701,10 @@
       "name": "Moustique Phénix",
       "id": 103914
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 0
+     }
     },
     {
      "num": 85,
@@ -1706,7 +1721,10 @@
       "name": "Trois-Rivières 1",
       "id": 101328
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 2
+     }
     },
     {
      "num": 86,
@@ -1720,10 +1738,13 @@
       "id": 101445
      },
      "home": {
-      "name": "Finale Arnprior Devils Groupe A Pos. 1",
+      "name": "Finale * Arnprior Devils Groupe A Pos. 1",
       "id": 101806
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 6
+     }
     },
     {
      "num": 87,
@@ -1737,10 +1758,13 @@
       "id": 101646
      },
      "home": {
-      "name": "Finale Pointe-Claire Groupe A Pos. 1",
+      "name": "Finale * Pointe-Claire Groupe A Pos. 1",
       "id": 101744
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 4
+     }
     },
     {
      "num": 88,
@@ -1750,14 +1774,17 @@
      "time": "11:20",
      "arena": "Glace 2",
      "away": {
-      "name": "Finale Groupe A Pos. 2",
-      "id": null
+      "name": "Finale BKRA 1 Groupe A Pos. 2",
+      "id": 102050
      },
      "home": {
-      "name": "Finale Groupe A Pos. 1",
-      "id": null
+      "name": "Finale * Gatineau Groupe A Pos. 1",
+      "id": 102305
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 5
+     }
     },
     {
      "num": 89,
@@ -1818,12 +1845,12 @@
      "time": "13:45",
      "arena": "Glace 2",
      "away": {
-      "name": "Finale Gagnant match 83",
-      "id": null
+      "name": "Finale Pierrefonds 3 Gagnant match 83",
+      "id": 101248
      },
      "home": {
-      "name": "Finale Gagnant match 82",
-      "id": null
+      "name": "Finale Montréal-Nord 1 Gagnant match 82",
+      "id": 101491
      },
      "score": null
     },
@@ -1835,12 +1862,12 @@
      "time": "14:15",
      "arena": "Glace 1",
      "away": {
-      "name": "Finale Groupe A Pos. 2",
-      "id": null
+      "name": "Finale Sharks de Laval Groupe A Pos. 2",
+      "id": 101399
      },
      "home": {
-      "name": "Finale Groupe A Pos. 1",
-      "id": null
+      "name": "Finale Mustangs Groupe A Pos. 1",
+      "id": 101259
      },
      "score": null
     },
@@ -1869,12 +1896,12 @@
      "time": "16:45",
      "arena": "Glace 1",
      "away": {
-      "name": "Finale Groupe A Pos. 2",
-      "id": null
+      "name": "Finale Mustangs Groupe A Pos. 2",
+      "id": 101242
      },
      "home": {
-      "name": "Finale Groupe A Pos. 1",
-      "id": null
+      "name": "Finale Montréal-Nord 4 Groupe A Pos. 1",
+      "id": 101251
      },
      "score": null
     }
@@ -3238,7 +3265,10 @@
       "name": "MER (1er Position)",
       "id": 103282
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -3255,7 +3285,10 @@
       "name": "L'Orbite Boucherville B2 (3e Position)",
       "id": 102672
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -3272,7 +3305,10 @@
       "name": "Firebirds de Thetford Mines (1er Position)",
       "id": 102045
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 6
+     }
     },
     {
      "num": null,
@@ -3289,7 +3325,10 @@
       "name": "L'Orbite Boucherville (3e position)",
       "id": 102250
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 10
+     }
     },
     {
      "num": null,
@@ -3306,7 +3345,10 @@
       "name": "Les Colibris de Lévis (1er Position)",
       "id": 102298
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 6
+     }
     },
     {
      "num": null,
@@ -3323,7 +3365,10 @@
       "name": "Avalanches de Sainte-Julie (3e Position)",
       "id": 101950
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -3340,7 +3385,10 @@
       "name": "VDR (3e Position)",
       "id": 101967
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -3357,7 +3405,10 @@
       "name": "Valkyries de Sainte-Marie (1er Position)",
       "id": 102335
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 4
+     }
     },
     {
      "num": null,
