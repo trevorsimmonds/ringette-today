@@ -299,6 +299,7 @@
     [/^west ottawa( wild)?$/, 'west ottawa'],
     [/^nepean( ravens)?$/, 'nepean'],
     [/^ottawa( ice)?$/, 'ottawa ice'],
+    [/^(cora( city of ottawa)?|city of ottawa)( ice)?$/, 'ottawa ice'],  // City of Ottawa Ringette Association
     [/^eastern( ontario)? rush$/, 'eastern rush'],
     [/^eastern( ontario)? surge$/, 'eastern surge'],
     [/^(gcra|gloucester cumberland( devils)?)$/, 'gcra'],
@@ -314,26 +315,50 @@
     for (const [re, to] of CLUB_ALIASES) if (re.test(key)) { key = to; break; }
     return { key, coach: plain(coach).trim() };
   }
+  // Quebec age names, as Planitournoi divisions use them ("Fém Junior B" = U16 B).
+  const QC_AGES = { novice: 10, atome: 12, benjamin: 14, benjamine: 14, junior: 16, cadet: 19, cadette: 19 };
   function ageLevel(s) {
     const m = /\b[um]\s?(\d{1,2})\s?(aa|bb|a|b|c)?\b/i.exec(s || '') || /\b(\d{2})\s?(aa|bb|a|b|c)\b/i.exec(s || '');
-    return m ? { age: +m[1], level: (m[2] || '').toUpperCase() } : null;
+    if (m) return { age: +m[1], level: (m[2] || '').toUpperCase() };
+    const q = /\b(novice|atome|benjamine?|junior|cadette?)\b\s*(aa|bb|a|b|c)?\b/i.exec(plain(s || ''));
+    return q ? { age: QC_AGES[q[1].toLowerCase()], level: (q[2] || '').toUpperCase() } : null;
+  }
+  // Club and coach guesses for a tournament team name, best first. Some names
+  // have no " - " before the coach ("West Ottawa U16B Irvine"), so shorter
+  // leading parts of the name are also tried as the club, the rest as the coach.
+  function clubGuesses(name) {
+    const c = clubOf(name);
+    const out = [c];
+    if (!c.coach) {
+      const w = c.key.split(' ');
+      for (let i = w.length - 1; i >= 1; i--) {
+        let key = w.slice(0, i).join(' ');
+        for (const [re, to] of CLUB_ALIASES) if (re.test(key)) { key = to; break; }
+        out.push({ key, coach: w.slice(i).join(' ') });
+      }
+    }
+    return out;
   }
   const teamMatchCache = new Map();
   function matchLeagueTeam(name, division) {
     const k = `${name}|${division}`;
     if (teamMatchCache.has(k)) return teamMatchCache.get(k);
-    const club = clubOf(name);
     const fromDiv = ageLevel(division), fromName = ageLevel(name);
     const al = fromDiv ? { age: fromDiv.age, level: fromDiv.level || (fromName && fromName.age === fromDiv.age ? fromName.level : '') } : fromName;
     let hit = null;
-    if (club.key && al) {
-      const cands = [...state.teams.values()].filter((t) => {
-        if (clubOf(t.name).key !== club.key) return false;
+    if (al) {
+      const sameAge = [...state.teams.values()].filter((t) => {
         const tl = ageLevel(t.baseDivision || t.division) || ageLevel(t.name);
         return tl && tl.age === al.age && (!tl.level || !al.level || tl.level === al.level);
       });
-      hit = (club.coach && cands.find((t) => plain(t.name).includes(club.coach)))
-        || cands.find((t) => state.tracked.has(t.id)) || cands[0] || null;
+      for (const club of clubGuesses(name)) {
+        if (!club.key) continue;
+        const cands = sameAge.filter((t) => clubOf(t.name).key === club.key);
+        if (!cands.length) continue;
+        hit = (club.coach && cands.find((t) => plain(t.name).includes(club.coach)))
+          || cands.find((t) => state.tracked.has(t.id)) || cands[0];
+        break;
+      }
     }
     teamMatchCache.set(k, hit);
     return hit;
