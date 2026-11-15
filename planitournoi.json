@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-15T17:57:31.272Z",
+ "updatedAt": "2026-11-15T23:07:20.176Z",
  "today": "2026-11-15",
  "tournaments": [
   {
@@ -1794,14 +1794,17 @@
      "time": "11:45",
      "arena": "Glace 1",
      "away": {
-      "name": "Finale Gatineau Vortex Groupe A Pos. 2",
+      "name": "Finale * Gatineau Vortex Groupe A Pos. 2",
       "id": 101406
      },
      "home": {
       "name": "Finale Deux-Montagnes Groupe A Pos. 1",
       "id": 102052
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 4
+     }
     },
     {
      "num": 90,
@@ -1811,14 +1814,17 @@
      "time": "12:30",
      "arena": "Glace 2",
      "away": {
-      "name": "Finale Montréal-Nord Groupe A Pos. 2",
+      "name": "Finale * Montréal-Nord Groupe A Pos. 2",
       "id": 102142
      },
      "home": {
       "name": "Finale Barrie Ringette Groupe A Pos. 1",
       "id": 101453
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 2
+     }
     },
     {
      "num": 91,
@@ -1828,14 +1834,17 @@
      "time": "13:00",
      "arena": "Glace 1",
      "away": {
-      "name": "Finale Ottawa Groupe A Pos. 2",
+      "name": "Finale * Ottawa Groupe A Pos. 2",
       "id": 101311
      },
      "home": {
       "name": "Finale Pointe-Claire Groupe A Pos. 1",
       "id": 101819
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 2
+     }
     },
     {
      "num": 92,
@@ -1849,10 +1858,13 @@
       "id": 101248
      },
      "home": {
-      "name": "Finale Montréal-Nord 1 Gagnant match 82",
+      "name": "Finale * Montréal-Nord 1 Gagnant match 82",
       "id": 101491
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 8
+     }
     },
     {
      "num": 93,
@@ -1866,10 +1878,13 @@
       "id": 101399
      },
      "home": {
-      "name": "Finale Mustangs Groupe A Pos. 1",
+      "name": "Finale * Mustangs Groupe A Pos. 1",
       "id": 101259
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 6
+     }
     },
     {
      "num": 94,
@@ -1883,10 +1898,13 @@
       "id": 101634
      },
      "home": {
-      "name": "Finale Vortex de Gatineau Groupe A Pos. 1",
+      "name": "Finale * Vortex de Gatineau Groupe A Pos. 1",
       "id": 101309
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 5
+     }
     },
     {
      "num": 95,
@@ -1900,10 +1918,13 @@
       "id": 101242
      },
      "home": {
-      "name": "Finale Montréal-Nord 4 Groupe A Pos. 1",
+      "name": "Finale * Montréal-Nord 4 Groupe A Pos. 1",
       "id": 101251
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 4
+     }
     }
    ]
   },
@@ -3425,7 +3446,10 @@
       "name": "Avalanches de Sainte-Julie (3e Position)",
       "id": 101699
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -3442,7 +3466,10 @@
       "name": "Valkyries de Sainte-Marie (1er Position)",
       "id": 102560
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -3459,7 +3486,10 @@
       "name": "Lynx de Pierrefonds (3e Position)",
       "id": 102725
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -3476,7 +3506,10 @@
       "name": "Firebirds de Thetford Mines (1er Position)",
       "id": 102301
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -3493,7 +3526,10 @@
       "name": "Avalanches de Sainte-Julie (3e Position)",
       "id": 101697
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 10
+     }
     },
     {
      "num": null,
@@ -3510,7 +3546,10 @@
       "name": "West Ottawa U16B Irvine (1er Position)",
       "id": 102726
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -3527,7 +3566,10 @@
       "name": "Avalanches de Sainte-Julie (3e Position)",
       "id": 101983
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -3544,7 +3586,10 @@
       "name": "Vortex de Gatineau B1 (1er Position)",
       "id": 102229
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -3561,7 +3606,10 @@
       "name": "L'Orbite Boucherville (3e Position)",
       "id": 101615
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 3
+     }
     },
     {
      "num": null,
