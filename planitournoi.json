@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-15T23:07:20.176Z",
+ "updatedAt": "2026-11-16T03:00:33.721Z",
  "today": "2026-11-15",
  "tournaments": [
   {
@@ -3626,7 +3626,10 @@
       "name": "Valkyries de Sainte-Marie (1er Position)",
       "id": 101800
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 0
+     }
     },
     {
      "num": null,
@@ -3643,7 +3646,10 @@
       "name": "Roussillon 1 (3e Position)",
       "id": 102009
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -3660,7 +3666,10 @@
       "name": "Avalanches de Sainte-Julie (1er Position)",
       "id": 101757
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
@@ -3677,7 +3686,10 @@
       "name": "Trois-Rivières B2 (3e Position)",
       "id": 101304
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -3694,7 +3706,10 @@
       "name": "VDR (1er Position)",
       "id": 101409
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 2
+     }
     }
    ]
   },
