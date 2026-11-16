@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-14T22:32:19.502Z",
+ "updatedAt": "2026-11-16T06:42:18.023Z",
  "leagues": [
   {
    "id": 104,
@@ -834,7 +834,11 @@
    "arena": "Cardelrec A - West Ottawa",
    "home": "West Ottawa",
    "away": "Lac St-Louis",
-   "detailId": 23407
+   "detailId": 23407,
+   "score": {
+    "away": 5,
+    "home": 3
+   }
   },
   {
    "num": 1036,
