@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-17T14:50:33.976Z",
+ "updatedAt": "2026-11-17T23:07:01.411Z",
  "today": "2026-11-17",
  "tournaments": [
   {
@@ -3696,7 +3696,7 @@
       "id": 102233
      },
      "home": {
-      "name": "Avalanches",
+      "name": "Avalanches de Ste-Julie",
       "id": 101664
      },
      "score": null
@@ -4070,7 +4070,7 @@
       "id": 101627
      },
      "home": {
-      "name": "Avalanches",
+      "name": "Avalanches de Ste-Julie",
       "id": 101664
      },
      "score": null
@@ -4423,7 +4423,7 @@
      "time": "13:15",
      "arena": "Glace C - Gerik",
      "away": {
-      "name": "Avalanches",
+      "name": "Avalanches de Ste-Julie",
       "id": 101664
      },
      "home": {
