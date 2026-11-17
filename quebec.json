@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-16T06:42:18.023Z",
+ "updatedAt": "2026-11-17T03:57:38.177Z",
  "leagues": [
   {
    "id": 104,
@@ -942,7 +942,11 @@
    "arena": "Ray Friel 1 - Ottawa",
    "home": "GCRA",
    "away": "Lac St-Louis",
-   "detailId": 23413
+   "detailId": 23413,
+   "score": {
+    "away": 5,
+    "home": 5
+   }
   },
   {
    "num": 1042,
