@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-17T03:57:38.177Z",
+ "updatedAt": "2026-11-17T16:09:38.674Z",
  "leagues": [
   {
    "id": 104,
@@ -892,7 +892,11 @@
    "arena": "Vaudreuil - Dorion",
    "home": "Lac St-Louis",
    "away": "Rive-Sud",
-   "detailId": 23327
+   "detailId": 23327,
+   "score": {
+    "away": 6,
+    "home": 4
+   }
   },
   {
    "num": 1039,
