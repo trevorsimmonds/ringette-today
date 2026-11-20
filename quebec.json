@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-18T11:52:28.260Z",
+ "updatedAt": "2026-11-20T02:22:38.609Z",
  "leagues": [
   {
    "id": 104,
@@ -914,7 +914,11 @@
    "arena": "Walter Baker B - Nepean",
    "home": "Nepean",
    "away": "Rive-Sud",
-   "detailId": 23411
+   "detailId": 23411,
+   "score": {
+    "away": 12,
+    "home": 3
+   }
   },
   {
    "num": 2027,
@@ -934,7 +938,11 @@
    "arena": "Sportsplex 2 - Nepean",
    "home": "Nepean",
    "away": "Lac St-Louis",
-   "detailId": 23412
+   "detailId": 23412,
+   "score": {
+    "away": 5,
+    "home": 3
+   }
   },
   {
    "num": 2028,
