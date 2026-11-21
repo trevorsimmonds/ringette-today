@@ -845,6 +845,13 @@
     return g.did ? `${site}/division/0/${g.did}/game/view/${g.id}` : null;
   }
 
+  // RAMP's game page before the game: both teams' records, wins, losses and
+  // goals for/against per game (the same page shows the box score afterwards).
+  function previewUrl(g) {
+    if ((g.tournament && g.tournament.source === 'pt') || (g.league && g.league.key === 'lerq')) return null;
+    return boxScoreUrl(g);
+  }
+
   function mapsLink(arena) {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(arena)}`;
   }
@@ -871,6 +878,7 @@
       ${g.cancelled ? '<div class="note">Cancelled</div>' : ''}
       ${result && !g.cancelled && g.home.score == null ? '<div class="pending">Score not posted yet</div>' : ''}
       ${result && g.completed && boxScoreUrl(g) ? `<a class="boxscore" href="${esc(boxScoreUrl(g))}" target="_blank" rel="noopener">Box score <span aria-hidden="true">›</span><span class="sr-only"> — goals, assists and penalties (opens the league's site)</span></a>` : ''}
+      ${!result && !g.cancelled && previewUrl(g) ? `<a class="boxscore" href="${esc(previewUrl(g))}" target="_blank" rel="noopener">Game preview <span aria-hidden="true">›</span><span class="sr-only"> — both teams' records (opens the ${g.tournament ? 'tournament' : 'league'}'s site)</span></a>` : ''}
       ${g.notes ? `<div class="note">${esc(g.notes)}</div>` : ''}
       ${showIce && !g.cancelled ? `<div class="ice">
         ${iceRow('Before', before, g, 'before')}

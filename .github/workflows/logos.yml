@@ -1,0 +1,26 @@
+# Checks once a week that every club logo in logos/logos.json still loads
+# (test/logo-check.mjs). Logos are linked live from the clubs' and leagues'
+# sites, so a site moving its images breaks them silently in the app; this
+# job fails instead, and GitHub emails you. Nothing is changed or committed.
+# Run it by hand from the Actions tab ("Check club logos" → Run workflow).
+name: Check club logos
+
+on:
+  schedule:
+    - cron: '23 14 * * 1'   # Mondays around 9–10 am Ottawa time
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check every logo loads
+        run: node test/logo-check.mjs
