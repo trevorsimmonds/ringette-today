@@ -259,3 +259,26 @@ dialog::backdrop { background: rgba(5, 10, 20, .55); }
 
 /* Time zone after a time at a rink outside Ottawa's zone ("AST") */
 .tz { font-size: .72em; font-weight: 800; letter-spacing: .03em; color: var(--accent); }
+
+/* ---------- playoff brackets: possible games ---------- */
+.card.possible { border: 2px dashed color-mix(in srgb, var(--accent) 55%, var(--line)); border-left-width: 4px; background: color-mix(in srgb, var(--surface) 96%, var(--accent)); box-shadow: none; }
+.possible-tag { display: inline-block; font-size: .68rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 999px; padding: 1px 8px; margin-bottom: 8px; }
+.if-line { font-size: .86rem; font-weight: 700; margin: 6px 0 2px; }
+.team.slot .who { display: block; font-size: .82rem; color: var(--muted); font-weight: 400; margin-top: 1px; }
+.team.slot .who b { color: var(--text); }
+.bracket-note { margin-top: 8px; font-size: .82rem; color: var(--muted); font-style: italic; }
+.from-bracket { display: inline-block; font-size: .66rem; font-weight: 800; letter-spacing: .05em; color: var(--muted); background: var(--surface-2); border-radius: 999px; padding: 1px 8px; margin-left: 4px; vertical-align: 1px; }
+
+/* ---------- Champions / Finalists banners (Results) ---------- */
+.champ-banner { --c-bg: linear-gradient(135deg, #fff8e1, #ffe9a8); --c-line: #e2b842; --c-kicker: #8a6400; --c-big: #3b2a00; --c-text: #5a4a1a; --c-icon: #b8860b;
+  background: var(--c-bg); border: 2px solid var(--c-line); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; text-align: center; }
+.champ-banner.silver { --c-bg: linear-gradient(135deg, #f4f6f8, #dfe3e8); --c-line: #b9c0c9; --c-kicker: #555c66; --c-big: #2b3038; --c-text: #2b3038; --c-icon: #6b7280; }
+.champ-icon { width: 44px; height: 44px; fill: none; stroke: var(--c-icon); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.champ-banner .kicker { font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--c-kicker); }
+.champ-banner .big { font-size: 1.6rem; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; margin: 4px 0 2px; color: var(--c-big); }
+.champ-team { display: block; font-weight: 800; font-size: 1.05rem; margin: 6px 0 2px; color: var(--text); }
+.champ-score { font-size: .95rem; font-weight: 700; margin-top: 8px; color: var(--c-text); }
+@media (prefers-color-scheme: dark) {
+  .champ-banner { --c-bg: linear-gradient(135deg, #2a2109, #3d300c); --c-line: #8a6a1c; --c-kicker: #e0b64a; --c-big: #ffd76a; --c-text: #f2dfa5; --c-icon: #ffd76a; }
+  .champ-banner.silver { --c-bg: linear-gradient(135deg, #1e2125, #2a2e34); --c-line: #5c636d; --c-kicker: #aeb5bf; --c-big: #e3e7ec; --c-text: #cfd5dc; --c-icon: #cfd5dc; }
+}

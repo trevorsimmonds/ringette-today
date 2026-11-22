@@ -248,6 +248,8 @@
           completed: !!g.completed,
           cancelled: !!(g.cancelledHome || g.cancelledAway || g.rainout),
           tournament: source || null,   // {aid, name, short} for tournament games
+          homeSlot: g.homeSlot || null,  // original playoff labels ("Winner Semi 1 U14A"), kept by the job
+          awaySlot: g.awaySlot || null,
         };
       })
       .filter((g) => g.start);
@@ -453,6 +455,7 @@
       }
     }
     resolvePtTeams();
+    computeBrackets(all);
     state.byIce = new Map();
     for (const g of all) {
       if (g.cancelled) continue;
@@ -553,8 +556,69 @@
     return { before, after, list };
   }
 
-  const isTracked = (g) => state.tracked.has(g.home.id) || state.tracked.has(g.away.id);
-  const isFav = (g) => state.favs.has(g.home.id) || state.favs.has(g.away.id);
+  // ---------- playoff brackets (RAMP) ----------
+  // The job keeps each playoff game's original labels (homeSlot/awaySlot):
+  // "2nd Place U14A" on a semi, "Winner Semi 1 U14A" on a final, "Loser Semi 2
+  // U14A" on a bronze game. RAMP is often slow to put the semi winners into the
+  // final, so while a final still shows "Winner Semi …", g.bracket lists for
+  // each semi the team(s) that can still come out of it. Only clear brackets:
+  // the number of semis must match the labels, and their teams must be known.
+  // Games fed by standings ("1st Place") are never worked out here.
+  const SEMI_REF = /\b(winner|loser)\b.*\bsemi|\bsemi\b.*\b(winner|loser)\b/i;
+  const semiKind = (label) => { const m = SEMI_REF.exec(label || ''); return m ? (m[1] || m[2]).toLowerCase() : null; };
+  const isSlotName = (n) => {
+    const x = String(n ?? '').trim();
+    return !x || x === 'TBD' || /^(home|away)$/i.test(x)
+      || /^(\d+\s*(st|nd|rd|th)\b|winner|loser|tbd|tba|to be determined|semi|final|pool|group|quarter)/i.test(x)
+      || /\b(semi|winner|loser|quarter final|\d+(st|nd|rd|th) place)\b|\bfinal$/i.test(x);
+  };
+  function computeBrackets(all) {
+    const groups = new Map();
+    for (const g of all) {
+      g.bracket = null; g.round = null;
+      if (!(g.homeSlot || g.awaySlot) || g.cancelled) continue;
+      const k = `${g.tournament ? `t${g.tournament.aid}` : `l${g.league ? g.league.key : ''}`}|${g.baseDivision}`;
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(g);
+    }
+    for (const list of groups.values()) {
+      const fed = list.filter((g) => semiKind(g.homeSlot) || semiKind(g.awaySlot));
+      if (!fed.length) continue;
+      for (const g of fed) {
+        const kinds = [semiKind(g.homeSlot), semiKind(g.awaySlot)].filter(Boolean);
+        if (kinds.every((k) => k === kinds[0])) g.round = kinds[0] === 'winner' ? 'Final' : 'Bronze';
+      }
+      const firstFed = Math.min(...fed.map((g) => g.start.getTime()));
+      const semis = list.filter((g) => !semiKind(g.homeSlot) && !semiKind(g.awaySlot) && g.start.getTime() < firstFed);
+      const labels = fed.flatMap((g) => [g.homeSlot, g.awaySlot].filter((l) => semiKind(l)));
+      const nums = labels.map((l) => (/semi\s*-?\s*(\d+)/i.exec(l) || [])[1]);
+      const expected = nums.every(Boolean) ? new Set(nums).size : nums.some(Boolean) ? -1 : 1;
+      if (expected < 1 || semis.length !== expected) continue;
+      if (semis.some((x) => isSlotName(x.home.name) || isSlotName(x.away.name))) continue;  // semi teams not known yet
+      for (const x of semis) x.round = 'Semi-final';
+      for (const g of fed) {
+        if (!g.round) continue;
+        const kind = g.round === 'Final' ? 'winner' : 'loser';
+        const sides = [['home', g.homeSlot], ['away', g.awaySlot]].filter(([, l]) => semiKind(l));
+        const open = sides.filter(([side]) => isSlotName(g[side].name));
+        if (!open.length) continue;
+        const filled = sides.filter(([side]) => !isSlotName(g[side].name)).map(([side]) => g[side]);
+        const slots = [];
+        for (const x of semis) {
+          const decided = x.completed && x.home.score != null && x.away.score != null && x.home.score !== x.away.score;
+          const win = decided ? (x.home.score > x.away.score ? x.home : x.away) : null;
+          const team = decided ? (kind === 'winner' ? win : win === x.home ? x.away : x.home) : null;
+          if (team && filled.some((f) => (f.id && f.id === team.id) || f.name === team.name)) continue;  // RAMP already has it
+          slots.push({ semi: x, team, options: team ? [team] : [x.away, x.home] });
+        }
+        if (slots.length !== open.length) continue;
+        g.bracket = { kind, slots, open: open.map(([side]) => side) };
+      }
+    }
+  }
+  const bracketTeams = (g) => (g.bracket ? g.bracket.slots.flatMap((x) => x.options) : []);
+  const isTracked = (g) => state.tracked.has(g.home.id) || state.tracked.has(g.away.id) || bracketTeams(g).some((t) => state.tracked.has(t.id));
+  const isFav = (g) => state.favs.has(g.home.id) || state.favs.has(g.away.id) || bracketTeams(g).some((t) => state.favs.has(t.id));
 
   // --- tournaments ---
   function tournamentWindow(t) {
@@ -856,13 +920,88 @@
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(arena)}`;
   }
 
+  // ---------- bracket cards ----------
+  const shortTeam = (n) => { const i = String(n).lastIndexOf(' - '); return i > 0 ? n.slice(i + 3) : n; };
+  const joinOr = (xs) => xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} or ${xs[xs.length - 1]}`;
+  function semiLabel(slot, slots) {
+    const t = (x) => fmtTime(x.semi.start, x.semi.tz).replace(/ [AP]M$/, '');
+    const unique = new Set(slots.map(t)).size === slots.length;
+    return unique ? `the ${t(slot)} semi` : `the ${shortTeam(slot.semi.away.name)} vs ${shortTeam(slot.semi.home.name)} semi`;
+  }
+  function bracketTag(g, result) {
+    if (result || !g.bracket) return '';
+    const open = g.bracket.slots.filter((x) => !x.team);
+    return open.length ? '' : ' <span class="from-bracket">From bracket</span>';
+  }
+  // A final or bronze game still waiting for its semi results, seen by someone
+  // following one or more of the teams that could be in it: one card, worded
+  // for how many of their teams are certain or possible.
+  function bracketView(g) {
+    const b = g.bracket;
+    const mine = (t) => state.tracked.has(t.id);
+    const win = b.kind === 'winner';
+    const what = g.round === 'Final' ? 'final' : 'bronze game';
+    const certain = b.slots.filter((x) => x.options.every(mine)).length + [g.home, g.away].filter((t, i) => !b.open.includes(i ? 'away' : 'home') && mine(t)).length;
+    const undecided = b.slots.filter((x) => !x.team);
+    const nameLine = (t) => (mine(t) ? `<b>${esc(t.name)}</b>` : esc(t.name));
+    const rows = [];
+    for (const side of ['away', 'home']) {
+      if (!b.open.includes(side)) rows.push(teamLine(g[side], g, side.toUpperCase()));
+    }
+    for (const x of b.slots) {
+      if (x.team) { rows.push(teamLine(x.team, g, 'TEAM')); continue; }
+      const anyMine = x.options.some(mine);
+      rows.push(`<div class="team slot${anyMine ? ' mine' : ''}"><span class="name"><span class="ha">TEAM</span>${win ? 'Winner' : 'Loser'} of ${esc(semiLabel(x, b.slots))}
+        <span class="who">${x.options.map(nameLine).join(' or ')}</span></span></div>`);
+    }
+    if (!undecided.length) {
+      return { possible: false, ifLine: '', rows: rows.join(''),
+        note: `Teams from the semi-final scores. RAMP hasn't updated the ${what} yet${b.open.length > 1 ? ', so home and away aren\u2019t known' : ''}.` };
+    }
+    if (certain) {
+      const total = b.slots.length + (2 - b.open.length);
+      return { possible: false,
+        ifLine: certain >= 2 && certain === total ? `Two of your teams will play in this ${what}` : `One of your teams will be in this ${what}`,
+        rows: rows.join(''),
+        note: `From the bracket.${certain === 1 && undecided.some((x) => x.options.some(mine) && !x.options.every(mine)) ? ' Could be two of yours.' : ''} Names fill in as each semi ends.` };
+    }
+    const hopefuls = undecided.flatMap((x) => x.options.filter(mine).map((t) => ({ t, x })));
+    const ifLine = hopefuls.length === 1
+      ? `If ${shortTeam(hopefuls[0].t.name)} ${win ? 'wins' : 'loses'} ${semiLabel(hopefuls[0].x, b.slots)}`
+      : `If ${joinOr(hopefuls.map((h) => shortTeam(h.t.name)))} ${win ? 'wins' : 'loses'} their semi`;
+    return { possible: true, ifLine, rows: rows.join(''),
+      note: hopefuls.length === 1 ? `From the bracket. Disappears if ${shortTeam(hopefuls[0].t.name)} ${win ? 'loses' : 'wins'}.` : 'From the bracket. Updates as the semis finish.' };
+  }
+
+  // Results: a Champions (or Finalists) banner above a finished final that a
+  // followed team played in.
+  function finalBanners(g) {
+    if (g.round !== 'Final' || !g.completed || g.home.score == null || g.away.score == null || g.home.score === g.away.score) return '';
+    const homeWon = g.home.score > g.away.score;
+    const w = homeWon ? g.home : g.away, l = homeWon ? g.away : g.home;
+    const ws = Math.max(g.home.score, g.away.score), ls = Math.min(g.home.score, g.away.score);
+    const where = `${g.tournament ? esc(g.tournament.name) : esc(g.league ? g.league.name : '')} · ${esc(g.division)}`;
+    const out = [];
+    if (state.tracked.has(w.id)) out.push(`<div class="champ-banner" role="note">
+      <svg class="champ-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+      <div class="kicker">${where}</div><div class="big">Champions</div>
+      <span class="champ-team">${esc(w.name)}</span><div class="champ-score">Won the final ${ws}–${ls} vs ${esc(l.name)}</div></div>`);
+    if (state.tracked.has(l.id)) out.push(`<div class="champ-banner silver" role="note">
+      <svg class="champ-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg>
+      <div class="kicker">${where}</div><div class="big">Finalists</div>
+      <span class="champ-team">${esc(l.name)}</span><div class="champ-score">Lost the final ${ls}–${ws} vs ${esc(w.name)}</div></div>`);
+    return out.join('');
+  }
+
   function gameCard(g, { showIce = true, result = false } = {}) {
     const { before, after } = iceNeighbours(g);
-    return `<article class="card${g.tournament ? ' tourney' : ''}">
+    const br = !result && g.bracket ? bracketView(g) : null;
+    return `<article class="card${g.tournament ? ' tourney' : ''}${br && br.possible ? ' possible' : ''}">
+      ${br && br.possible ? '<div class="possible-tag">Possible game</div>' : ''}
       ${g.tournament ? `<div class="tourney-tag">Tournament · ${(() => {
         const url = tournamentUrl(g.tournament);
         return url ? `<a class="tourney-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(g.tournament.name)}<span class="sr-only"> — tournament website</span></a>` : esc(g.tournament.name);
-      })()}${g.type ? ` · ${esc(g.type)}` : ''}</div>` : ''}
+      })()}${g.type || g.round ? ` · ${esc(g.type || g.round)}` : ''}${bracketTag(g, result)}</div>` : ''}
       <div class="card-top">
         <span class="time">${fmtRange(g, ' – ')}</span>
         <span class="div-tag">${esc(g.division)}</span>
@@ -871,10 +1010,11 @@
         <button class="arena" data-game="${g.key}">${esc(g.arena)}</button>
         <a class="maplink" href="${mapsLink(g.arena)}" target="_blank" rel="noopener">Map</a>
       </div>
-      <div class="matchup">
+      ${br ? `${br.ifLine ? `<div class="if-line">${esc(br.ifLine)}</div>` : ''}<div class="matchup">${br.rows}</div>
+      <div class="bracket-note">${esc(br.note)}</div>` : `<div class="matchup">
         ${teamLine(g.away, g, 'AWAY')}
         ${teamLine(g.home, g, 'HOME')}
-      </div>
+      </div>`}
       ${g.cancelled ? '<div class="note">Cancelled</div>' : ''}
       ${result && !g.cancelled && g.home.score == null ? '<div class="pending">Score not posted yet</div>' : ''}
       ${result && g.completed && boxScoreUrl(g) ? `<a class="boxscore" href="${esc(boxScoreUrl(g))}" target="_blank" rel="noopener">Box score <span aria-hidden="true">›</span><span class="sr-only"> — goals, assists and penalties (opens the league's site)</span></a>` : ''}
@@ -947,7 +1087,7 @@
     main.innerHTML = bar + groupByDay(games).map((d) => {
       const rel = relDay(d.date);
       return `<h2 class="day">${esc(fmtDay(d.date))}${rel ? `<span class="rel">${rel}</span>` : ''}</h2>
-        ${d.games.map((g) => gameCard(g, { showIce: mode === 'upcoming', result: mode === 'results' })).join('')}`;
+        ${d.games.map((g) => (mode === 'results' ? finalBanners(g) : '') + gameCard(g, { showIce: mode === 'upcoming', result: mode === 'results' })).join('')}`;
     }).join('');
   }
 

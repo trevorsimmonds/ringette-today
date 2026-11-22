@@ -84,6 +84,12 @@ check(again[0].home === 'Eastern Ontario U19AA Surge' && askedPo.length === 0, '
 const onMenu = parseMenu(await read('ringetteontario.com_'));
 const withPo = withIds([{ ...po[0], gid: 2120590, endDate: null, endTime: null, arena: 'Nepean Sportsplex - Arena 2', notes: '', cancelled: false }], onMenu, 3106, null);
 check(withPo.games[0].HomeTeamName === 'Eastern Ontario U19AA Surge', 'playoffs: filled-in names go on to team matching');
+check(withPo.games[0].homeSlot === '2nd Place U19AA' && withPo.games[0].awaySlot === '3rd Place U19AA', 'playoffs: original bracket labels are saved with the game');
+const laterCal = [ig(2120590, '2026-11-22', '11:15', 'Eastern Ontario U19AA Surge', 'Eastern Ontario U19AA Rush')];
+await fillPlayoffTeams(laterCal, ON, 'America/Toronto', nowPo, fakePo, [{ GID: 2120590, homeSlot: '2nd Place U19AA', awaySlot: '3rd Place U19AA' }]);
+check(laterCal[0].homeSlot === '2nd Place U19AA' && laterCal[0].awaySlot === '3rd Place U19AA', 'playoffs: bracket labels kept after RAMP fills the calendar');
+const rr = withIds([{ ...ig(2120501, '2026-11-20', '09:00', 'Eastern Ontario U19AA Surge', 'Eastern Ontario U19AA Rush'), endDate: null, endTime: null, arena: 'x', notes: '', cancelled: false }], onMenu, 3106, null);
+check(!('homeSlot' in rr.games[0]), 'playoffs: round-robin games carry no bracket labels');
 const blankAway = parseGameTeams('<div class="link-table-game-teamname text-center"><button></button> <div>Queens U Ringette</div> <div>Home </div></div> <div class="link-table-game-teamname text-center"><button></button> <div></div> <div>Away </div></div>');
 const sud = [ig(2139413, '2026-11-22', '10:00', '1st place University', 'Away')];
 await fillPlayoffTeams(sud, ON, 'America/Toronto', Date.parse('2026-11-21T23:40:00-05:00'), async () => '<div class="link-table-game-teamname text-center"><button></button> <div>Queens U Ringette</div> <div>Home </div></div> <div class="link-table-game-teamname text-center"><button></button> <div></div> <div>Away </div></div>');

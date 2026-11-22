@@ -209,6 +209,7 @@ export function withIds(icsGames, menu, aid, sid) {
       notes: g.notes,
       completed: !!g.score,
       cancelledHome: g.cancelled,
+      ...(g.homeSlot || g.awaySlot ? { homeSlot: g.homeSlot || null, awaySlot: g.awaySlot || null } : {}),
     };
   });
   return { games, unmatched: [...unmatched] };
@@ -284,7 +285,8 @@ export function parseGameTeams(html) {
   return 'home' in t && 'away' in t ? t : null;
 }
 
-// Swap placeholders in calendar games (before withIds) for the real teams:
+// Swap placeholders in calendar games (before withIds) for the real teams, and
+// note each game's original placeholder labels (homeSlot/awaySlot):
 // first from the last saved copy, then, for games from 2 days ago to 36 hours
 // ahead that still have one, from the game page. Changes the games in place.
 // Returns how many games got a team from a page this run.
@@ -294,8 +296,12 @@ export async function fillPlayoffTeams(icsGames, site, tz, nowMs, load, prevGame
   const prev = new Map(prevGames.map((g) => [g.GID, g]));
   let n = 0;
   for (const g of icsGames) {
-    if (!isSlot(g.home) && !isSlot(g.away)) continue;
     const p = prev.get(g.gid);
+    // Keep the original bracket labels ("Winner Semi 1 U14A", "2nd Place U14A"),
+    // even after RAMP fills in the teams: the app reads the bracket from them.
+    g.homeSlot = isSlot(g.home) ? g.home : (p && p.homeSlot) || null;
+    g.awaySlot = isSlot(g.away) ? g.away : (p && p.awaySlot) || null;
+    if (!isSlot(g.home) && !isSlot(g.away)) continue;
     if (p) {
       if (isSlot(g.home) && p.HomeTeamName && !isSlot(p.HomeTeamName)) g.home = p.HomeTeamName;
       if (isSlot(g.away) && p.AwayTeamName && !isSlot(p.AwayTeamName)) g.away = p.AwayTeamName;
