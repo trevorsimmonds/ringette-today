@@ -65,6 +65,7 @@ const semiPage = await read('ringetteontario.com_division_0_0_game_view_2120590'
 const semi = parseGameTeams(semiPage);
 check(semi && semi.home === 'Eastern Ontario U19AA Surge' && semi.away === 'Eastern Ontario U19AA Rush', 'game page: playoff teams read (Surge home, Rush away)');
 check(parseGameTeams('<html><body>nothing</body></html>') === null, 'game page: no teams on a page without them');
+check(isSlot('Away') && isSlot('Home') && isSlot('') && isSlot('Quarter Final U10 - Div. C 1st') && isSlot('U12B Final') && isSlot('FUN 3 Stage 1- Final') && !isSlot('Eastern Ontario U19AA Surge') && !isSlot('Queens U Ringette'), 'placeholders: Home/Away, blank, quarter finals, "… Final"');
 const ON = 'https://www.ringetteontario.com';
 const ig = (gid, date, time, home, away, extra = {}) => ({ gid, date, time, home, away, division: 'U19AA', score: null, ...extra });
 const po = [ig(2120590, '2026-11-22', '11:15', '2nd Place U19AA', '3rd Place U19AA'), ig(2120598, '2026-11-22', '12:00', 'Winner Semi 1 U19B', 'Winner Semi 2 U19B'),
@@ -83,6 +84,10 @@ check(again[0].home === 'Eastern Ontario U19AA Surge' && askedPo.length === 0, '
 const onMenu = parseMenu(await read('ringetteontario.com_'));
 const withPo = withIds([{ ...po[0], gid: 2120590, endDate: null, endTime: null, arena: 'Nepean Sportsplex - Arena 2', notes: '', cancelled: false }], onMenu, 3106, null);
 check(withPo.games[0].HomeTeamName === 'Eastern Ontario U19AA Surge', 'playoffs: filled-in names go on to team matching');
+const blankAway = parseGameTeams('<div class="link-table-game-teamname text-center"><button></button> <div>Queens U Ringette</div> <div>Home </div></div> <div class="link-table-game-teamname text-center"><button></button> <div></div> <div>Away </div></div>');
+const sud = [ig(2139413, '2026-11-22', '10:00', '1st place University', 'Away')];
+await fillPlayoffTeams(sud, ON, 'America/Toronto', Date.parse('2026-11-21T23:40:00-05:00'), async () => '<div class="link-table-game-teamname text-center"><button></button> <div>Queens U Ringette</div> <div>Home </div></div> <div class="link-table-game-teamname text-center"><button></button> <div></div> <div>Away </div></div>');
+check(blankAway && blankAway.home === 'Queens U Ringette' && blankAway.away === '' && sud[0].home === 'Queens U Ringette' && sud[0].away === 'Away', 'playoffs: a blank team on the page (Sudbury) leaves the placeholder alone');
 
 // Whole run on the samples
 const tmp = await mkdtemp(join(tmpdir(), 'ramp-'));

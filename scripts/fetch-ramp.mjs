@@ -162,8 +162,14 @@ export function seasonOf(menu, aid) {
 // Turn calendar games into the app's game shape, filling team and division
 // IDs from the menu. Returns { games, unmatched } (team names not found).
 // Playoff slots ("1ST", "2ND BLUE", "Winner Game 12") have no team.
-// Playoff placeholders: "1st Place U14AA", "Winner Semi 1 U19B", "BLUE SEMI WINNER".
-export const isSlot = (name) => /^(\d+\s*(st|nd|rd|th)\b|winner|loser|tbd|tba|to be determined|semi|final|pool|group)|\b(semi|winner|loser|\d+(st|nd|rd|th) place)\b/i.test(String(name).trim());
+// Playoff placeholders: "1st Place U14AA", "Winner Semi 1 U19B", "BLUE SEMI WINNER",
+// "Quarter Final U10 - Div. C 1st", "U12B Final", plain "Home"/"Away" (Sudbury), or no name at all.
+export const isSlot = (name) => {
+  const n = String(name ?? '').trim();
+  return !n || /^(home|away)$/i.test(n)
+    || /^(\d+\s*(st|nd|rd|th)\b|winner|loser|tbd|tba|to be determined|semi|final|pool|group|quarter)/i.test(n)
+    || /\b(semi|winner|loser|quarter final|\d+(st|nd|rd|th) place)\b|\bfinal$/i.test(n);
+};
 
 export function withIds(icsGames, menu, aid, sid) {
   // This season's teams first, then older seasons' (a tournament's menu can
@@ -273,9 +279,9 @@ export function parseGameTeams(html) {
   const t = {};
   for (const m of html.matchAll(/link-table-game-teamname[^>]*>(?:(?!link-table-game-teamname)[\s\S]){0,1500}?<div>([^<]*)<\/div>\s*<div>\s*(Home|Away)\s*<\/div>/g)) {
     const side = m[2].toLowerCase();
-    if (!t[side]) t[side] = decodeEntities(m[1]).trim();
+    if (!(side in t)) t[side] = decodeEntities(m[1]).trim();  // may be '' when RAMP hasn't decided the team
   }
-  return t.home && t.away ? t : null;
+  return 'home' in t && 'away' in t ? t : null;
 }
 
 // Swap placeholders in calendar games (before withIds) for the real teams:
