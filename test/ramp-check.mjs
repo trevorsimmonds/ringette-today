@@ -6,7 +6,7 @@ import { readFile, writeFile, mkdtemp, mkdir, copyFile, readdir } from 'node:fs/
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { parseIcs, parseMenu, seasonOf, withIds, isSlot, parseLiveScore, addLiveScores } from '../scripts/fetch-ramp.mjs';
+import { parseIcs, parseMenu, seasonOf, withIds, isSlot, parseLiveScore, addLiveScores, parseGameTeams, fillPlayoffTeams } from '../scripts/fetch-ramp.mjs';
 
 const dir = new URL('./ramp/', import.meta.url).pathname;
 const script = new URL('../scripts/fetch-ramp.mjs', import.meta.url).pathname;
@@ -58,6 +58,31 @@ check(lg[3].homeScore === 2 && !lg[3].live, 'live: final calendar score left alo
 const swapped = [mk(5, '2026-11-01T09:00:00', null, { HomeTeamName: 'Ottawa Ice U12A - Doherty', AwayTeamName: 'West Ottawa Wild U12A - Pattyson' })];
 await addLiveScores(swapped, 'https://www.ncrrl.com', 'America/Toronto', Date.parse('2026-11-01T09:20:00-05:00'), async () => livePage);
 check(swapped[0].homeScore === 3 && swapped[0].awayScore === 0, 'live: rows matched to home/away by name');
+
+// Playoff teams from the game page (the calendar still has placeholders)
+check(isSlot('2nd Place U19AA') && isSlot('Winner Semi 1 U19B') && isSlot('BLUE SEMI WINNER') && !isSlot('Eastern Ontario U19AA Surge') && !isSlot('Gloucester Cumberland Devils U14AA - McDonald'), 'playoff placeholders recognised anywhere in the name');
+const semiPage = await read('ringetteontario.com_division_0_0_game_view_2120590');
+const semi = parseGameTeams(semiPage);
+check(semi && semi.home === 'Eastern Ontario U19AA Surge' && semi.away === 'Eastern Ontario U19AA Rush', 'game page: playoff teams read (Surge home, Rush away)');
+check(parseGameTeams('<html><body>nothing</body></html>') === null, 'game page: no teams on a page without them');
+const ON = 'https://www.ringetteontario.com';
+const ig = (gid, date, time, home, away, extra = {}) => ({ gid, date, time, home, away, division: 'U19AA', score: null, ...extra });
+const po = [ig(2120590, '2026-11-22', '11:15', '2nd Place U19AA', '3rd Place U19AA'), ig(2120598, '2026-11-22', '12:00', 'Winner Semi 1 U19B', 'Winner Semi 2 U19B'),
+  ig(2120700, '2026-11-29', '10:00', '1st Place U12A', '2nd Place U12A'), ig(2120701, '2026-11-22', '09:00', 'Eastern Ontario U19AA Surge', 'Nepean Ravens U19AA')];
+const askedPo = [];
+const fakePo = async (url) => { askedPo.push(url); try { return await readFile(join(dir, url.replace(/^https:\/\/(www\.)?/, '').replace(/[^a-z0-9.]+/gi, '_')), 'utf8'); } catch { const e = new Error('none'); e.unavailable = true; throw e; } };
+const nowPo = Date.parse('2026-11-21T23:40:00-05:00');
+const nPo = await fillPlayoffTeams(po, ON, 'America/Toronto', nowPo, fakePo);
+check(nPo === 2 && po[0].home === 'Eastern Ontario U19AA Surge' && po[0].away === 'Eastern Ontario U19AA Rush', 'playoffs: semi gets both teams from its page');
+check(po[1].home === 'Upper Ottawa Valley U19B - Lees' && po[1].away === 'Winner Semi 2 U19B', 'playoffs: final gets the team that is known, keeps the other placeholder');
+check(askedPo.length === 2 && !askedPo.some((u) => /2120700|2120701/.test(u)), 'playoffs: only placeholder games in the next 36 hours are looked up');
+const again = [ig(2120590, '2026-11-22', '11:15', '2nd Place U19AA', '3rd Place U19AA')];
+askedPo.length = 0;
+await fillPlayoffTeams(again, ON, 'America/Toronto', nowPo, fakePo, [{ GID: 2120590, HomeTeamName: 'Eastern Ontario U19AA Surge', AwayTeamName: 'Eastern Ontario U19AA Rush' }]);
+check(again[0].home === 'Eastern Ontario U19AA Surge' && askedPo.length === 0, 'playoffs: teams found on an earlier run are reused without looking again');
+const onMenu = parseMenu(await read('ringetteontario.com_'));
+const withPo = withIds([{ ...po[0], gid: 2120590, endDate: null, endTime: null, arena: 'Nepean Sportsplex - Arena 2', notes: '', cancelled: false }], onMenu, 3106, null);
+check(withPo.games[0].HomeTeamName === 'Eastern Ontario U19AA Surge', 'playoffs: filled-in names go on to team matching');
 
 // Whole run on the samples
 const tmp = await mkdtemp(join(tmpdir(), 'ramp-'));

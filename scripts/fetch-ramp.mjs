@@ -162,7 +162,8 @@ export function seasonOf(menu, aid) {
 // Turn calendar games into the app's game shape, filling team and division
 // IDs from the menu. Returns { games, unmatched } (team names not found).
 // Playoff slots ("1ST", "2ND BLUE", "Winner Game 12") have no team.
-export const isSlot = (name) => /^(\d+\s*(st|nd|rd|th)\b|winner|loser|tbd|tba|to be determined|semi|final|pool|group)/i.test(name.trim());
+// Playoff placeholders: "1st Place U14AA", "Winner Semi 1 U19B", "BLUE SEMI WINNER".
+export const isSlot = (name) => /^(\d+\s*(st|nd|rd|th)\b|winner|loser|tbd|tba|to be determined|semi|final|pool|group)|\b(semi|winner|loser|\d+(st|nd|rd|th) place)\b/i.test(String(name).trim());
 
 export function withIds(icsGames, menu, aid, sid) {
   // This season's teams first, then older seasons' (a tournament's menu can
@@ -262,6 +263,54 @@ export async function addLiveScores(games, site, tz, nowMs, load) {
   return n;
 }
 
+// ---------- playoff teams (each game's own page) ----------
+// When a round robin ends, RAMP puts the real teams on the playoff game's own
+// page ("Eastern Ontario U19AA Surge" / Home) well before its calendar file
+// stops saying "2nd Place U19AA". The page shows each team as
+//   <div class="link-table-game-teamname …">…<div>Team name</div> <div>Home </div></div>
+// Returns { home, away } or null when the page doesn't have both.
+export function parseGameTeams(html) {
+  const t = {};
+  for (const m of html.matchAll(/link-table-game-teamname[^>]*>(?:(?!link-table-game-teamname)[\s\S]){0,1500}?<div>([^<]*)<\/div>\s*<div>\s*(Home|Away)\s*<\/div>/g)) {
+    const side = m[2].toLowerCase();
+    if (!t[side]) t[side] = decodeEntities(m[1]).trim();
+  }
+  return t.home && t.away ? t : null;
+}
+
+// Swap placeholders in calendar games (before withIds) for the real teams:
+// first from the last saved copy, then, for games from 2 days ago to 36 hours
+// ahead that still have one, from the game page. Changes the games in place.
+// Returns how many games got a team from a page this run.
+export async function fillPlayoffTeams(icsGames, site, tz, nowMs, load, prevGames = []) {
+  const nowWall = wallNow(nowMs, tz);
+  const soon = shiftWall(nowWall, 36 * 60), back = shiftWall(nowWall, -48 * 60), recheck = shiftWall(nowWall, 120);  // 36 h ahead, 2 days back, 2 h ahead
+  const prev = new Map(prevGames.map((g) => [g.GID, g]));
+  let n = 0;
+  for (const g of icsGames) {
+    if (!isSlot(g.home) && !isSlot(g.away)) continue;
+    const p = prev.get(g.gid);
+    if (p) {
+      if (isSlot(g.home) && p.HomeTeamName && !isSlot(p.HomeTeamName)) g.home = p.HomeTeamName;
+      if (isSlot(g.away) && p.AwayTeamName && !isSlot(p.AwayTeamName)) g.away = p.AwayTeamName;
+    }
+    const start = `${g.date}T${g.time}:00`;
+    // Look again if still a placeholder, or (to catch corrections) if it starts within 2 hours.
+    const stillSlot = isSlot(g.home) || isSlot(g.away);
+    if (start > soon || start < back) continue;
+    if (!stillSlot && (g.score || start > recheck || start < shiftWall(nowWall, -180))) continue;
+    let teams;
+    try { teams = parseGameTeams(await load(`${site}/division/0/0/game/view/${g.gid}`, null, [])); }
+    catch (err) { if (!err.unavailable) throw err; continue; }
+    if (!teams) continue;
+    let changed = false;
+    if (!isSlot(teams.home) && teams.home !== g.home) { g.home = teams.home; changed = true; }
+    if (!isSlot(teams.away) && teams.away !== g.away) { g.away = teams.away; changed = true; }
+    if (changed) n++;
+  }
+  return n;
+}
+
 // ---------- run ----------
 function ottawaDay(offsetDays, todayMs) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Toronto', year: 'numeric', month: '2-digit', day: '2-digit' })
@@ -303,6 +352,8 @@ async function main() {
         if (prev) out.leagues[lg.key] = prev;
         continue;
       }
+      const filled = await fillPlayoffTeams(ics, lg.site, 'America/Toronto', nowMs, load, prev?.games);
+      if (filled) console.log(`${lg.key}: playoff teams filled in from game pages for ${filled} game(s)`);
       const { games, unmatched } = withIds(ics, menu, lg.aid, sid);
       if (unmatched.length) warn(`${lg.key}: ${unmatched.length} team name(s) not in the menu, e.g. ${unmatched.slice(0, 3).join('; ')}`);
       if (unmatched.length > games.length) problems.push(`${lg.key}: most team names couldn't be matched to the menu — RAMP may have changed its pages.`);
@@ -340,6 +391,8 @@ async function main() {
       // Tournament calendars hold every year; keep this year's dates (± a few days).
       const lo = addDays(t.start, -4), hi = addDays(t.end, 4);
       const ics = parseIcs(await load(url, /BEGIN:VCALENDAR/)).filter((g) => g.date >= lo && g.date <= hi);
+      const filled = await fillPlayoffTeams(ics, own ? t.site : ONTARIO, t.tz || 'America/Toronto', nowMs, load, prev?.games);
+      if (filled) console.log(`${t.name} (${t.aid}): playoff teams filled in from game pages for ${filled} game(s)`);
       const { games, unmatched } = withIds(ics, menu, t.aid, sid);
       if (unmatched.length) warn(`${t.name}: ${unmatched.length} team name(s) not in the menu, e.g. ${unmatched.slice(0, 3).join('; ')}`);
       const live = await addLiveScores(games, own ? t.site : ONTARIO, t.tz || 'America/Toronto', nowMs, load);
