@@ -1,2 +1,6 @@
 logos/*
 !logos/logos.json
+
+# Cloudflare helper (worker/): Wrangler's local files
+.wrangler/
+node_modules/

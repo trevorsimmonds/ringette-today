@@ -1,0 +1,11 @@
+// Cloudflare settings for the live-score helper. Deploy from this folder with
+//   npx wrangler login     (once; approve in the browser)
+//   npx wrangler dev       (try it on your Mac: http://localhost:8787/game/ncrrl/2072660)
+//   npx wrangler deploy    (puts it live at https://ringette-live.<your-subdomain>.workers.dev)
+// Nothing secret lives here.
+{
+  "name": "ringette-live",
+  "main": "src/index.js",
+  "compatibility_date": "2025-11-01",
+  "observability": { "enabled": true }  // keeps recent logs in the Cloudflare dashboard
+}
