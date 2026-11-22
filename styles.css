@@ -282,3 +282,10 @@ dialog::backdrop { background: rgba(5, 10, 20, .55); }
   .champ-banner { --c-bg: linear-gradient(135deg, #2a2109, #3d300c); --c-line: #8a6a1c; --c-kicker: #e0b64a; --c-big: #ffd76a; --c-text: #f2dfa5; --c-icon: #ffd76a; }
   .champ-banner.silver { --c-bg: linear-gradient(135deg, #1e2125, #2a2e34); --c-line: #5c636d; --c-kicker: #aeb5bf; --c-big: #e3e7ec; --c-text: #cfd5dc; --c-icon: #cfd5dc; }
 }
+
+/* ---------- live scores (not final yet) ---------- */
+.live-tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+.live-tag.done { color: var(--muted); text-transform: none; letter-spacing: 0; font-weight: 600; font-style: italic; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: live-pulse 1.6s ease-in-out infinite; }
+@keyframes live-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }

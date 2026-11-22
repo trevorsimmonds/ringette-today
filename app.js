@@ -456,6 +456,7 @@
     }
     resolvePtTeams();
     computeBrackets(all);
+    if (applyLive()) computeBrackets(all);
     state.byIce = new Map();
     for (const g of all) {
       if (g.cancelled) continue;
@@ -619,6 +620,98 @@
   const bracketTeams = (g) => (g.bracket ? g.bracket.slots.flatMap((x) => x.options) : []);
   const isTracked = (g) => state.tracked.has(g.home.id) || state.tracked.has(g.away.id) || bracketTeams(g).some((t) => state.tracked.has(t.id));
   const isFav = (g) => state.favs.has(g.home.id) || state.favs.has(g.away.id) || bracketTeams(g).some((t) => state.favs.has(t.id));
+
+  // ---------- live scores (Cloudflare helper, worker/) ----------
+  // The GitHub job only runs every so often, and GitHub often runs it late. So
+  // while a game you follow is on (from its start until the GitHub data has its
+  // final), and for the semis and the final of a bracket you're watching, the
+  // app asks the live-score helper about once a minute, only while it's on
+  // screen. The helper reads RAMP's game pages; its answers are layered over
+  // the GitHub data: the score shows as "LIVE · as of …", never as a final,
+  // and teams RAMP has put into a playoff game are filled in. The official
+  // final (and the Champions/Finalists banners) still come from the GitHub
+  // data. If the helper doesn't answer, nothing changes and it's left alone
+  // for a few minutes.
+  const LIVE_URL = 'https://ringette-live.ringettetoday.workers.dev';
+  const LIVE_EVERY_MS = 60000, LIVE_PAUSE_MS = 5 * 60000, LIVE_TIMEOUT_MS = 6000, LIVE_MAX = 10;
+  const LIVE_BEFORE_MS = 5 * 60000, LIVE_AFTER_MS = 6 * 3600000;
+  const live = { data: new Map(), pausedUntil: 0, busy: false };  // "site:game" -> { score, teams, asOf }
+  function liveSite(g) {
+    if (g.tournament) {
+      if (g.tournament.source === 'pt') return null;
+      if (g.tournament.site) return /frederictonearlybird\.ca/i.test(g.tournament.site) ? 'fredericton' : null;
+      return 'ontario';
+    }
+    return g.league && (g.league.key === 'ncrrl' || g.league.key === 'gaara') ? g.league.key : null;
+  }
+  const liveKey = (g) => { const site = liveSite(g); return site && g.id ? `${site}:${g.id}` : null; };
+  function liveWanted() {
+    const t = now().getTime();
+    const on = (x) => x.start.getTime() <= t + LIVE_BEFORE_MS && x.start.getTime() >= t - LIVE_AFTER_MS;
+    const out = new Set();
+    const add = (x) => { const k = liveKey(x); if (k) out.add(k); };
+    for (const g of state.games) {
+      if (g.cancelled || g.completed) continue;
+      if ((state.tracked.has(g.home.id) || state.tracked.has(g.away.id)) && on(g)) add(g);
+      if (g.bracket && bracketTeams(g).some((x) => state.tracked.has(x.id))) {
+        for (const x of g.bracket.slots) if (!x.semi.completed && !x.semi.cancelled && on(x.semi)) add(x.semi);
+        // the final itself, from a few hours before, to pick up its teams as soon as RAMP lists them
+        if (g.start.getTime() - t <= LIVE_AFTER_MS && g.start.getTime() >= t - LIVE_AFTER_MS) add(g);
+      }
+    }
+    return [...out];
+  }
+  // Layer the helper's answers over the games. Returns true when it filled in
+  // playoff teams (the bracket then needs working out again).
+  function applyLive() {
+    const known = new Map();
+    for (const g of state.games) for (const t of [g.home, g.away]) if (t.id && !isSlotName(t.name) && !known.has(t.name)) known.set(t.name, t);
+    let teamsChanged = false;
+    for (const g of state.games) {
+      g.liveScore = null;
+      const k = liveKey(g);
+      const d = k && live.data.get(k);
+      if (!d || g.completed || g.cancelled) continue;
+      if (d.teams) {
+        for (const side of ['home', 'away']) {
+          const name = d.teams[side] && cleanName(d.teams[side]);
+          if (!name || isSlotName(name) || !isSlotName(g[side].name)) continue;
+          const t = known.get(name);
+          g[side] = { ...g[side], name, id: t ? t.id : null, logoName: t ? t.logoName : null, logoLeague: t ? t.logoLeague : null };
+          teamsChanged = true;
+        }
+      }
+      if (d.score) {
+        // RAMP sometimes lists home/away differently from the calendar: match by name.
+        const swapped = d.teams && cleanName(d.teams.home || '') === g.away.name && cleanName(d.teams.away || '') === g.home.name;
+        g.liveScore = { home: swapped ? d.score.away : d.score.home, away: swapped ? d.score.home : d.score.away, asOf: new Date(d.asOf) };
+      }
+    }
+    return teamsChanged;
+  }
+  async function pollLive() {
+    if (FIXTURE || live.busy || document.visibilityState !== 'visible' || Date.now() < live.pausedUntil) return;
+    const keys = liveWanted();
+    if (!keys.length) return;
+    live.busy = true;
+    try {
+      for (let i = 0; i < keys.length; i += LIVE_MAX) {
+        const res = await fetch(`${LIVE_URL}/games?g=${keys.slice(i, i + LIVE_MAX).join(',')}`, { signal: AbortSignal.timeout(LIVE_TIMEOUT_MS) });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const j = await res.json();
+        for (const [k, v] of Object.entries(j.games || {})) {
+          if (v && !v.error && v.asOf) live.data.set(k, { score: v.score || null, teams: v.teams || null, asOf: v.asOf });
+        }
+      }
+      for (const [k, v] of live.data) if (Date.now() - new Date(v.asOf) > LIVE_AFTER_MS) live.data.delete(k);
+      if (applyLive()) computeBrackets(state.games);
+      render();
+    } catch {
+      live.pausedUntil = Date.now() + LIVE_PAUSE_MS;  // helper down or slow: GitHub data only for a while
+    } finally {
+      live.busy = false;
+    }
+  }
 
   // --- tournaments ---
   function tournamentWindow(t) {
@@ -836,13 +929,15 @@
   }
   function teamLine(t, g, side) {
     const mine = state.tracked.has(t.id);
-    const showScore = g.completed || (t.score !== null && t.score !== undefined && g.start < now());
+    const which = t === g.home ? 'home' : t === g.away ? 'away' : null;
+    const score = g.liveScore && which ? g.liveScore[which] : t.score;
+    const showScore = g.completed || (score !== null && score !== undefined && g.start < now());
     return `<div class="team${mine ? ' mine' : ''}">
       <span class="name"><span class="ha">${side}</span>${state.favs.has(t.id) ? '<span class="fav-star" aria-label="Favourite">★</span>' : ''}${logoImg(logoFor(t.logoName || t.name, t.logoLeague || g.league))}${(() => {
         const url = standingsUrl(t, g);
         return url ? `<a class="team-link" href="${esc(url)}" target="_blank" rel="noopener" title="Standings">${esc(t.name)}<span class="sr-only"> — standings (opens the ${g.tournament ? 'tournament' : 'league'}'s site)</span></a>` : esc(t.name);
       })()}</span>
-      ${showScore && t.score != null ? `<span class="score">${t.score}</span>` : ''}
+      ${showScore && score != null ? `<span class="score">${score}</span>` : ''}
     </div>`;
   }
 
@@ -993,6 +1088,18 @@
     return out.join('');
   }
 
+  // A score that isn't the official final yet: from the helper (with its time)
+  // or from the GitHub job's last run while the game was on.
+  function liveTag(g, result) {
+    if (g.completed || g.cancelled || g.start > now()) return '';
+    const asOf = g.liveScore ? g.liveScore.asOf : (g.home.score != null && g.away.score != null ? state.rampUpdatedAt : null);
+    if (!asOf) return '';
+    const when = fmtTime(asOf);
+    return result
+      ? `<div class="live-tag done">Not final yet · score as of ${esc(when)}</div>`
+      : `<div class="live-tag"><span class="live-dot" aria-hidden="true"></span>Live · as of ${esc(when)}</div>`;
+  }
+
   function gameCard(g, { showIce = true, result = false } = {}) {
     const { before, after } = iceNeighbours(g);
     const br = !result && g.bracket ? bracketView(g) : null;
@@ -1016,7 +1123,8 @@
         ${teamLine(g.home, g, 'HOME')}
       </div>`}
       ${g.cancelled ? '<div class="note">Cancelled</div>' : ''}
-      ${result && !g.cancelled && g.home.score == null ? '<div class="pending">Score not posted yet</div>' : ''}
+      ${liveTag(g, result)}
+      ${result && !g.cancelled && g.home.score == null && !g.liveScore ? '<div class="pending">Score not posted yet</div>' : ''}
       ${result && g.completed && boxScoreUrl(g) ? `<a class="boxscore" href="${esc(boxScoreUrl(g))}" target="_blank" rel="noopener">Box score <span aria-hidden="true">›</span><span class="sr-only"> — goals, assists and penalties (opens the league's site)</span></a>` : ''}
       ${!result && !g.cancelled && previewUrl(g) ? `<a class="boxscore" href="${esc(previewUrl(g))}" target="_blank" rel="noopener">Game preview <span aria-hidden="true">›</span><span class="sr-only"> — both teams' records (opens the ${g.tournament ? 'tournament' : 'league'}'s site)</span></a>` : ''}
       ${g.notes ? `<div class="note">${esc(g.notes)}</div>` : ''}
@@ -1200,6 +1308,7 @@
         ${share ? `<div class="row"><button class="btn secondary" id="shareBtn">Share my teams</button>
           <span class="muted small">Sends a link that sets up the same teams and favourites on another phone.</span></div>` : ''}
         <p class="muted small">NCRRL, GAARA and RAMP tournament schedules copied from RAMP's calendars ${state.rampUpdatedAt ? `— last changed ${esc(fmtAgo(state.rampUpdatedAt))}` : '— not available yet'}. Checked every 15 minutes on weekends and weekday evenings, hourly otherwise.</p>
+        <p class="muted small">While a game you follow is on, its score is checked about once a minute with the app's own live-score helper, which reads the game's RAMP page. Those scores show as “Live · as of …” until the official final is posted.</p>
         <p class="muted small">LERQ schedule copied from Ringuette Québec ${state.lerqUpdatedAt ? `— last changed ${esc(fmtAgo(state.lerqUpdatedAt))}` : '— not available yet'}. Scores appear once they're entered on Ringuette Québec's site.</p>
         ${tournamentSummary()}
       </section>`;
@@ -1369,13 +1478,14 @@
   });
   $('#rinkClose').addEventListener('click', () => $('#rinkDialog').close());
   $('#rinkDialog').addEventListener('click', (e) => { if (e.target.id === 'rinkDialog') e.target.close(); });
-  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') load(); });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') load().finally(() => pollLive()); });
 
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }
 
   render();
-  load();
+  load().finally(() => pollLive());
   setInterval(() => setStatus(), 60000);
+  setInterval(() => pollLive(), LIVE_EVERY_MS);
 })();

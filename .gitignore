@@ -4,3 +4,4 @@ logos/*
 # Cloudflare helper (worker/): Wrangler's local files
 .wrangler/
 node_modules/
+worker/.stats.env

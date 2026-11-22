@@ -40,6 +40,12 @@ and the other games are still answered.
     npx wrangler tail      # watch its log live (e.g. on a game day)
     npx wrangler rollback  # back to the previous version
 
+Request counts in Terminal (per day and per hour, Ottawa time), from the
+project folder: `node scripts/helper-stats.mjs` (or `--watch` to refresh every
+minute, `--days 3` for fewer days). It needs `worker/.stats.env` with your
+account ID (`npx wrangler whoami`) and a read-only API token (Account Analytics:
+Read); that file is kept out of git.
+
 Checks without Cloudflare or the internet: `node test/worker-check.mjs` (from
 the project folder).
 
