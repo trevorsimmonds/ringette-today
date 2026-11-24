@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-24T02:16:18.933Z",
+ "updatedAt": "2026-11-24T13:52:18.517Z",
  "leagues": [
   {
    "id": 104,
@@ -1004,7 +1004,11 @@
    "arena": "Gilles Chabot - Boucherville",
    "home": "Rive-Sud",
    "away": "GCRA",
-   "detailId": 23415
+   "detailId": 23415,
+   "score": {
+    "away": 4,
+    "home": 12
+   }
   },
   {
    "num": 2030,
@@ -1014,7 +1018,11 @@
    "arena": "Vaudreuil - Dorion",
    "home": "Lac St-Louis",
    "away": "Laurentides",
-   "detailId": 23331
+   "detailId": 23331,
+   "score": {
+    "away": 9,
+    "home": 2
+   }
   },
   {
    "num": 1045,
