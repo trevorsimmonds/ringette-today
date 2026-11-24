@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-24T13:52:18.517Z",
+ "updatedAt": "2026-11-24T23:55:49.264Z",
  "leagues": [
   {
    "id": 104,
@@ -980,7 +980,11 @@
    "arena": "Blainville",
    "home": "Laurentides",
    "away": "GCRA",
-   "detailId": 23414
+   "detailId": 23414,
+   "score": {
+    "away": 9,
+    "home": 3
+   }
   },
   {
    "num": 2029,
