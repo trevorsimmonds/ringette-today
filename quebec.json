@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-20T02:22:38.609Z",
+ "updatedAt": "2026-11-24T02:16:18.933Z",
  "leagues": [
   {
    "id": 104,
@@ -876,7 +876,11 @@
    "arena": "Cardelrec A - West Ottawa",
    "home": "Eastern rush",
    "away": "BLL",
-   "detailId": 23326
+   "detailId": 23326,
+   "score": {
+    "away": 3,
+    "home": 1
+   }
   },
   {
    "num": 1038,
@@ -986,7 +990,11 @@
    "arena": "Blainville",
    "home": "Laurentides",
    "away": "Rive-Sud",
-   "detailId": 23330
+   "detailId": 23330,
+   "score": {
+    "away": 4,
+    "home": 3
+   }
   },
   {
    "num": 1043,
@@ -1742,8 +1750,8 @@
    "num": 1089,
    "league": 104,
    "date": "2027-02-13",
-   "time": "16:45",
-   "arena": "Isatis - St-Hyacinthe",
+   "time": "16:30",
+   "arena": "St-Bruno - Michael-Bilodeau",
    "home": "Rive-Sud",
    "away": "Outaouais",
    "detailId": 23461
