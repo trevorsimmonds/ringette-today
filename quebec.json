@@ -1,6 +1,6 @@
 {
  "source": "https://membres.ringuette-quebec.qc.ca/cedules_liste_web.asp",
- "updatedAt": "2026-11-24T23:55:49.264Z",
+ "updatedAt": "2026-11-25T19:22:37.986Z",
  "leagues": [
   {
    "id": 104,
@@ -1272,8 +1272,8 @@
    "num": 1057,
    "league": 104,
    "date": "2026-12-13",
-   "time": "15:30",
-   "arena": "Bob Birnie - Pointe-Claire",
+   "time": "15:00",
+   "arena": "Vaudreuil - Dorion",
    "home": "Lac St-Louis",
    "away": "GCRA",
    "detailId": 23429
@@ -1982,8 +1982,8 @@
    "num": 1100,
    "league": 104,
    "date": "2027-03-07",
-   "time": "13:00",
-   "arena": "Ray Friel 1 - Ottawa",
+   "time": "15:00",
+   "arena": "Richcraft - Gloucester",
    "home": "GCRA",
    "away": "Outaouais",
    "detailId": 23472
