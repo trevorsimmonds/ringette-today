@@ -298,7 +298,7 @@
   };
   // Club names written differently across leagues and tournaments → one name.
   const CLUB_ALIASES = [
-    [/^west ottawa( wild)?$/, 'west ottawa'],
+    [/^(west ottawa( wild)?|wora)$/, 'west ottawa'],  // WORA: West Ottawa Ringette Association
     [/^nepean( ravens)?$/, 'nepean'],
     [/^ottawa( ice)?$/, 'ottawa ice'],
     [/^(cora( city of ottawa)?|city of ottawa)( ice)?$/, 'ottawa ice'],  // City of Ottawa Ringette Association
@@ -314,8 +314,9 @@
     let key = plain(base).replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, ' ').trim().split(' ')
       .filter((w) => w && !/^(u|m)?\d{1,2}(aa|bb|a|b|c)?$/.test(w) && !/^(aa|bb|a|b|c|fem|feminin)$/.test(w))
       .join(' ');
+    const raw = key;
     for (const [re, to] of CLUB_ALIASES) if (re.test(key)) { key = to; break; }
-    return { key, coach: plain(coach).trim() };
+    return { key, raw, coach: plain(coach).trim() };
   }
   // Quebec age names, as Planitournoi divisions use them ("Fém Junior B" = U16 B).
   const QC_AGES = { novice: 10, atome: 12, benjamin: 14, benjamine: 14, junior: 16, cadet: 19, cadette: 19 };
@@ -335,8 +336,9 @@
       const w = c.key.split(' ');
       for (let i = w.length - 1; i >= 1; i--) {
         let key = w.slice(0, i).join(' ');
+        const raw = key;
         for (const [re, to] of CLUB_ALIASES) if (re.test(key)) { key = to; break; }
-        out.push({ key, coach: w.slice(i).join(' ') });
+        out.push({ key, raw, coach: w.slice(i).join(' ') });
       }
     }
     return out;
@@ -353,7 +355,20 @@
         const tl = ageLevel(t.baseDivision || t.division) || ageLevel(t.name);
         return tl && tl.age === al.age && (!tl.level || !al.level || tl.level === al.level);
       });
+      // A coach's name is the surest sign: "Ottawa-Lachapelle" is West Ottawa
+      // Wild U19B - Lachapelle, even though a plain "Ottawa" usually means
+      // Ottawa Ice. Only when exactly one same-age team has that coach and its
+      // name has the club words too.
       for (const club of clubGuesses(name)) {
+        if (!club.coach || !club.raw) continue;
+        const words = club.raw.split(' ');
+        const byCoach = sameAge.filter((t) => {
+          const c = clubOf(t.name);
+          return c.coach === club.coach && words.every((w) => c.key.split(' ').includes(w) || plain(t.name).split(/[^a-z0-9]+/).includes(w));
+        });
+        if (byCoach.length === 1) { hit = byCoach[0]; break; }
+      }
+      if (!hit) for (const club of clubGuesses(name)) {
         if (!club.key) continue;
         const cands = sameAge.filter((t) => clubOf(t.name).key === club.key);
         if (!cands.length) continue;
@@ -456,7 +471,7 @@
     }
     resolvePtTeams();
     computeBrackets(all);
-    if (applyLive()) computeBrackets(all);
+    if (applyLive()) { resolvePtTeams(); computeBrackets(all); }
     state.byIce = new Map();
     for (const g of all) {
       if (g.cancelled) continue;
@@ -644,15 +659,31 @@
     }
     return g.league && (g.league.key === 'ncrrl' || g.league.key === 'gaara') ? g.league.key : null;
   }
-  const liveKey = (g) => { const site = liveSite(g); return site && g.id ? `${site}:${g.id}` : null; };
+  const ptTid = (g) => (g.tournament && g.tournament.source === 'pt' ? String(g.tournament.aid).replace(/^pt/, '') : null);
+  const liveKey = (g) => {
+    const tid = ptTid(g);
+    if (tid) return g.id != null ? `pt:${tid}:${g.id}` : null;
+    const site = liveSite(g);
+    return site && g.id ? `${site}:${g.id}` : null;
+  };
   function liveWanted() {
     const t = now().getTime();
     const on = (x) => x.start.getTime() <= t + LIVE_BEFORE_MS && x.start.getTime() >= t - LIVE_AFTER_MS;
     const out = new Set();
     const add = (x) => { const k = liveKey(x); if (k) out.add(k); };
     for (const g of state.games) {
-      if (g.cancelled || g.completed) continue;
-      if ((state.tracked.has(g.home.id) || state.tracked.has(g.away.id)) && on(g)) add(g);
+      if (g.cancelled) continue;
+      const mine = state.tracked.has(g.home.id) || state.tracked.has(g.away.id);
+      if (mine && !g.completed && on(g)) add(g);
+      // Quebec tournaments (Planitournoi): also that day's undecided playoff
+      // games in the same division, so finals get their teams as soon as posted.
+      if (mine && ptTid(g)) {
+        for (const x of state.tourGames.get(g.tournament.aid) || []) {
+          if (x.completed || x.ptDivision !== g.ptDivision || dayKey(x.start) !== dayKey(g.start)) continue;
+          if ((!x.home.ptId || !x.away.ptId) && Math.abs(x.start.getTime() - t) <= LIVE_AFTER_MS) add(x);
+        }
+      }
+      if (g.completed) continue;
       if (g.bracket && bracketTeams(g).some((x) => state.tracked.has(x.id))) {
         for (const x of g.bracket.slots) if (!x.semi.completed && !x.semi.cancelled && on(x.semi)) add(x.semi);
         // the final itself, from a few hours before, to pick up its teams as soon as RAMP lists them
@@ -672,6 +703,17 @@
       const k = liveKey(g);
       const d = k && live.data.get(k);
       if (!d || g.completed || g.cancelled) continue;
+      if (d.pt) {
+        // Planitournoi posts final results and fills in playoff teams.
+        for (const side of ['home', 'away']) {
+          const x = d[side];
+          if (g[side].ptId || !x || !x.id) continue;
+          g[side] = { id: `pt:${x.id}`, ptId: `pt:${x.id}`, ptName: x.name, division: g.ptDivision, name: x.name, score: null };
+          teamsChanged = true;
+        }
+        if (d.score) { g.home.score = d.score.home; g.away.score = d.score.away; g.completed = true; }
+        continue;
+      }
       if (d.teams) {
         for (const side of ['home', 'away']) {
           const name = d.teams[side] && cleanName(d.teams[side]);
@@ -695,16 +737,32 @@
     if (!keys.length) return;
     live.busy = true;
     try {
-      for (let i = 0; i < keys.length; i += LIVE_MAX) {
-        const res = await fetch(`${LIVE_URL}/games?g=${keys.slice(i, i + LIVE_MAX).join(',')}`, { signal: AbortSignal.timeout(LIVE_TIMEOUT_MS) });
+      const ramp = keys.filter((k) => !k.startsWith('pt:'));
+      for (let i = 0; i < ramp.length; i += LIVE_MAX) {
+        const res = await fetch(`${LIVE_URL}/games?g=${ramp.slice(i, i + LIVE_MAX).join(',')}`, { signal: AbortSignal.timeout(LIVE_TIMEOUT_MS) });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const j = await res.json();
         for (const [k, v] of Object.entries(j.games || {})) {
           if (v && !v.error && v.asOf) live.data.set(k, { score: v.score || null, teams: v.teams || null, asOf: v.asOf });
         }
       }
+      // Quebec tournaments: one request per tournament.
+      const byTour = new Map();
+      for (const k of keys.filter((x) => x.startsWith('pt:'))) {
+        const [, tid, num] = k.split(':');
+        if (!byTour.has(tid)) byTour.set(tid, []);
+        byTour.get(tid).push(num);
+      }
+      for (const [tid, nums] of byTour) {
+        const res = await fetch(`${LIVE_URL}/pt/${tid}?g=${nums.slice(0, 20).join(',')}`, { signal: AbortSignal.timeout(LIVE_TIMEOUT_MS + 4000) });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const j = await res.json();
+        for (const [num, v] of Object.entries(j.games || {})) {
+          if (v && !v.error) live.data.set(`pt:${tid}:${num}`, { pt: true, home: v.home, away: v.away, score: v.score || null, asOf: j.asOf });
+        }
+      }
       for (const [k, v] of live.data) if (Date.now() - new Date(v.asOf) > LIVE_AFTER_MS) live.data.delete(k);
-      if (applyLive()) computeBrackets(state.games);
+      if (applyLive()) { resolvePtTeams(); computeBrackets(state.games); }
       render();
     } catch {
       live.pausedUntil = Date.now() + LIVE_PAUSE_MS;  // helper down or slow: GitHub data only for a while
@@ -1308,7 +1366,7 @@
         ${share ? `<div class="row"><button class="btn secondary" id="shareBtn">Share my teams</button>
           <span class="muted small">Sends a link that sets up the same teams and favourites on another phone.</span></div>` : ''}
         <p class="muted small">NCRRL, GAARA and RAMP tournament schedules copied from RAMP's calendars ${state.rampUpdatedAt ? `— last changed ${esc(fmtAgo(state.rampUpdatedAt))}` : '— not available yet'}. Checked every 15 minutes on weekends and weekday evenings, hourly otherwise.</p>
-        <p class="muted small">While a game you follow is on, its score is checked about once a minute with the app's own live-score helper, which reads the game's RAMP page. Those scores show as “Live · as of …” until the official final is posted.</p>
+        <p class="muted small">While a game you follow is on, its score is checked about once a minute with the app's own live-score helper, which reads the game's RAMP page. Those scores show as “Live · as of …” until the official final is posted. For Quebec tournaments the helper picks up results and playoff teams from Planitournoi as soon as they're posted.</p>
         <p class="muted small">LERQ schedule copied from Ringuette Québec ${state.lerqUpdatedAt ? `— last changed ${esc(fmtAgo(state.lerqUpdatedAt))}` : '— not available yet'}. Scores appear once they're entered on Ringuette Québec's site.</p>
         ${tournamentSummary()}
       </section>`;

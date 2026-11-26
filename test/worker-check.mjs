@@ -97,6 +97,31 @@ for (const q of [eleven, '', 'ncrrl:2072660,google:2072660', 'ncrrl:abc', 'ncrrl
 }
 check(asked.length === n0, 'refused many-games requests read nothing');
 
+// Planitournoi (Quebec tournaments): one tournament page, games by number
+const levis = await readFile(new URL('pt-levis-playoff.html', new URL('./', import.meta.url)), 'utf8');
+const ptAsked = [];
+const ptFetch = (html, status = 200) => async (url) => { ptAsked.push(url); return new Response(html, { status }); };
+const t2 = t0 + 120 * 60_000;
+r = await handle(req('/pt/23670?g=115,120,999', 'https://trevorsimmonds.github.io'), { fetchPage: ptFetch(levis), nowMs: t2 });
+j = await r.json();
+check(r.status === 200 && ptAsked[0] === 'https://www.planitournoi.com/tournament_public.php?tournament_id=23670&filter_division=0&team_id=0&field_id=0&date=0&dropdown=1&lang=fr', 'Planitournoi: reads the tournament page');
+check(j.games['115'].home.name === 'Lévis 2' && j.games['115'].score.home === 9 && j.games['115'].away.slot === 'Groupe A Pos. 3', 'Planitournoi: played game with teams and score');
+check(j.games['120'].score === null && j.games['120'].away.id === null && j.games['999'].error, 'Planitournoi: undecided final, and a game not on the page');
+check(r.headers.get('Access-Control-Allow-Origin') === 'https://trevorsimmonds.github.io', 'Planitournoi: the app\'s site may read the answer');
+r = await handle(req('/pt/23670?g=120'), { fetchPage: ptFetch('should not be read'), nowMs: t2 + 30_000 });
+j = await r.json();
+check(ptAsked.length === 1 && j.cached === true && j.games['120'], 'Planitournoi: same tournament within a minute answered from memory');
+r = await handle(req('/pt/23671?g=1'), { fetchPage: ptFetch('<html>maintenance</html>'), nowMs: t2 });
+check(r.status === 502 && /no games/.test((await r.json()).error), 'Planitournoi: a page without games is reported, not passed on');
+r = await handle(req('/pt/23672?g=1'), { fetchPage: ptFetch('busy', 429), nowMs: t2 });
+check(r.status === 502, 'Planitournoi: an error page is reported');
+const n1 = ptAsked.length;
+for (const path of ['/pt/23670', '/pt/23670?g=abc', '/pt/12?g=1', `/pt/23670?g=${Array.from({ length: 21 }, (_, i) => i + 1).join(',')}`]) {
+  r = await handle(req(path), { fetchPage: ptFetch(levis), nowMs: t2 });
+  check(r.status === 400 || r.status === 404, `Planitournoi refused: ${path.length > 30 ? '21 games' : path}`);
+}
+check(ptAsked.length === n1, 'Planitournoi: refused requests read nothing');
+
 clearInterval(keepAlive);
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);

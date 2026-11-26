@@ -75,5 +75,13 @@ check(hiccup.code === 0 && hiccup.kept && /WARNING/.test(hiccup.output) && /Too 
 const redesign = await runIn(join(tmp, 'redesign'), '<html><body><div id="tourn_league" class="row"><div class="new-card">La Coupe</div></div></body></html>');
 check(redesign.code === 2 && redesign.kept && /PROBLEM/.test(redesign.output), `list redesign: data kept and reported as a problem (exit ${redesign.code})`);
 
+// Playoff team cells (Lévis, 2026-11-22): name, round and bracket label kept apart
+const playoff = parseSchedule(await readFile(join(dir, 'pt-levis-playoff.html'), 'utf8'));
+const qf = playoff.find((g) => g.num === 115);
+check(qf && qf.away.name === 'Bellechasse' && qf.away.id === 101886 && qf.away.round === 'Quart de finale' && qf.away.slot === 'Groupe A Pos. 3', 'playoff team: name, round and bracket label read separately');
+check(qf && qf.home.name === 'Lévis 2' && qf.home.slot === 'Groupe B Pos. 2' && qf.score.away === 2 && qf.score.home === 9, 'playoff team: winner mark dropped from the name; score read');
+const fin = playoff.find((g) => g.num === 120);
+check(fin && fin.away.id === null && /Gagnant match 0115/.test(fin.away.name) && fin.score === null, 'undecided final: placeholder kept as is');
+
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);

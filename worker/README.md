@@ -30,6 +30,17 @@ and the other games are still answered.
   to read other websites. Only the app's site (and localhost, for testing) may
   read the answers from a browser.
 
+Quebec tournaments on Planitournoi (up to 20 game numbers from one tournament):
+
+    GET /pt/23670?g=115,120
+    {"tournament":23670,"asOf":"…","cached":false,"games":{"115":{"num":115,
+     "away":{"name":"Bellechasse","id":101886,…},"home":{"name":"Lévis 2","id":101908,…},
+     "score":{"away":2,"home":9}},"120":{…"score":null}}}
+
+Planitournoi posts final results after each game (no live scores) and fills in
+playoff teams as games finish. The whole tournament is one big page (1–2 MB),
+read at most once a minute per tournament however many people ask.
+
 ## Commands (run in this folder)
 
     npx wrangler login     # once: approve in the browser (sign up there if needed)
