@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-19T02:46:05.191Z",
- "today": "2026-11-18",
+ "updatedAt": "2026-11-26T13:04:39.940Z",
+ "today": "2026-11-26",
  "tournaments": [
   {
    "id": 23669,
@@ -3339,7 +3339,7 @@
       "id": 101729
      },
      "home": {
-      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "name": "Nepean Ravens Fun 3-Gauthier",
       "id": 102985
      },
      "score": null
@@ -3539,7 +3539,7 @@
      "time": "15:15",
      "arena": "Glace Branchaud",
      "away": {
-      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "name": "Nepean Ravens Fun 3-Gauthier",
       "id": 102985
      },
      "home": {
@@ -4172,7 +4172,7 @@
       "id": 104545
      },
      "home": {
-      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "name": "Nepean Ravens Fun 3-Gauthier",
       "id": 102985
      },
      "score": null
@@ -4355,7 +4355,7 @@
      "time": "12:15",
      "arena": "Glace C - Gerik",
      "away": {
-      "name": "Fun3 Team1 Gauthier/ Lockyer",
+      "name": "Nepean Ravens Fun 3-Gauthier",
       "id": 102985
      },
      "home": {
