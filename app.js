@@ -153,9 +153,9 @@
   }
   // Feed times are the rink's local clock time with no zone. Most rinks are on
   // Ottawa time; tournaments elsewhere say so (tz in tournaments.json, e.g.
-  // Fredericton = America/Moncton). Times are turned into real moments so
-  // "Results", "Today" and gaps are right wherever the phone is, and shown in
-  // the rink's own time (with its zone when it isn't Ottawa's).
+  // Fredericton = America/Moncton). Times are turned into real moments and
+  // shown in the phone's own time; when the rink's clock is different, its
+  // time is shown too ("9:15 AM EST · 10:15 AM AST at the rink").
   const HOME_TZ = 'America/Toronto';
   const tzParts = new Map();
   function wallClockIn(t, tz) {
@@ -172,14 +172,25 @@
     return new Date(t);
   }
   const tzName = (d, tz) => new Intl.DateTimeFormat('en-CA', { timeZone: tz, timeZoneName: 'short' }).formatToParts(d).find((x) => x.type === 'timeZoneName').value;
-  // "10:15 AM–~11:15 AM", plus " AST" for a rink outside Ottawa's time zone.
-  function fmtRange(g, sep = '–') {
+  // The phone's own time zone (the app's times follow it, like the day headings).
+  const VIEW_TZ = (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || HOME_TZ; } catch { return HOME_TZ; } })();
+  // Same clock at that moment? (America/Toronto and America/Montreal are.)
+  const sameClock = (d, tz) => wallClockIn(d.getTime(), tz) === wallClockIn(d.getTime(), VIEW_TZ);
+  // "10:15 AM–~11:15 AM" in the phone's time. For a rink on another clock
+  // (Fredericton from Ottawa): "9:15 AM–~10:15 AM EST · 10:15 AM AST at the rink".
+  // The game's own card adds the rink's time on a line of its own; the short
+  // lists (before/after, same building) just say whose time it is.
+  function fmtRange(g, sep = '–', rink = false) {
     const tz = g.tz || HOME_TZ;
-    return `${fmtTime(g.start, tz)}${sep}${g.endEstimated ? '~' : ''}${fmtTime(g.end, tz)}${tz !== HOME_TZ ? ` <span class="tz">${esc(tzName(g.start, tz))}</span>` : ''}`;
+    const range = `${fmtTime(g.start)}${sep}${g.endEstimated ? '~' : ''}${fmtTime(g.end)}`;
+    if (sameClock(g.start, tz)) return range;
+    const zone = ` <span class="tz">${esc(tzName(g.start, VIEW_TZ))}</span>`;
+    if (!rink) return range + zone;
+    return `${range}${zone}<span class="rink-time">${fmtTime(g.start, tz)} <span class="tz">${esc(tzName(g.start, tz))}</span> at the rink</span>`;
   }
   const DAY = 86400000;
   const dayKey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  const fmtTime = (d, tz = HOME_TZ) => d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit', timeZone: tz }).replace(/\s?([ap])\.?m\.?/i, (_, x) => ` ${x.toUpperCase()}M`);
+  const fmtTime = (d, tz = VIEW_TZ) => d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit', timeZone: tz }).replace(/\s?([ap])\.?m\.?/i, (_, x) => ` ${x.toUpperCase()}M`);
   const fmtDay = (d) => d.toLocaleDateString('en-CA', { weekday: 'long', month: 'short', day: 'numeric' });
   const fmtShortDate = (d) => d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric' });
   function relDay(d) {
@@ -1077,7 +1088,7 @@
   const shortTeam = (n) => { const i = String(n).lastIndexOf(' - '); return i > 0 ? n.slice(i + 3) : n; };
   const joinOr = (xs) => xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} or ${xs[xs.length - 1]}`;
   function semiLabel(slot, slots) {
-    const t = (x) => fmtTime(x.semi.start, x.semi.tz).replace(/ [AP]M$/, '');
+    const t = (x) => fmtTime(x.semi.start).replace(/ [AP]M$/, '');
     const unique = new Set(slots.map(t)).size === slots.length;
     return unique ? `the ${t(slot)} semi` : `the ${shortTeam(slot.semi.away.name)} vs ${shortTeam(slot.semi.home.name)} semi`;
   }
@@ -1168,7 +1179,7 @@
         return url ? `<a class="tourney-link" href="${esc(url)}" target="_blank" rel="noopener">${esc(g.tournament.name)}<span class="sr-only"> — tournament website</span></a>` : esc(g.tournament.name);
       })()}${g.type || g.round ? ` · ${esc(g.type || g.round)}` : ''}${bracketTag(g, result)}</div>` : ''}
       <div class="card-top">
-        <span class="time">${fmtRange(g, ' – ')}</span>
+        <span class="time">${fmtRange(g, ' – ', true)}</span>
         <span class="div-tag">${esc(g.division)}</span>
       </div>
       <div class="place">
