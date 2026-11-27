@@ -3,8 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Ringette Today</title>
-  <meta name="description" content="NCRRL and Ringette Ontario tournament schedules for the teams you follow, plus who's on the ice before and after.">
+  <title>Ringette Today – ringette schedules, scores and rink times for your teams</title>
+  <meta name="description" content="Free ringette schedules for the teams you follow: NCRRL, GAARA and LERQ league games, Ringette Ontario, Quebec and Fredericton tournaments, scores as they come in, and who's on the ice before and after.">
+  <link rel="canonical" href="https://trevorsimmonds.github.io/ringette-today/">
+  <!-- Link previews (team chats, Facebook, email) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ringette Today">
+  <meta property="og:title" content="Ringette Today">
+  <meta property="og:description" content="Ringette schedules and scores for the teams you follow, plus who's on the ice before and after. NCRRL, GAARA, LERQ, and Ontario, Quebec and Fredericton tournaments.">
+  <meta property="og:url" content="https://trevorsimmonds.github.io/ringette-today/">
+  <meta property="og:image" content="https://trevorsimmonds.github.io/ringette-today/icons/icon-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Ringette Today app icon">
+  <meta property="og:locale" content="en_CA">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Ringette Today","url":"https://trevorsimmonds.github.io/ringette-today/","description":"Ringette schedules and scores for the teams you follow, plus who's on the ice before and after.","applicationCategory":"SportsApplication","operatingSystem":"Any","inLanguage":"en-CA","offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"}}</script>
+  <!-- The app draws everything itself; this hides the plain-text description below as soon as the page can run it, so it never flashes in the app. -->
+  <script>document.documentElement.classList.add('js');</script>
   <meta name="theme-color" content="#000000">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon-192.png">
@@ -35,7 +51,15 @@
     <button id="favToggle" class="fav-toggle" aria-pressed="false" hidden>★ Favourites</button>
   </div>
 
-  <main id="main"></main>
+  <main id="main">
+    <!-- For search engines and browsers without JavaScript; the app replaces it. -->
+    <div class="empty static-about">
+      <h2>Ringette schedules for the teams you follow</h2>
+      <p>Ringette Today shows the games for the teams you pick: times, rinks, scores as they come in, and who's on the same ice right before and after.</p>
+      <p>It covers the NCRRL and GAARA leagues, the LERQ (Quebec AA league), Ringette Ontario tournaments, Quebec tournaments on Planitournoi and the Fredericton Early Bird tournament. Free, no account, no ads, no tracking.</p>
+      <p>Ringette Today needs JavaScript turned on.</p>
+    </div>
+  </main>
 
   <dialog id="rinkDialog">
     <div class="dialog-head">

@@ -1223,8 +1223,9 @@
     if (!state.tracked.size) {
       main.innerHTML = `<div class="empty">
         <h2>Pick the teams you follow</h2>
-        <p>Choose one or more NCRRL teams and their games will show up here, with who's on the same ice right before and after.</p>
+        <p>Choose one or more teams and their games will show up here: times, rinks, scores as they come in, and who's on the same ice right before and after.</p>
         <button class="btn" data-goto="teams">Choose teams</button>
+        <p class="covers">Covers the NCRRL and GAARA leagues, the LERQ (Quebec AA league), Ringette Ontario tournaments, Quebec tournaments on Planitournoi and the Fredericton Early Bird tournament. Free, no account, no ads, no tracking.</p>
       </div>`;
       return;
     }
