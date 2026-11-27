@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-27T14:15:18.145Z",
+ "updatedAt": "2026-11-27T22:54:13.397Z",
  "today": "2026-11-27",
  "tournaments": [
   {
@@ -27,8 +27,6 @@
     "Fém Intermédiaire B": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-intermediaire-b-90575/ringuette-pointe-claire-23669.html",
     "Fém Intermédiaire C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-intermediaire-c-90576/ringuette-pointe-claire-23669.html",
     "Fém Intermédiaire A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-intermediaire-a-90574/ringuette-pointe-claire-23669.html",
-    "Fém Junior AA A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-junior-aa-a-93113/ringuette-pointe-claire-23669.html",
-    "Fém Cadtte AA A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-cadtte-aa-a-93110/ringuette-pointe-claire-23669.html",
     "Fém Adult Rec C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-adult-rec-c-93109/ringuette-pointe-claire-23669.html",
     "Fém Benjamine U14 A": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-benjamine-u14-a-90565/ringuette-pointe-claire-23669.html",
     "Fém Junior U16 C": "https://www.planitournoi.com/tournois/ringuette/canada/quebec/classements/division/feminin-junior-u16-c-90570/ringuette-pointe-claire-23669.html"
@@ -36,6 +34,7 @@
    "games": [
     {
      "num": null,
+     "code": "NOVB01",
      "gameId": 429437,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -56,6 +55,7 @@
     },
     {
      "num": null,
+     "code": "NOVC01",
      "gameId": 424994,
      "division": "Fém Novice C",
      "date": "2026-11-27",
@@ -76,6 +76,7 @@
     },
     {
      "num": null,
+     "code": "ATOA01",
      "gameId": 425006,
      "division": "Fém Atome A",
      "date": "2026-11-27",
@@ -96,6 +97,7 @@
     },
     {
      "num": null,
+     "code": "BENB01",
      "gameId": 429444,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-27",
@@ -109,10 +111,14 @@
       "name": "PCRA",
       "id": 103907
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 3
+     }
     },
     {
      "num": null,
+     "code": "JUNB01",
      "gameId": 425096,
      "division": "Fém Junior U16 B",
      "date": "2026-11-27",
@@ -126,10 +132,14 @@
       "name": "PCRA",
       "id": 101392
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 1
+     }
     },
     {
      "num": null,
+     "code": "NOVB02",
      "gameId": 429428,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -150,6 +160,7 @@
     },
     {
      "num": null,
+     "code": "ATOB01",
      "gameId": 425193,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -163,10 +174,14 @@
       "name": "Saint-Laurent",
       "id": 103972
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
+     "code": "CADB01",
      "gameId": 425115,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-27",
@@ -180,10 +195,14 @@
       "name": "Deux-Montagnes",
       "id": 103401
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
+     "code": "NOVC02",
      "gameId": 424993,
      "division": "Fém Novice C",
      "date": "2026-11-27",
@@ -197,10 +216,14 @@
       "name": "Pierrefonds",
       "id": 102811
      },
-     "score": null
+     "score": {
+      "away": 11,
+      "home": 8
+     }
     },
     {
      "num": null,
+     "code": "ATOB02",
      "gameId": 425194,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -214,10 +237,14 @@
       "name": "Laval",
       "id": 102785
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 6
+     }
     },
     {
      "num": null,
+     "code": "ATOC01",
      "gameId": 425041,
      "division": "Fém Atome C",
      "date": "2026-11-27",
@@ -231,10 +258,14 @@
       "name": "Blainville",
       "id": 103020
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 0
+     }
     },
     {
      "num": null,
+     "code": "ATOC02",
      "gameId": 425042,
      "division": "Fém Atome C",
      "date": "2026-11-27",
@@ -248,10 +279,14 @@
       "name": "Saint-Laurent",
       "id": 104638
      },
-     "score": null
+     "score": {
+      "away": 10,
+      "home": 3
+     }
     },
     {
      "num": null,
+     "code": "JUNA01",
      "gameId": 425085,
      "division": "Fém Junior U16 A",
      "date": "2026-11-27",
@@ -265,10 +300,14 @@
       "name": "St-Eustache-Boisbriand",
       "id": 103792
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 0
+     }
     },
     {
      "num": null,
+     "code": "ATOA02",
      "gameId": 425012,
      "division": "Fém Atome A",
      "date": "2026-11-27",
@@ -282,10 +321,14 @@
       "name": "Metcalfe-Tomlinson",
       "id": 102196
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 6
+     }
     },
     {
      "num": null,
+     "code": "ATOB03",
      "gameId": 425207,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -299,10 +342,14 @@
       "name": "Ottawa",
       "id": 102994
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 1
+     }
     },
     {
      "num": null,
+     "code": "BENC01",
      "gameId": 429454,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-27",
@@ -316,10 +363,14 @@
       "name": "La Capitale",
       "id": 102735
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 3
+     }
     },
     {
      "num": null,
+     "code": "NOVB03",
      "gameId": 429431,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -333,10 +384,14 @@
       "name": "GCRA-Juteau",
       "id": 102870
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 6
+     }
     },
     {
      "num": null,
+     "code": "NOVB04",
      "gameId": 429434,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -350,10 +405,14 @@
       "name": "Metcalfe",
       "id": 102153
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 8
+     }
     },
     {
      "num": null,
+     "code": "BENC02",
      "gameId": 429457,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-27",
@@ -367,10 +426,14 @@
       "name": "Ottawa-Telewiak",
       "id": 102387
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 2
+     }
     },
     {
      "num": null,
+     "code": "CADB02",
      "gameId": 425116,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-27",
@@ -384,10 +447,14 @@
       "name": "GCRA",
       "id": 102836
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 1
+     }
     },
     {
      "num": null,
+     "code": "JUNA02",
      "gameId": 425086,
      "division": "Fém Junior U16 A",
      "date": "2026-11-27",
@@ -401,10 +468,14 @@
       "name": "PEI",
       "id": 101818
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 2
+     }
     },
     {
      "num": null,
+     "code": "JUNB02",
      "gameId": 425097,
      "division": "Fém Junior U16 B",
      "date": "2026-11-27",
@@ -418,10 +489,14 @@
       "name": "4Cités",
       "id": 104046
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 5
+     }
     },
     {
      "num": null,
+     "code": "NOVC03",
      "gameId": 424996,
      "division": "Fém Novice C",
      "date": "2026-11-27",
@@ -435,10 +510,14 @@
       "name": "Lévis-3",
       "id": 103732
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 9
+     }
     },
     {
      "num": null,
+     "code": "BENB02",
      "gameId": 429445,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-27",
@@ -452,10 +531,14 @@
       "name": "Nepean-Jenson",
       "id": 102770
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 8
+     }
     },
     {
      "num": null,
+     "code": "BENC03",
      "gameId": 429462,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-27",
@@ -469,10 +552,14 @@
       "name": "PCRA",
       "id": 104640
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
+     "code": "CADB03",
      "gameId": 425117,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-27",
@@ -486,10 +573,14 @@
       "name": "Metcalfe",
       "id": 101988
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 4
+     }
     },
     {
      "num": null,
+     "code": "JUNB03",
      "gameId": 429423,
      "division": "Fém Junior U16 B",
      "date": "2026-11-27",
@@ -503,10 +594,14 @@
       "name": "Ottawa-Winer",
       "id": 102759
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 7
+     }
     },
     {
      "num": null,
+     "code": "NOVC04",
      "gameId": 424997,
      "division": "Fém Novice C",
      "date": "2026-11-27",
@@ -520,10 +615,14 @@
       "name": "Lévis-2",
       "id": 103807
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 11
+     }
     },
     {
      "num": null,
+     "code": "ATOA03",
      "gameId": 425007,
      "division": "Fém Atome A",
      "date": "2026-11-27",
@@ -537,10 +636,14 @@
       "name": "Laval",
       "id": 103231
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 8
+     }
     },
     {
      "num": null,
+     "code": "ATOB04",
      "gameId": 425195,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -554,10 +657,14 @@
       "name": "Saint-Bruno",
       "id": 103973
      },
-     "score": null
+     "score": {
+      "away": 10,
+      "home": 3
+     }
     },
     {
      "num": null,
+     "code": "ATOC03",
      "gameId": 425043,
      "division": "Fém Atome C",
      "date": "2026-11-27",
@@ -571,10 +678,14 @@
       "name": "Blainville",
       "id": 103020
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 9
+     }
     },
     {
      "num": null,
+     "code": "BENB03",
      "gameId": 429448,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-27",
@@ -588,10 +699,14 @@
       "name": "CORA-Lugtigheid",
       "id": 102749
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 5
+     }
     },
     {
      "num": null,
+     "code": "JUNA03",
      "gameId": 425087,
      "division": "Fém Junior U16 A",
      "date": "2026-11-27",
@@ -605,10 +720,14 @@
       "name": "St-Hyacinthe",
       "id": 103795
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 1
+     }
     },
     {
      "num": null,
+     "code": "ATOA04",
      "gameId": 425008,
      "division": "Fém Atome A",
      "date": "2026-11-27",
@@ -622,10 +741,14 @@
       "name": "GCRA-Dallaire",
       "id": 103230
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 5
+     }
     },
     {
      "num": null,
+     "code": "BENB04",
      "gameId": 429453,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-27",
@@ -639,10 +762,14 @@
       "name": "Pierrefonds",
       "id": 102670
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 3
+     }
     },
     {
      "num": null,
+     "code": "CADA01",
      "gameId": 425110,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-27",
@@ -656,10 +783,14 @@
       "name": "PEI",
       "id": 103362
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 6
+     }
     },
     {
      "num": null,
+     "code": "NOVB05",
      "gameId": 429427,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -673,10 +804,14 @@
       "name": "GCRA-Juteau",
       "id": 102870
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 6
+     }
     },
     {
      "num": null,
+     "code": "NOVB06",
      "gameId": 429435,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -690,10 +825,14 @@
       "name": "Saint-Laurent",
       "id": 103912
      },
-     "score": null
+     "score": {
+      "away": 13,
+      "home": 5
+     }
     },
     {
      "num": null,
+     "code": "ATOC04",
      "gameId": 425044,
      "division": "Fém Atome C",
      "date": "2026-11-27",
@@ -707,10 +846,14 @@
       "name": "Laval-C1",
       "id": 103861
      },
-     "score": null
+     "score": {
+      "away": 0,
+      "home": 7
+     }
     },
     {
      "num": null,
+     "code": "BENC04",
      "gameId": 429455,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-27",
@@ -728,6 +871,7 @@
     },
     {
      "num": null,
+     "code": "INTB01",
      "gameId": 425139,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -741,10 +885,14 @@
       "name": "Saint-Laurent-B2",
       "id": 103951
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 0
+     }
     },
     {
      "num": null,
+     "code": "INTC01",
      "gameId": 425160,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-27",
@@ -758,10 +906,14 @@
       "name": "PCRA",
       "id": 101374
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 3
+     }
     },
     {
      "num": null,
+     "code": "NOVC05",
      "gameId": 424998,
      "division": "Fém Novice C",
      "date": "2026-11-27",
@@ -775,10 +927,14 @@
       "name": "Lévis-3",
       "id": 103732
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 4
+     }
     },
     {
      "num": null,
+     "code": "ATOB05",
      "gameId": 425209,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -796,6 +952,7 @@
     },
     {
      "num": null,
+     "code": "BENC05",
      "gameId": 429459,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-27",
@@ -813,6 +970,7 @@
     },
     {
      "num": null,
+     "code": "INTB02",
      "gameId": 425146,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -830,6 +988,7 @@
     },
     {
      "num": null,
+     "code": "INTB03",
      "gameId": 425138,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -847,6 +1006,7 @@
     },
     {
      "num": null,
+     "code": "NOVB07",
      "gameId": 429432,
      "division": "Fém Novice B",
      "date": "2026-11-27",
@@ -864,6 +1024,7 @@
     },
     {
      "num": null,
+     "code": "ATOB06",
      "gameId": 425210,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -881,6 +1042,7 @@
     },
     {
      "num": null,
+     "code": "CADB04",
      "gameId": 425119,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-27",
@@ -898,6 +1060,7 @@
     },
     {
      "num": null,
+     "code": "INTB04",
      "gameId": 425147,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -915,6 +1078,7 @@
     },
     {
      "num": null,
+     "code": "JUNA04",
      "gameId": 425088,
      "division": "Fém Junior U16 A",
      "date": "2026-11-27",
@@ -932,6 +1096,7 @@
     },
     {
      "num": null,
+     "code": "NOVC06",
      "gameId": 424995,
      "division": "Fém Novice C",
      "date": "2026-11-27",
@@ -949,6 +1114,7 @@
     },
     {
      "num": null,
+     "code": "ATOB07",
      "gameId": 425205,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -966,6 +1132,7 @@
     },
     {
      "num": null,
+     "code": "ATOB08",
      "gameId": 425208,
      "division": "Fém Atome B",
      "date": "2026-11-27",
@@ -983,6 +1150,7 @@
     },
     {
      "num": null,
+     "code": "CADB05",
      "gameId": 425118,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-27",
@@ -1000,6 +1168,7 @@
     },
     {
      "num": null,
+     "code": "INTB05",
      "gameId": 425142,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -1017,6 +1186,7 @@
     },
     {
      "num": null,
+     "code": "JUNA05",
      "gameId": 425089,
      "division": "Fém Junior U16 A",
      "date": "2026-11-27",
@@ -1034,6 +1204,7 @@
     },
     {
      "num": null,
+     "code": "BENC06",
      "gameId": 429460,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-27",
@@ -1051,6 +1222,7 @@
     },
     {
      "num": null,
+     "code": "CADA02",
      "gameId": 425108,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-27",
@@ -1068,6 +1240,7 @@
     },
     {
      "num": null,
+     "code": "INTA01",
      "gameId": 429527,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-27",
@@ -1085,6 +1258,7 @@
     },
     {
      "num": null,
+     "code": "INTB06",
      "gameId": 425143,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -1102,6 +1276,7 @@
     },
     {
      "num": null,
+     "code": "JUNB04",
      "gameId": 429424,
      "division": "Fém Junior U16 B",
      "date": "2026-11-27",
@@ -1119,6 +1294,7 @@
     },
     {
      "num": null,
+     "code": "INTA02",
      "gameId": 429529,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-27",
@@ -1136,6 +1312,7 @@
     },
     {
      "num": null,
+     "code": "INTA03",
      "gameId": 429534,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-27",
@@ -1153,6 +1330,7 @@
     },
     {
      "num": null,
+     "code": "INTB07",
      "gameId": 425145,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -1170,6 +1348,7 @@
     },
     {
      "num": null,
+     "code": "INTC02",
      "gameId": 425161,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-27",
@@ -1187,6 +1366,7 @@
     },
     {
      "num": null,
+     "code": "INTB08",
      "gameId": 425141,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-27",
@@ -1204,6 +1384,7 @@
     },
     {
      "num": null,
+     "code": "INTC03",
      "gameId": 425162,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-27",
@@ -1221,6 +1402,7 @@
     },
     {
      "num": null,
+     "code": "ATOA05",
      "gameId": 425011,
      "division": "Fém Atome A",
      "date": "2026-11-28",
@@ -1238,6 +1420,7 @@
     },
     {
      "num": null,
+     "code": "ATOB09",
      "gameId": 425204,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -1255,6 +1438,7 @@
     },
     {
      "num": null,
+     "code": "BENB05",
      "gameId": 429449,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -1272,6 +1456,7 @@
     },
     {
      "num": null,
+     "code": "BENB06",
      "gameId": 429452,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -1289,6 +1474,7 @@
     },
     {
      "num": null,
+     "code": "BENB07",
      "gameId": 429446,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -1306,6 +1492,7 @@
     },
     {
      "num": null,
+     "code": "ATOA06",
      "gameId": 425010,
      "division": "Fém Atome A",
      "date": "2026-11-28",
@@ -1323,6 +1510,7 @@
     },
     {
      "num": null,
+     "code": "ATOB10",
      "gameId": 425201,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -1340,6 +1528,7 @@
     },
     {
      "num": null,
+     "code": "BENC07",
      "gameId": 429456,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-28",
@@ -1357,6 +1546,7 @@
     },
     {
      "num": null,
+     "code": "NOVB08",
      "gameId": 429429,
      "division": "Fém Novice B",
      "date": "2026-11-28",
@@ -1374,6 +1564,7 @@
     },
     {
      "num": null,
+     "code": "NOVC07",
      "gameId": 425000,
      "division": "Fém Novice C",
      "date": "2026-11-28",
@@ -1391,6 +1582,7 @@
     },
     {
      "num": null,
+     "code": "ATOC05",
      "gameId": 425045,
      "division": "Fém Atome C",
      "date": "2026-11-28",
@@ -1408,6 +1600,7 @@
     },
     {
      "num": null,
+     "code": "BENC08",
      "gameId": 429458,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-28",
@@ -1425,6 +1618,7 @@
     },
     {
      "num": null,
+     "code": "NOVB09",
      "gameId": 429430,
      "division": "Fém Novice B",
      "date": "2026-11-28",
@@ -1442,6 +1636,7 @@
     },
     {
      "num": null,
+     "code": "NOVB10",
      "gameId": 429438,
      "division": "Fém Novice B",
      "date": "2026-11-28",
@@ -1459,6 +1654,7 @@
     },
     {
      "num": null,
+     "code": "NOVC08",
      "gameId": 425002,
      "division": "Fém Novice C",
      "date": "2026-11-28",
@@ -1476,6 +1672,7 @@
     },
     {
      "num": null,
+     "code": "ATOC06",
      "gameId": 425046,
      "division": "Fém Atome C",
      "date": "2026-11-28",
@@ -1493,6 +1690,7 @@
     },
     {
      "num": null,
+     "code": "BENC09",
      "gameId": 429461,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-28",
@@ -1510,6 +1708,7 @@
     },
     {
      "num": null,
+     "code": "CADB06",
      "gameId": 425120,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -1527,6 +1726,7 @@
     },
     {
      "num": null,
+     "code": "JUNB05",
      "gameId": 425099,
      "division": "Fém Junior U16 B",
      "date": "2026-11-28",
@@ -1544,6 +1744,7 @@
     },
     {
      "num": null,
+     "code": "NOVB11",
      "gameId": 429433,
      "division": "Fém Novice B",
      "date": "2026-11-28",
@@ -1561,6 +1762,7 @@
     },
     {
      "num": null,
+     "code": "ATOA07",
      "gameId": 425009,
      "division": "Fém Atome A",
      "date": "2026-11-28",
@@ -1578,6 +1780,7 @@
     },
     {
      "num": null,
+     "code": "ATOB11",
      "gameId": 425202,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -1595,6 +1798,7 @@
     },
     {
      "num": null,
+     "code": "CADB07",
      "gameId": 425121,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -1612,6 +1816,7 @@
     },
     {
      "num": null,
+     "code": "JUNA06",
      "gameId": 425090,
      "division": "Fém Junior U16 A",
      "date": "2026-11-28",
@@ -1629,6 +1834,7 @@
     },
     {
      "num": null,
+     "code": "JUNB06",
      "gameId": 425101,
      "division": "Fém Junior U16 B",
      "date": "2026-11-28",
@@ -1646,6 +1852,7 @@
     },
     {
      "num": null,
+     "code": "ATOB12",
      "gameId": 425197,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -1663,6 +1870,7 @@
     },
     {
      "num": null,
+     "code": "CADA03",
      "gameId": 425111,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-28",
@@ -1680,23 +1888,7 @@
     },
     {
      "num": null,
-     "gameId": 425168,
-     "division": "Fém Junior AA A",
-     "date": "2026-11-28",
-     "time": "12:00",
-     "arena": "BB Main",
-     "away": {
-      "name": "Finale Groupe A Pos. 2",
-      "id": null
-     },
-     "home": {
-      "name": "Finale Groupe A Pos. 1",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
+     "code": "JUNA07",
      "gameId": 425091,
      "division": "Fém Junior U16 A",
      "date": "2026-11-28",
@@ -1714,6 +1906,7 @@
     },
     {
      "num": null,
+     "code": "JUNB07",
      "gameId": 429426,
      "division": "Fém Junior U16 B",
      "date": "2026-11-28",
@@ -1731,6 +1924,7 @@
     },
     {
      "num": null,
+     "code": "ATOA08",
      "gameId": 425014,
      "division": "Fém Atome A",
      "date": "2026-11-28",
@@ -1748,6 +1942,7 @@
     },
     {
      "num": null,
+     "code": "ATOB13",
      "gameId": 425198,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -1765,6 +1960,7 @@
     },
     {
      "num": null,
+     "code": "BENB08",
      "gameId": 429443,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -1782,6 +1978,7 @@
     },
     {
      "num": null,
+     "code": "BENB09",
      "gameId": 429450,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -1799,6 +1996,7 @@
     },
     {
      "num": null,
+     "code": "ATOA09",
      "gameId": 425013,
      "division": "Fém Atome A",
      "date": "2026-11-28",
@@ -1816,6 +2014,7 @@
     },
     {
      "num": null,
+     "code": "ATOB14",
      "gameId": 425199,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -1833,6 +2032,7 @@
     },
     {
      "num": null,
+     "code": "BENB10",
      "gameId": 429451,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -1850,23 +2050,7 @@
     },
     {
      "num": null,
-     "gameId": 425167,
-     "division": "Fém Cadtte AA A",
-     "date": "2026-11-28",
-     "time": "14:00",
-     "arena": "BB Main",
-     "away": {
-      "name": "Finale Groupe A Pos. 2",
-      "id": null
-     },
-     "home": {
-      "name": "Finale Groupe A Pos. 1",
-      "id": null
-     },
-     "score": null
-    },
-    {
-     "num": null,
+     "code": "NOVC09",
      "gameId": 425003,
      "division": "Fém Novice C",
      "date": "2026-11-28",
@@ -1884,6 +2068,7 @@
     },
     {
      "num": null,
+     "code": "BENC10",
      "gameId": 431279,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-28",
@@ -1901,6 +2086,7 @@
     },
     {
      "num": null,
+     "code": "CADB08",
      "gameId": 425124,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -1918,6 +2104,7 @@
     },
     {
      "num": null,
+     "code": "INTC04",
      "gameId": 425159,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-28",
@@ -1935,6 +2122,7 @@
     },
     {
      "num": null,
+     "code": "NOVB12",
      "gameId": 429436,
      "division": "Fém Novice B",
      "date": "2026-11-28",
@@ -1952,6 +2140,7 @@
     },
     {
      "num": null,
+     "code": "NOVC10",
      "gameId": 425004,
      "division": "Fém Novice C",
      "date": "2026-11-28",
@@ -1969,6 +2158,7 @@
     },
     {
      "num": null,
+     "code": "CADA04",
      "gameId": 425109,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-28",
@@ -1986,6 +2176,7 @@
     },
     {
      "num": null,
+     "code": "CADB09",
      "gameId": 425123,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -2003,6 +2194,7 @@
     },
     {
      "num": null,
+     "code": "INTA04",
      "gameId": 429530,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
@@ -2020,6 +2212,7 @@
     },
     {
      "num": null,
+     "code": "INTB09",
      "gameId": 425140,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -2037,6 +2230,7 @@
     },
     {
      "num": null,
+     "code": "JUNA08",
      "gameId": 425092,
      "division": "Fém Junior U16 A",
      "date": "2026-11-28",
@@ -2054,6 +2248,7 @@
     },
     {
      "num": null,
+     "code": "ATOB15",
      "gameId": 425200,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -2071,6 +2266,7 @@
     },
     {
      "num": null,
+     "code": "BENC11",
      "gameId": 431280,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-28",
@@ -2088,6 +2284,7 @@
     },
     {
      "num": null,
+     "code": "BENC13",
      "gameId": 431282,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-28",
@@ -2105,6 +2302,7 @@
     },
     {
      "num": null,
+     "code": "INTA05",
      "gameId": 429528,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
@@ -2122,6 +2320,7 @@
     },
     {
      "num": null,
+     "code": "JUNA09",
      "gameId": 425093,
      "division": "Fém Junior U16 A",
      "date": "2026-11-28",
@@ -2139,6 +2338,7 @@
     },
     {
      "num": null,
+     "code": "ATOB16",
      "gameId": 425206,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -2156,6 +2356,7 @@
     },
     {
      "num": null,
+     "code": "ATOB17",
      "gameId": 425203,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -2173,6 +2374,7 @@
     },
     {
      "num": null,
+     "code": "ATOB18",
      "gameId": 425196,
      "division": "Fém Atome B",
      "date": "2026-11-28",
@@ -2190,6 +2392,7 @@
     },
     {
      "num": null,
+     "code": "BENC12",
      "gameId": 431281,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-28",
@@ -2207,6 +2410,7 @@
     },
     {
      "num": null,
+     "code": "INTA06",
      "gameId": 429532,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
@@ -2224,6 +2428,7 @@
     },
     {
      "num": null,
+     "code": "BENB11",
      "gameId": 429447,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -2241,6 +2446,7 @@
     },
     {
      "num": null,
+     "code": "BENB12",
      "gameId": 429442,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-28",
@@ -2258,6 +2464,7 @@
     },
     {
      "num": null,
+     "code": "INTB10",
      "gameId": 425150,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -2275,6 +2482,7 @@
     },
     {
      "num": null,
+     "code": "INTB11",
      "gameId": 425151,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -2292,6 +2500,7 @@
     },
     {
      "num": null,
+     "code": "JUNB08",
      "gameId": 429422,
      "division": "Fém Junior U16 B",
      "date": "2026-11-28",
@@ -2309,6 +2518,7 @@
     },
     {
      "num": null,
+     "code": "CADA05",
      "gameId": 425112,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-28",
@@ -2326,6 +2536,7 @@
     },
     {
      "num": null,
+     "code": "CADB10",
      "gameId": 425122,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-28",
@@ -2343,6 +2554,7 @@
     },
     {
      "num": null,
+     "code": "INTB12",
      "gameId": 425148,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -2360,6 +2572,7 @@
     },
     {
      "num": null,
+     "code": "INTB13",
      "gameId": 425152,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -2377,6 +2590,7 @@
     },
     {
      "num": null,
+     "code": "JUNB09",
      "gameId": 425103,
      "division": "Fém Junior U16 B",
      "date": "2026-11-28",
@@ -2394,6 +2608,7 @@
     },
     {
      "num": null,
+     "code": "ADUC01",
      "gameId": 428900,
      "division": "Fém Adult Rec C",
      "date": "2026-11-28",
@@ -2411,6 +2626,7 @@
     },
     {
      "num": null,
+     "code": "INTA07",
      "gameId": 429531,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
@@ -2428,6 +2644,7 @@
     },
     {
      "num": null,
+     "code": "INTB14",
      "gameId": 425149,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -2445,6 +2662,7 @@
     },
     {
      "num": null,
+     "code": "INTB15",
      "gameId": 425153,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-28",
@@ -2462,6 +2680,7 @@
     },
     {
      "num": null,
+     "code": "INTC05",
      "gameId": 425163,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-28",
@@ -2479,6 +2698,7 @@
     },
     {
      "num": null,
+     "code": "INTA08",
      "gameId": 429526,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
@@ -2496,6 +2716,7 @@
     },
     {
      "num": null,
+     "code": "INTA09",
      "gameId": 429533,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-28",
@@ -2513,6 +2734,7 @@
     },
     {
      "num": null,
+     "code": "INTC06",
      "gameId": 425164,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-28",
@@ -2530,6 +2752,7 @@
     },
     {
      "num": null,
+     "code": "ATOA10",
      "gameId": 425016,
      "division": "Fém Atome A",
      "date": "2026-11-29",
@@ -2547,6 +2770,7 @@
     },
     {
      "num": null,
+     "code": "ATOB19",
      "gameId": 428912,
      "division": "Fém Atome B",
      "date": "2026-11-29",
@@ -2564,6 +2788,7 @@
     },
     {
      "num": null,
+     "code": "BENC14",
      "gameId": 431283,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-29",
@@ -2581,6 +2806,7 @@
     },
     {
      "num": null,
+     "code": "CADA06",
      "gameId": 425113,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-29",
@@ -2598,6 +2824,7 @@
     },
     {
      "num": null,
+     "code": "ATOA11",
      "gameId": 425018,
      "division": "Fém Atome A",
      "date": "2026-11-29",
@@ -2615,6 +2842,7 @@
     },
     {
      "num": null,
+     "code": "ATOB20",
      "gameId": 428913,
      "division": "Fém Atome B",
      "date": "2026-11-29",
@@ -2632,6 +2860,7 @@
     },
     {
      "num": null,
+     "code": "INTB16",
      "gameId": 425154,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
@@ -2649,6 +2878,7 @@
     },
     {
      "num": null,
+     "code": "INTB17",
      "gameId": 425144,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
@@ -2666,6 +2896,7 @@
     },
     {
      "num": null,
+     "code": "JUNB10",
      "gameId": 425105,
      "division": "Fém Junior U16 B",
      "date": "2026-11-29",
@@ -2683,6 +2914,7 @@
     },
     {
      "num": null,
+     "code": "ATOC07",
      "gameId": 425047,
      "division": "Fém Atome C",
      "date": "2026-11-29",
@@ -2700,6 +2932,7 @@
     },
     {
      "num": null,
+     "code": "INTB18",
      "gameId": 425155,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
@@ -2717,6 +2950,7 @@
     },
     {
      "num": null,
+     "code": "JUNA10",
      "gameId": 425094,
      "division": "Fém Junior U16 A",
      "date": "2026-11-29",
@@ -2734,6 +2968,7 @@
     },
     {
      "num": null,
+     "code": "JUNB11",
      "gameId": 425106,
      "division": "Fém Junior U16 B",
      "date": "2026-11-29",
@@ -2751,6 +2986,7 @@
     },
     {
      "num": null,
+     "code": "NOVB13",
      "gameId": 429439,
      "division": "Fém Novice B",
      "date": "2026-11-29",
@@ -2768,6 +3004,7 @@
     },
     {
      "num": null,
+     "code": "BENA01",
      "gameId": 425211,
      "division": "Fém Benjamine U14 A",
      "date": "2026-11-29",
@@ -2785,6 +3022,7 @@
     },
     {
      "num": null,
+     "code": "BENB13",
      "gameId": 425062,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-29",
@@ -2802,6 +3040,7 @@
     },
     {
      "num": null,
+     "code": "BENB14",
      "gameId": 425063,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-29",
@@ -2819,6 +3058,7 @@
     },
     {
      "num": null,
+     "code": "JUNC01",
      "gameId": 428916,
      "division": "Fém Junior U16 C",
      "date": "2026-11-29",
@@ -2836,6 +3076,7 @@
     },
     {
      "num": null,
+     "code": "NOVB14",
      "gameId": 429440,
      "division": "Fém Novice B",
      "date": "2026-11-29",
@@ -2853,6 +3094,7 @@
     },
     {
      "num": null,
+     "code": "ATOB21",
      "gameId": 428914,
      "division": "Fém Atome B",
      "date": "2026-11-29",
@@ -2870,6 +3112,7 @@
     },
     {
      "num": null,
+     "code": "BENC15",
      "gameId": 431284,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-29",
@@ -2887,6 +3130,7 @@
     },
     {
      "num": null,
+     "code": "CADA07",
      "gameId": 425114,
      "division": "Fém Cadette U19 A",
      "date": "2026-11-29",
@@ -2904,6 +3148,7 @@
     },
     {
      "num": null,
+     "code": "INTA10",
      "gameId": 429535,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-29",
@@ -2921,6 +3166,7 @@
     },
     {
      "num": null,
+     "code": "ATOA12",
      "gameId": 425020,
      "division": "Fém Atome A",
      "date": "2026-11-29",
@@ -2938,6 +3184,7 @@
     },
     {
      "num": null,
+     "code": "ATOA13",
      "gameId": 425019,
      "division": "Fém Atome A",
      "date": "2026-11-29",
@@ -2955,6 +3202,7 @@
     },
     {
      "num": null,
+     "code": "BENC16",
      "gameId": 431285,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-29",
@@ -2972,6 +3220,7 @@
     },
     {
      "num": null,
+     "code": "INTA11",
      "gameId": 429536,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-29",
@@ -2989,6 +3238,7 @@
     },
     {
      "num": null,
+     "code": "ADUC02",
      "gameId": 428901,
      "division": "Fém Adult Rec C",
      "date": "2026-11-29",
@@ -3006,6 +3256,7 @@
     },
     {
      "num": null,
+     "code": "INTB19",
      "gameId": 425157,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
@@ -3023,6 +3274,7 @@
     },
     {
      "num": null,
+     "code": "INTB20",
      "gameId": 425156,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
@@ -3040,6 +3292,7 @@
     },
     {
      "num": null,
+     "code": "NOVC11",
      "gameId": 425005,
      "division": "Fém Novice C",
      "date": "2026-11-29",
@@ -3057,6 +3310,7 @@
     },
     {
      "num": null,
+     "code": "JUNA11",
      "gameId": 425095,
      "division": "Fém Junior U16 A",
      "date": "2026-11-29",
@@ -3074,6 +3328,7 @@
     },
     {
      "num": null,
+     "code": "JUNB12",
      "gameId": 425107,
      "division": "Fém Junior U16 B",
      "date": "2026-11-29",
@@ -3091,6 +3346,7 @@
     },
     {
      "num": null,
+     "code": "NOVB15",
      "gameId": 429441,
      "division": "Fém Novice B",
      "date": "2026-11-29",
@@ -3108,6 +3364,7 @@
     },
     {
      "num": null,
+     "code": "BENB15",
      "gameId": 425064,
      "division": "Fém Benjamine U14 B",
      "date": "2026-11-29",
@@ -3125,6 +3382,7 @@
     },
     {
      "num": null,
+     "code": "CADB11",
      "gameId": 425125,
      "division": "Fém Cadette U19 B",
      "date": "2026-11-29",
@@ -3142,6 +3400,7 @@
     },
     {
      "num": null,
+     "code": "INTC07",
      "gameId": 425165,
      "division": "Fém Intermédiaire C",
      "date": "2026-11-29",
@@ -3159,6 +3418,7 @@
     },
     {
      "num": null,
+     "code": "ATOA14",
      "gameId": 425021,
      "division": "Fém Atome A",
      "date": "2026-11-29",
@@ -3176,6 +3436,7 @@
     },
     {
      "num": null,
+     "code": "ATOB22",
      "gameId": 428915,
      "division": "Fém Atome B",
      "date": "2026-11-29",
@@ -3193,6 +3454,7 @@
     },
     {
      "num": null,
+     "code": "BENC17",
      "gameId": 431286,
      "division": "Fém Benjamine U14 C",
      "date": "2026-11-29",
@@ -3210,6 +3472,7 @@
     },
     {
      "num": null,
+     "code": "INTA12",
      "gameId": 429537,
      "division": "Fém Intermédiaire A",
      "date": "2026-11-29",
@@ -3227,6 +3490,7 @@
     },
     {
      "num": null,
+     "code": "INTB21",
      "gameId": 425158,
      "division": "Fém Intermédiaire B",
      "date": "2026-11-29",
