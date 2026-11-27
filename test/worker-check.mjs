@@ -127,6 +127,15 @@ for (const path of ['/pt/23670', '/pt/23670?g=abc', '/pt/12?g=1', `/pt/23670?g=$
 }
 check(ptAsked.length === n1, 'Planitournoi: refused requests read nothing');
 
+// Planitournoi game IDs (every game has one; Pointe-Claire has codes, not numbers)
+const pcPage = await readFile(new URL('pt-pointe-claire.html', new URL('./', import.meta.url)), 'utf8');
+r = await handle(req('/pt/23669?g=425116,425119'), { fetchPage: ptFetch(pcPage), nowMs: t2 });
+j = await r.json();
+check(r.status === 200 && j.games['425116'].score.away === 2 && j.games['425116'].code === 'CADB02' && j.games['425119'].score === null, 'Planitournoi: games looked up by game ID');
+r = await handle(req('/pt/23670?g=900115'), { fetchPage: ptFetch(levis), nowMs: t2 + 120_000 });
+j = await r.json();
+check(j.games['900115'] && j.games['900115'].num === 115, 'Planitournoi: game ID works where there are numbers too');
+
 clearInterval(keepAlive);
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);

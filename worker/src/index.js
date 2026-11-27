@@ -12,8 +12,10 @@
 //   The pages are read at the same time; one that takes more than 4 seconds
 //   (or fails) comes back as { error } and the others are still answered.
 //
-//   GET /pt/{tournament}?g=115,120     Quebec tournaments on Planitournoi (up to 20 games)
-//   → { tournament, page, asOf, cached, games: { "115": { num, away: {name, id}, home: {name, id}, score } } }
+//   GET /pt/{tournament}?g=425116,115  Quebec tournaments on Planitournoi (up to 20 games)
+//   → { tournament, page, asOf, cached, games: { "425116": { num, code, gameId, away: {name, id}, home: {name, id}, score } } }
+//   Each game is Planitournoi's own game ID (always there) or its game number
+//   (not every tournament has plain numbers: Pointe-Claire uses codes like CADB02).
 //   Planitournoi posts results (final scores) after each game and fills in
 //   playoff teams; there are no live scores during a game. One tournament page
 //   holds every game, so it's read at most once a minute per tournament.
@@ -103,8 +105,11 @@ async function getPtTournament(tournament, fetchPage, nowMs, timeoutMs) {
     return { error: why, page };
   }
   if (!res.ok) return { error: `Planitournoi answered ${res.status}`, page };
-  const games = new Map();
-  for (const g of parseSchedule(await res.text())) if (g.num != null) games.set(g.num, g);
+  const games = new Map();  // by Planitournoi game ID, and by game number
+  for (const g of parseSchedule(await res.text())) {
+    if (g.gameId) games.set(`id${g.gameId}`, g);
+    if (g.num != null) games.set(`n${g.num}`, g);
+  }
   if (!games.size) return { error: 'no games found on the tournament page', page };
   const entry = { at: nowMs, page, asOf: new Date(nowMs).toISOString(), games };
   recentPt.set(tournament, entry);
@@ -113,7 +118,7 @@ async function getPtTournament(tournament, fetchPage, nowMs, timeoutMs) {
 }
 
 const GAME_ID = /^\d{5,9}$/;
-const usage = () => `Ask /game/{site}/{game} or /games?g={site}:{game},… (up to ${MAX_GAMES}); site one of: ${Object.keys(SITES).join(', ')}. Planitournoi: /pt/{tournament}?g={game},… (up to ${PT_MAX})`;
+const usage = () => `Ask /game/{site}/{game} or /games?g={site}:{game},… (up to ${MAX_GAMES}); site one of: ${Object.keys(SITES).join(', ')}. Planitournoi: /pt/{tournament}?g={game ID or number},… (up to ${PT_MAX})`;
 
 export async function handle(request, { fetchPage = fetch, nowMs = Date.now(), timeoutMs = PAGE_TIMEOUT_MS, ptTimeoutMs = PT_TIMEOUT_MS } = {}) {
   if (request.method === 'OPTIONS') {
@@ -147,12 +152,12 @@ export async function handle(request, { fetchPage = fetch, nowMs = Date.now(), t
   const pt = /^\/pt\/(\d{4,6})$/.exec(url.pathname);
   if (pt) {
     const nums = [...new Set((url.searchParams.get('g') || '').split(',').map((x) => x.trim()).filter(Boolean))];
-    if (!nums.length || nums.length > PT_MAX || nums.some((n) => !/^\d{1,5}$/.test(n))) return json(request, 400, { error: usage() });
+    if (!nums.length || nums.length > PT_MAX || nums.some((n) => !/^\d{1,9}$/.test(n))) return json(request, 400, { error: usage() });
     const t = await getPtTournament(pt[1], fetchPage, nowMs, ptTimeoutMs);
     if (t.error) return json(request, 502, { tournament: +pt[1], page: t.page, error: t.error });
     const games = Object.fromEntries(nums.map((n) => {
-      const g = t.games.get(+n);
-      return [n, g ? { num: g.num, away: g.away, home: g.home, score: g.score } : { error: 'not on the tournament page' }];
+      const g = t.games.get(`id${+n}`) || t.games.get(`n${+n}`);
+      return [n, g ? { num: g.num, ...(g.code ? { code: g.code } : {}), gameId: g.gameId, away: g.away, home: g.home, score: g.score } : { error: 'not on the tournament page' }];
     }));
     return json(request, 200, { tournament: +pt[1], page: t.page, asOf: t.asOf, cached: t.cached, games }, cache);
   }

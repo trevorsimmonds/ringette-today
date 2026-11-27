@@ -397,7 +397,7 @@
     .replace(/finale consolation/i, 'Consolation final').replace(/\bfinale\b/i, 'Final')
     .replace(/meilleure? (\d+)\s*(?:ème|eme|e|ère|ere|re)\s*pos\.?/i, 'Best #$1')
     .replace(/groupe (\w+) pos\.? ?(\d+)/i, 'Group $1 #$2')
-    .replace(/gagnant (?:du )?match (\d+)/i, 'Winner of game $1').replace(/perdant (?:du )?match (\d+)/i, 'Loser of game $1')
+    .replace(/gagnant (?:du )?match (\w+)/i, 'Winner of game $1').replace(/perdant (?:du )?match (\w+)/i, 'Loser of game $1')
     .replace(/^(Quarter-final|Semi-final|Consolation final|Final) (?=\S)/, '$1 · ');
   const ptShort = (name) => name
     .replace(/^(la coupe|le défi|tournoi)\s+(de ringuette\s+|ringuette\s+)?(de la |de l'|des |du |de |d')?/i, '')
@@ -420,7 +420,7 @@
         });
         return {
           key: `P-${t.id}-${g.num ?? `${g.date}${g.time}${g.arena}`}`,
-          id: g.num, gameId: g.gameId || null,
+          id: g.num ?? g.code ?? null, gameId: g.gameId || null,
           start: parseLocal(`${g.date}T${g.time}`),
           end: null, endEstimated: true,
           arena: alias ? alias[1] : g.arena,
@@ -673,7 +673,8 @@
   const ptTid = (g) => (g.tournament && g.tournament.source === 'pt' ? String(g.tournament.aid).replace(/^pt/, '') : null);
   const liveKey = (g) => {
     const tid = ptTid(g);
-    if (tid) return g.id != null ? `pt:${tid}:${g.id}` : null;
+    // Planitournoi's own game ID: every game has one (not every tournament has game numbers).
+    if (tid) return g.gameId ? `pt:${tid}:${g.gameId}` : g.id != null ? `pt:${tid}:${g.id}` : null;
     const site = liveSite(g);
     return site && g.id ? `${site}:${g.id}` : null;
   };

@@ -70,16 +70,21 @@ export function parseSchedule(html) {
     const away = teamFrom(p.away), home = teamFrom(p.home);
     const arena = text(p.field || '');
     if (!away.name || !home.name) continue;
-    const num = /^\d+$/.test(text(p['match-no'] || '')) ? +text(p['match-no']) : null;
+    // Game number: plain ("115") at most tournaments; some use codes ("CADB02",
+    // Pointe-Claire 2026), kept as `code`. gameId (Planitournoi's own) is always there.
+    const no = text(p['match-no'] || '');
+    const num = /^\d+$/.test(no) ? +no : null;
+    const code = num == null && /^[A-Za-z0-9-]{1,12}$/.test(no) ? no : null;
     const gameId = /game_id=(\d+)/.exec(p['match-no'] || '')?.[1];
     const score = /(\d+)\s*[-–]\s*(\d+)/.exec(text(p.result || ''));
     // The division links to its schedule; the same path under "classements" is its standings.
     const divHref = /href="([^"]*\/horaire\/division\/[^"]+\.html)"/.exec(p.division || '')?.[1];
-    const k = num ?? `${date}|${t[0]}|${arena}|${away.name}|${home.name}`;
+    const k = num ?? code ?? `${date}|${t[0]}|${arena}|${away.name}|${home.name}`;
     if (seen.has(k)) continue;
     seen.add(k);
     games.push({
       num,
+      ...(code ? { code } : {}),
       gameId: gameId ? +gameId : null,
       division: text(p.division || ''),
       date, time: `${t[1].padStart(2, '0')}:${t[2]}`, arena: arena || 'TBD',

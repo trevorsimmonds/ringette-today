@@ -7,19 +7,19 @@ from playwright.async_api import async_playwright
 PORT = sys.argv[1] if len(sys.argv) > 1 else '8765'
 IRVINE = {'name': 'West Ottawa U16B Irvine', 'id': 101900}
 LEVIS = {'name': 'Lévis 2', 'id': 101908}
-def pt(score10=None):
+def pt(score10=None, codes=False):
     return json.dumps({'source': 'test', 'updatedAt': '2026-11-22T14:00:00Z', 'today': '2026-11-22', 'tournaments': [{
         'id': 23700, 'name': 'Tournoi Test de Lévis', 'slug': 'tournoi-test', 'city': 'Lévis', 'province': 'quebec',
         'start': '2026-11-21', 'end': '2026-11-22', 'url': 'https://www.planitournoi.com/tournament_public.php?tournament_id=23700', 'standings': {},
         'games': [
-            {'num': 10, 'gameId': 900010, 'division': 'Fém Junior B', 'date': '2026-11-22', 'time': '09:00', 'arena': 'Aréna de Lévis - Glace 1', 'away': IRVINE, 'home': LEVIS, 'score': score10},
+            {'num': None if codes else 10, **({'code': 'CADB02'} if codes else {}), 'gameId': 900010, 'division': 'Fém Junior B', 'date': '2026-11-22', 'time': '09:00', 'arena': 'Aréna de Lévis - Glace 1', 'away': IRVINE, 'home': LEVIS, 'score': score10},
             {'num': 11, 'gameId': 900011, 'division': 'Fém Junior B', 'date': '2026-11-22', 'time': '09:15', 'arena': 'Aréna de Lévis - Glace 2', 'away': {'name': 'Bellechasse', 'id': 101886}, 'home': {'name': 'Sept-Îles', 'id': 101870}, 'score': None},
-            {'num': 20, 'gameId': 900020, 'division': 'Fém Junior B', 'date': '2026-11-22', 'time': '15:15', 'arena': 'Aréna de Lévis - Glace 1', 'away': {'name': 'Finale Gagnant match 0010', 'id': None}, 'home': {'name': 'Finale Gagnant match 0011', 'id': None}, 'score': None},
+            {'num': None if codes else 20, **({'code': 'CADB05'} if codes else {}), 'gameId': 900020, 'division': 'Fém Junior B', 'date': '2026-11-22', 'time': '15:15', 'arena': 'Aréna de Lévis - Glace 1', 'away': {'name': 'Finale Gagnant match 0010', 'id': None}, 'home': {'name': 'Finale Gagnant match 0011', 'id': None}, 'score': None},
             {'num': 30, 'gameId': 900030, 'division': 'Fém Cadette B', 'date': '2026-11-22', 'time': '15:30', 'arena': 'Aréna de Lévis - Glace 2', 'away': {'name': 'Finale Gagnant match 0040', 'id': None}, 'home': {'name': 'Finale Gagnant match 0041', 'id': None}, 'score': None},
         ]}]})
-HELPER = {'10': {'num': 10, 'away': IRVINE, 'home': LEVIS, 'score': {'away': 5, 'home': 3}},
-          '11': {'num': 11, 'away': {'name': 'Bellechasse', 'id': 101886}, 'home': {'name': 'Sept-Îles', 'id': 101870}, 'score': None},
-          '20': {'num': 20, 'away': IRVINE, 'home': {'name': 'Sept-Îles', 'id': 101870}, 'score': None}}
+HELPER = {'900010': {'num': 10, 'away': IRVINE, 'home': LEVIS, 'score': {'away': 5, 'home': 3}},
+          '900011': {'num': 11, 'away': {'name': 'Bellechasse', 'id': 101886}, 'home': {'name': 'Sept-Îles', 'id': 101870}, 'score': None},
+          '900020': {'num': 20, 'away': IRVINE, 'home': {'name': 'Sept-Îles', 'id': 101870}, 'score': None}}
 async def run(b, title, at, body, teams='409191', helper='ok', tab='upcoming'):
     ctx = await b.new_context(viewport={'width': 390, 'height': 900}, timezone_id='America/Toronto')
     asked = []
@@ -54,7 +54,7 @@ async def main():
             nonlocal bad
             print(('ok   ' if ok else 'FAIL ') + what); bad += 0 if ok else 1
         a, c, e = await run(b, 'result posted on Planitournoi, not yet in planitournoi.json', '12:00', pt(), tab='results')
-        check(a == ['/pt/23700?g=10,20'], "asks about the followed game and its division's undecided final (not other divisions)")
+        check(a == ['/pt/23700?g=900010,900020'], "asks about the followed game and its division's undecided final (not other divisions)")
         check(any('Irvine 5' in x and 'Lévis 2 3' in x and 'Not final' not in x and 'Score not posted' not in x for x in c), 'result shown as final (Planitournoi only posts finals)')
         check(not e, 'no page errors')
         a, c, e = await run(b, 'final gets its teams', '12:00', pt(), tab='upcoming')
@@ -62,7 +62,9 @@ async def main():
         a, c, e = await run(b, 'helper down', '12:00', pt(), helper='down', tab='results')
         check(any('Irvine' in x and 'Score not posted yet' in x for x in c), 'helper down: planitournoi.json shown as before')
         a, c, e = await run(b, 'result already in planitournoi.json', '12:00', pt(score10={'away': 5, 'home': 3}), tab='results')
-        check(a == ['/pt/23700?g=20'], 'finished game no longer asked about, the final still is')
+        check(a == ['/pt/23700?g=900020'], 'finished game no longer asked about, the final still is')
+        a, c, e = await run(b, 'game codes instead of numbers (Pointe-Claire)', '12:00', pt(codes=True), tab='results')
+        check(a == ['/pt/23700?g=900010,900020'] and any('Irvine 5' in x and 'Lévis 2 3' in x for x in c), 'game codes: result picked up by game ID')
         a, c, e = await run(b, 'not following anyone there', '12:00', pt(), teams='398264')
         check(a == [], 'no requests when no followed team plays there')
         print('All checks passed' if not bad else f'{bad} check(s) failed')

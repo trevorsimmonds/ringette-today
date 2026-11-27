@@ -1,12 +1,16 @@
 # Copies Quebec ringette tournament schedules from Planitournoi into
-# planitournoi.json every hour (tournaments in the next month with
-# Ottawa-area teams). Free for public repositories. Run it by hand from the
-# Actions tab ("Update Quebec tournaments" → Run workflow).
+# planitournoi.json (tournaments in the next month with Ottawa-area teams):
+# every hour, and every 30 minutes Fri–Sun 7 am – 11 pm Ottawa time, when
+# tournaments are on (GitHub's times are UTC). GitHub sometimes runs scheduled
+# jobs late or skips them. Free for public repositories. Run it by hand from
+# the Actions tab ("Update Quebec tournaments" → Run workflow).
 name: Update Quebec tournaments
 
 on:
   schedule:
-    - cron: '41 * * * *'   # every hour (UTC), at 41 minutes past
+    - cron: '41 * * * *'          # every hour, at 41 minutes past
+    - cron: '11 11-23 * * 5,6,0'  # Fri–Sun daytime: also at 11 past
+    - cron: '11 0-3 * * 6,0,1'    # Fri–Sun evenings (already the next day in UTC)
   workflow_dispatch:
 
 permissions:

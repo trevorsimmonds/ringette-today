@@ -83,5 +83,11 @@ check(qf && qf.home.name === 'Lévis 2' && qf.home.slot === 'Groupe B Pos. 2' &&
 const fin = playoff.find((g) => g.num === 120);
 check(fin && fin.away.id === null && /Gagnant match 0115/.test(fin.away.name) && fin.score === null, 'undecided final: placeholder kept as is');
 
+// Game codes instead of numbers (Pointe-Claire, 2026-11-27)
+const pc = parseSchedule(await readFile(join(dir, 'pt-pointe-claire.html'), 'utf8'));
+const pc1 = pc.find((g) => g.gameId === 425116), pc2 = pc.find((g) => g.gameId === 425119);
+check(pc.length === 2 && pc1 && pc1.num === null && pc1.code === 'CADB02' && pc2 && pc2.code === 'CADB04', 'game codes (CADB02) kept, with Planitournoi game IDs');
+check(pc1 && pc1.away.name === 'WORA-Lachapelle' && pc1.score.away === 2 && pc1.score.home === 1 && pc2.score === null, 'game codes: teams and score read');
+
 console.log(failed ? `\n${failed} check(s) failed` : '\nAll checks passed');
 process.exit(failed ? 1 : 0);
