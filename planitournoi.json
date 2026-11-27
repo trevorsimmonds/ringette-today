@@ -1,7 +1,7 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-26T13:04:39.940Z",
- "today": "2026-11-26",
+ "updatedAt": "2026-11-27T14:15:18.145Z",
+ "today": "2026-11-27",
  "tournaments": [
   {
    "id": 23669,
@@ -49,7 +49,10 @@
       "name": "Laval",
       "id": 103259
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -66,7 +69,10 @@
       "name": "PCRA",
       "id": 101398
      },
-     "score": null
+     "score": {
+      "away": 10,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -83,7 +89,10 @@
       "name": "PCRA",
       "id": 101377
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -134,7 +143,10 @@
       "name": "BKRA-Red",
       "id": 103487
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 9
+     }
     },
     {
      "num": null,
