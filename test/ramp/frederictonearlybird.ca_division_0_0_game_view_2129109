@@ -1,0 +1,11 @@
+<!-- trimmed copy of https://www.frederictonearlybird.ca/division/0/15534/game/view/2129109 on 2026-11-27: only the game header (teams, score, Final marker) -->
+<html><body><div class="flex flex-col text-center ~text-xs/sm ~my-3/5"><div class="link-game-date-time">Friday, November 27, 2026 @ 11:15 AM</div>
+                    <div><i data-lucide="map-pinned" class="inline ~size-3/4 text-lighttone align-middle"></i><a href="http://www.rinkdb.com/v2/view/Canada/NB/MTA2MDc=" class="link-rinkdb-text" target="_blank">Grant-Harvey Center/NHL Sheet</a></div></div>
+
+                <section class="container bg-gradient-to-r from-transparent via-white to-transparent drop-shadow-md"><div class="grid gap-4 grid-cols-3 link-table-game-teamname ~p-4/16"><div class="link-table-game-teamname text-center"><button class="~p-1/3"><img src="https://cloud3.rampinteractive.com/fyraearlybird/css/img/assocLogo.svg" class="inline ~h-10/20" /></button>
+                    <div>West Ottawa U14AA</div>
+                    <div>Home </div></div>
+                <div class="flex flex-col justify-between items-center content-center my-auto font-title text-darktone"><div class="block ~text-4xl/6xl">7 - 0</div><div class="game-page-marker game-page-marker-final">Final</div></div>
+                <div class="link-table-game-teamname text-center"><button class="~p-1/3"><img src="https://cloud3.rampinteractive.com/fyraearlybird/css/img/assocLogo.svg" class="inline ~h-10/20" /></button>
+                    <div>FYRA U14 Tier 1 Stars</div>
+                    <div>Away </div></div></div></section><section class="card-title-above-container card-title-above">Team Breakdown</section></body></html>

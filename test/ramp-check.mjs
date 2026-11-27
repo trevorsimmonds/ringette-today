@@ -59,6 +59,16 @@ const swapped = [mk(5, '2026-11-01T09:00:00', null, { HomeTeamName: 'Ottawa Ice 
 await addLiveScores(swapped, 'https://www.ncrrl.com', 'America/Toronto', Date.parse('2026-11-01T09:20:00-05:00'), async () => livePage);
 check(swapped[0].homeScore === 3 && swapped[0].awayScore === 0, 'live: rows matched to home/away by name');
 
+// Final score with no goals entered (Fredericton, 2026-11-27): the page header
+// says "7 - 0" and "Final"; before the game it says "0 - 0" with no marker.
+const fredFinal = await read('frederictonearlybird.ca_division_0_0_game_view_2129109');
+const frs = parseLiveScore(fredFinal);
+check(frs && frs[0].name === 'West Ottawa U14AA' && frs[0].total === 7 && frs[1].name === 'FYRA U14 Tier 1 Stars' && frs[1].total === 0, 'game page: final score from the header when no goals were entered (7 - 0)');
+check(parseLiveScore(await read('frederictonearlybird.ca_division_0_0_game_view_2129168')) === null, 'game page: header "0 - 0" without Final is not a score');
+const fg = [{ GID: 2129109, sDate: '2026-11-27T11:15:00', eDate: '2026-11-27T12:15:00', homeDID: 0, HomeTeamName: 'West Ottawa U14AA', AwayTeamName: 'FYRA U14 Tier 1 Stars', homeScore: null, awayScore: null, completed: false, cancelledHome: false }];
+await addLiveScores(fg, 'https://www.frederictonearlybird.ca', 'America/Moncton', Date.parse('2026-11-27T13:30:00-04:00'), fake);
+check(fg[0].homeScore === 7 && fg[0].awayScore === 0 && fg[0].completed === true && !fg[0].live, 'live: a page marked Final makes the game final, before the calendar has it');
+
 // Playoff teams from the game page (the calendar still has placeholders)
 check(isSlot('2nd Place U19AA') && isSlot('Winner Semi 1 U19B') && isSlot('BLUE SEMI WINNER') && !isSlot('Eastern Ontario U19AA Surge') && !isSlot('Gloucester Cumberland Devils U14AA - McDonald'), 'playoff placeholders recognised anywhere in the name');
 const semiPage = await read('ringetteontario.com_division_0_0_game_view_2120590');

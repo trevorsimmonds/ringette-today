@@ -21,7 +21,7 @@ def data(final_teams=True, final_score=(2, 1)):
     d['tournaments'] = {'3106': {'aid': 3106, 'sid': 14985, 'games': [semi, fin]}}
     return json.dumps(d)
 HELPER_FINAL = {'site': 'ontario', 'game': 2120614, 'asOf': '2026-11-22T23:39:09Z', 'teams': {'home': 'Cyclones de Quebec U19AA', 'away': 'Eastern Ontario U19AA Rush'}, 'score': {'home': 4, 'away': 3}}
-async def run(b, title, at, body, teams='lerq105:eastern-rush', helper='ok', tab='results', advance=0):
+async def run(b, title, at, body, teams='lerq105:eastern-rush', helper='ok', tab='results', advance=0, final=False):
     ctx = await b.new_context(viewport={'width': 390, 'height': 900}, timezone_id='America/Toronto')
     asked = []
     async def route(r):
@@ -32,7 +32,7 @@ async def run(b, title, at, body, teams='lerq105:eastern-rush', helper='ok', tab
         if u.startswith('https://ringette-live.ringettetoday.workers.dev/'):
             asked.append(u.split('?g=')[-1])
             if helper == 'down': return await r.fulfill(status=500, body='{}', headers={'Access-Control-Allow-Origin': '*'})
-            games = {k: (HELPER_FINAL if k == 'ontario:2120614' else {'error': 'not in this test'}) for k in u.split('?g=')[-1].split(',')}
+            games = {k: (dict(HELPER_FINAL, final=final) if k == 'ontario:2120614' else {'error': 'not in this test'}) for k in u.split('?g=')[-1].split(',')}
             return await r.fulfill(status=200, content_type='application/json', headers={'Access-Control-Allow-Origin': '*'}, body=json.dumps({'asOf': HELPER_FINAL['asOf'], 'games': games}))
         return await r.abort()
     await ctx.route('**/*', route)
@@ -42,7 +42,7 @@ async def run(b, title, at, body, teams='lerq105:eastern-rush', helper='ok', tab
     if advance:
         await pg.clock.run_for(advance); await pg.wait_for_timeout(800)
     if tab == 'results': await pg.click('[data-view=results]'); await pg.wait_for_timeout(300)
-    cards = await pg.evaluate("""() => [...document.querySelectorAll('main .card')].filter(c => /U19AA/.test(c.innerText) && /Walter Baker|Nepean Sportsplex/.test(c.innerText)).map(c => c.innerText.replace(/\\s+/g, ' ').replace(/ — (standings|tournament website)[^)]*\\)/g, '').slice(0, 260))""")
+    cards = await pg.evaluate("""() => [...document.querySelectorAll('main .card, main .champ-banner')].filter(c => /U19AA/.test(c.innerText) && (c.classList.contains('champ-banner') || /Walter Baker|Nepean Sportsplex/.test(c.innerText))).map(c => c.innerText.replace(/\\s+/g, ' ').replace(/ — (standings|tournament website)[^)]*\\)/g, '').slice(0, 260))""")
     print(f'== {title} ({at}) helper asked: {asked or "never"}')
     for c in cards: print('   ', c)
     if errs: print('   ERRORS', errs)
@@ -57,6 +57,9 @@ async def main():
         a, c = await run(b, 'final over, GitHub data still mid-game 2-1, helper has 4-3', '18:39', data())
         check(a == ['ontario:2120614'], 'only the unfinished final is asked about (the semi is final already)')
         check(any('Cyclones de Quebec U19AA 4' in x and 'Rush 3' in x and 'Not final yet · score as of 6:39 PM' in x for x in c), 'final shows the helper score 4-3, marked not final')
+        a, c = await run(b, 'game page marked Final, calendar not yet', '18:39', data(), final=True)
+        check(any('Cyclones de Quebec U19AA 4' in x and 'Rush 3' in x and 'Not final' not in x and 'Live' not in x for x in c), 'page marked Final: shown as the final result')
+        check(any('FINALISTS' in x.upper() for x in c), 'page marked Final: Finalists banner for the followed team')
         a, c = await run(b, 'helper down', '18:39', data(), helper='down', advance=60000)
         check(len(a) == 1, 'helper down: not asked again a minute later')
         check(any('Rush 1' in x and 'Not final yet · score as of 5:39 PM' in x for x in c), 'helper down: GitHub data 2-1 shown, marked not final, as of the job run')

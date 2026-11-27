@@ -5,7 +5,7 @@
 // answers with the teams and the score as RAMP shows them right now:
 //
 //   GET /game/{site}/{game}    e.g. /game/ncrrl/2072660, /game/ontario/2120590
-//   → { site, game, page, asOf, teams: {home, away} | null, score: {home, away} | null, cached }
+//   → { site, game, page, asOf, teams: {home, away} | null, score: {home, away} | null, final, cached }
 //
 //   GET /games?g=ncrrl:2072660,ontario:2120590   (up to 10 games in one request)
 //   → { asOf, games: { "ncrrl:2072660": {…as above…}, "ontario:2120590": { error } } }
@@ -22,7 +22,7 @@
 // fetched, so the helper can't be used to read other websites. Each game page
 // is kept for 60 seconds, so however many phones ask, RAMP sees about one
 // read per game per minute from each Cloudflare location.
-import { parseLiveScore, parseGameTeams } from '../../scripts/ramp-pages.mjs';
+import { parseLiveScore, parseGameTeams, isFinalPage } from '../../scripts/ramp-pages.mjs';
 import { parseSchedule, scheduleUrl } from '../../scripts/pt-pages.mjs';
 
 export const SITES = {
@@ -65,7 +65,8 @@ export function readGamePage(html) {
     if (teams && (rows[1].name === teams.home || rows[0].name === teams.away)) [h, a] = [rows[1], rows[0]];
     score = { home: h.total, away: a.total };
   }
-  return { teams: teams ? { home: teams.home || null, away: teams.away || null } : null, score };
+  // final: the page marks the game Final (the score is the official one).
+  return { teams: teams ? { home: teams.home || null, away: teams.away || null } : null, score, final: !!score && isFinalPage(html) };
 }
 
 // One game: from memory if read in the last minute, otherwise from RAMP.

@@ -6,7 +6,8 @@ name: Update RAMP schedules
 # Most games are on weekends, so it checks more often then.
 # GitHub's times are UTC: Ottawa is UTC-4 in summer and UTC-5 in winter, so the
 # windows below are a little wide to cover both. In Ottawa time:
-#   Sat & Sun 7 am – 11 pm, and Fri 5 – 11 pm ......... every 15 minutes
+#   Sat & Sun 7 am – 11 pm, and Fri 7 am – 11 pm ...... every 15 minutes
+#   (tournaments start on Friday mornings)
 #   Mon – Thu 5 – 11 pm ................................ every 30 minutes
 #   any other time (weekday days, overnight) ........... hourly
 # (GitHub sometimes runs scheduled jobs late or skips one when it's busy.)
@@ -14,7 +15,7 @@ on:
   schedule:
     - cron: '12,27,42,57 11-23 * * 0,6'   # Sat & Sun daytime
     - cron: '12,27,42,57 0-3 * * 0,1'     # Sat & Sun evenings (already Sun/Mon in UTC)
-    - cron: '12,27,42,57 21-23 * * 5'     # Fri evening
+    - cron: '12,27,42,57 11-23 * * 5'     # Fri daytime and evening
     - cron: '12,27,42,57 0-3 * * 6'       # Fri late evening (already Sat in UTC)
     - cron: '27,57 21-23 * * 1-4'         # Mon–Thu evenings
     - cron: '27,57 0-3 * * 2-5'           # Mon–Thu late evenings (already Tue–Fri in UTC)

@@ -737,7 +737,10 @@
       if (d.score) {
         // RAMP sometimes lists home/away differently from the calendar: match by name.
         const swapped = d.teams && cleanName(d.teams.home || '') === g.away.name && cleanName(d.teams.away || '') === g.home.name;
-        g.liveScore = { home: swapped ? d.score.away : d.score.home, away: swapped ? d.score.home : d.score.away, asOf: new Date(d.asOf) };
+        const home = swapped ? d.score.away : d.score.home, away = swapped ? d.score.home : d.score.away;
+        // The game page says Final: the official result, before the calendar has it.
+        if (d.final) { g.home.score = home; g.away.score = away; g.completed = true; g.liveScore = null; teamsChanged = true; }  // brackets may move on
+        else g.liveScore = { home, away, asOf: new Date(d.asOf) };
       }
     }
     return teamsChanged;
@@ -754,7 +757,7 @@
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const j = await res.json();
         for (const [k, v] of Object.entries(j.games || {})) {
-          if (v && !v.error && v.asOf) live.data.set(k, { score: v.score || null, teams: v.teams || null, asOf: v.asOf });
+          if (v && !v.error && v.asOf) live.data.set(k, { score: v.score || null, teams: v.teams || null, final: !!v.final, asOf: v.asOf });
         }
       }
       // Quebec tournaments: one request per tournament.

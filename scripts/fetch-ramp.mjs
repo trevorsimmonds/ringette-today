@@ -23,9 +23,9 @@
 // Needs Node 18+ (built-in fetch). No packages.
 import { readFile, writeFile } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
-import { decodeEntities, isSlot, parseLiveScore, parseGameTeams } from './ramp-pages.mjs';
+import { decodeEntities, isSlot, parseLiveScore, parseGameTeams, isFinalPage } from './ramp-pages.mjs';
 
-export { decodeEntities, isSlot, parseLiveScore, parseGameTeams };
+export { decodeEntities, isSlot, parseLiveScore, parseGameTeams, isFinalPage };
 
 const HEADERS = { 'User-Agent': 'RingetteToday schedule reader (github.com/trevorsimmonds/ringette-today)' };
 const LOOKAHEAD_DAYS = 31;   // tournaments starting within this many days…
@@ -225,9 +225,13 @@ export async function addLiveScores(games, site, tz, nowMs, load) {
     if (g.completed || g.cancelledHome || g.sDate > nowWall) continue;
     const end = g.eDate || shiftWall(g.sDate, 90);
     if (shiftWall(end, 120) < nowWall) continue;
-    let rows;
+    let rows, final;
     // One try, no waiting: a score that's missing now comes in on the next run.
-    try { rows = parseLiveScore(await load(`${site}/division/0/${g.homeDID || 0}/game/view/${g.GID}`, null, [])); }
+    try {
+      const html = await load(`${site}/division/0/${g.homeDID || 0}/game/view/${g.GID}`, null, []);
+      rows = parseLiveScore(html);
+      final = isFinalPage(html);
+    }
     catch (err) { if (!err.unavailable) throw err; continue; }
     if (!rows) continue;
     // Rows are home then away; match by name when the names line up.
@@ -235,7 +239,9 @@ export async function addLiveScores(games, site, tz, nowMs, load) {
     if (key(rows[1].name) === key(g.HomeTeamName) || key(rows[0].name) === key(g.AwayTeamName)) [h, a] = [rows[1], rows[0]];
     g.homeScore = h.total;
     g.awayScore = a.total;
-    g.live = true;
+    // Marked Final on the page: the official score, even if the calendar is behind.
+    if (final) g.completed = true;
+    else g.live = true;
     n++;
   }
   return n;
