@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-28T03:15:52.114Z",
+ "updatedAt": "2026-11-28T04:55:44.067Z",
  "today": "2026-11-27",
  "tournaments": [
   {
@@ -1266,7 +1266,10 @@
       "name": "Metcalfe",
       "id": 102713
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -1284,7 +1287,10 @@
       "name": "Lévis-2",
       "id": 103229
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -1302,7 +1308,10 @@
       "name": "BKRA-1",
       "id": 102122
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -1320,7 +1329,10 @@
       "name": "Saint-Laurent-B1",
       "id": 103998
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -1338,7 +1350,10 @@
       "name": "PCRA",
       "id": 101392
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -1356,7 +1371,10 @@
       "name": "PCRA",
       "id": 101375
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -1374,7 +1392,10 @@
       "name": "Saint-Laurent",
       "id": 104543
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -1392,7 +1413,10 @@
       "name": "GAARA-Dino Mights",
       "id": 102033
      },
-     "score": null
+     "score": {
+      "away": 6,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -1410,7 +1434,10 @@
       "name": "CRTR-Stephane",
       "id": 101369
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 4
+     }
     },
     {
      "num": null,
