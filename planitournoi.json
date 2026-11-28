@@ -1,6 +1,6 @@
 {
  "source": "https://www.planitournoi.com/search.php?byPage=100&lang=fr&sport_link=ringuette",
- "updatedAt": "2026-11-27T22:54:13.397Z",
+ "updatedAt": "2026-11-28T03:15:52.114Z",
  "today": "2026-11-27",
  "tournaments": [
   {
@@ -867,7 +867,10 @@
       "name": "Nepean-1",
       "id": 103315
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -948,7 +951,10 @@
       "name": "NDG",
       "id": 104566
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 8
+     }
     },
     {
      "num": null,
@@ -966,7 +972,10 @@
       "name": "Pierrefonds",
       "id": 103316
      },
-     "score": null
+     "score": {
+      "away": 8,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -984,7 +993,10 @@
       "name": "MER-2",
       "id": 101407
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 4
+     }
     },
     {
      "num": null,
@@ -1002,7 +1014,10 @@
       "name": "Des Moulins-B4",
       "id": 101454
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -1020,7 +1035,10 @@
       "name": "PCRA",
       "id": 102976
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 5
+     }
     },
     {
      "num": null,
@@ -1038,7 +1056,10 @@
       "name": "Pierrefonds",
       "id": 103450
      },
-     "score": null
+     "score": {
+      "away": 9,
+      "home": 2
+     }
     },
     {
      "num": null,
@@ -1056,7 +1077,10 @@
       "name": "WORA-Lachapelle",
       "id": 103017
      },
-     "score": null
+     "score": {
+      "away": 5,
+      "home": 0
+     }
     },
     {
      "num": null,
@@ -1074,7 +1098,10 @@
       "name": "PCRA-B1",
       "id": 101373
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 0
+     }
     },
     {
      "num": null,
@@ -1092,7 +1119,10 @@
       "name": "St-Eustache-Boisbriand",
       "id": 103792
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 1
+     }
     },
     {
      "num": null,
@@ -1110,7 +1140,10 @@
       "name": "Lévis-2",
       "id": 103807
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 8
+     }
     },
     {
      "num": null,
@@ -1128,7 +1161,10 @@
       "name": "Laval",
       "id": 102785
      },
-     "score": null
+     "score": {
+      "away": 2,
+      "home": 8
+     }
     },
     {
      "num": null,
@@ -1146,7 +1182,10 @@
       "name": "PCRA-B1",
       "id": 104606
      },
-     "score": null
+     "score": {
+      "away": 4,
+      "home": 9
+     }
     },
     {
      "num": null,
@@ -1164,7 +1203,10 @@
       "name": "Pierrefonds",
       "id": 103804
      },
-     "score": null
+     "score": {
+      "away": 7,
+      "home": 0
+     }
     },
     {
      "num": null,
@@ -1182,7 +1224,10 @@
       "name": "Montréal Nord-B4",
       "id": 102070
      },
-     "score": null
+     "score": {
+      "away": 1,
+      "home": 6
+     }
     },
     {
      "num": null,
@@ -1200,7 +1245,10 @@
       "name": "Ste-Marie",
       "id": 102252
      },
-     "score": null
+     "score": {
+      "away": 3,
+      "home": 3
+     }
     },
     {
      "num": null,
@@ -1571,12 +1619,16 @@
      "time": "08:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "Quart de finale Groupe B Pos. 3",
-      "id": null
+      "name": "PCRA",
+      "id": 101398,
+      "round": "Quart de finale",
+      "slot": "Groupe B Pos. 3"
      },
      "home": {
-      "name": "Quart de finale Groupe A Pos. 2",
-      "id": null
+      "name": "BKRA-C2",
+      "id": 103761,
+      "round": "Quart de finale",
+      "slot": "Groupe A Pos. 2"
      },
      "score": null
     },
@@ -1661,12 +1713,16 @@
      "time": "09:00",
      "arena": "Ray Bourque A",
      "away": {
-      "name": "Quart de finale Groupe A Pos. 3",
-      "id": null
+      "name": "Pierrefonds",
+      "id": 102811,
+      "round": "Quart de finale",
+      "slot": "Groupe A Pos. 3"
      },
      "home": {
-      "name": "Quart de finale Groupe B Pos. 2",
-      "id": null
+      "name": "Saint-Laurent",
+      "id": 103947,
+      "round": "Quart de finale",
+      "slot": "Groupe B Pos. 2"
      },
      "score": null
     },
@@ -2061,8 +2117,10 @@
       "id": null
      },
      "home": {
-      "name": "Demi-finale Groupe A Pos. 1",
-      "id": null
+      "name": "Lévis-2",
+      "id": 103807,
+      "round": "Demi-finale",
+      "slot": "Groupe A Pos. 1"
      },
      "score": null
     },
@@ -2151,8 +2209,10 @@
       "id": null
      },
      "home": {
-      "name": "Demi-finale Groupe B Pos. 1",
-      "id": null
+      "name": "Lévis-3",
+      "id": 103732,
+      "round": "Demi-finale",
+      "slot": "Groupe B Pos. 1"
      },
      "score": null
     },
